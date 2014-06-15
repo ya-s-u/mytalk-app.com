@@ -1,0 +1,116 @@
+html {
+	background: url('http://evernote.com/media/img/homepage/main-image/texture.png');
+	background: #eee;
+	font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
+}
+
+body {
+	margin: 0;
+}
+
+a {
+	text-decoration:none;
+	font-size: 14px;
+	color: gray;
+}
+
+a:hover {
+	color: #e76059;
+}
+
+p {
+	color: gray;
+}
+
+.ui.right {
+	float: right;
+}
+
+/* Header */
+#header {
+	margin: 20px 0;
+	height: 60px;
+}
+
+h1 {
+	margin: 0;
+}
+
+h1 img {
+	width: 200px;
+}
+
+#header .five {
+	margin: 15px 0;
+}
+
+#header ul {
+	margin: 0;
+}
+
+#header ul li {
+	float: left;
+	list-style: none;
+	margin-right: 20px;
+}
+
+/* Catch */
+#catch {
+	height: 600px;
+	background: url('../img/mockup.png') no-repeat center bottom;
+}
+
+h2 {
+	text-align: center;
+	font-size: 34px;
+	font-weight: normal;
+	margin: 0;
+	color: #df544d;
+}
+
+#catch a {
+	display: block;
+	width: 150px;
+	margin: 0 auto;
+}
+
+/* Belt */
+#belt {
+	height: 120px;
+	background: #26333b;
+}
+
+/* Bottom*/
+#bottom {
+	background: white;
+	height: 800px;
+}
+
+/* Footer */
+#footer {
+	//background: white;
+	overflow: hidden;
+	margin-top: 20px;
+}
+
+#footer ul {
+	display: block;
+	margin: 10px 0;
+	text-align: center;
+}
+
+#footer ul li:before {
+	font-size: 10px;
+}
+
+#footer ul li a {
+	color: gray;
+	font-size: 13px;
+	padding-left: 8px;
+}
+
+#footer p {
+	color: gray;
+	text-align: center;
+	font-size: 12px;
+}

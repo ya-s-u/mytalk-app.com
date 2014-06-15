@@ -1,0 +1,75 @@
+<!DOCTYPE HTML lang="ja" lang="ja">
+<html ng-app="clientApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="expires" content="0">
+
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="copyright" content="Copyright freepaperDON" />
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+<link rel="shortcut icon" href="favicon.ico">
+
+<title>大切な思い出</title>
+
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-resource.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+
+<link rel="stylesheet" href="css/style.css" />
+
+<link rel="stylesheet" href="css/semantic.css" type="text/css" media="all">
+<script src="js/semantic.js"></script>
+
+<script type="text/javascript" src="js/raphael.js"></script>
+<script type="text/javascript" src="js/g.raphael.js"></script>
+<script type="text/javascript" src="js/g.line.js"></script>
+
+</head>
+<body>
+<div id="header" ng-controller="HeaderCtrl">
+	<div class="ui page grid">
+		<div class="five wide column">
+			<a><i class="circular question icon"></i>このページの使い方</a>
+		</div>
+		<div class="six wide column" style="margin:0;">
+			<h1><img src="img/logo_white.png"></h1>
+		</div>
+		<div class="five wide column">
+			<a id="profile" class="ui right icon top left pointing dropdown">
+				<i class="circular user icon"></i>
+				<span class="text">{{user.address}}</span>
+				<i class="small triangle down icon"></i>
+				<div class="menu">
+					<div class="item"><i class="bell icon"></i>アクティビティ</div>
+					<div class="item"><i class="setting icon"></i>アカウント設定</div>
+					<div class="item" ng-click="logout()"><i class="sign out icon"></i>ログアウト</div>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
+
+<div ng-view></div>
+
+<div id="footer">
+
+<ul class="ui horizontal bulleted list">
+  <li class="item"><a href="">よくある質問</a></li>
+  <li class="item"><a href="">利用規約</a></li>
+  <li class="item"><a href="">プライバシーポリシー</a></li>
+  <li class="item"><a href="">お問い合わせ</a></li>
+</ul>
+
+<p>&copy;2014 大切な思い出 All rights reserved.</p>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,362 @@
+<div class="ui page grid" ng-init="user='後藤 誉昌'">
+  <div class="four wide column">
+	<a href="/mypage" class="tiny ui icon button">
+  	  <i class="icon reply mail"></i>
+	</a>
+	<p style="display:inline"><b>{{head.title}}</b>さんとのトーク</p>
+  </div>
+  <div class="right floated twelve wide column">
+  	<div class="right floated ui buttons">
+  	  <button id="share" class="small ui icon button"><i class="icon share"></i>共有する</button>
+  	  <button id="add" class="small ui icon button"><i class="icon upload"></i>追加する</button>
+	</div>
+  </div>
+</div>
+
+<!-- Modal Window for Share -->
+<div class="ui small modal share" ng-controller="NewTalkCtrl">
+  <i class="close icon"></i>
+  <div class="header">
+    トーク共有
+  </div>
+  <div class="content">
+    <div class="left">
+    	<form id="newtalk" ng-submit="upload(this)" enctype="multipart/form-data">
+    		<input type="file"  ng-model="file" name="file">
+    		<button type="text">アップロード</button>
+    	</form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Window for Add -->
+<div class="ui small modal add" ng-controller="NewTalkCtrl">
+  <i class="close icon"></i>
+  <div class="header">
+    トークアップロード
+  </div>
+  <div class="content">
+    <div class="left">
+    	<form id="newtalk" ng-submit="upload(this)" enctype="multipart/form-data">
+    		<input type="file"  ng-model="file" name="file">
+    		<button type="text">アップロード</button>
+    	</form>
+    </div>
+  </div>
+</div>
+
+
+<div class="ui page grid">
+  <div id="view_sidebar" class="four wide column">
+	<div class="ui vertical menu">
+	  <div class="header item"><i class="icon info letter"></i>情報</div>
+	  <div class="text item">投稿数：{{head.count}}</div>
+	  <div class="text item">期間：{{parseDate(head.start) | date:'yyyy/MM/dd'}}〜{{parseDate(head.end) | date:'yyyy/MM/dd'}}</div>
+	  <div class="text item">追加日：{{parseDate(head.created) | date:'yyyy/MM/dd'}}</div>
+	</div>
+	<div class="ui vertical menu">
+	  <div class="header item"><i class="icon user"></i>メンバー({{head.member}})</div>
+	  <a ng-repeat="data in member" ng-click="setUser(data.name)" class="item">{{data.name}}<div class="ui label">{{data.count}}</div></a>
+	</div>
+	<div class="ui vertical menu">
+	  <div class="header item"><i class="icon time"></i>ヒストリー</div>
+	  <div class="item log" style="padding:0px;">
+		<a href="" class="active">
+			<p>2014/3</p>
+			<ul id="log2">
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:00%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:100%;"></span></li>
+		  	<li><span style="height:10%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:00%;"></span></li
+		  	><li><span style="height:60%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:10%;"></span></li>
+		  	<li><span style="height:80%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:100%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:100%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:80%;"></span></li>
+		  	<li><span style="height:10%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:70%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:80%;"></span></li>
+		  </ul>	  
+		</a>
+	  </div>
+	  <div class="item log" style="padding:0px;">
+		<a href="">
+			<p>2014/2</p>
+			<ul id="log2">
+		  	<li><span style="height:10%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:100%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:70%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:00%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:100%;"></span></li>
+		  	<li><span style="height:10%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:10%;"></span></li>
+		  	<li><span style="height:80%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:80%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:80%;"></span></li>
+		  	<li><span style="height:00%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:100%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  </ul>	  
+		</a>
+	  </div>
+	  <div class="item log" style="padding:0px;">
+		<a href="">
+			<p>2014/1</p>
+			<ul id="log2">
+		  	<li><span style="height:10%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:100%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:70%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:00%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:100%;"></span></li>
+		  	<li><span style="height:10%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:10%;"></span></li>
+		  	<li><span style="height:80%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:80%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:80%;"></span></li>
+		  	<li><span style="height:00%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:100%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  </ul>	  
+		</a>
+	  </div>
+	  <div class="item log" style="padding:0px;">
+		<a href="">
+			<p>2013/12</p>
+			<ul id="log2">
+		  	<li><span style="height:10%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:100%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:70%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:00%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:100%;"></span></li>
+		  	<li><span style="height:10%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:10%;"></span></li>
+		  	<li><span style="height:80%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:80%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:80%;"></span></li>
+		  	<li><span style="height:00%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:100%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  </ul>	  
+		</a>
+	  </div>
+	  <div class="item log" style="padding:0px;">
+		<a href="">
+			<p>2013/11</p>
+			<ul id="log2">
+		  	<li><span style="height:10%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:100%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:70%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:00%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:100%;"></span></li>
+		  	<li><span style="height:10%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:10%;"></span></li>
+		  	<li><span style="height:80%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:80%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:80%;"></span></li>
+		  	<li><span style="height:00%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:100%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  </ul>	  
+		</a>
+	  </div>
+	  <div class="item log" style="padding:0px;">
+		<a href="">
+			<p>2013/10</p>
+			<ul id="log2">
+		  	<li><span style="height:10%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:100%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:70%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:00%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:100%;"></span></li>
+		  	<li><span style="height:10%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:10%;"></span></li>
+		  	<li><span style="height:80%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:80%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:80%;"></span></li>
+		  	<li><span style="height:00%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:100%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  </ul>	  
+		</a>
+	  </div>
+	  <div class="item log" style="padding:0px;">
+		<a href="">
+			<p>2013/9</p>
+			<ul id="log2">
+		  	<li><span style="height:0%;"></span></li>
+		  	<li><span style="height:0%;"></span></li>
+		  	<li><span style="height:0%;"></span></li>
+		  	<li><span style="height:0%;"></span></li>
+		  	<li><span style="height:0%;"></span></li>
+		  	<li><span style="height:0%;"></span></li>
+		  	<li><span style="height:0%;"></span></li>
+		  	<li><span style="height:0%;"></span></li>
+		  	<li><span style="height:0%;"></span></li>
+		  	<li><span style="height:0%;"></span></li>
+		  	<li><span style="height:0%;"></span></li>
+		  	<li><span style="height:0%;"></span></li>
+		  	<li><span style="height:0%;"></span></li>
+		  	<li><span style="height:0%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:20%;"></span></li>
+		  	<li><span style="height:00%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:100%;"></span></li>
+		  	<li><span style="height:10%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:00%;"></span></li
+		  	><li><span style="height:60%;"></span></li>
+		  	<li><span style="height:30%;"></span></li>
+		  	<li><span style="height:10%;"></span></li>
+		  	<li><span style="height:80%;"></span></li>
+		  	<li><span style="height:60%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:90%;"></span></li>
+		  	<li><span style="height:100%;"></span></li>
+		  </ul>	  
+		</a>
+	  </div>
+	</div>
+	<!-- <div class="ui vertical menu">
+	  <div class="header item"><i class="icon time"></i>並び順</div>
+	  <a class="item" ng-class="sort1" ng-init="sort1='active teal'" ng-click="predicate='date';reverse=false;sort1='active teal';sort2=''">古い → 新しい</a>
+	  <a class="item" ng-class="sort2" ng-click="predicate='date';reverse=true;sort2='active teal';sort1=''">新しい → 古い</a>
+	</div> -->
+  </div>
+  <div id="view_main" class="twelve wide column"> 
+    <div class="ui top attached segment" style="position:relative;height:50px;">
+      <i ng-click="setDate(year,month-1)" class="small circular inverted icon left arrow"></i><b>{{year}}年{{month}}月</b> {{timeline.length}}件<i ng-click="setDate(year,month+1)" class="small circular inverted icon right arrow"></i>
+      <div class="ui mini icon input" style="float:right">
+	  	<input type="text" ng-model="query.text" placeholder="Search...">
+	  	<i class="search icon"></i>
+	  </div>
+	</div>
+    <div ng-show="query.text" class="ui attached segment" style="padding:0!important;">
+      <div class="ui small message">
+      	”<b>{{query.text}}</b>”での検索結果
+      	<i ng-click="query.text=''" class="close icon"></i>
+      </div>
+	</div>
+    <div class="ui bottom attached segment">
+      <div class="ui grid">
+      	<div ng-repeat="data in timeline | orderBy:predicate:reverse | filter:query.text" class="floated twelve wide column message" ng-class="{'right' : data.name == user}">
+	  	  <p ng-show="data.name != timeline[$index-1]['name']" class="name">{{data.name}}</p>
+    	  <div class="bubble ui secondary segment" ng-class="{'teal inverted' : data.name == user}">
+  			<p style="font-size:15px;">{{data.value}}</p>
+	  	  </div>
+	  	  <p class="date">{{parseDate(data.date) | date:'yyyy/MM/dd HH:mm'}}</p>
+      	</div>
+	  </div>
+    </div>
+  </div>
+</div>

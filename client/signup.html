@@ -1,0 +1,75 @@
+
+<!DOCTYPE HTML lang="ja" lang="ja">
+<html ng-app="clientApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="expires" content="0">
+
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="copyright" content="Copyright freepaperDON" />
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+<link rel="shortcut icon" href="favicon.ico">
+
+<title>大切な思い出</title>
+
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-resource.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+
+<link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
+
+
+<link rel="stylesheet" href="css/style.css" />
+
+<link rel="stylesheet" href="css/semantic.css" type="text/css" media="all">
+<script src="js/semantic.js"></script>
+
+</head>
+<body ng-controller="UserSignupCtrl">
+
+<div class="ui page grid">
+	<div class="sixteen wide column">
+
+<h1>ユーザー登録</h1>
+
+<form class="ui fluid form segment" ng-submit="signup()">
+  <div class="two fields">
+    <div class="field">
+      <label>メールアドレス</label>
+      <input placeholder="address" type="text" ng-model="address">
+    </div>
+    <div class="field">
+      <label>パスワード</label>
+      <input placeholder="password" type="text" ng-model="password">
+    </div>
+  </div>
+  <button type="text" class="ui blue submit button" ng-disabled="disabled">登録する</button>
+</form>
+
+  </div>
+</div>
+  
+  
+<div id="footer">
+<ul class="ui horizontal bulleted list">
+  <li class="item"><a href="">よくある質問</a></li>
+  <li class="item"><a href="">利用規約</a></li>
+  <li class="item"><a href="">プライバシーポリシー</a></li>
+  <li class="item"><a href="">お問い合わせ</a></li>
+</ul>
+
+<p>&copy;2014 大切な思い出 All rights reserved.</p>
+
+</div>
+
+</body>
+</html>
