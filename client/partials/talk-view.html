@@ -327,29 +327,14 @@
 		</a>
 	  </div>
 	</div>
-	<!-- <div class="ui vertical menu">
-	  <div class="header item"><i class="icon time"></i>並び順</div>
-	  <a class="item" ng-class="sort1" ng-init="sort1='active teal'" ng-click="predicate='date';reverse=false;sort1='active teal';sort2=''">古い → 新しい</a>
-	  <a class="item" ng-class="sort2" ng-click="predicate='date';reverse=true;sort2='active teal';sort1=''">新しい → 古い</a>
-	</div> -->
   </div>
   <div id="view_main" class="twelve wide column"> 
     <div class="ui top attached segment" style="position:relative;height:50px;">
       <i ng-click="setDate(year,month-1)" class="small circular inverted icon left arrow"></i><b>{{year}}年{{month}}月</b> {{timeline.length}}件<i ng-click="setDate(year,month+1)" class="small circular inverted icon right arrow"></i>
-      <div class="ui mini icon input" style="float:right">
-	  	<input type="text" ng-model="query.text" placeholder="Search...">
-	  	<i class="search icon"></i>
-	  </div>
-	</div>
-    <div ng-show="query.text" class="ui attached segment" style="padding:0!important;">
-      <div class="ui small message">
-      	”<b>{{query.text}}</b>”での検索結果
-      	<i ng-click="query.text=''" class="close icon"></i>
-      </div>
 	</div>
     <div class="ui bottom attached segment">
       <div class="ui grid">
-      	<div ng-repeat="data in timeline | orderBy:predicate:reverse | filter:query.text" class="floated twelve wide column message" ng-class="{'right' : data.name == user}">
+      	<div ng-repeat="data in timeline | orderBy:predicate:reverse" class="floated twelve wide column message" ng-class="{'right' : data.name == user}">
 	  	  <p ng-show="data.name != timeline[$index-1]['name']" class="name">{{data.name}}</p>
     	  <div class="bubble ui secondary segment" ng-class="{'teal inverted' : data.name == user}">
   			<p style="font-size:15px;">{{data.value}}</p>
