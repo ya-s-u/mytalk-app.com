@@ -194,23 +194,6 @@ mainControllers.controller('TalkViewCtrl', ['$scope', '$routeParams', '$http',
     	return Date.parse(d);
 	};
 	
-	//ヒートマップのレベル計算
-	$scope.logLevel = function(num) {
-	  var level;
-	  if(0<num && num<=5) {
-	  	level = 'lev1';
-	  } else if(5<num && num<=10) {
-	  	level = 'lev2';
-	  } else if(10<num && num<=15) {
-	  	level = 'lev3';
-	  } else if(15<num && num<=20) {
-	  	level = 'lev4';
-	  } else {
-	  	level = null;
-	  }
-	  return level;
-	};
-	
 	//ユーザーハイライト指定
 	$scope.setUser = function(name) {
 		$scope.user = name;
