@@ -1,0 +1,604 @@
+/* Reset */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video { margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent; } /*行の高さをフォントサイズと同じにしています*/ body { line-height:1; } /*新規追加要素のデフォルトはすべてインライン要素になっているので、section要素などをブロック要素へ変更しています*/ article,aside,details,figcaption,figure, footer,header,hgroup,menu,nav,section { display:block; } /*nav要素内ulのマーカー（行頭記号）を表示しないようにしています*/ nav ul { list-style:none; } /*引用符の表示が出ないようにしています*/ blockquote, q { quotes:none; } /*blockquote要素、q要素の前後にコンテンツを追加しないように指定しています*/ blockquote:before, blockquote:after, q:before, q:after { content:''; content:none; } /*a要素のフォントサイズなどをリセットしフォントの縦方向の揃え位置を親要素のベースラインに揃えるようにしています*/ a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent; } /* ins要素のデフォルトをセットし、色を変える場合はここで変更できるようにしています */ ins { background-color:#ff9; color:#000; text-decoration:none; } /* mark要素のデフォルトをセットし、色やフォントスタイルを変える場合はここで変更できるようにしています また、mark要素とは、文書内の検索結果で該当するフレーズをハイライトして、目立たせる際に使用するようです。*/ mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; } /*テキストに打ち消し線が付くようにしています*/ del { text-decoration: line-through; } /*IEではデフォルトで点線を下線表示する設定ではないので、下線がつくようにしています また、マウスオーバー時にヘルプカーソルの表示が出るようにしています*/ abbr[title], dfn[title] { border-bottom:1px dotted; cursor:help; } /*隣接するセルのボーダーを重ねて表示し、間隔を0に指定しています*/ table { border-collapse:collapse; border-spacing:0; } /*水平罫線のデフォルトである立体的な罫線を見えなくしています*/ hr { display:block; height:1px; border:0; border-top:1px solid #cccccc; margin:1em 0; padding:0; } /*縦方向の揃え位置を中央揃えに指定しています*/ input, select { vertical-align:middle; } img {width: 100%;}
+
+/* Icon */
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot?poyzbj');
+	src:url('../fonts/icomoon.eot?#iefixpoyzbj') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?poyzbj') format('woff'),
+		url('../fonts/icomoon.ttf?poyzbj') format('truetype'),
+		url('../fonts/icomoon.svg?poyzbj#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-user:before {
+	content: "\f007";
+}
+.icon-setting:before {
+	content: "\f013";
+}
+.icon-chart:before {
+	content: "\f080";
+}
+.icon-heart:before {
+	content: "\f08a";
+}
+.icon-signout:before {
+	content: "\f08b";
+}
+.icon-down:before {
+	content: "\f0d7";
+}
+.icon-up:before {
+	content: "\f0d8";
+}
+.icon-bell:before {
+	content: "\f0f3";
+}
+.icon-back:before {
+	content: "\f112";
+}
+.icon-question:before {
+	content: "\f128";
+}
+.icon-info:before {
+	content: "\f129";
+}
+.icon-ballon_left:before {
+	content: "\e600";
+}
+.icon-ballon_right:before {
+	content: "\e601";
+}
+.icon-avator:before {
+	content: "\e602";
+}
+
+
+/* Common */
+body {
+	background: #f8f8f8;
+}
+
+p {
+	font-size: 15px;
+	color: #434a54;
+}
+
+a {
+	font-size: 15px;
+	color: #434a54;
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+	font-size: 15px;
+	color: #434a54;
+}
+
+.container {
+	width: 1000px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.button {
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.button:hover {
+	background: #e9edef;
+}
+
+.button span.icon {
+	font-size: 16px;
+	margin-right: 5px;
+	position: relative;
+	top: 1px;
+}
+
+ul.log {
+	position: absolute;
+	bottom: 0;
+	padding: 0;
+	margin: 0;
+}
+
+ul.log li {
+	list-style: none;
+	float: left;
+}
+
+ul.log li span {
+	position: absolute;
+	bottom: 0;
+	background: #eee;
+}
+
+/* Header */
+#header {
+	height: 60px;
+	margin-bottom: 25px;
+	background: #657179;
+	background: #3995ca;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+h1 {
+	color: white;
+	font-size: 20px;
+	font-weight: normal;
+	float: left;
+	margin-left: 45%;
+	padding-top: 20px;
+}
+
+#nav {
+	float: right;
+}
+
+#nav p {
+	color: white;
+	font-size: 13px;
+	padding: 20px 0 10px 20px;
+}
+
+#nav span.icon-down {
+	font-size: 16px;
+	margin-left: 5px;
+	position: relative;
+	top: 3px;
+}
+
+#nav_menu {
+	background: white;
+	z-index: 10;
+	width: 180px;
+	border-radius: 5px;
+	box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+	border: 1px solid rgba(0,0,0,0.15);
+	background-clip: padding-box;
+	display: none;
+	position: absolute;
+}
+
+#nav_menu li a {
+	color: gray;
+	display: block;
+	padding: 10px 20px;
+	font-size: 13px;
+}
+
+#nav_menu li a:hover {
+	background: whitesmoke;
+}
+
+/***************
+	List
+***************/
+ul#list {
+	overflow: hidden;
+}
+
+ul#list li {
+	float: left;
+	width: 233px;
+	height: 230px;
+	margin: 0 20px 20px 0;
+}
+
+ul#list li:nth-child(4n) {
+	margin-right: 0;
+}
+
+ul#list li a {
+	display: block;
+	padding: 15px 0;
+}
+
+ul#list li a:hover {
+	background: #eee;
+}
+
+ul#list li#add a:before {
+	content: '+';
+	position: absolute;
+	left: 80px;
+	top: 40px;
+	font-size: 120px;
+	color: silver;
+}
+
+ul#list li#add p {
+	position: absolute;
+	left: 90px;
+	top: 180px;
+	font-size: 14px;
+	color: silver;
+}
+
+ul#list li .panel {
+	width: 200px;
+	height: 200px;
+	background: white;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-webkit-box-shadow: 0 0 2px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0 0 2px rgba(0,0,0,0.2);
+	box-shadow: 0 0 2px rgba(0,0,0,0.2);
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+ul#list li .panel img {
+	width: 100px;
+	//font-size: 110px;
+	display: block;
+	margin: 20px auto;
+	//text-align: center;
+	//color: gray;
+}
+
+ul#list li .panel p.title {
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+ul#list li .panel p.modified {
+	font-size: 10px;
+	text-align: center;
+	color: silver;
+}
+
+
+/***************
+	View
+***************/
+
+/* Top */
+#top {
+	height: 30px;
+	margin-bottom: 10px;
+}
+
+a.back {
+	float: left;
+	display: block;
+	padding: 2px 10px;
+	margin-right: 10px;
+}
+
+a.back:hover {
+	background: #e9edef;
+}
+
+#title {
+	overflow: hidden;
+	display: inline;
+}
+
+#title p {
+	font-size: 20px;
+	font-weight: bold;
+	display: inline;
+	float: left;
+	margin-right: 10px;
+}
+
+span.app {
+	display: block;
+	position: relative;
+	float: left;
+	height: 22px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+}
+
+span.app:after {
+	color: white;
+	font-size: 13px;
+	position: absolute;
+	top: 6px;
+	left: 8px;
+}
+
+span.line {
+	width: 45px;
+	background: #00c300;
+}
+
+span.line:after {
+	content: 'LINE';
+}
+
+#top .button#share {
+	float: right;
+}
+
+/* Left */
+#left {
+	width: 230px;
+	float: left;
+	margin-right: 10px;
+}
+
+.segment {
+	margin-bottom: 10px;
+}
+
+p.segment_top {
+	padding: 13px 15px;
+	font-weight: bold;
+}
+
+p.segment_top span.icon {
+	float: right;
+	font-size: 16px;
+	color: gray;
+}
+
+ul.segment_body li {
+	padding: 13px 15px;
+	position: relative;
+}
+
+ul.segment_body > li:before {
+	position: absolute;
+	content: '';
+	top: 0%;
+	left: 0px;
+	width: 100%;
+	height: 1px;
+	background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
+	background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
+	background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.03)), color-stop(1.5em, rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.03)));
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
+}
+
+
+/* Left_History */
+#history ul.segment_body li {
+	padding: 0;
+}
+
+#history ul li a {
+	display: block;
+	width: 100%;
+	height: 35px;
+}
+
+#history ul li a p {
+	margin: 0;
+	position: absolute;
+	left: 15px;
+	top: 10px;
+	z-index: 10;
+	font-size: 12px;
+}
+
+#history ul.log {
+	left: 5px;
+	height: 20px;
+}
+
+#history ul.log li {
+	margin-right: 1px;
+	width: 6px;
+	height: 20px;
+}
+
+#history ul.log li span {
+	width: 6px;
+}
+
+#history ul li a.active ul.log li span {
+	background: #94ddf8;
+}
+
+#history ul li a:hover ul.log span {
+	background: #94ddf8;
+}
+
+/* Right */
+#right {
+	width: 760px;
+	float: left;
+	background: white;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-webkit-box-shadow: 0 0 2px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0 0 2px rgba(0,0,0,0.2);
+	box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+
+/* Right_Head */
+#head {
+	padding: 20px 15px;
+	border-bottom: 1px solid #e8e8e8;
+}
+
+#head:hover {
+	box-shadow: 0 1px 1px rgba(200,200,200,.5);
+}
+
+#head p {
+	display: inline;
+}
+
+p#now {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+/* Right_Main */
+ul#talk {
+	padding: 13px 15px;
+}
+
+ul#talk li {
+	margin-bottom: 15px;
+	overflow: hidden;
+	position: relative;
+}
+
+.box {
+	width: 500px;
+}
+
+p#text {
+	font-size: 14px;
+	line-height: 1.5em;
+	padding: 5px 15px;
+	margin-left: 5px;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	-o-border-radius: 15px;
+	-ms-border-radius: 15px;
+	float: left;
+	position: relative;
+}
+
+p#text:before {
+    font-family: 'icomoon';
+    font-size: 14px;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	position: absolute;
+}
+
+span.date {
+	font-size: 10px;
+	line-height: 1.2em;
+	color: silver;
+	position: absolute;
+}
+
+/* For Others */
+ul#talk li.others-1:before {
+    font-family: 'icomoon';
+    font-size: 24px;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	position: absolute;
+	content: "\e602";
+	color: gray;
+}
+
+p#name {
+	font-size: 12px;
+	margin-bottom: 5px;
+}
+
+ul#talk li.others .box {
+	float: left;
+	padding-left: 30px;
+}
+
+ul#talk li.others p#text {
+	background: #e9edef;
+}
+
+ul#talk li.others p#text:before {
+	content: "\e600";
+	color: #e9edef;
+	left: -8px;
+}
+
+ul#talk li.others span.date {
+	bottom: 0;
+	right: -40px;
+}
+
+/* For Me (LINE) */
+ul#talk li.me p#text {
+	background: #c0ef91;
+	float: right;
+}
+
+ul#talk li.me .box {
+	float: right;
+	padding-right: 10px;
+}
+
+ul#talk li.me p#text:before {
+	content: "\e601";
+	color: #c0ef91;
+	right: -8px;
+}
+
+ul#talk li.me span.date {
+	bottom: 0;
+	left: -40px;
+	text-align: right;
+}
+
+/* Footer */
+#footer {
+	background: white;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+#footer ul {
+	padding: 10px 0;
+	float: left;
+}
+
+#footer ul li {
+	float: left;
+	margin-right: 30px;
+}
+
+#footer ul li a {
+	font-size: 12px;
+}
+
+#footer p {
+	font-size: 12px;
+	padding: 10px 0;
+	color: gray;
+	float: right;
+}
