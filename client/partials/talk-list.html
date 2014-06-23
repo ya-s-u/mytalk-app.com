@@ -11,49 +11,19 @@
 			<div class="panel">
 				<img src="img/icon/RoundIcons-Free-Set-0{{$index%5+1}}.png">
 				<p class="title">{{data.title}}</p>
-				<p class="modified">{{data.created}} uploaded</p>
-			</div>
-		</a>
-	</li>
-	<li>
-		<a href="">
-			<div class="panel">
-				<img src="img/icon/RoundIcons-Free-Set-02.png">
-				<p class="title">広報2013┌（┌＾o＾）┐</p>
-				<p class="modified">2014,3,19 uploaded</p>
-			</div>
-		</a>
-	</li>
-	<li>
-		<a href="">
-			<div class="panel">
-				<img src="img/icon/RoundIcons-Free-Set-03.png">
-				<p class="title">広報2013ライン</p>
-				<p class="modified">2014,3,19 uploaded</p>
-			</div>
-		</a>
-	</li>
-	<li>
-		<a href="">
-			<div class="panel">
-				<img src="img/icon/RoundIcons-Free-Set-04.png">
-				<p class="title">広報2013ライン</p>
-				<p class="modified">2014,3,19 uploaded</p>
-			</div>
-		</a>
-	</li>
-	<li>
-		<a href="">
-			<div class="panel">
-				<img src="img/icon/RoundIcons-Free-Set-05.png">
-				<p class="title">広報2013ライン</p>
-				<p class="modified">2014,3,19 uploaded</p>
+				<p class="modified">{{parseDate(data.created) | date:'yyyy/M/d'}} uploaded</p>
 			</div>
 		</a>
 	</li>
 </ul>
-
-<form id="newtalk" ng-submit="upload(this)" enctype="multipart/form-data">
+<div ng-controller="NewTalkCtrl">
+<form id="newtalk"  ng-submit="upload(this)" enctype="multipart/form-data">
 	<input type="file"  ng-model="file" name="file">
-	<button type="text">アップロード</button>
-</form>
+	<button type="submit">アップロード</button>
+</form></div>
+
+<script type="text/javascript">
+$(function(){
+	$("#header").css("position","inherit");
+});
+</script>

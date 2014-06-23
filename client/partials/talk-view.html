@@ -13,9 +13,9 @@
 		</ul>
 	</div>
 	<div id="member" class="segment">
-		<p class="segment_top">メンバー({{head.member}})<span class="icon icon-user"></span></p>
+		<p class="segment_top">メンバー<span class="icon icon-user"></span></p>
 		<ul class="segment_body">
-			<li ng-repeat="data in member">{{data.name}} ({{data.count}})</li>
+			<li ng-repeat="data in member | limitTo:5">{{data.name}} ({{data.count}})</li>
 		</ul>
 	</div>
 	<div id="history" class="segment">
@@ -62,20 +62,29 @@
 </div>
 <div id="right">
 	<div id="head">
-		<p id="now">{{year}}年{{month}}月</p>
-		<p id="count">{{timeline.length}}トーク</p>
-		<span ng-click="setDate(year,month-1)" class="move icon-down"></span>
-		<span ng-click="setDate(year,month+1)" class="move icon-up"></span>
+		<span ng-click="setDate(year,month-1)" id="prev" class="move icon-left"></span>
+		<div id="current">
+			<p id="now">{{year}}年{{month}}月</p>
+			<p id="count">{{count}}トーク</p>
+			<span class="icon-down"></span>
+		</div>
+		<span ng-click="setDate(year,month+1)" id="next" class="move icon-right"></span>
 	</div>
 	<ul id="talk" class="line">
-		<li ng-repeat="data in timeline | orderBy:predicate:reverse"
+		<li ng-repeat="data in timeline | orderBy:'date'"
 			ng-class="{'me':data.name==user, 'others':data.name!=user, 'others-1':data.name!=user}">
 			<div class="box">
 				<p ng-hide="data.name==user" id="name">{{data.name}}</p>
 				<p id="text">{{data.value}}
-					<span class="date">{{parseDate(data.date) | date:'MM/dd'}}<br>{{parseDate(data.date) | date:'HH:mm'}}</span>
+					<span class="date">{{parseDate(data.date) | date:'M/d'}}<br>{{parseDate(data.date) | date:'a h:m'}}</span>
 				</p>
 			</div>
 		</li>
 	</ul>
 </div>
+
+<script type="text/javascript">
+$(function(){
+	$("#header").css({"position":"fixed","z-index":"100"});
+});
+</script>
