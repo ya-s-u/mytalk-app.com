@@ -7,7 +7,11 @@ mainControllers.controller('HeaderCtrl', ['$scope','$location','$route','$http',
   function($scope,$location,$route,$http) {
   	
  	//ドロップダウン
-	$('a#profile').dropdown();
+	$("#nav" ).hover(function() {
+		$("ul#nav_menu").show();
+	}, function() {
+		$("ul#nav_menu").hide();
+	});
 	
 	//ユーザー情報取得
 	$http({
@@ -138,7 +142,8 @@ mainControllers.controller('TalkListCtrl', ['$scope', '$http',
 		//トークリスト取得
 		$http({
 			method : 'GET',
-		  url : 'http://omoide.folder.jp/api/talks/getList.json',
+			cache: true,
+			url : 'http://omoide.folder.jp/api/talks/getList.json',
 			headers: { "X-Requested-With": "XMLHttpRequest" },
 		}).success(function(data, status, headers, config) {
 			$scope.talk = data['response']['Talk'];
@@ -146,67 +151,64 @@ mainControllers.controller('TalkListCtrl', ['$scope', '$http',
 		    console.log('failed!');
 		});
 		
-		//ドロップダウン
-		$('button#create').click(function(){
-			$('.ui.modal').modal('show');
-		});	
-	
-	
+		//日付パース
+		$scope.parseDate = function(d) {
+	    	return Date.parse(d);
+		};
   }]
 );
 
 mainControllers.controller('TalkViewCtrl', ['$scope', '$routeParams', '$http',
-  function($scope, $routeParams, $http) {
-  	//現在日時取得
-	var now = new Date();
-	$scope.year = now.getFullYear();
-	$scope.month = now.getMonth()-1;
-
-	var $id= $routeParams.id;
-	
-    //json取得(非同期)
-	$http({
-	  method : 'GET',
-	  url : 'http://omoide.folder.jp/api/talks/getTalk.json?id='+$id,
-		headers: { "X-Requested-With": "XMLHttpRequest" },
-	}).success(function(data, status, headers, config) {
-		$scope.head = data['response']['head'];
-		$scope.member = data['response']['member'];
+	function($scope, $routeParams, $http) {
+		//現在日時取得
+		var now = new Date();
+		$scope.year = now.getFullYear();
+		$scope.month = now.getMonth()-1;
 		
-		var temp = data['response']['temp'];
-		$scope.timeline = temp[$scope.year][$scope.month];
+		var $id= $routeParams.id;
 		
-		$scope.log = data['response']['log'];
-		
-		//年月指定
-		$scope.setDate = function(year,month) {
-			$scope.year = year;
-			$scope.month = month;
+		//json取得(非同期)
+		$http({
+			method : 'GET',
+			cache: true,
+			url : 'http://omoide.folder.jp/api/talks/getTalk.json?id='+$id,
+			headers: { "X-Requested-With": "XMLHttpRequest" },
+		}).success(function(data, status, headers, config) {
+			$scope.head = data['response']['head'];
+			$scope.member = data['response']['member'];
+			
+			var temp = data['response']['temp'];
+			$scope.count = temp[$scope.year][$scope.month].length;
 			$scope.timeline = temp[$scope.year][$scope.month];
+			
+			//年月指定
+			$scope.setDate = function(year,month) {
+				$scope.year = year;
+				$scope.month = month;
+				$scope.timeline = temp[$scope.year][$scope.month];
+			};
+			
+			//最下部までスクロール
+			$('html').animate({
+				scrollTop: 999999,
+			});
+			
+			//メンバー数
+			var num = $scope.member.length;
+			if(num > 5) {
+				$("#member ul").append("<li class='more'>全て表示("+num+")</li>");
+			}
+			
+		
+		}).error(function(data, status, headers, config) {
+		    console.log('failed!');
+		});
+		
+		//日付パース
+		$scope.parseDate = function(d) {
+			return Date.parse(d);
 		};
-
-	}).error(function(data, status, headers, config) {
-	    console.log('failed!');
-	});
 	
-	//日付パース
-	$scope.parseDate = function(d) {
-    	return Date.parse(d);
-	};
 	
-	//ユーザーハイライト指定
-	$scope.setUser = function(name) {
-		$scope.user = name;
-	};
-	
-	//ドロップダウン
-	$('button#add').click(function(){
-		$('.ui.modal.add').modal('show');
-	});
-	
-	$('button#share').click(function(){
-		$('.ui.modal.share').modal('show');
-	});
-	
-  }]
+	}]
 );
