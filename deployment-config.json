@@ -1,0 +1,8 @@
+{
+  "type": "ftp",
+  "host": "tabinote.minibird.jp",
+  "user": "omoide.folder.jp",
+  "password": "yasukiti",
+  "port": "21",
+  "remote_path": ""
+}

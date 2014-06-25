@@ -4,11 +4,11 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 /* Icon */
 @font-face {
 	font-family: 'icomoon';
-	src:url('../fonts/icomoon.eot?poyzbj');
-	src:url('../fonts/icomoon.eot?#iefixpoyzbj') format('embedded-opentype'),
-		url('../fonts/icomoon.woff?poyzbj') format('woff'),
-		url('../fonts/icomoon.ttf?poyzbj') format('truetype'),
-		url('../fonts/icomoon.svg?poyzbj#icomoon') format('svg');
+	src:url('../fonts/icomoon.eot?-da4e0s');
+	src:url('../fonts/icomoon.eot?#iefix-da4e0s') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?-da4e0s') format('woff'),
+		url('../fonts/icomoon.ttf?-da4e0s') format('truetype'),
+		url('../fonts/icomoon.svg?-da4e0s#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -30,8 +30,14 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 .icon-user:before {
 	content: "\f007";
 }
+.icon-times:before {
+	content: "\f00d";
+}
 .icon-setting:before {
 	content: "\f013";
+}
+.icon-lock:before {
+	content: "\f023";
 }
 .icon-chart:before {
 	content: "\f080";
@@ -45,11 +51,14 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 .icon-down:before {
 	content: "\f0d7";
 }
-.icon-up:before {
-	content: "\f0d8";
-}
 .icon-bell:before {
 	content: "\f0f3";
+}
+.icon-left:before {
+	content: "\f104";
+}
+.icon-right:before {
+	content: "\f105";
 }
 .icon-back:before {
 	content: "\f112";
@@ -71,6 +80,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 }
 
 
+
 /* Common */
 body {
 	background: #f8f8f8;
@@ -89,7 +99,7 @@ a {
 
 li {
 	list-style: none;
-	font-size: 15px;
+	font-size: 14px;
 	color: #434a54;
 }
 
@@ -135,11 +145,10 @@ ul.log li span {
 
 /* Header */
 #header {
+	width: 100%;
 	height: 60px;
-	margin-bottom: 25px;
-	background: #657179;
 	background: #3995ca;
-	border-bottom: 1px solid #e5e5e5;
+	z-index: 100;
 }
 
 h1 {
@@ -153,6 +162,10 @@ h1 {
 
 #nav {
 	float: right;
+}
+
+#nav:hover {
+	cursor: pointer;
 }
 
 #nav p {
@@ -170,7 +183,7 @@ h1 {
 
 #nav_menu {
 	background: white;
-	z-index: 10;
+	z-index: 200;
 	width: 180px;
 	border-radius: 5px;
 	box-shadow: 0 6px 12px rgba(0,0,0,0.175);
@@ -181,7 +194,7 @@ h1 {
 }
 
 #nav_menu li a {
-	color: gray;
+	z-index: 200;	color: gray;
 	display: block;
 	padding: 10px 20px;
 	font-size: 13px;
@@ -196,6 +209,7 @@ h1 {
 ***************/
 ul#list {
 	overflow: hidden;
+	margin: 30px 0;
 }
 
 ul#list li {
@@ -277,11 +291,14 @@ ul#list li .panel p.modified {
 /***************
 	View
 ***************/
-
 /* Top */
 #top {
-	height: 30px;
-	margin-bottom: 10px;
+	position: absolute;
+	top: 0;
+	background: #f8f8f8;
+	z-index: 10;
+	width: 1000px;
+	padding: 25px 0;
 }
 
 a.back {
@@ -298,6 +315,14 @@ a.back:hover {
 #title {
 	overflow: hidden;
 	display: inline;
+}
+
+#title img {
+	width: 30px;
+	float: left;
+	position: relative;
+	left: -5px;
+	top: -5px;
 }
 
 #title p {
@@ -343,9 +368,9 @@ span.line:after {
 
 /* Left */
 #left {
+	position: absolute;
+	top: 80px;
 	width: 230px;
-	float: left;
-	margin-right: 10px;
 }
 
 .segment {
@@ -381,8 +406,66 @@ ul.segment_body > li:before {
 	background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
 }
 
+/* Left Info */
+#info ul li span {
+	width: 45px;
+	margin-right: 10px;
+}
 
-/* Left_History */
+#info ul li span:after {
+	content: ':';
+}
+
+/* Left Member */
+#member ul li {
+	padding-left: 40px;
+}
+
+#member ul li.others:after {
+    font-family: 'icomoon';
+    font-size: 18px;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	position: absolute;
+	top: 9px;
+	left: 15px;
+	content: "\e602";
+}
+
+#member ul li.others-1:after {
+	color: gray;
+}
+
+#member ul li span {
+	background: white;
+	border: 1px solid #e8e8e8;
+	font-size: 12px;
+	float: right;
+	padding: 5px 6px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+	position: relative;
+	top: -5px;
+}
+
+#member ul li.more {
+	cursor: pointer;
+}
+
+#member ul li.more:hover {
+	text-decoration: underline;
+}
+
+/* Left History */
 #history ul.segment_body li {
 	padding: 0;
 }
@@ -427,23 +510,26 @@ ul.segment_body > li:before {
 
 /* Right */
 #right {
+	position: absolute;
+	right: 0;
+	top: 80px;
 	width: 760px;
-	float: left;
-	background: white;
-	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-o-border-radius: 5px;
-	-ms-border-radius: 5px;
-	-webkit-box-shadow: 0 0 2px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0 0 2px rgba(0,0,0,0.2);
-	box-shadow: 0 0 2px rgba(0,0,0,0.2);
 }
 
 /* Right_Head */
 #head {
-	padding: 20px 15px;
-	border-bottom: 1px solid #e8e8e8;
+	position: absolute;
+	width: 728px;
+	padding: 15px 15px;
+	border: 1px solid #e8e8e8;
+	z-index: 100;
+	background: white;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px; 
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
 }
 
 #head:hover {
@@ -459,9 +545,50 @@ p#now {
 	font-weight: bold;
 }
 
+#current {
+	cursor: pointer;
+	margin-left: 250px;
+	display: inline;
+	padding: 7px 10px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+}
+
+#current:hover {
+	background: #eee;
+}
+
+#head span.move {
+	cursor: pointer;
+	background: #eee;
+	font-size: 18px;
+	padding: 5px 12px;
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-o-border-radius: 50%;
+	-ms-border-radius: 50%;
+}
+
+span#next {
+	float: right;
+}
+
 /* Right_Main */
 ul#talk {
-	padding: 13px 15px;
+	margin: 59px 0;
+	padding: 13px 14px;
+	background: white;
+	border: 1px solid #e8e8e8;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-moz-border-radius-bottomright: 5px; 
+	-webkit-border-bottom-left-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
 }
 
 ul#talk li {
@@ -512,7 +639,7 @@ span.date {
 /* For Others */
 ul#talk li.others-1:before {
     font-family: 'icomoon';
-    font-size: 24px;
+    font-size: 23px;
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
@@ -548,7 +675,8 @@ ul#talk li.others p#text:before {
 
 ul#talk li.others span.date {
 	bottom: 0;
-	right: -40px;
+	right: -55px;
+	width: 50px;
 }
 
 /* For Me (LINE) */
@@ -570,7 +698,8 @@ ul#talk li.me p#text:before {
 
 ul#talk li.me span.date {
 	bottom: 0;
-	left: -40px;
+	left: -55px;
+	width: 50px;
 	text-align: right;
 }
 
