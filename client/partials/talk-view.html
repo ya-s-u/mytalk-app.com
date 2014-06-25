@@ -70,6 +70,44 @@
 			<p id="now">{{year}}年{{month}}月</p>
 			<p id="count">{{count}}トーク</p>
 			<span class="icon-down"></span>
+			<ul id="date_menu">
+				<li>
+					<p>2014/3</p>
+					<ul class="log">
+						<li><span style="height:60%;"></span></li>
+						<li><span style="height:20%;"></span></li>
+						<li><span style="height:00%;"></span></li>
+						<li><span style="height:30%;"></span></li>
+						<li><span style="height:100%;"></span></li>
+						<li><span style="height:10%;"></span></li>
+						<li><span style="height:60%;"></span></li>
+						<li><span style="height:90%;"></span></li>
+						<li><span style="height:00%;"></span></li
+						><li><span style="height:60%;"></span></li>
+						<li><span style="height:30%;"></span></li>
+						<li><span style="height:10%;"></span></li>
+						<li><span style="height:80%;"></span></li>
+						<li><span style="height:60%;"></span></li>
+						<li><span style="height:90%;"></span></li>
+						<li><span style="height:90%;"></span></li>
+						<li><span style="height:100%;"></span></li>
+						<li><span style="height:60%;"></span></li>
+						<li><span style="height:100%;"></span></li>
+						<li><span style="height:20%;"></span></li>
+						<li><span style="height:30%;"></span></li>
+						<li><span style="height:20%;"></span></li>
+						<li><span style="height:80%;"></span></li>
+						<li><span style="height:10%;"></span></li>
+						<li><span style="height:30%;"></span></li>
+						<li><span style="height:20%;"></span></li>
+						<li><span style="height:30%;"></span></li>
+						<li><span style="height:90%;"></span></li>
+						<li><span style="height:70%;"></span></li>
+						<li><span style="height:60%;"></span></li>
+						<li><span style="height:80%;"></span></li>
+					</ul>
+				</li>
+			</ul>
 		</div>
 		<span ng-click="setDate(year,month+1)" id="next" class="move icon-right"></span>
 	</div>
@@ -86,6 +124,15 @@
 	</ul>
 </div>
 
+<script>
+$("#current").hover(function() {
+	$("ul#date_menu").show();
+}, function() {
+	$("ul#date_menu").hide();
+});
+</script>
+
+
 <script type="text/javascript">
 $(function(){
 	$(window).scroll(function () {
@@ -96,11 +143,13 @@ $(function(){
 			$("#header").css({"position":"fixed","top":"-55px"});
 			$("#top").css({"position":"fixed","top":"5px"});
 			$("#left").css({"position":"fixed"});
+			$("#talk").css({"position":"absolute","top":"50px"});
 			$("#head").css({"position":"fixed","top":"80"});
 		} else {
 			$("#header").css({"position":"inherit"});
 			$("#top").css({"position":"absolute","top":"0"});
 			$("#left").css({"position":"absolute"});
+			$("#talk").css({"position":"inherit","top":"0"});
 			$("#head").css({"position":"absolute","top":"0"});
 		}
 	});

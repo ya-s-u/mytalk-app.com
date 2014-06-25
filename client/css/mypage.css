@@ -109,22 +109,6 @@ li {
 	position: relative;
 }
 
-.button {
-	cursor: pointer;
-	font-size: 14px;
-}
-
-.button:hover {
-	background: #e9edef;
-}
-
-.button span.icon {
-	font-size: 16px;
-	margin-right: 5px;
-	position: relative;
-	top: 1px;
-}
-
 ul.log {
 	position: absolute;
 	bottom: 0;
@@ -362,9 +346,23 @@ span.line:after {
 	content: 'LINE';
 }
 
-#top .button#share {
+#top #share {
 	float: right;
+	cursor: pointer;
+	font-size: 14px;
 }
+
+#top #share:hover {
+	border-bottom: 1px solid black;
+}
+
+#top #share span.icon {
+	font-size: 16px;
+	margin-right: 5px;
+	position: relative;
+	top: 1px;
+}
+
 
 /* Left */
 #left {
@@ -465,49 +463,6 @@ ul.segment_body > li:before {
 	text-decoration: underline;
 }
 
-/* Left History */
-#history ul.segment_body li {
-	padding: 0;
-}
-
-#history ul li a {
-	display: block;
-	width: 100%;
-	height: 35px;
-}
-
-#history ul li a p {
-	margin: 0;
-	position: absolute;
-	left: 15px;
-	top: 10px;
-	z-index: 10;
-	font-size: 12px;
-}
-
-#history ul.log {
-	left: 5px;
-	height: 20px;
-}
-
-#history ul.log li {
-	margin-right: 1px;
-	width: 6px;
-	height: 20px;
-}
-
-#history ul.log li span {
-	width: 6px;
-}
-
-#history ul li a.active ul.log li span {
-	background: #94ddf8;
-}
-
-#history ul li a:hover ul.log span {
-	background: #94ddf8;
-}
-
 /* Right */
 #right {
 	position: absolute;
@@ -549,7 +504,7 @@ p#now {
 	cursor: pointer;
 	margin-left: 250px;
 	display: inline;
-	padding: 7px 10px;
+	padding: 7px 10px 10px 10px;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -557,8 +512,56 @@ p#now {
 	-ms-border-radius: 5px;
 }
 
-#current:hover {
-	background: #eee;
+#date_menu {
+	display: none;
+	top: 45px;
+	left: 230px;
+	width: 300px;
+	height: 500px;
+	background: white;
+	z-index: 200;
+	border-radius: 5px;
+	box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+	border: 1px solid rgba(0,0,0,0.15);
+	background-clip: padding-box;
+	position: absolute;
+}
+
+#date_menu li {
+	position: relative;
+	height: 40px;
+}
+
+#history ul li p {
+	margin: 0;
+	position: absolute;
+	left: 15px;
+	top: 10px;
+	z-index: 10;
+	font-size: 12px;
+}
+
+#date_menu ul.log {
+	left: 5px;
+	height: 20px;
+}
+
+#date_menu ul.log li {
+	margin-right: 1px;
+	width: 6px;
+	height: 20px;
+}
+
+#date_menu ul.log li span {
+	width: 6px;
+}
+
+#date_menu li a.active ul.log li span {
+	background: #94ddf8;
+}
+
+#date_menu li a:hover ul.log span {
+	background: #94ddf8;
 }
 
 #head span.move {
@@ -579,6 +582,7 @@ span#next {
 
 /* Right_Main */
 ul#talk {
+	width: 730px;
 	margin: 59px 0;
 	padding: 13px 14px;
 	background: white;
@@ -706,8 +710,6 @@ ul#talk li.me span.date {
 /* Footer */
 #footer {
 	background: white;
-	position: fixed;
-	bottom: 0;
 	width: 100%;
 }
 
