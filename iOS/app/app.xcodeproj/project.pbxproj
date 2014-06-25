@@ -22,6 +22,7 @@
 		184F79A0195AB987000BE727 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184F797F195AB987000BE727 /* UIKit.framework */; };
 		184F79A8195AB987000BE727 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 184F79A6195AB987000BE727 /* InfoPlist.strings */; };
 		184F79AA195AB987000BE727 /* appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79A9195AB987000BE727 /* appTests.m */; };
+		184F79B4195ABA05000BE727 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 184F79B3195ABA05000BE727 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		184F79A5195AB987000BE727 /* appTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "appTests-Info.plist"; sourceTree = "<group>"; };
 		184F79A7195AB987000BE727 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		184F79A9195AB987000BE727 /* appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = appTests.m; sourceTree = "<group>"; };
+		184F79B3195ABA05000BE727 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		184F796F195AB987000BE727 = {
 			isa = PBXGroup;
 			children = (
+				184F79B3195ABA05000BE727 /* .gitignore */,
 				184F7981195AB987000BE727 /* app */,
 				184F79A3195AB987000BE727 /* appTests */,
 				184F797A195AB987000BE727 /* Frameworks */,
@@ -231,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184F79B4195ABA05000BE727 /* .gitignore in Resources */,
 				184F7992195AB987000BE727 /* Main_iPad.storyboard in Resources */,
 				184F7997195AB987000BE727 /* Images.xcassets in Resources */,
 				184F798F195AB987000BE727 /* Main_iPhone.storyboard in Resources */,
