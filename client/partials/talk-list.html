@@ -17,10 +17,11 @@
 	</li>
 </ul>
 <div ng-controller="NewTalkCtrl">
-<form id="newtalk"  ng-submit="upload(this)" enctype="multipart/form-data">
-	<input type="file"  ng-model="file" name="file">
-	<button type="submit">アップロード</button>
-</form></div>
+	<form ng-submit="upload(this)" enctype="multipart/form-data" id="upload">
+		<input type="file" name="talk_file">
+		<button type="submit">アップロード</button>
+	</form>
+</div>
 
 <script type="text/javascript">
 $(function(){

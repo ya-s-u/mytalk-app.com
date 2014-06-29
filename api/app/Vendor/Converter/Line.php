@@ -1,32 +1,31 @@
 <?php
 
 class Line extends Converter {
+    public $name = 'Line';
 
     protected function Convert($Original) {
         //トークタイトル
         if(preg_match('/\[LINE\]\s(.+?)(のトーク履歴|とのトーク履歴)/',$Original[0],$temp)) {
-            $type = 'ja';
+            $lang = 'ja';
         } else if(preg_match('/\[LINE\]\sChat\shistory\swith\s(.+?)/U',$Original[0],$temp)) {
-            $type = 'en';
+            $lang = 'en';
         } else {
             echo 'エラー';
         }
 
         $Converted['head'] = array(
             'title' => $temp[1],
-            'type' => $type,
+            'type' => 'Line',
             'lang' => $lang,
         );
 
 
         //保存日時
-        if(preg_match('/保存日時：(\d+\/\d+\/\d+\s\d+:\d+)/',$array[1],$temp) |
-           preg_match('/Saved\son:\s(\d+\/\d+\/\d+\s\d+:\d+)/U',$array[1],$temp)) {
+        if(preg_match('/(保存日時|Saved\son)：(\d+\/\d+\/\d+\s\d+:\d+)/',$Original[1],$temp)) {
+               $Converted['head']['saved'] = $temp[2];
         } else {
             echo 'エラー';
         }
-
-        $Converted['head']['saved'] = $temp[1];
 
 
         //1,2行目削除
@@ -208,7 +207,7 @@ class Line extends Converter {
 
 
         //メンバーごとの投稿数
-        foreach($converted['member'] as $key => $data){
+        foreach($Converted['member'] as $key => $data){
             foreach($timeline as $num => $message){
                 if($message['name'] == $data['name']) {
                     $Converted['member'][$key]['count']++;

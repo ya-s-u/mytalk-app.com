@@ -7,7 +7,7 @@
 
 <?php echo $this->Form->create('User',array('type'=>'file')); ?>
 
-<?php echo $this->Form->file('upfile',array('name'=>'upfile')); ?>
+<?php echo $this->Form->file('upfile',array('name'=>'talk_file')); ?>
 
 <?php echo $this->Form->submit('アップロードする'); ?>
 <?php echo $this->Form->end(); ?>

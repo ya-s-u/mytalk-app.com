@@ -91,7 +91,7 @@ mainControllers.controller('UserSignupCtrl', ['$scope','$location','$http',
 			    url : 'http://omoide.folder.jp/api/users/signup.json',
 				headers: {
 					'X-Requested-With': 'XMLHttpRequest',
-		    		'Content-Type': 'application/x-www-form-urlencoded'
+		    		'Content-Type': 'application/x-www-form-urlencoded',
 		    	},
 				data: $.param(data)
 			}).success(function(data, status, headers, config) {
@@ -112,27 +112,27 @@ mainControllers.controller('NewTalkCtrl', ['$scope','$location', '$http',
 		$scope.upload = function(form){
 			console.log('upload start…');
 
-			var $form = $('#newtalk');
-			var fd = new FormData($form[0]);
+            var $form = $('#upload');
+            var formData = new FormData($form[0]);
 
-			$.ajax(
-				'http://omoide.folder.jp/api/talks/newTalk.json',
-				{
-					type: 'post',
-					async: false,
-					processData: false,
-					contentType: false,
-					data: fd,
-					dataType: "json",
-					success: function(data) {
-						console.log(data['response']);
-						location.href = '/';
-					},
-					error: function(data) {
-						console.log(data['response']);
-					}
-				}
-			);
+            $.ajax('http://omoide.folder.jp/api/talks/newTalk.json',
+                {
+                    type: 'post',
+                    async: false,
+                    processData: false,
+                    contentType: false,
+                    data: formData,
+                    dataType: 'json',
+                    success: function(data) {
+                        console.log(data['response']);
+                        //location.href = '/';
+                    },
+                    error: function(data) {
+                        console.log(data['response']);
+                    }
+                }
+            );
+
     };
 
   }]

@@ -1,5 +1,6 @@
 <?php
 App::uses('ApiController', 'Controller');
+App::uses('File', 'Utility');
 App::uses('Converter', 'Vendor/Converter');
 
 class TalksController extends ApiController {
@@ -64,9 +65,13 @@ class TalksController extends ApiController {
 
 
 	public function newTalk() {
-		if($_FILES['file']) {
+		if($_FILES["talk_file"]) {
+			//ファイルから配列へ
+			$Original = file($_FILES["talk_file"]["tmp_name"],FILE_IGNORE_NEW_LINES);
+
+
 			//トーク変換
-			$Converterd = $this->Converter->operation($_FILES['file']["tmp_name"]);
+			$Converted = $this->Converter->operation($Original);
 
 			//トークID
 			$file_id = uniqid(mt_rand(0,9));
@@ -76,7 +81,7 @@ class TalksController extends ApiController {
 			if (!file_exists($filename)) {
 				touch($filename);
 				$fp = fopen($filename,'a') or dir('ファイルを開けません');
-				fwrite($fp, json_encode($Converterd));
+				fwrite($fp, json_encode($Converted));
 				fclose($fp);
 			} else {
 				return $this->error('error:<');
@@ -86,11 +91,11 @@ class TalksController extends ApiController {
 			$this->request->data['Talk'] = array(
 				'id' => $file_id,
 				'user_id' => $this->Auth->user('id'),
-				'title' => $Converted['heda']['title'],
-				'member' => $Converted['heda']['member'],
-				'count' => $Converted['heda']['count'],
-				'type' => $Converted['heda']['type'],
-				'lang' => $Converted['heda']['lang'],
+				'title' => $Converted['head']['title'],
+				'member' => $Converted['head']['member'],
+				'count' => $Converted['head']['count'],
+				'type' => $Converted['head']['type'],
+				'lang' => $Converted['head']['lang'],
 				'created' => date("Y-m-d G:i:s"),
 			);
 

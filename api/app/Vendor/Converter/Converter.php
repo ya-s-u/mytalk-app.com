@@ -1,25 +1,24 @@
 <?php
-App::uses('Line', 'Vendor/Converter');
+require_once(dirname(__FILE__)."/Line.php");
 
 class Converter {
+    public $name = 'Converter';
 
-    public function beforeFilter() {
-        parent::beforeFilter();
-
+    public function operation($Original) {
+        //クラス読み込み
         $this->Line = new Line();
-    }
 
-
-    public function operation($file_path) {
-        //ファイルから配列へ
-        $Original = file($file_path , FILE_IGNORE_NEW_LINES);
+        //HTMLエスケープ関数
+        function html_escaape($str){
+            if(is_array($str)){
+                return array_map("html_escaape",$str);
+            }else{
+                return htmlspecialchars($str,ENT_NOQUOTES,"UTF-8");
+            }
+        }
 
         //HTMLエスケープ
-        if(is_array($Original)) {
-            $Original = array_map("html_escaape",$Original);
-        } else {
-            $Original = htmlspecialchars($Original,ENT_NOQUOTES,"UTF-8");
-        }
+        $Original = html_escaape($Original);
 
         //配列定義
         $Converted['head'] = array();
