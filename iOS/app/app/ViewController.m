@@ -18,12 +18,23 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSLog(@"h,w!");
+    
 }
+- (IBAction)identification:(UITextField *)sender {
+}
+- (IBAction)password:(UITextField *)sender {
+}
+- (IBAction)login:(UIButton *)sender {
 
+
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end
