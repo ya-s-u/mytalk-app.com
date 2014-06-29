@@ -125,7 +125,7 @@ mainControllers.controller('NewTalkCtrl', ['$scope','$location', '$http',
                     dataType: 'json',
                     success: function(data) {
                         console.log(data['response']);
-                        //location.href = '/';
+                        location.href = '/';
                     },
                     error: function(data) {
                         console.log(data['response']);
@@ -146,9 +146,9 @@ mainControllers.controller('TalkListCtrl', ['$scope', '$http',
 			cache: true,
 			url : 'http://omoide.folder.jp/api/talks/getList.json',
 			headers: { "X-Requested-With": "XMLHttpRequest" },
-		}).success(function(data, status, headers, config) {
+		}).success(function(data) {
 			$scope.talk = data['response']['Talk'];
-		}).error(function(data, status, headers, config) {
+		}).error(function(data) {
 		    console.log('failed!');
 		});
 
@@ -178,15 +178,15 @@ mainControllers.controller('TalkViewCtrl', ['$scope', '$routeParams', '$http',
 			$scope.head = data['response']['head'];
 			$scope.member = data['response']['member'];
 
-			var temp = data['response']['temp'];
-			$scope.count = temp[$scope.year][$scope.month].length;
-			$scope.timeline = temp[$scope.year][$scope.month];
+			var timeline = data['response']['timeline'];
+			$scope.count = timeline[$scope.year][$scope.month].length;
+			$scope.timeline = timeline[$scope.year][$scope.month];
 
 			//年月指定
 			$scope.setDate = function(year,month) {
 				$scope.year = year;
 				$scope.month = month;
-				$scope.timeline = temp[$scope.year][$scope.month];
+				$scope.timeline = timeline[$scope.year][$scope.month];
 			};
 
 			//最下部までスクロール

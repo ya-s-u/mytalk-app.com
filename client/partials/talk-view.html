@@ -19,49 +19,6 @@
 			<li ng-repeat="data in member | limitTo:5" ng-class="{'others':data.name!=user}" class="others-1">{{data.name}}<span>{{data.count}}</span></li>
 		</ul>
 	</div>
-	<!-- 
-	<div id="history" class="segment">
-		<p class="segment_top">トーク履歴<span class="icon icon-chart"></span></p>
-		<ul class="segment_body">
-			<li><a href="" class="active">
-				<p>2014/3</p>
-				<ul class="log">
-					<li><span style="height:60%;"></span></li>
-					<li><span style="height:20%;"></span></li>
-					<li><span style="height:00%;"></span></li>
-					<li><span style="height:30%;"></span></li>
-					<li><span style="height:100%;"></span></li>
-					<li><span style="height:10%;"></span></li>
-					<li><span style="height:60%;"></span></li>
-					<li><span style="height:90%;"></span></li>
-					<li><span style="height:00%;"></span></li
-					><li><span style="height:60%;"></span></li>
-					<li><span style="height:30%;"></span></li>
-					<li><span style="height:10%;"></span></li>
-					<li><span style="height:80%;"></span></li>
-					<li><span style="height:60%;"></span></li>
-					<li><span style="height:90%;"></span></li>
-					<li><span style="height:90%;"></span></li>
-					<li><span style="height:100%;"></span></li>
-					<li><span style="height:60%;"></span></li>
-					<li><span style="height:100%;"></span></li>
-					<li><span style="height:20%;"></span></li>
-					<li><span style="height:30%;"></span></li>
-					<li><span style="height:20%;"></span></li>
-					<li><span style="height:80%;"></span></li>
-					<li><span style="height:10%;"></span></li>
-					<li><span style="height:30%;"></span></li>
-					<li><span style="height:20%;"></span></li>
-					<li><span style="height:30%;"></span></li>
-					<li><span style="height:90%;"></span></li>
-					<li><span style="height:70%;"></span></li>
-					<li><span style="height:60%;"></span></li>
-					<li><span style="height:80%;"></span></li>
-				</ul>	  
-			</a></li>
-		</ul>
-	</div>
-	 -->
 </div>
 <div id="right">
 	<div id="head">
@@ -70,6 +27,7 @@
 			<p id="now">{{year}}年{{month}}月</p>
 			<p id="count">{{count}}トーク</p>
 			<span class="icon-down"></span>
+			<!--
 			<ul id="date_menu">
 				<li>
 					<p>2014/3</p>
@@ -108,9 +66,11 @@
 					</ul>
 				</li>
 			</ul>
+			-->
 		</div>
 		<span ng-click="setDate(year,month+1)" id="next" class="move icon-right"></span>
 	</div>
+
 	<ul id="talk" class="line">
 		<li ng-repeat="data in timeline | orderBy:'date'"
 			ng-class="{'me':data.name==user, 'others':data.name!=user, 'others-1':data.name!=user}">
@@ -144,13 +104,13 @@ $(function(){
 			$("#top").css({"position":"fixed","top":"5px"});
 			$("#left").css({"position":"fixed"});
 			$("#talk").css({"position":"absolute","top":"50px"});
-			$("#head").css({"position":"fixed","top":"80"});
+			$("#head").css({"position":"fixed","top":"80","box-shadow":"0 1px 1px rgba(200,200,200,.5)"});
 		} else {
 			$("#header").css({"position":"inherit"});
 			$("#top").css({"position":"absolute","top":"0"});
 			$("#left").css({"position":"absolute"});
 			$("#talk").css({"position":"inherit","top":"0"});
-			$("#head").css({"position":"absolute","top":"0"});
+			$("#head").css({"position":"absolute","top":"0","box-shadow":"none"});
 		}
 	});
 });

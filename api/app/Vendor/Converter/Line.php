@@ -121,7 +121,7 @@ class Line extends Converter {
                 }
 
                 //複数行メッセージ1行目
-                else if(preg_match('/^(\d+:\d+)\t+(.+)\t"(.+)/',$data,$temp)) {
+                else if(preg_match('/^(\d+:\d+)\t+(.+)\t"(.*)/',$data,$temp)) {
                     $timeline[$i]['date'] = $day.' '.$temp[1];
                     $timeline[$i]['name'] = $temp[2];
                     $timeline[$i]['type'] = 'message';
@@ -216,13 +216,12 @@ class Line extends Converter {
         }
 
 
-        //1日ごとに格納
+        //月ごとに格納
         foreach($timeline as $key => $data) {
             $year = date('Y',strtotime($data['date']));
             $month = date('n',strtotime($data['date']));
-            $day = date('j',strtotime($data['date']));
 
-            $Converted['timeline'][$year][$month][$day][] = $data;
+            $Converted['timeline'][$year][$month][] = $data;
         }
 
 

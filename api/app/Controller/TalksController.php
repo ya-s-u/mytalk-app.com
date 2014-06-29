@@ -22,24 +22,23 @@ class TalksController extends ApiController {
 				'Talk.user_id' => $this->Auth->user('id'),
 				'NOT' => array(
 				)
-			)
+			),
+			'fields' => Array(
+				'Talk.id',
+				'Talk.title',
+				'Talk.icon',
+				'Talk.count',
+				'Talk.member',
+				'Talk.type',
+				'Talk.start',
+				'Talk.end',
+			),
 		);
 		$Data = $this->Talk->find('all',$params);
 
 		foreach($Data as $key => $data) {
-			$temp = file_get_contents('../../../s3/talks/'.$data['Talk']['id'].'.json'); //temp
-			$temp = json_decode($temp); //temp
-
-			$dump['Talk'][$key] = array(
-				'id' => $data['Talk']['id'],
-				'type' => $data['Talk']['type'],
-				'created' => $data['Talk']['created'],
-
-				'title' => $temp->head->title, //temp
-				'member' => $temp->head->member, //temp
-				'count' => $temp->head->count, //temp
-			);
-		};
+			$dump['Talk'][$key] = $data['Talk'];
+		}
 
 		return $this->success($dump);
 	}
@@ -47,14 +46,17 @@ class TalksController extends ApiController {
 
 	public function getTalk() {
 		$id = $this->request->query['id'];
+
 		$params = array(
 			'conditions' => array(
 				'Talk.id' => $id,
+				'Talk.user_id' => $this->Auth->user('id'),
 			)
 		);
 		$Data = $this->Talk->find('first',$params);
 
-		if($Data['Talk']['user_id'] == $this->Auth->user('id')) {
+		//所有者以外をはじく
+		if($Data != null) {
 			$array = file_get_contents('../../../s3/talks/'.$id.'.json');
 			$array = json_decode($array);
 			return $this->success($array);
@@ -96,6 +98,8 @@ class TalksController extends ApiController {
 				'count' => $Converted['head']['count'],
 				'type' => $Converted['head']['type'],
 				'lang' => $Converted['head']['lang'],
+				'start' => date("Y-m-d G:i:s",strtotime($Converted['head']['start'])),
+				'end' => date("Y-m-d G:i:s",strtotime($Converted['head']['end'])),
 				'created' => date("Y-m-d G:i:s"),
 			);
 

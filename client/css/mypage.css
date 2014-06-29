@@ -489,10 +489,6 @@ ul.segment_body > li:before {
 	-webkit-border-top-right-radius: 5px;
 }
 
-#head:hover {
-	box-shadow: 0 1px 1px rgba(200,200,200,.5);
-}
-
 #head p {
 	display: inline;
 }

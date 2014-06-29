@@ -9,9 +9,9 @@
 	<li ng-repeat="data in talk">
 		<a href="#view/{{data.id}}">
 			<div class="panel">
-				<img src="img/icon/RoundIcons-Free-Set-0{{$index%5+1}}.png">
+				<img src="img/icon/RoundIcons-Free-Set-0{{data.icon}}.png">
 				<p class="title">{{data.title}}</p>
-				<p class="modified">{{parseDate(data.created) | date:'yyyy/M/d'}} uploaded</p>
+				<p class="modified">{{parseDate(data.start) | date:'yyyy/M/d'}} ~ {{parseDate(data.end) | date:'yyyy/M/d'}}</p>
 			</div>
 		</a>
 	</li>
