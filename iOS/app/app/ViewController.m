@@ -18,7 +18,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    NSLog(@"h,w!");
+   
     
 }
 - (IBAction)identification:(UITextField *)sender {

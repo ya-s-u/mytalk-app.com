@@ -23,7 +23,9 @@
 		184F79A8195AB987000BE727 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 184F79A6195AB987000BE727 /* InfoPlist.strings */; };
 		184F79AA195AB987000BE727 /* appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79A9195AB987000BE727 /* appTests.m */; };
 		184F79B4195ABA05000BE727 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 184F79B3195ABA05000BE727 /* .gitignore */; };
-		184F79BA196059C9000BE727 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79B9196059C9000BE727 /* loginViewController.m */; };
+		184F79CC19606E19000BE727 /* TalkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79CB19606E19000BE727 /* TalkTableViewController.m */; };
+		184F79D21961A464000BE727 /* Talk.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79D11961A464000BE727 /* Talk.m */; };
+		184F79D41961B1C2000BE727 /* nav_icon_phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 184F79D31961B1C2000BE727 /* nav_icon_phone.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +60,11 @@
 		184F79A7195AB987000BE727 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		184F79A9195AB987000BE727 /* appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = appTests.m; sourceTree = "<group>"; };
 		184F79B3195ABA05000BE727 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		184F79B8196059C9000BE727 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
-		184F79B9196059C9000BE727 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
+		184F79CA19606E19000BE727 /* TalkTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkTableViewController.h; sourceTree = "<group>"; };
+		184F79CB19606E19000BE727 /* TalkTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkTableViewController.m; sourceTree = "<group>"; };
+		184F79D01961A464000BE727 /* Talk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Talk.h; sourceTree = "<group>"; };
+		184F79D11961A464000BE727 /* Talk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Talk.m; sourceTree = "<group>"; };
+		184F79D31961B1C2000BE727 /* nav_icon_phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nav_icon_phone.png; path = ../../../../../../Downloads/nav_icon_phone.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,11 +128,14 @@
 				184F798A195AB987000BE727 /* AppDelegate.h */,
 				184F798B195AB987000BE727 /* AppDelegate.m */,
 				184F798D195AB987000BE727 /* Main_iPhone.storyboard */,
-				184F79B8196059C9000BE727 /* loginViewController.h */,
-				184F79B9196059C9000BE727 /* loginViewController.m */,
+				184F79CA19606E19000BE727 /* TalkTableViewController.h */,
+				184F79CB19606E19000BE727 /* TalkTableViewController.m */,
 				184F7990195AB987000BE727 /* Main_iPad.storyboard */,
 				184F7993195AB987000BE727 /* ViewController.h */,
 				184F7994195AB987000BE727 /* ViewController.m */,
+				184F79D01961A464000BE727 /* Talk.h */,
+				184F79D11961A464000BE727 /* Talk.m */,
+				184F79D31961B1C2000BE727 /* nav_icon_phone.png */,
 				184F7996195AB987000BE727 /* Images.xcassets */,
 				184F7982195AB987000BE727 /* Supporting Files */,
 			);
@@ -244,6 +252,7 @@
 				184F7997195AB987000BE727 /* Images.xcassets in Resources */,
 				184F798F195AB987000BE727 /* Main_iPhone.storyboard in Resources */,
 				184F7986195AB987000BE727 /* InfoPlist.strings in Resources */,
+				184F79D41961B1C2000BE727 /* nav_icon_phone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +271,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				184F79BA196059C9000BE727 /* loginViewController.m in Sources */,
+				184F79D21961A464000BE727 /* Talk.m in Sources */,
+				184F79CC19606E19000BE727 /* TalkTableViewController.m in Sources */,
 				184F7995195AB987000BE727 /* ViewController.m in Sources */,
 				184F798C195AB987000BE727 /* AppDelegate.m in Sources */,
 				184F7988195AB987000BE727 /* main.m in Sources */,

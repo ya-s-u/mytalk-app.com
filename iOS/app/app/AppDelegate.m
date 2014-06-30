@@ -7,12 +7,46 @@
 //
 
 #import "AppDelegate.h"
+#import "talk.h"
+#import "TalkTableViewController.h"
 
-@implementation AppDelegate
+@implementation AppDelegate {
+	NSMutableArray *talks;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // トークテーブルの初期設定
+    talks = [NSMutableArray arrayWithCapacity:20];
+	Talk *talk = [[Talk alloc] init];
+	talk.name = @"Bill Evans";
+    talk.periodStart = 2031;
+    talk.periodEnd = 2034;
+	talk.shared = 1;
+	talk.icon = 1;
+    [talks addObject:talk];
+	talk = [[Talk alloc] init];
+	talk.name = @"Bill Evans";
+    talk.periodStart = 2031;
+    talk.periodEnd = 2034;
+	talk.shared = 1;
+	talk.icon = 4;
+    [talks addObject:talk];
+    talk = [[Talk alloc] init];
+    talk.periodStart = 2031;
+    talk.periodEnd = 2034;
+	talk.shared = 1;
+	talk.icon = 4;
+	
+    // TalkTableViewControllerへデータを渡す
+    [talks addObject:talk];
+	UITabBarController *tabBarController =
+    (UITabBarController *)self.window.rootViewController;
+	UINavigationController *navigationController =
+    [[tabBarController viewControllers] objectAtIndex:0];
+	TalkTableViewController *TalkTableViewController =
+    [[navigationController viewControllers] objectAtIndex:0];
+	TalkTableViewController.talks = talks;
     return YES;
 }
 							
