@@ -76,7 +76,7 @@
 			ng-class="{'me':data.name==user, 'others':data.name!=user, 'others-1':data.name!=user}">
 			<div class="box">
 				<p ng-hide="data.name==user" id="name">{{data.name}}</p>
-				<p id="text">{{data.value}}
+				<p id="text" ng-bind-html="data.value | linky">
 					<span class="date">{{parseDate(data.date) | date:'M/d'}}<br>{{parseDate(data.date) | date:'a h:m'}}</span>
 				</p>
 			</div>
@@ -102,13 +102,13 @@ $(function(){
 			//$("#header").css({"position":"fixed","z-index":"100"});
 			$("#header").css({"position":"fixed","top":"-55px"});
 			$("#top").css({"position":"fixed","top":"5px"});
-			$("#left").css({"position":"fixed"});
+			$("#left").css({"position":"fixed","opacity":"0.5"});
 			$("#talk").css({"position":"absolute","top":"50px"});
 			$("#head").css({"position":"fixed","top":"80","box-shadow":"0 1px 1px rgba(200,200,200,.5)"});
 		} else {
 			$("#header").css({"position":"inherit"});
 			$("#top").css({"position":"absolute","top":"0"});
-			$("#left").css({"position":"absolute"});
+			$("#left").css({"position":"absolute","opacity":"1.0"});
 			$("#talk").css({"position":"inherit","top":"0"});
 			$("#head").css({"position":"absolute","top":"0","box-shadow":"none"});
 		}

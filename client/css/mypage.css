@@ -373,6 +373,10 @@ span.line:after {
 	width: 230px;
 }
 
+#left:hover {
+	opacity: 1.0!important;
+}
+
 .segment {
 	margin-bottom: 10px;
 }
@@ -597,6 +601,11 @@ ul#talk li {
 	margin-bottom: 15px;
 	overflow: hidden;
 	position: relative;
+}
+
+ul#talk li a {
+	color: blue;
+	text-decoration: underline;
 }
 
 .box {
