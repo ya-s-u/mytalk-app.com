@@ -130,8 +130,11 @@ ul.log li span {
 /* Header */
 #header {
 	width: 100%;
-	height: 60px;
-	background: #3995ca;
+	height: 55px;
+	background: #2f9ee6;
+	background: -webkit-linear-gradient(#2f9ee6 30%,#1f80cd 100%);
+	background: linear-gradient(#2f9ee6 30%,#1f80cd 100%);
+	border-bottom: 1px solid #15578b;
 	z-index: 100;
 }
 
@@ -155,7 +158,7 @@ h1 {
 #nav p {
 	color: white;
 	font-size: 13px;
-	padding: 20px 0 10px 20px;
+	padding: 17px 0 10px 20px;
 }
 
 #nav span.icon-down {
@@ -480,8 +483,8 @@ ul.segment_body > li:before {
 /* Right_Head */
 #head {
 	position: absolute;
-	width: 728px;
-	padding: 15px 15px;
+	width: 758px;
+	height: 55px;
 	border: 1px solid #e8e8e8;
 	z-index: 100;
 	background: white;
@@ -503,10 +506,12 @@ p#now {
 }
 
 #current {
+	position: absolute;
+	padding: 15px;
+	top: 4px;
 	cursor: pointer;
 	margin-left: 250px;
 	display: inline;
-	padding: 7px 10px 10px 10px;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -576,16 +581,22 @@ p#now {
 	-webkit-border-radius: 50%;
 	-o-border-radius: 50%;
 	-ms-border-radius: 50%;
+	position: absolute;
+	top: 13px;
+}
+
+span#prev {
+	left: 15px;
 }
 
 span#next {
-	float: right;
+	right: 15px;
 }
 
 /* Right_Main */
 ul#talk {
 	width: 730px;
-	margin: 59px 0;
+	margin: 54px 0;
 	padding: 13px 14px;
 	background: white;
 	border: 1px solid #e8e8e8;
