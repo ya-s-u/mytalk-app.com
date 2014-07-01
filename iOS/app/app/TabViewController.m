@@ -44,7 +44,7 @@
 }
 - (void)showLoginView {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"SignUpView"];// signupviewへ移動
     [vc setModalPresentationStyle:UIModalPresentationFullScreen];
     [vc setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self presentViewController:vc animated:YES completion:nil];

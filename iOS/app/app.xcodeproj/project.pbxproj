@@ -37,6 +37,7 @@
 		187AED451962E32600294395 /* RoundIcons-Free-Set-03.png in Resources */ = {isa = PBXBuildFile; fileRef = 187AED401962E32600294395 /* RoundIcons-Free-Set-03.png */; };
 		187AED461962E32600294395 /* RoundIcons-Free-Set-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 187AED411962E32600294395 /* RoundIcons-Free-Set-04.png */; };
 		187AED471962E32600294395 /* RoundIcons-Free-Set-05.png in Resources */ = {isa = PBXBuildFile; fileRef = 187AED421962E32600294395 /* RoundIcons-Free-Set-05.png */; };
+		187AED4A196313D600294395 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED49196313D600294395 /* SignUpViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,8 @@
 		187AED401962E32600294395 /* RoundIcons-Free-Set-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RoundIcons-Free-Set-03.png"; path = "../../../client/img/icon/RoundIcons-Free-Set-03.png"; sourceTree = "<group>"; };
 		187AED411962E32600294395 /* RoundIcons-Free-Set-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RoundIcons-Free-Set-04.png"; path = "../../../client/img/icon/RoundIcons-Free-Set-04.png"; sourceTree = "<group>"; };
 		187AED421962E32600294395 /* RoundIcons-Free-Set-05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RoundIcons-Free-Set-05.png"; path = "../../../client/img/icon/RoundIcons-Free-Set-05.png"; sourceTree = "<group>"; };
+		187AED48196313D600294395 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		187AED49196313D600294395 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +165,8 @@
 				184F7994195AB987000BE727 /* ViewController.m */,
 				184F79F019628FB7000BE727 /* TabViewController.h */,
 				184F79F119628FB7000BE727 /* TabViewController.m */,
+				187AED48196313D600294395 /* SignUpViewController.h */,
+				187AED49196313D600294395 /* SignUpViewController.m */,
 				184F79EA196285BF000BE727 /* AccountSet.h */,
 				184F79EB196285BF000BE727 /* AccountSet.m */,
 				184F79D01961A464000BE727 /* Talk.h */,
@@ -326,6 +331,7 @@
 				184F79F219628FB7000BE727 /* TabViewController.m in Sources */,
 				184F7988195AB987000BE727 /* main.m in Sources */,
 				184F79EC196285BF000BE727 /* AccountSet.m in Sources */,
+				187AED4A196313D600294395 /* SignUpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

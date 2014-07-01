@@ -8,7 +8,8 @@
         <scene sceneID="BA3-Nc-C4o">
             <objects>
                 <tabBarController definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="I7w-V2-VTY" customClass="TabViewController" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationItem key="navigationItem" id="zlg-uH-qrj"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Ihb-yr-p1N">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -23,7 +24,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UmI-vH-l4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2694" y="757"/>
+            <point key="canvasLocation" x="-3646" y="757"/>
         </scene>
         <!--Talk Table View Controller - My Talk-->
         <scene sceneID="TCi-ou-rgN">
@@ -82,7 +83,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Talk" id="llN-nO-E4c">
-                        <barButtonItem key="rightBarButtonItem" title="設定" id="QXb-43-186">
+                        <barButtonItem key="rightBarButtonItem" title="＋" id="QXb-43-186">
                             <connections>
                                 <segue destination="jYQ-YL-b2D" kind="push" id="LTg-Ai-5Zk"/>
                             </connections>
@@ -91,7 +92,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P3g-tP-uUO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1300" y="757"/>
+            <point key="canvasLocation" x="-2688" y="757"/>
         </scene>
         <!--Table View Controller - 設定-->
         <scene sceneID="MKc-Jc-vdY">
@@ -120,7 +121,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bf5-Gf-p73" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2700" y="1437"/>
+            <point key="canvasLocation" x="-2164" y="757"/>
         </scene>
         <!--Table View Controller - My Talk-->
         <scene sceneID="gEg-rI-0RU">
@@ -145,17 +146,11 @@
                             <outlet property="delegate" destination="qmh-ZW-4ZX" id="40L-dG-kj4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Talk" id="e4n-yp-1jQ">
-                        <barButtonItem key="rightBarButtonItem" title="設定" id="Rj3-cq-pbe">
-                            <connections>
-                                <segue destination="jYQ-YL-b2D" kind="push" id="uUQ-fg-BBF"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="My Talk" id="e4n-yp-1jQ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBD-bn-5nm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1216" y="1425"/>
+            <point key="canvasLocation" x="-2680" y="1425"/>
         </scene>
         <!--Navigation Controller - 共有中-->
         <scene sceneID="EdG-0c-G29">
@@ -171,7 +166,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SGG-70-9k8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1832" y="1437"/>
+            <point key="canvasLocation" x="-3160" y="1425"/>
         </scene>
         <!--Navigation Controller - すべてのトーク-->
         <scene sceneID="pp3-Uk-GE2">
@@ -187,7 +182,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="322-BU-D17" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1832" y="757"/>
+            <point key="canvasLocation" x="-3160" y="757"/>
         </scene>
         <!--Table View Controller - My Talk-->
         <scene sceneID="sJ1-zM-hRz">
@@ -212,17 +207,11 @@
                             <outlet property="delegate" destination="IbI-VH-8JX" id="8vm-yL-h4B"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Talk" id="Hrd-Fj-QMo">
-                        <barButtonItem key="rightBarButtonItem" title="設定" id="epH-tP-6SH">
-                            <connections>
-                                <segue destination="jYQ-YL-b2D" kind="push" id="7Qr-Jg-8Li"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="My Talk" id="Hrd-Fj-QMo"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eTP-DI-Web" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1216" y="2153"/>
+            <point key="canvasLocation" x="-2680" y="2813"/>
         </scene>
         <!--Table View Controller - My Talk-->
         <scene sceneID="Eyz-eh-ZrR">
@@ -247,17 +236,11 @@
                             <outlet property="delegate" destination="IP1-S8-waq" id="gDS-Ds-gTt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Talk" id="U5i-68-usq">
-                        <barButtonItem key="rightBarButtonItem" title="設定" id="ntS-Nd-LqU">
-                            <connections>
-                                <segue destination="jYQ-YL-b2D" kind="push" id="Dml-D7-vUI"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="My Talk" id="U5i-68-usq"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pCI-DO-caC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2204" y="2145"/>
+            <point key="canvasLocation" x="-2680" y="2113"/>
         </scene>
         <!--Navigation Controller - 設定-->
         <scene sceneID="SjZ-Ht-CHm">
@@ -273,7 +256,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jba-Ex-Dj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2736" y="2145"/>
+            <point key="canvasLocation" x="-3152" y="2113"/>
         </scene>
         <!--Navigation Controller - アクティビティ-->
         <scene sceneID="ofU-y5-UrB">
@@ -289,12 +272,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6NQ-el-T0v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1748" y="2153"/>
+            <point key="canvasLocation" x="-3152" y="2813"/>
         </scene>
         <!--View Controller - LoginView-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController title="LoginView" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" title="LoginView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -303,15 +286,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ログインしてください。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNW-Ma-r98">
-                                <rect key="frame" x="46" y="113" width="228" height="26"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ログインをどうぞ。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNW-Ma-r98">
+                                <rect key="frame" x="74" y="112" width="246" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JYt-mT-kpe">
-                                <rect key="frame" x="127" y="167" width="132" height="30"/>
+                                <rect key="frame" x="160" y="167" width="132" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -319,15 +302,19 @@
                                     <action selector="identification:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="dEa-px-ys8"/>
                                 </connections>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fZ7-0d-KeA">
-                                <rect key="frame" x="0.0" y="-6" width="320" height="44"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZ7-0d-KeA">
+                                <rect key="frame" x="0.0" y="-6" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="fNE-38-rAj"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="xSn-Mv-lBt"/>
+                                </constraints>
                                 <items>
                                     <navigationItem title="My Talk" id="Hty-nE-48W"/>
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xpb-34-SaN">
-                                <rect key="frame" x="127" y="232" width="132" height="30"/>
+                                <rect key="frame" x="160" y="232" width="132" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -335,20 +322,20 @@
                                     <action selector="password:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="pfv-sE-Lri"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhs-wV-Qt9">
-                                <rect key="frame" x="91" y="171" width="42" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="メールアドレス" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhs-wV-Qt9">
+                                <rect key="frame" x="33" y="171" width="117" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="myn-Kd-kLs">
-                                <rect key="frame" x="33" y="235" width="81" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="パスワード" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="myn-Kd-kLs">
+                                <rect key="frame" x="33" y="235" width="85" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8a-vj-fSt">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8a-vj-fSt">
                                 <rect key="frame" x="111" y="324" width="98" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="ログイン">
@@ -356,31 +343,127 @@
                                 </state>
                                 <connections>
                                     <action selector="login:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="idZ-eY-bMm"/>
+                                    <segue destination="I7w-V2-VTY" kind="modal" identifier="login" id="68M-eJ-PFN"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fZ7-0d-KeA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="2Nq-vZ-d01"/>
+                            <constraint firstItem="fZ7-0d-KeA" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="-6" id="TLQ-k7-eE2"/>
+                            <constraint firstItem="fZ7-0d-KeA" firstAttribute="centerX" secondItem="R8a-vj-fSt" secondAttribute="centerX" id="ZNK-qe-P0V"/>
+                            <constraint firstAttribute="trailing" secondItem="fZ7-0d-KeA" secondAttribute="trailing" id="lax-Uf-6b5"/>
+                            <constraint firstItem="xNW-Ma-r98" firstAttribute="top" secondItem="fZ7-0d-KeA" secondAttribute="bottom" constant="75" id="pnE-56-fMU"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SPT-Xi-wC3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1163" y="98"/>
+            <point key="canvasLocation" x="-3160" y="50"/>
         </scene>
-        <!--Navigation Controller - LoginViewController-->
-        <scene sceneID="dPI-FL-nv6">
+        <!--Navigation Controller-->
+        <scene sceneID="HeG-J5-M58">
             <objects>
-                <navigationController storyboardIdentifier="LoginViewController" title="LoginViewController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b5g-2z-Xga" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uDq-Eh-q9k">
+                <navigationController definesPresentationContext="YES" id="p2p-4E-N9w" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pdV-lj-ccO">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="n58-Yo-i84"/>
+                        <segue destination="qCg-qV-msG" kind="relationship" relationship="rootViewController" id="QFK-ht-fzr"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="78l-WO-ZLH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ehb-d6-Coa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1758" y="98"/>
+            <point key="canvasLocation" x="-4180" y="50"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="aF4-4e-N7C">
+            <objects>
+                <viewController storyboardIdentifier="SignUpView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qCg-qV-msG" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HB5-MS-9qg"/>
+                        <viewControllerLayoutGuide type="bottom" id="qRT-In-FLc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="SignUpView" id="lnT-rL-LWF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VYi-Cf-6Uv">
+                                <rect key="frame" x="0.0" y="-6" width="320" height="64"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="NCj-mI-2xQ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="iOe-kH-xpP"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="64" id="rVr-2Y-JEc"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="64" id="vlg-vk-j4k"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="My Talk" id="ZEr-2W-rrP"/>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ようこそ、My Talkへ。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hle-Kd-EJE">
+                                <rect key="frame" x="36" y="114" width="258" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="メールアドレス" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdO-qi-iJP">
+                                <rect key="frame" x="36" y="198" width="136" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="パスワード" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEC-wm-oRb">
+                                <rect key="frame" x="36" y="244" width="85" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oOq-Kk-6vt">
+                                <rect key="frame" x="161" y="195" width="123" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3hR-bU-ACv">
+                                <rect key="frame" x="161" y="240" width="123" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LwM-56-8fN">
+                                <rect key="frame" x="106" y="314" width="118" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="サインアップ">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOh-Wb-mbz">
+                                <rect key="frame" x="42" y="450" width="246" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="アカウントをお持ちの方はこちら">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="modal" id="ZeS-J4-6WS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="VYi-Cf-6Uv" secondAttribute="trailing" id="0Nh-Oj-ZTE"/>
+                            <constraint firstItem="VYi-Cf-6Uv" firstAttribute="leading" secondItem="lnT-rL-LWF" secondAttribute="leading" id="A66-4E-RLm"/>
+                            <constraint firstItem="qRT-In-FLc" firstAttribute="top" secondItem="VYi-Cf-6Uv" secondAttribute="bottom" constant="519" id="dbI-b3-wW6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="1f9-4d-20E"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sjk-nO-o0U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3660" y="50"/>
         </scene>
     </scenes>
     <resources>
@@ -394,7 +477,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="LTg-Ai-5Zk"/>
-    </inferredMetricsTieBreakers>
 </document>
