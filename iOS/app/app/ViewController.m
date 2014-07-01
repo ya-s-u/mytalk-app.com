@@ -17,8 +17,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"test");
 	// Do any additional setup after loading the view, typically from a nib.
-   
     
 }
 - (IBAction)identification:(UITextField *)sender {

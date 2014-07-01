@@ -25,7 +25,18 @@
 		184F79B4195ABA05000BE727 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 184F79B3195ABA05000BE727 /* .gitignore */; };
 		184F79CC19606E19000BE727 /* TalkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79CB19606E19000BE727 /* TalkTableViewController.m */; };
 		184F79D21961A464000BE727 /* Talk.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79D11961A464000BE727 /* Talk.m */; };
-		184F79D41961B1C2000BE727 /* nav_icon_phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 184F79D31961B1C2000BE727 /* nav_icon_phone.png */; };
+		184F79DA1961C43D000BE727 /* RoundIcons-Free-Set-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 184F79D51961C43D000BE727 /* RoundIcons-Free-Set-01.png */; };
+		184F79DB1961C43D000BE727 /* RoundIcons-Free-Set-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 184F79D61961C43D000BE727 /* RoundIcons-Free-Set-02.png */; };
+		184F79DC1961C43D000BE727 /* RoundIcons-Free-Set-03.png in Resources */ = {isa = PBXBuildFile; fileRef = 184F79D71961C43D000BE727 /* RoundIcons-Free-Set-03.png */; };
+		184F79DD1961C43D000BE727 /* RoundIcons-Free-Set-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 184F79D81961C43D000BE727 /* RoundIcons-Free-Set-04.png */; };
+		184F79DE1961C43D000BE727 /* RoundIcons-Free-Set-05.png in Resources */ = {isa = PBXBuildFile; fileRef = 184F79D91961C43D000BE727 /* RoundIcons-Free-Set-05.png */; };
+		184F79E61962848E000BE727 /* icon_tab_activity.png in Resources */ = {isa = PBXBuildFile; fileRef = 184F79E21962848E000BE727 /* icon_tab_activity.png */; };
+		184F79E71962848E000BE727 /* icon_tab_all.png in Resources */ = {isa = PBXBuildFile; fileRef = 184F79E31962848E000BE727 /* icon_tab_all.png */; };
+		184F79E81962848E000BE727 /* icon_tab_setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 184F79E41962848E000BE727 /* icon_tab_setting.png */; };
+		184F79E91962848E000BE727 /* icon_tab_shared.png in Resources */ = {isa = PBXBuildFile; fileRef = 184F79E51962848E000BE727 /* icon_tab_shared.png */; };
+		184F79EC196285BF000BE727 /* AccountSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79EB196285BF000BE727 /* AccountSet.m */; };
+		184F79EF19628AC4000BE727 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79EE19628AC4000BE727 /* LoginViewController.m */; };
+		184F79F219628FB7000BE727 /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79F119628FB7000BE727 /* TabViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +75,21 @@
 		184F79CB19606E19000BE727 /* TalkTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkTableViewController.m; sourceTree = "<group>"; };
 		184F79D01961A464000BE727 /* Talk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Talk.h; sourceTree = "<group>"; };
 		184F79D11961A464000BE727 /* Talk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Talk.m; sourceTree = "<group>"; };
-		184F79D31961B1C2000BE727 /* nav_icon_phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nav_icon_phone.png; path = ../../../../../../Downloads/nav_icon_phone.png; sourceTree = "<group>"; };
+		184F79D51961C43D000BE727 /* RoundIcons-Free-Set-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RoundIcons-Free-Set-01.png"; path = "../../../../../mytalk-app.com/client/img/icon/RoundIcons-Free-Set-01.png"; sourceTree = "<group>"; };
+		184F79D61961C43D000BE727 /* RoundIcons-Free-Set-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RoundIcons-Free-Set-02.png"; path = "../../../../../mytalk-app.com/client/img/icon/RoundIcons-Free-Set-02.png"; sourceTree = "<group>"; };
+		184F79D71961C43D000BE727 /* RoundIcons-Free-Set-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RoundIcons-Free-Set-03.png"; path = "../../../../../mytalk-app.com/client/img/icon/RoundIcons-Free-Set-03.png"; sourceTree = "<group>"; };
+		184F79D81961C43D000BE727 /* RoundIcons-Free-Set-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RoundIcons-Free-Set-04.png"; path = "../../../../../mytalk-app.com/client/img/icon/RoundIcons-Free-Set-04.png"; sourceTree = "<group>"; };
+		184F79D91961C43D000BE727 /* RoundIcons-Free-Set-05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RoundIcons-Free-Set-05.png"; path = "../../../../../mytalk-app.com/client/img/icon/RoundIcons-Free-Set-05.png"; sourceTree = "<group>"; };
+		184F79E21962848E000BE727 /* icon_tab_activity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_tab_activity.png; path = ../../../../../../Downloads/icon_tab_activity.png; sourceTree = "<group>"; };
+		184F79E31962848E000BE727 /* icon_tab_all.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_tab_all.png; path = ../../../../../../Downloads/icon_tab_all.png; sourceTree = "<group>"; };
+		184F79E41962848E000BE727 /* icon_tab_setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_tab_setting.png; path = ../../../../../../Downloads/icon_tab_setting.png; sourceTree = "<group>"; };
+		184F79E51962848E000BE727 /* icon_tab_shared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_tab_shared.png; path = ../../../../../../Downloads/icon_tab_shared.png; sourceTree = "<group>"; };
+		184F79EA196285BF000BE727 /* AccountSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountSet.h; sourceTree = "<group>"; };
+		184F79EB196285BF000BE727 /* AccountSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountSet.m; sourceTree = "<group>"; };
+		184F79ED19628AC4000BE727 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
+		184F79EE19628AC4000BE727 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../LoginViewController.m; sourceTree = "<group>"; };
+		184F79F019628FB7000BE727 /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
+		184F79F119628FB7000BE727 /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,12 +156,26 @@
 				184F79CA19606E19000BE727 /* TalkTableViewController.h */,
 				184F79CB19606E19000BE727 /* TalkTableViewController.m */,
 				184F7990195AB987000BE727 /* Main_iPad.storyboard */,
+				184F79ED19628AC4000BE727 /* LoginViewController.h */,
+				184F79EE19628AC4000BE727 /* LoginViewController.m */,
 				184F7993195AB987000BE727 /* ViewController.h */,
 				184F7994195AB987000BE727 /* ViewController.m */,
+				184F79F019628FB7000BE727 /* TabViewController.h */,
+				184F79F119628FB7000BE727 /* TabViewController.m */,
+				184F79EA196285BF000BE727 /* AccountSet.h */,
+				184F79EB196285BF000BE727 /* AccountSet.m */,
 				184F79D01961A464000BE727 /* Talk.h */,
 				184F79D11961A464000BE727 /* Talk.m */,
-				184F79D31961B1C2000BE727 /* nav_icon_phone.png */,
 				184F7996195AB987000BE727 /* Images.xcassets */,
+				184F79D51961C43D000BE727 /* RoundIcons-Free-Set-01.png */,
+				184F79D61961C43D000BE727 /* RoundIcons-Free-Set-02.png */,
+				184F79D71961C43D000BE727 /* RoundIcons-Free-Set-03.png */,
+				184F79D81961C43D000BE727 /* RoundIcons-Free-Set-04.png */,
+				184F79D91961C43D000BE727 /* RoundIcons-Free-Set-05.png */,
+				184F79E21962848E000BE727 /* icon_tab_activity.png */,
+				184F79E31962848E000BE727 /* icon_tab_all.png */,
+				184F79E41962848E000BE727 /* icon_tab_setting.png */,
+				184F79E51962848E000BE727 /* icon_tab_shared.png */,
 				184F7982195AB987000BE727 /* Supporting Files */,
 			);
 			path = app;
@@ -247,12 +286,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184F79DD1961C43D000BE727 /* RoundIcons-Free-Set-04.png in Resources */,
+				184F79DB1961C43D000BE727 /* RoundIcons-Free-Set-02.png in Resources */,
+				184F79E71962848E000BE727 /* icon_tab_all.png in Resources */,
+				184F79E91962848E000BE727 /* icon_tab_shared.png in Resources */,
 				184F79B4195ABA05000BE727 /* .gitignore in Resources */,
 				184F7992195AB987000BE727 /* Main_iPad.storyboard in Resources */,
+				184F79DE1961C43D000BE727 /* RoundIcons-Free-Set-05.png in Resources */,
+				184F79DC1961C43D000BE727 /* RoundIcons-Free-Set-03.png in Resources */,
+				184F79E81962848E000BE727 /* icon_tab_setting.png in Resources */,
+				184F79E61962848E000BE727 /* icon_tab_activity.png in Resources */,
+				184F79DA1961C43D000BE727 /* RoundIcons-Free-Set-01.png in Resources */,
 				184F7997195AB987000BE727 /* Images.xcassets in Resources */,
 				184F798F195AB987000BE727 /* Main_iPhone.storyboard in Resources */,
 				184F7986195AB987000BE727 /* InfoPlist.strings in Resources */,
-				184F79D41961B1C2000BE727 /* nav_icon_phone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +322,10 @@
 				184F79CC19606E19000BE727 /* TalkTableViewController.m in Sources */,
 				184F7995195AB987000BE727 /* ViewController.m in Sources */,
 				184F798C195AB987000BE727 /* AppDelegate.m in Sources */,
+				184F79F219628FB7000BE727 /* TabViewController.m in Sources */,
+				184F79EF19628AC4000BE727 /* LoginViewController.m in Sources */,
 				184F7988195AB987000BE727 /* main.m in Sources */,
+				184F79EC196285BF000BE727 /* AccountSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  LoginViewController.h
+//  AccountSet.h
 //  app
 //
 //  Created by MasanariKamoshita on 2014/07/01.
@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LoginViewController : NSObject
-@property (nonatomic, strong) NSMutableArray *account;
+@interface AccountSet : NSObject
+// インスタンス変数
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *password;
 @end

@@ -19,22 +19,23 @@
     // トークテーブルの初期設定
     talks = [NSMutableArray arrayWithCapacity:20];
 	Talk *talk = [[Talk alloc] init];
-	talk.name = @"Bill Evans";
-    talk.periodStart = 2031;
-    talk.periodEnd = 2034;
+	talk.name = @"おもしろトーク";
+    talk.periodStart = 2014.1;
+    talk.periodEnd = 2014.5;
 	talk.shared = 1;
 	talk.icon = 1;
     [talks addObject:talk];
 	talk = [[Talk alloc] init];
-	talk.name = @"Bill Evans";
-    talk.periodStart = 2031;
-    talk.periodEnd = 2034;
+	talk.name = @"楽しげトーク";
+    talk.periodStart = 2011.5;
+    talk.periodEnd = 2034.2;
 	talk.shared = 1;
 	talk.icon = 4;
     [talks addObject:talk];
     talk = [[Talk alloc] init];
-    talk.periodStart = 2031;
-    talk.periodEnd = 2034;
+    talk.name = @"怪しいトーク";
+    talk.periodStart = 2031.3;
+    talk.periodEnd = 2034.5;
 	talk.shared = 1;
 	talk.icon = 4;
 	

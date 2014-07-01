@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="BA3-Nc-C4o">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="I7w-V2-VTY" sceneMemberID="viewController">
+                <tabBarController definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="I7w-V2-VTY" customClass="TabViewController" sceneMemberID="viewController">
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Ihb-yr-p1N">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
@@ -44,7 +44,7 @@
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14f-Nc-feW">
                                             <rect key="frame" x="20" y="6" width="192" height="31"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
@@ -66,7 +66,7 @@
                                             <rect key="frame" x="79" y="45" width="17" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="highlightedColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" tag="103" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r49-gL-loY">
                                             <rect key="frame" x="220" y="4" width="67" height="66"/>
@@ -157,11 +157,11 @@
             </objects>
             <point key="canvasLocation" x="-1216" y="1425"/>
         </scene>
-        <!--Navigation Controller - お気に入り-->
+        <!--Navigation Controller - 共有中-->
         <scene sceneID="EdG-0c-G29">
             <objects>
                 <navigationController definesPresentationContext="YES" id="egG-wy-C7f" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="お気に入り" id="hfm-kJ-3cE"/>
+                    <tabBarItem key="tabBarItem" title="共有中" image="icon_tab_shared.png" id="hfm-kJ-3cE"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="A0B-BR-jQu">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -173,11 +173,11 @@
             </objects>
             <point key="canvasLocation" x="-1832" y="1437"/>
         </scene>
-        <!--Navigation Controller - すべての会話-->
+        <!--Navigation Controller - すべてのトーク-->
         <scene sceneID="pp3-Uk-GE2">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Ie6-Rl-N32" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="すべての会話" id="9ij-le-K5D"/>
+                    <tabBarItem key="tabBarItem" title="すべてのトーク" image="icon_tab_all.png" id="9ij-le-K5D"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OLr-LZ-4Hm">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -259,11 +259,11 @@
             </objects>
             <point key="canvasLocation" x="-2204" y="2145"/>
         </scene>
-        <!--Navigation Controller - シェア-->
+        <!--Navigation Controller - 設定-->
         <scene sceneID="SjZ-Ht-CHm">
             <objects>
                 <navigationController definesPresentationContext="YES" id="lW5-gZ-X2S" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="シェア" id="LnJ-uI-nck"/>
+                    <tabBarItem key="tabBarItem" title="設定" image="icon_tab_setting.png" id="LnJ-uI-nck"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EZy-DY-ZRg">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -275,11 +275,11 @@
             </objects>
             <point key="canvasLocation" x="-2736" y="2145"/>
         </scene>
-        <!--Navigation Controller - アップロード-->
+        <!--Navigation Controller - アクティビティ-->
         <scene sceneID="ofU-y5-UrB">
             <objects>
                 <navigationController definesPresentationContext="YES" id="onj-js-e0t" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="アップロード" id="nF0-mb-dgQ"/>
+                    <tabBarItem key="tabBarItem" title="アクティビティ" image="icon_tab_activity.png" id="nF0-mb-dgQ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="day-QU-eim">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -299,12 +299,12 @@
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="LoginView" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Initial Setups" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNW-Ma-r98">
-                                <rect key="frame" x="91" y="77" width="139" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ログインしてください。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNW-Ma-r98">
+                                <rect key="frame" x="46" y="113" width="228" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -349,7 +349,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8a-vj-fSt">
-                                <rect key="frame" x="111" y="324" width="99" height="70"/>
+                                <rect key="frame" x="111" y="324" width="98" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="ログイン">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -367,10 +367,10 @@
             </objects>
             <point key="canvasLocation" x="-1163" y="98"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - LoginViewController-->
         <scene sceneID="dPI-FL-nv6">
             <objects>
-                <navigationController definesPresentationContext="YES" id="b5g-2z-Xga" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginViewController" title="LoginViewController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b5g-2z-Xga" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uDq-Eh-q9k">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -383,12 +383,18 @@
             <point key="canvasLocation" x="-1758" y="98"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_tab_activity.png" width="40" height="40"/>
+        <image name="icon_tab_all.png" width="40" height="40"/>
+        <image name="icon_tab_setting.png" width="40" height="40"/>
+        <image name="icon_tab_shared.png" width="40" height="40"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="7Qr-Jg-8Li"/>
+        <segue reference="LTg-Ai-5Zk"/>
     </inferredMetricsTieBreakers>
 </document>
