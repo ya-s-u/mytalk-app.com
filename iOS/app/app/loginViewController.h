@@ -6,8 +6,8 @@
 //  Copyright (c) 2014年 MasanariKamoshita. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface LoginViewController : NSObject
+@interface LoginViewController : UIViewController
 @property (nonatomic, strong) NSMutableArray *account;
 @end
