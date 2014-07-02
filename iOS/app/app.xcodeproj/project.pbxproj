@@ -29,7 +29,6 @@
 		184F79E71962848E000BE727 /* icon_tab_all.png in Resources */ = {isa = PBXBuildFile; fileRef = 184F79E31962848E000BE727 /* icon_tab_all.png */; };
 		184F79E81962848E000BE727 /* icon_tab_setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 184F79E41962848E000BE727 /* icon_tab_setting.png */; };
 		184F79E91962848E000BE727 /* icon_tab_shared.png in Resources */ = {isa = PBXBuildFile; fileRef = 184F79E51962848E000BE727 /* icon_tab_shared.png */; };
-		184F79EC196285BF000BE727 /* AccountSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79EB196285BF000BE727 /* AccountSet.m */; };
 		184F79F219628FB7000BE727 /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79F119628FB7000BE727 /* TabViewController.m */; };
 		187AED3D1962E29500294395 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED3C1962E29500294395 /* LoginViewController.m */; };
 		187AED431962E32600294395 /* RoundIcons-Free-Set-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 187AED3E1962E32600294395 /* RoundIcons-Free-Set-01.png */; };
@@ -80,8 +79,6 @@
 		184F79E31962848E000BE727 /* icon_tab_all.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_tab_all.png; path = ../../../../../../Downloads/icon_tab_all.png; sourceTree = "<group>"; };
 		184F79E41962848E000BE727 /* icon_tab_setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_tab_setting.png; path = ../../../../../../Downloads/icon_tab_setting.png; sourceTree = "<group>"; };
 		184F79E51962848E000BE727 /* icon_tab_shared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_tab_shared.png; path = ../../../../../../Downloads/icon_tab_shared.png; sourceTree = "<group>"; };
-		184F79EA196285BF000BE727 /* AccountSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountSet.h; sourceTree = "<group>"; };
-		184F79EB196285BF000BE727 /* AccountSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountSet.m; sourceTree = "<group>"; };
 		184F79F019628FB7000BE727 /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
 		184F79F119628FB7000BE727 /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		187AED3B1962E29500294395 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -167,8 +164,6 @@
 				184F79F119628FB7000BE727 /* TabViewController.m */,
 				187AED48196313D600294395 /* SignUpViewController.h */,
 				187AED49196313D600294395 /* SignUpViewController.m */,
-				184F79EA196285BF000BE727 /* AccountSet.h */,
-				184F79EB196285BF000BE727 /* AccountSet.m */,
 				184F79D01961A464000BE727 /* Talk.h */,
 				184F79D11961A464000BE727 /* Talk.m */,
 				184F7996195AB987000BE727 /* Images.xcassets */,
@@ -330,7 +325,6 @@
 				184F798C195AB987000BE727 /* AppDelegate.m in Sources */,
 				184F79F219628FB7000BE727 /* TabViewController.m in Sources */,
 				184F7988195AB987000BE727 /* main.m in Sources */,
-				184F79EC196285BF000BE727 /* AccountSet.m in Sources */,
 				187AED4A196313D600294395 /* SignUpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

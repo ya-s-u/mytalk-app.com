@@ -7,13 +7,14 @@
 //
 
 #import "TabViewController.h"
-#import "LoginViewController.h"
+
 
 @interface TabViewController ()
 
 @end
 
 @implementation TabViewController
+@synthesize successFlag = _successFlag;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,7 +34,9 @@
  * ログイン画面を表示する。
  */
 - (BOOL)hasLoginSettings {
-    return NO;//NOでログインしてない
+    if(_successFlag) return YES;
+    else return NO;
+    //NOでログインしてない
 }
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -49,11 +52,16 @@
     [vc setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self presentViewController:vc animated:YES completion:nil];
 }
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
 
 /*
 #pragma mark - Navigation

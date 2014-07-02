@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TabViewController : UITabBarController
-
+@interface TabViewController : UITabBarController{
+    BOOL* _successFlag;
+}
+@property (nonatomic) BOOL* successFlag;
 @end

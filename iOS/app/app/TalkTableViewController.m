@@ -15,6 +15,9 @@
 
 @implementation TalkTableViewController
 @synthesize talks;
+@synthesize sessionID = _sessionID;
+
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -28,11 +31,39 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    talks = [NSMutableArray arrayWithCapacity:20];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	Talk *talk = [[Talk alloc] init];
+	talk.name = @"おもしろトーク";
+    talk.periodStart = 2014.1;
+    talk.periodEnd = 2014.5;
+	talk.shared = 1;
+	talk.icon = 1;
+    
+    [talks addObject:talk];
+	talk = [[Talk alloc] init];
+	talk.name = @"楽しげトーク";
+    talk.periodStart = 2011.5;
+    talk.periodEnd = 2034.2;
+	talk.shared = 1;
+	talk.icon = 4;
+    
+    [talks addObject:talk];
+    talk = [[Talk alloc] init];
+    talk.name = @"怪しいトーク1";
+    talk.periodStart = 2031.3;
+    talk.periodEnd = 2034.5;
+	talk.shared = 1;
+	talk.icon = 4;
+    
+    [talks addObject:talk];
+    talk = [[Talk alloc] init];
+    talk.name = @"怪しいトーク2";
+    talk.periodStart = 2031.3;
+    talk.periodEnd = 2034.5;
+	talk.shared = 1;
+	talk.icon = 4;
+
 }
 
 - (void)didReceiveMemoryWarning

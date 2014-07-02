@@ -17,6 +17,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // トークテーブルの初期設定
+    /*
     talks = [NSMutableArray arrayWithCapacity:20];
 	Talk *talk = [[Talk alloc] init];
 	talk.name = @"おもしろトーク";
@@ -48,6 +49,7 @@
 	TalkTableViewController *TalkTableViewController =
     [[navigationController viewControllers] objectAtIndex:0];
 	TalkTableViewController.talks = talks;
+     */
     return YES;
 }
 							

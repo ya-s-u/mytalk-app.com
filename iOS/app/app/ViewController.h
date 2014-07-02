@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *identification;
+@property (weak, nonatomic) IBOutlet UITextField *password;
+@property (weak, nonatomic) IBOutlet UIButton *login;
+@property (copy, nonatomic) NSString *mailAddress;
+@property (copy, nonatomic) NSString *passWord;
 
 @end
