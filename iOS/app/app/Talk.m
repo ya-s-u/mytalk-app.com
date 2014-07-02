@@ -12,6 +12,7 @@
 @synthesize name;
 @synthesize periodEnd;
 @synthesize periodStart;
-@synthesize shared;
+@synthesize member;
 @synthesize icon;
+@synthesize posts;
 @end

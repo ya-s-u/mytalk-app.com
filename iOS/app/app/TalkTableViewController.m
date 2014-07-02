@@ -31,38 +31,45 @@
 {
     [super viewDidLoad];
     
+    // sessionIDを使って各種トーク情報を読み込んでテーブルに追加するとこ
+    // 未ログイン時は何も表示しないようにする
     talks = [NSMutableArray arrayWithCapacity:20];
     
 	Talk *talk = [[Talk alloc] init];
 	talk.name = @"おもしろトーク";
     talk.periodStart = 2014.1;
     talk.periodEnd = 2014.5;
-	talk.shared = 1;
+	talk.member = 1;
 	talk.icon = 1;
+    talk.posts = 1111;
     
     [talks addObject:talk];
 	talk = [[Talk alloc] init];
 	talk.name = @"楽しげトーク";
     talk.periodStart = 2011.5;
     talk.periodEnd = 2034.2;
-	talk.shared = 1;
+	talk.member = 1;
 	talk.icon = 4;
+    talk.posts = 1111;
     
     [talks addObject:talk];
     talk = [[Talk alloc] init];
     talk.name = @"怪しいトーク1";
     talk.periodStart = 2031.3;
     talk.periodEnd = 2034.5;
-	talk.shared = 1;
+	talk.member = 1;
 	talk.icon = 4;
+    talk.posts = 1111;
     
+    //ゴーストセル(最後のセルだけ表示されない)
     [talks addObject:talk];
     talk = [[Talk alloc] init];
     talk.name = @"怪しいトーク2";
     talk.periodStart = 2031.3;
     talk.periodEnd = 2034.5;
-	talk.shared = 1;
+	talk.member = 1;
 	talk.icon = 4;
+    talk.posts = 1111;
 
 }
 
@@ -112,7 +119,14 @@
 	UIImageView * iconImageView = (UIImageView *)
     [cell viewWithTag:103];
 	iconImageView.image = [self imageForIcon:talk.icon];//アイコン画像
-    //talkの要素は{name,periodStart,periodEnd,shared,icon}
+    UILabel *memberLabel = (UILabel *)[cell viewWithTag:104];
+    memberLabel.text = [NSString stringWithFormat:@"%d ", talk.member];// メンバー数
+    UILabel *postsLabel = (UILabel *)[cell viewWithTag:105];
+    postsLabel.text = [NSString stringWithFormat:@"%d ", talk.posts];
+    
+    
+    
+    //talkの要素は{name,periodStart,periodEnd,member,icon,posts}
     
     return cell;
 }

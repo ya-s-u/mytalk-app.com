@@ -30,49 +30,62 @@
         <scene sceneID="TCi-ou-rgN">
             <objects>
                 <tableViewController id="4cI-VM-Zjd" customClass="TalkTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="TalkCells" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" id="e76-4r-h4q">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="TalkCells" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="22" sectionFooterHeight="22" id="e76-4r-h4q">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TalkCell" rowHeight="75" id="ex3-XD-Upt">
-                                <rect key="frame" x="0.0" y="86" width="320" height="75"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TalkCell" rowHeight="95" id="ex3-XD-Upt">
+                                <rect key="frame" x="0.0" y="86" width="320" height="95"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ex3-XD-Upt" id="vk9-eC-k9C">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="74"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="94"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14f-Nc-feW">
-                                            <rect key="frame" x="20" y="6" width="192" height="31"/>
+                                            <rect key="frame" x="86" y="10" width="192" height="31"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wi7-2F-JtH">
-                                            <rect key="frame" x="20" y="45" width="71" height="21"/>
+                                            <rect key="frame" x="166" y="49" width="71" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDF-TM-g4o">
-                                            <rect key="frame" x="113" y="45" width="42" height="21"/>
+                                            <rect key="frame" x="86" y="49" width="42" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="〜" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qg-2R-v9u">
-                                            <rect key="frame" x="79" y="45" width="17" height="21"/>
+                                            <rect key="frame" x="136" y="49" width="17" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" tag="103" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r49-gL-loY">
-                                            <rect key="frame" x="220" y="4" width="67" height="66"/>
+                                            <rect key="frame" x="11" y="14" width="67" height="66"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8b-Ov-7zy">
+                                            <rect key="frame" x="216" y="49" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="105" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee0-nO-7QW">
+                                            <rect key="frame" x="245" y="49" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -83,7 +96,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Talk" id="llN-nO-E4c">
-                        <barButtonItem key="rightBarButtonItem" title="＋" id="QXb-43-186">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="QXb-43-186">
                             <connections>
                                 <segue destination="jYQ-YL-b2D" kind="push" id="LTg-Ai-5Zk"/>
                             </connections>
@@ -94,7 +107,7 @@
             </objects>
             <point key="canvasLocation" x="-2688" y="757"/>
         </scene>
-        <!--Table View Controller - 設定-->
+        <!--Table View Controller - トークの追加-->
         <scene sceneID="MKc-Jc-vdY">
             <objects>
                 <tableViewController id="jYQ-YL-b2D" sceneMemberID="viewController">
@@ -117,7 +130,7 @@
                             <outlet property="delegate" destination="jYQ-YL-b2D" id="4wc-1U-hgH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="設定" id="fNF-XB-OHc"/>
+                    <navigationItem key="navigationItem" title="トークの追加" id="fNF-XB-OHc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bf5-Gf-p73" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -297,7 +310,7 @@
                                 <rect key="frame" x="160" y="171" width="132" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                 <connections>
                                     <action selector="identification:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="rpc-UT-ZTP"/>
                                     <action selector="login:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="SGI-d0-dRS"/>
@@ -319,7 +332,7 @@
                                 <rect key="frame" x="160" y="215" width="132" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" secureTextEntry="YES"/>
                                 <connections>
                                     <action selector="login:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="k0A-h0-ELE"/>
                                     <action selector="password:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="jDp-7N-DSV"/>
