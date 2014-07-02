@@ -36,8 +36,8 @@
 		187AED451962E32600294395 /* RoundIcons-Free-Set-03.png in Resources */ = {isa = PBXBuildFile; fileRef = 187AED401962E32600294395 /* RoundIcons-Free-Set-03.png */; };
 		187AED461962E32600294395 /* RoundIcons-Free-Set-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 187AED411962E32600294395 /* RoundIcons-Free-Set-04.png */; };
 		187AED471962E32600294395 /* RoundIcons-Free-Set-05.png in Resources */ = {isa = PBXBuildFile; fileRef = 187AED421962E32600294395 /* RoundIcons-Free-Set-05.png */; };
-		187AED4A196313D600294395 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED49196313D600294395 /* SignUpViewController.m */; };
 		187AED4D1963E62100294395 /* TalkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED4C1963E62100294395 /* TalkViewController.m */; };
+		187AED8F1964551600294395 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED8E1964551500294395 /* SignUpViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,10 +89,10 @@
 		187AED401962E32600294395 /* RoundIcons-Free-Set-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RoundIcons-Free-Set-03.png"; path = "../../../client/img/icon/RoundIcons-Free-Set-03.png"; sourceTree = "<group>"; };
 		187AED411962E32600294395 /* RoundIcons-Free-Set-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RoundIcons-Free-Set-04.png"; path = "../../../client/img/icon/RoundIcons-Free-Set-04.png"; sourceTree = "<group>"; };
 		187AED421962E32600294395 /* RoundIcons-Free-Set-05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RoundIcons-Free-Set-05.png"; path = "../../../client/img/icon/RoundIcons-Free-Set-05.png"; sourceTree = "<group>"; };
-		187AED48196313D600294395 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
-		187AED49196313D600294395 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		187AED4B1963E62100294395 /* TalkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkViewController.h; sourceTree = "<group>"; };
 		187AED4C1963E62100294395 /* TalkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkViewController.m; sourceTree = "<group>"; };
+		187AED8D1964551500294395 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		187AED8E1964551500294395 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +153,8 @@
 		184F7981195AB987000BE727 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				187AED8D1964551500294395 /* SignUpViewController.h */,
+				187AED8E1964551500294395 /* SignUpViewController.m */,
 				187AED3B1962E29500294395 /* LoginViewController.h */,
 				187AED3C1962E29500294395 /* LoginViewController.m */,
 				184F798A195AB987000BE727 /* AppDelegate.h */,
@@ -167,8 +169,6 @@
 				184F7994195AB987000BE727 /* ViewController.m */,
 				184F79F019628FB7000BE727 /* TabViewController.h */,
 				184F79F119628FB7000BE727 /* TabViewController.m */,
-				187AED48196313D600294395 /* SignUpViewController.h */,
-				187AED49196313D600294395 /* SignUpViewController.m */,
 				184F79D01961A464000BE727 /* Talk.h */,
 				184F79D11961A464000BE727 /* Talk.m */,
 				184F7996195AB987000BE727 /* Images.xcassets */,
@@ -331,7 +331,7 @@
 				184F798C195AB987000BE727 /* AppDelegate.m in Sources */,
 				184F79F219628FB7000BE727 /* TabViewController.m in Sources */,
 				184F7988195AB987000BE727 /* main.m in Sources */,
-				187AED4A196313D600294395 /* SignUpViewController.m in Sources */,
+				187AED8F1964551600294395 /* SignUpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

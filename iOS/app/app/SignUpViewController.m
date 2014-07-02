@@ -13,6 +13,15 @@
 @end
 
 @implementation SignUpViewController
+- (IBAction)mail:(id)sender {
+}
+- (IBAction)pass:(id)sender {
+}
+- (IBAction)signup:(id)sender {
+}
+- (IBAction)toLogin:(id)sender {
+    [self performSegueWithIdentifier:@"toLogin" sender:self];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
