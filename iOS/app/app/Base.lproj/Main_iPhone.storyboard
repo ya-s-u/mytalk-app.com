@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-3646" y="757"/>
         </scene>
-        <!--Talk Table View Controller - My Talk-->
+        <!--Talk Table View Controller - すべてのトーク-->
         <scene sceneID="TCi-ou-rgN">
             <objects>
                 <tableViewController id="4cI-VM-Zjd" customClass="TalkTableViewController" sceneMemberID="viewController">
@@ -95,13 +95,16 @@
                             <outlet property="delegate" destination="4cI-VM-Zjd" id="azS-U0-ZAO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Talk" id="llN-nO-E4c">
+                    <navigationItem key="navigationItem" title="すべてのトーク" id="llN-nO-E4c">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="QXb-43-186">
                             <connections>
                                 <segue destination="jYQ-YL-b2D" kind="push" id="LTg-Ai-5Zk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="1Gn-ba-bZm" kind="push" identifier="toViewController" id="fAl-rh-ZoV"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P3g-tP-uUO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -136,7 +139,7 @@
             </objects>
             <point key="canvasLocation" x="-2164" y="757"/>
         </scene>
-        <!--Table View Controller - My Talk-->
+        <!--Table View Controller - 共有中-->
         <scene sceneID="gEg-rI-0RU">
             <objects>
                 <tableViewController id="qmh-ZW-4ZX" sceneMemberID="viewController">
@@ -159,11 +162,45 @@
                             <outlet property="delegate" destination="qmh-ZW-4ZX" id="40L-dG-kj4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Talk" id="e4n-yp-1jQ"/>
+                    <navigationItem key="navigationItem" title="共有中" id="e4n-yp-1jQ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBD-bn-5nm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2680" y="1425"/>
+        </scene>
+        <!--Table View Controller - @@のトーク-->
+        <scene sceneID="rZb-de-FBL">
+            <objects>
+                <tableViewController id="1Gn-ba-bZm" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Of0-Wt-nB9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="v19-kK-ED8">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v19-kK-ED8" id="XR9-IF-c5N">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1Gn-ba-bZm" id="mTz-uu-Qbu"/>
+                            <outlet property="delegate" destination="1Gn-ba-bZm" id="iHR-ED-0TV"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="@@のトーク" id="S5G-ex-tdE">
+                        <barButtonItem key="rightBarButtonItem" title="トーク設定" style="plain" id="SMR-5c-RAd"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="Vdp-32-l0T" kind="push" id="Yj3-jn-PQ1"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vyw-wK-veY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2162" y="1425"/>
         </scene>
         <!--Navigation Controller - 共有中-->
         <scene sceneID="EdG-0c-G29">
@@ -197,7 +234,7 @@
             </objects>
             <point key="canvasLocation" x="-3160" y="757"/>
         </scene>
-        <!--Table View Controller - My Talk-->
+        <!--Table View Controller - アクティビティ-->
         <scene sceneID="sJ1-zM-hRz">
             <objects>
                 <tableViewController id="IbI-VH-8JX" sceneMemberID="viewController">
@@ -220,13 +257,13 @@
                             <outlet property="delegate" destination="IbI-VH-8JX" id="8vm-yL-h4B"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Talk" id="Hrd-Fj-QMo"/>
+                    <navigationItem key="navigationItem" title="アクティビティ" id="Hrd-Fj-QMo"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eTP-DI-Web" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2680" y="2813"/>
         </scene>
-        <!--Table View Controller - My Talk-->
+        <!--Table View Controller - 設定-->
         <scene sceneID="Eyz-eh-ZrR">
             <objects>
                 <tableViewController id="IP1-S8-waq" sceneMemberID="viewController">
@@ -249,11 +286,40 @@
                             <outlet property="delegate" destination="IP1-S8-waq" id="gDS-Ds-gTt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Talk" id="U5i-68-usq"/>
+                    <navigationItem key="navigationItem" title="設定" id="U5i-68-usq"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pCI-DO-caC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2680" y="2113"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="1kd-XB-HyR">
+            <objects>
+                <tableViewController id="Vdp-32-l0T" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="8Xj-sr-34Y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="op6-LB-mPL">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="op6-LB-mPL" id="bIV-PO-uCK">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Vdp-32-l0T" id="apD-hH-bA6"/>
+                            <outlet property="delegate" destination="Vdp-32-l0T" id="kLB-mB-Ngs"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="lQp-6j-eMq"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R4a-D9-6Jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2162" y="2113"/>
         </scene>
         <!--Navigation Controller - 設定-->
         <scene sceneID="SjZ-Ht-CHm">
@@ -300,7 +366,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ログインをどうぞ。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNW-Ma-r98">
-                                <rect key="frame" x="74" y="112" width="246" height="26"/>
+                                <rect key="frame" x="33" y="105" width="246" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -382,7 +448,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3160" y="50"/>
+            <point key="canvasLocation" x="-2680" y="50"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HeG-J5-M58">
@@ -397,7 +463,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehb-d6-Coa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4180" y="50"/>
+            <point key="canvasLocation" x="-3646" y="50"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="aF4-4e-N7C">
@@ -485,7 +551,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sjk-nO-o0U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3660" y="50"/>
+            <point key="canvasLocation" x="-3160" y="50"/>
         </scene>
     </scenes>
     <resources>

@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TalkTableViewController : UITableViewController{
+
+@interface TalkTableViewController : UITableViewController
+<UITableViewDataSource, UITableViewDelegate>{
     int* _sessionID;
 }
 @property (nonatomic, strong) NSMutableArray *talks;

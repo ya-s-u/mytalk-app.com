@@ -37,6 +37,7 @@
 		187AED461962E32600294395 /* RoundIcons-Free-Set-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 187AED411962E32600294395 /* RoundIcons-Free-Set-04.png */; };
 		187AED471962E32600294395 /* RoundIcons-Free-Set-05.png in Resources */ = {isa = PBXBuildFile; fileRef = 187AED421962E32600294395 /* RoundIcons-Free-Set-05.png */; };
 		187AED4A196313D600294395 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED49196313D600294395 /* SignUpViewController.m */; };
+		187AED4D1963E62100294395 /* TalkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED4C1963E62100294395 /* TalkViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,8 @@
 		187AED421962E32600294395 /* RoundIcons-Free-Set-05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RoundIcons-Free-Set-05.png"; path = "../../../client/img/icon/RoundIcons-Free-Set-05.png"; sourceTree = "<group>"; };
 		187AED48196313D600294395 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		187AED49196313D600294395 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		187AED4B1963E62100294395 /* TalkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkViewController.h; sourceTree = "<group>"; };
+		187AED4C1963E62100294395 /* TalkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,8 @@
 				184F798A195AB987000BE727 /* AppDelegate.h */,
 				184F798B195AB987000BE727 /* AppDelegate.m */,
 				184F798D195AB987000BE727 /* Main_iPhone.storyboard */,
+				187AED4B1963E62100294395 /* TalkViewController.h */,
+				187AED4C1963E62100294395 /* TalkViewController.m */,
 				184F79CA19606E19000BE727 /* TalkTableViewController.h */,
 				184F79CB19606E19000BE727 /* TalkTableViewController.m */,
 				184F7990195AB987000BE727 /* Main_iPad.storyboard */,
@@ -319,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				187AED3D1962E29500294395 /* LoginViewController.m in Sources */,
+				187AED4D1963E62100294395 /* TalkViewController.m in Sources */,
 				184F79D21961A464000BE727 /* Talk.m in Sources */,
 				184F79CC19606E19000BE727 /* TalkTableViewController.m in Sources */,
 				184F7995195AB987000BE727 /* ViewController.m in Sources */,

@@ -7,9 +7,13 @@
 //
 
 #import "TalkTableViewController.h"
+#import "TalkViewController.h"
 #import "talk.h"
 
-@interface TalkTableViewController ()
+@interface TalkTableViewController (){
+    NSDictionary *listDict;
+    NSString* selectedImage;
+}
 
 @end
 
@@ -130,7 +134,12 @@
     
     return cell;
 }
-
+//セルが選択された時の挙動
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // toViewController
+    [self performSegueWithIdentifier:@"toViewController" sender:self];
+}
 
 /*
 // Override to support conditional editing of the table view.
