@@ -11,9 +11,9 @@
 
 @interface TalkTableViewController : UITableViewController
 <UITableViewDataSource, UITableViewDelegate>{
-    int* _sessionID;
+    NSInteger* _sessionID;
 }
 @property (nonatomic, strong) NSMutableArray *talks;
-@property (nonatomic) int* sessionID;
+@property (nonatomic, assign) NSInteger* sessionID;
 
 @end

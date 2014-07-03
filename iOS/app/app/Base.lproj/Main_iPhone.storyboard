@@ -261,7 +261,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eTP-DI-Web" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2680" y="2813"/>
+            <point key="canvasLocation" x="-2688" y="2161"/>
         </scene>
         <!--Table View Controller - 設定-->
         <scene sceneID="Eyz-eh-ZrR">
@@ -290,9 +290,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pCI-DO-caC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2680" y="2113"/>
+            <point key="canvasLocation" x="-2680" y="2975"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Table View Controller - トーク設定-->
         <scene sceneID="1kd-XB-HyR">
             <objects>
                 <tableViewController id="Vdp-32-l0T" sceneMemberID="viewController">
@@ -315,7 +315,7 @@
                             <outlet property="delegate" destination="Vdp-32-l0T" id="kLB-mB-Ngs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="lQp-6j-eMq"/>
+                    <navigationItem key="navigationItem" title="トーク設定" id="lQp-6j-eMq"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R4a-D9-6Jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -335,7 +335,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jba-Ex-Dj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3152" y="2113"/>
+            <point key="canvasLocation" x="-3152" y="2975"/>
         </scene>
         <!--Navigation Controller - アクティビティ-->
         <scene sceneID="ofU-y5-UrB">
@@ -351,7 +351,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6NQ-el-T0v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3152" y="2813"/>
+            <point key="canvasLocation" x="-3160" y="2161"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="Z3h-G1-DUZ">
@@ -365,14 +365,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aci-h6-shG">
-                                <rect key="frame" x="0.0" y="14" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="My Talk" id="Dum-PH-nYO"/>
-                                </items>
-                            </navigationBar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Talkへようこそ。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byX-RQ-MGB">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="My Talkへようこそ。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byX-RQ-MGB">
                                 <rect key="frame" x="74" y="80" width="197" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -396,7 +389,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFU-4O-OAP">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFU-4O-OAP">
                                 <rect key="frame" x="91" y="278" width="139" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
@@ -411,21 +404,23 @@
                                 <rect key="frame" x="162" y="169" width="138" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                 <connections>
                                     <action selector="mail:" destination="kiF-6n-3e7" eventType="editingDidEnd" id="5mU-ed-6A2"/>
+                                    <outlet property="delegate" destination="kiF-6n-3e7" id="0F6-Gn-ryt"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xsw-O7-j5H">
                                 <rect key="frame" x="162" y="213" width="138" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" secureTextEntry="YES"/>
                                 <connections>
                                     <action selector="pass:" destination="kiF-6n-3e7" eventType="editingDidEnd" id="fII-ip-gw9"/>
+                                    <outlet property="delegate" destination="kiF-6n-3e7" id="Cfd-KS-xun"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fh-wg-UQL">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fh-wg-UQL">
                                 <rect key="frame" x="48" y="471" width="225" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="アカウントをお持ちの方はこちら">
@@ -435,11 +430,32 @@
                                     <action selector="toLogin:" destination="kiF-6n-3e7" eventType="touchUpInside" id="RzR-5h-05r"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXl-ut-jYn">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Fna-XO-9sE"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="My Talk" id="O7w-01-cNl"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="byX-RQ-MGB" firstAttribute="top" secondItem="TXl-ut-jYn" secondAttribute="bottom" constant="36" id="5EN-R9-90R"/>
+                            <constraint firstItem="TXl-ut-jYn" firstAttribute="centerX" secondItem="JFU-4O-OAP" secondAttribute="centerX" id="Pfn-B7-vKM"/>
+                            <constraint firstItem="TXl-ut-jYn" firstAttribute="top" secondItem="aI4-Y4-4zb" secondAttribute="top" id="TfP-eN-o1z"/>
+                            <constraint firstItem="TXl-ut-jYn" firstAttribute="centerX" secondItem="6fh-wg-UQL" secondAttribute="centerX" id="dbv-Sg-kCr"/>
+                            <constraint firstItem="TXl-ut-jYn" firstAttribute="leading" secondItem="aI4-Y4-4zb" secondAttribute="leading" id="iOI-FD-dRI"/>
+                            <constraint firstAttribute="trailing" secondItem="TXl-ut-jYn" secondAttribute="trailing" id="yY0-Lp-CCL"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="mail" destination="bvZ-ui-rBp" id="aQi-Yw-8Mm"/>
+                        <outlet property="pass" destination="xsw-O7-j5H" id="knG-75-Xyv"/>
                         <segue destination="vXZ-lx-hvc" kind="modal" identifier="toLogin" id="Mdk-yk-g9y"/>
+                        <segue destination="I7w-V2-VTY" kind="modal" identifier="signupOpen" id="KDf-CN-7bQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xdo-vw-UTF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -556,4 +572,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="KDf-CN-7bQ"/>
+    </inferredMetricsTieBreakers>
 </document>

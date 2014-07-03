@@ -38,7 +38,7 @@
     /*
      *  ここにJSONを生成してログインする処理を投げる。
      *  戻ってくる固有IDはTalkTableViewControllerにある
-     *  (int)sessionIDに入れる。
+     *  (NSInteger)sessionIDに入れる。
     */
     
     

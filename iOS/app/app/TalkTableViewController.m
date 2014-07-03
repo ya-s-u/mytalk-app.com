@@ -95,7 +95,7 @@
     return [self.talks count];
 }
 //
-- (UIImage *)imageForIcon:(int)selecter
+- (UIImage *)imageForIcon:(NSInteger)selecter
 {
 	switch (selecter)
 	{
@@ -117,16 +117,16 @@
     UILabel *nameLabel = (UILabel *)[cell viewWithTag:100];//トーク名
 	nameLabel.text = talk.name;
 	UILabel *periodStartLabel = (UILabel *)[cell viewWithTag:101];//開始年月
-	periodStartLabel.text = [NSString stringWithFormat:@"%d ", talk.periodStart];
+	periodStartLabel.text = [NSString stringWithFormat:@"%ld ", talk.periodStart];
     UILabel *periodEndLabel = (UILabel *)[cell viewWithTag:102];//終了年月
-	periodEndLabel.text = [NSString stringWithFormat:@"%d ", talk.periodEnd];
+	periodEndLabel.text = [NSString stringWithFormat:@"%ld ", talk.periodEnd];
 	UIImageView * iconImageView = (UIImageView *)
     [cell viewWithTag:103];
 	iconImageView.image = [self imageForIcon:talk.icon];//アイコン画像
     UILabel *memberLabel = (UILabel *)[cell viewWithTag:104];
-    memberLabel.text = [NSString stringWithFormat:@"%d ", talk.member];// メンバー数
+    memberLabel.text = [NSString stringWithFormat:@"%ld ", talk.member];// メンバー数
     UILabel *postsLabel = (UILabel *)[cell viewWithTag:105];
-    postsLabel.text = [NSString stringWithFormat:@"%d ", talk.posts];
+    postsLabel.text = [NSString stringWithFormat:@"%ld ", talk.posts];
     
     
     
