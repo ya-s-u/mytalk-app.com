@@ -164,7 +164,7 @@ mainControllers.controller('TalkViewCtrl', ['$scope', '$routeParams', '$http',
 		//現在日時取得
 		var now = new Date();
 		$scope.year = now.getFullYear();
-		$scope.month = now.getMonth()-1;
+		$scope.month = now.getMonth()-2;
 
 		var $id= $routeParams.id;
 
@@ -199,7 +199,6 @@ mainControllers.controller('TalkViewCtrl', ['$scope', '$routeParams', '$http',
 			if(num > 5) {
 				$("#member ul").append("<li class='more'>全て表示("+num+")</li>");
 			}
-
 
 		}).error(function(data, status, headers, config) {
 		    console.log('failed!');

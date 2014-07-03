@@ -79,8 +79,6 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 	content: "\e602";
 }
 
-
-
 /* Common */
 body {
 	background: #f8f8f8;
@@ -127,13 +125,53 @@ ul.log li span {
 	background: #eee;
 }
 
+/* Modal */
+.modal {
+	width: 500px;
+	margin: 0;
+	padding: 20px 40px;
+	border-radius: 5px;
+	box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+	border: 1px solid rgba(0,0,0,0.3);
+	background: #fff;
+	position: absolute;
+	display: none;
+	z-index: 999;
+}
+
+#overlay {
+	z-index: 998;
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 120%;
+	background-color: rgba(255,255,255,0.75);
+}
+
+.modal .close {
+	margin: 20px 0;
+}
+
+.modal .close a {
+	background: #4d90fe;
+	border: 1px solid #3079ed;
+	color: white;
+	padding: 7px 15px;
+}
+
+.modal .title {
+	font-size: 16px;
+}
+
 /* Header */
 #header {
 	width: 100%;
 	height: 55px;
 	background: #2f9ee6;
-	background: -webkit-linear-gradient(#2f9ee6 30%,#1f80cd 100%);
-	background: linear-gradient(#2f9ee6 30%,#1f80cd 100%);
+	//background: -webkit-linear-gradient(#2f9ee6 30%,#1f80cd 100%);
+	//background: linear-gradient(#2f9ee6 30%,#1f80cd 100%);
 	border-bottom: 1px solid #15578b;
 	z-index: 100;
 }
@@ -175,7 +213,6 @@ h1 {
 	border-radius: 5px;
 	box-shadow: 0 6px 12px rgba(0,0,0,0.175);
 	border: 1px solid rgba(0,0,0,0.15);
-	background-clip: padding-box;
 	display: none;
 	position: absolute;
 }
@@ -287,7 +324,7 @@ ul#list li .panel p.modified {
 	background: #f8f8f8;
 	z-index: 10;
 	width: 1000px;
-	padding: 25px 0;
+	padding: 25px 0 20px 0;
 }
 
 a.back {
@@ -351,23 +388,26 @@ span.line:after {
 	content: 'LINE';
 }
 
-#top #share {
+#top ul#button {
 	float: right;
-	cursor: pointer;
-	font-size: 14px;
 }
 
-#top #share:hover {
-	border-bottom: 1px solid black;
+#top ul#button li {
+	float: left;
+	margin-left: 20px;
 }
 
-#top #share span.icon {
+#top ul#button li span.icon {
 	font-size: 16px;
-	margin-right: 5px;
+	margin-right: 3px;
 	position: relative;
 	top: 1px;
 }
 
+#top ul#button li:hover {
+	cursor: pointer;
+	border-bottom: 1px solid black;
+}
 
 /* Left */
 #left {
