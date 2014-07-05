@@ -38,6 +38,7 @@
 		187AED471962E32600294395 /* RoundIcons-Free-Set-05.png in Resources */ = {isa = PBXBuildFile; fileRef = 187AED421962E32600294395 /* RoundIcons-Free-Set-05.png */; };
 		187AED4D1963E62100294395 /* TalkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED4C1963E62100294395 /* TalkViewController.m */; };
 		187AED8F1964551600294395 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED8E1964551500294395 /* SignUpViewController.m */; };
+		187AED9219685B1500294395 /* Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED9119685B1500294395 /* Validation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,8 @@
 		187AED4C1963E62100294395 /* TalkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkViewController.m; sourceTree = "<group>"; };
 		187AED8D1964551500294395 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		187AED8E1964551500294395 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		187AED9019685B1500294395 /* Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validation.h; sourceTree = "<group>"; };
+		187AED9119685B1500294395 /* Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +171,8 @@
 				184F7993195AB987000BE727 /* ViewController.h */,
 				184F7994195AB987000BE727 /* ViewController.m */,
 				184F79F019628FB7000BE727 /* TabViewController.h */,
+				187AED9019685B1500294395 /* Validation.h */,
+				187AED9119685B1500294395 /* Validation.m */,
 				184F79F119628FB7000BE727 /* TabViewController.m */,
 				184F79D01961A464000BE727 /* Talk.h */,
 				184F79D11961A464000BE727 /* Talk.m */,
@@ -327,6 +332,7 @@
 				187AED4D1963E62100294395 /* TalkViewController.m in Sources */,
 				184F79D21961A464000BE727 /* Talk.m in Sources */,
 				184F79CC19606E19000BE727 /* TalkTableViewController.m in Sources */,
+				187AED9219685B1500294395 /* Validation.m in Sources */,
 				184F7995195AB987000BE727 /* ViewController.m in Sources */,
 				184F798C195AB987000BE727 /* AppDelegate.m in Sources */,
 				184F79F219628FB7000BE727 /* TabViewController.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "SignUpViewController.h"
 #import "TabViewController.h"
+#import "TalkTableViewController.h"
 
 @interface SignUpViewController ()
 
@@ -26,7 +27,8 @@
     self.passWd = self.pass.text;
     NSString *passString = self.passWd;
     /*
-     * ここにサインアップの処理を書く
+     * サインアップ処理ここから（暫定)
+     * RequestHeaderを作る
      */
     
     NSString *orign = @"http://www.filltext.com";
@@ -34,13 +36,16 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSData *json = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSArray *array = [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingAllowFragments error:nil];
-    NSLog(@"1stParameter：%@　2ndParameter：%@", [array valueForKeyPath:@"fname"],
-          [array valueForKeyPath:@"lname"]);
-    
+    NSMutableArray *data = [NSMutableArray array];
+    NSString *sessionStr = [data objectAtIndex:0];
+    NSLog(@"sessionStr : %@", sessionStr);
     
     
     if ([mailString length] == 0 || [passString length] == 0) {
-        //nameString = @"World";
+        //全ての項目を入力してください。
+    } else if([sessionStr length] == 0){
+        //ログインに失敗?
+        
     } else {
         //サインアップできた場合のみこっちを実行する
         [self performSegueWithIdentifier:@"signupOpen" sender:self];
@@ -53,13 +58,17 @@
 - (IBAction)toLogin:(id)sender {
     [self performSegueWithIdentifier:@"toLogin" sender:self];
 }
-//サインアップできたときに戻ってこないため
+//サインアップできたときに戻ってこないためのやつ
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"signupOpen"]) {
         TabViewController *tvc = segue.destinationViewController;
         tvc.successFlag = YES;
     }
 }
+
+
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -72,6 +81,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
 }
 

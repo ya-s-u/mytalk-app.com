@@ -7,8 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "talk.h"
-#import "TalkTableViewController.h"
+
+
+//#import "talk.h"
+//#import "TalkTableViewController.h"
 
 @implementation AppDelegate {
 	NSMutableArray *talks;
