@@ -1,4 +1,39 @@
-<p class="title">トーク設定</p>
+<div ng-controller="TalkSettingCtrl" id="talk-setting">
+    <p class="title">トーク設定</p>
 
+    <form>
+        <div class="left">
+            <label>アイコン</label>
+            <img src="../img/icon/RoundIcons-Free-Set-01.png">
+        </div>
+        <div class="right">
+            <label>タイトル(20字まで)<span id="title_num">0/20</span></label>
+            <input type="text" class="text" size="35" value="{{head.title}}"/>
+            <label>自分の名前</label>
+            <select class="dropdown"ng-model="selectedName" ng-options="data as data.name for data in member">
+                <option>選択してください</option>
+            </select>
+        </div>
+    </form>
 
-<p class="close"><a>完了</a></p>
+    <p class="button submit"><a>変更</a></p>
+
+    <span class="border"></span>
+
+    <p class=" button delete"><a>トークを削除する</a></p>
+</div>
+
+<script>
+$(function(){
+    $(".text").bind("change keyup",function(){
+    var count = $(this).val().length;
+        $("#title_num").text(count+"/20");
+
+        if(count>20) {
+            $("#title_num").css({"color":"red"});
+        } else {
+            $("#title_num").css({"color":""});
+        }
+    });
+});
+</script>

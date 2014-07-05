@@ -105,7 +105,6 @@ mainControllers.controller('UserSignupCtrl', ['$scope','$location','$http',
   }]
 );
 
-
 mainControllers.controller('NewTalkCtrl', ['$scope','$location', '$http',
   function($scope, $location, $http) {
 		//トークアップロード
@@ -178,6 +177,10 @@ mainControllers.controller('TalkViewCtrl', ['$scope', '$routeParams', '$http',
 			$scope.head = data['response']['head'];
 			$scope.member = data['response']['member'];
 
+            //自分の名前
+            $scope.selectedName = $scope.member[0];
+            $("#title_num").text($scope.selectedName['name'].length+"/20");
+
 			var timeline = data['response']['timeline'];
 			$scope.count = timeline[$scope.year][$scope.month].length;
 			$scope.timeline = timeline[$scope.year][$scope.month];
@@ -188,11 +191,6 @@ mainControllers.controller('TalkViewCtrl', ['$scope', '$routeParams', '$http',
 				$scope.month = month;
 				$scope.timeline = timeline[$scope.year][$scope.month];
 			};
-
-			//最下部までスクロール
-			$('html').animate({
-				scrollTop: 999999,
-			});
 
 			//メンバー数
 			var num = $scope.member.length;
@@ -209,6 +207,23 @@ mainControllers.controller('TalkViewCtrl', ['$scope', '$routeParams', '$http',
 			return Date.parse(d);
 		};
 
-
 	}]
+);
+
+mainControllers.controller('TalkSettingCtrl', ['$scope', '$routeParams', '$http',
+    function($scope, $routeParams, $http) {
+
+        //タイトル文字数表示
+        $(".text").bind("change keyup",function(){
+            var count = $(this).val().length;
+            $("#title_num").text(count+"/20");
+
+            if(count>20) {
+                $("#title_num").css({"color":"red"});
+            } else {
+                $("#title_num").css({"color":""});
+            }
+        });
+
+    }]
 );

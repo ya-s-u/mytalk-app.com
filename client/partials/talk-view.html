@@ -1,3 +1,30 @@
+<div class="modal">
+	<div ng-controller="TalkSettingCtrl" id="talk-setting">
+		<p class="title">トーク設定</p>
+
+		<form>
+			<div class="left">
+				<label>アイコン</label>
+				<img src="../img/icon/RoundIcons-Free-Set-01.png">
+			</div>
+			<div class="right">
+				<label>タイトル(20字まで)<span id="title_num">0/20</span></label>
+				<input type="text" class="text" size="35" value="{{head.title}}"/>
+				<label>自分の名前</label>
+				<select class="dropdown"ng-model="selectedName" ng-options="data as data.name for data in member">
+					<option>選択してください</option>
+				</select>
+			</div>
+		</form>
+
+		<p class="button submit"><a>変更</a></p>
+
+		<span class="border"></span>
+
+		<p class=" button delete"><a>トークを削除する</a></p>
+	</div>
+</div>
+
 <div id="top" ng-init="user='後藤 誉昌'">
 	<a href="/mypage" class="back icon-back"></a>
 	<div id="title">
@@ -96,11 +123,18 @@ $('.mbutton').click(function(){
 
     $('body').append('<div id="overlay"></div>');
     $('#overlay').show();
-    $('.modal').attr("id",idName);
     $('.modal').show();
-    centering();
+	centering();
     $('body').css({"overflow":"hidden"});
-    $('.modal').load("../modals/"+idName+".html");
+
+	/*$.ajaxSetup({
+		cache: false,
+	});
+
+    $('.modal').load("../modals/"+idName+".html",function() {
+		centering();
+		$('.modal').append("<p class='close'><span class='icon-times'></span></p>");
+	});*/
 
     $(window).on('touchmove.noScroll',function(e) {
         e.preventDefault();
@@ -116,22 +150,22 @@ $('.mbutton').click(function(){
         }, 200);
     });
 
-    $('#overlay, .modal> a.close').click(function(){
+    $('#overlay,.close').click(function(){
         $('.modal,#overlay').hide();
-        $('.modal').attr("id","");
-        $('.modal').children().remove();
+        //$('.modal').children().remove();
         $('#overlay').remove();
         $('body').css({"overflow":"auto"});
         $(window).off('.noScroll');
     });
 
     function centering() {
+		var header_height = $('#header').outerHeight();
         var box_width = $('.modal').outerWidth();
         var box_height = $('.modal').outerHeight();
-        var window_width = $(window).outerWidth();
+        //var window_width = $(window).outerWidth();
         var window_height = $(window).outerHeight();
-        var top = (window_height-box_height)/2;
-        var left = (window_width-box_width)/2;
+        var top = (window_height-box_height)/2-header_height;
+        var left = (1000-box_width)/2;
         $('.modal').css({"top":top,"left":left});
     };
 });
@@ -146,7 +180,6 @@ $("#current").hover(function() {
 });
 */
 </script>
-
 
 <script type="text/javascript">
 $(function(){
