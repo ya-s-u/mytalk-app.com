@@ -1,29 +1,4 @@
-<div class="modal">
-	<div ng-controller="TalkSettingCtrl" id="talk-setting">
-		<p class="title">トーク設定</p>
-
-		<form>
-			<div class="left">
-				<label>アイコン</label>
-				<img src="../img/icon/RoundIcons-Free-Set-01.png">
-			</div>
-			<div class="right">
-				<label>タイトル(20字まで)<span id="title_num">0/20</span></label>
-				<input type="text" class="text" size="35" value="{{head.title}}"/>
-				<label>自分の名前</label>
-				<select class="dropdown"ng-model="selectedName" ng-options="data as data.name for data in member">
-					<option>選択してください</option>
-				</select>
-			</div>
-		</form>
-
-		<p class="button submit"><a>変更</a></p>
-
-		<span class="border"></span>
-
-		<p class=" button delete"><a>トークを削除する</a></p>
-	</div>
-</div>
+<div class="modal" ng-include="TalkModal" onload="OpenModal()"></div>
 
 <div id="top" ng-init="user='後藤 誉昌'">
 	<a href="/mypage" class="back icon-back"></a>
@@ -33,8 +8,8 @@
 		<span class="app line"></span>
 	</div>
 	<ul id="button">
-		<li id="talk-setting" class="mbutton"><span class="icon icon-setting"></span>設定</li>
-		<li id="talk-share" class="mbutton"><span class="icon icon-heart"></span>共有する</li>
+		<li ng-click="ShowModal('talk-setting')"><span class="icon icon-setting"></span>設定</li>
+		<li ng-click="ShowModal('talk-share')"><span class="icon icon-heart"></span>共有する</li>
 	</ul>
 </div>
 <div id="left">
@@ -116,90 +91,3 @@
 		</li>
 	</ul>
 </div>
-
-<script>
-$('.mbutton').click(function(){
-    var idName = $(this).attr('id');
-
-    $('body').append('<div id="overlay"></div>');
-    $('#overlay').show();
-    $('.modal').show();
-	centering();
-    $('body').css({"overflow":"hidden"});
-
-	/*$.ajaxSetup({
-		cache: false,
-	});
-
-    $('.modal').load("../modals/"+idName+".html",function() {
-		centering();
-		$('.modal').append("<p class='close'><span class='icon-times'></span></p>");
-	});*/
-
-    $(window).on('touchmove.noScroll',function(e) {
-        e.preventDefault();
-    })
-
-    var timer = false;
-    $(window).resize(function() {
-        if (timer !== false) {
-            clearTimeout(timer);
-        }
-        timer = setTimeout(function() {
-            centering();
-        }, 200);
-    });
-
-    $('#overlay,.close').click(function(){
-        $('.modal,#overlay').hide();
-        //$('.modal').children().remove();
-        $('#overlay').remove();
-        $('body').css({"overflow":"auto"});
-        $(window).off('.noScroll');
-    });
-
-    function centering() {
-		var header_height = $('#header').outerHeight();
-        var box_width = $('.modal').outerWidth();
-        var box_height = $('.modal').outerHeight();
-        //var window_width = $(window).outerWidth();
-        var window_height = $(window).outerHeight();
-        var top = (window_height-box_height)/2-header_height;
-        var left = (1000-box_width)/2;
-        $('.modal').css({"top":top,"left":left});
-    };
-});
-</script>
-
-<script>
-/*
-$("#current").hover(function() {
-	$("ul#date_menu").show();
-}, function() {
-	$("ul#date_menu").hide();
-});
-*/
-</script>
-
-<script type="text/javascript">
-$(function(){
-	$(window).scroll(function () {
-		var ScrTop = $(document).scrollTop();
-
-		if(ScrTop > 50) {
-			//$("#header").css({"position":"fixed","z-index":"100"});
-			$("#header").css({"position":"fixed","top":"-50px"});
-			$("#top").css({"position":"fixed","top":"5px"});
-			$("#left").css({"position":"fixed","opacity":"0.5"});
-			$("#talk").css({"position":"absolute","top":"50px"});
-			$("#head").css({"position":"fixed","top":"80","box-shadow":"0 1px 1px rgba(200,200,200,.5)"});
-		} else {
-			$("#header").css({"position":"inherit"});
-			$("#top").css({"position":"absolute","top":"0"});
-			$("#left").css({"position":"absolute","opacity":"1.0"});
-			$("#talk").css({"position":"inherit","top":"0"});
-			$("#head").css({"position":"absolute","top":"0","box-shadow":"none"});
-		}
-	});
-});
-</script>

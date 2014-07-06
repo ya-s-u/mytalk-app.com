@@ -164,11 +164,15 @@ mainControllers.controller('TalkListCtrl', ['$scope', '$http',
 
 mainControllers.controller('TalkViewCtrl', ['$scope', '$routeParams', '$http',
 	function($scope, $routeParams, $http) {
-		//現在日時取得
-		var now = new Date();
-		$scope.year = now.getFullYear();
-		$scope.month = now.getMonth()-2;
 
+        //日付フォーマット
+        var formatDate = function (date, format) {
+          format = format.replace(/YYYY/g, date.getFullYear());
+          format = format.replace(/MM/g, date.getMonth()+1);
+          return format;
+        };
+
+        //トークID
 		var $id= $routeParams.id;
 
 		//json取得(非同期)
@@ -182,21 +186,24 @@ mainControllers.controller('TalkViewCtrl', ['$scope', '$routeParams', '$http',
             },
 		}).success(function(data, status, headers, config) {
 			$scope.head = data['response']['head'];
-			$scope.member = data['response']['member'];
+            $scope.member = data['response']['member'];
+
+            //年月指定
+            $scope.year = formatDate(new Date($scope.head['end']),'YYYY');
+            $scope.month = formatDate(new Date($scope.head['end']),'MM');
 
             //自分の名前
             $scope.selectedName = $scope.member[0];
             $("#title_num").text($scope.selectedName['name'].length+"/20");
 
-			var timeline = data['response']['timeline'];
-			$scope.count = timeline[$scope.year][$scope.month].length;
-			$scope.timeline = timeline[$scope.year][$scope.month];
+            $scope.timeline = data['response']['timeline'][$scope.year][$scope.month];
+			$scope.count = $scope.timeline.length;
 
 			//年月指定
 			$scope.setDate = function(year,month) {
 				$scope.year = year;
 				$scope.month = month;
-				$scope.timeline = timeline[$scope.year][$scope.month];
+				$scope.timeline = data['response']['timeline'][$scope.year][$scope.month];
 			};
 
 			//メンバー数
@@ -213,6 +220,81 @@ mainControllers.controller('TalkViewCtrl', ['$scope', '$routeParams', '$http',
 		$scope.parseDate = function(d) {
 			return Date.parse(d);
 		};
+
+        //スクロール制御
+        $(window).scroll(function () {
+            var ScrTop = $(document).scrollTop();
+
+            if(ScrTop > 50) {
+                //$("#header").css({"position":"fixed","z-index":"100"});
+                $("#header").css({"position":"fixed","top":"-50px"});
+                $("#top").css({"position":"fixed","top":"5px"});
+                $("#left").css({"position":"fixed","opacity":"0.5"});
+                $("#talk").css({"position":"absolute","top":"50px"});
+                $("#head").css({"position":"fixed","top":"80","box-shadow":"0 1px 1px rgba(200,200,200,.5)"});
+            } else {
+                $("#header").css({"position":"inherit"});
+                $("#top").css({"position":"absolute","top":"0"});
+                $("#left").css({"position":"absolute","opacity":"1.0"});
+                $("#talk").css({"position":"inherit","top":"0"});
+                $("#head").css({"position":"absolute","top":"0","box-shadow":"none"});
+            }
+        });
+
+        //読み込み済みモーダル
+        var LoadedModal = [];
+
+        //モーダル読み込み
+        $scope.ShowModal = function(ModalId) {
+            if($.inArray(ModalId,LoadedModal) >= 0) {
+                $scope.OpenModal();
+            } else {
+                LoadedModal.push(ModalId);
+                $scope.TalkModal = 'modals/'+ModalId+'.html';
+            }
+        };
+
+        //モーダルオープン
+        $scope.OpenModal = function() {
+            $('body').append('<div id="overlay"></div>').css({"overflow":"hidden"});
+            centering();
+            $('#overlay,.modal').show();
+
+            //スマホスクロール禁止
+            $(window).on('touchmove.noScroll',function(e) {
+                e.preventDefault();
+            })
+
+            //ウィンドウリサイズ後にセンタリング
+            var timer = false;
+            $(window).resize(function() {
+                if (timer !== false) {
+                    clearTimeout(timer);
+                }
+                timer = setTimeout(function() {
+                    centering();
+                }, 200);
+            });
+
+            //モーダルを閉じる
+            $('#overlay,.close').click(function(){
+                $('#overlay,.modal').hide();
+                $('#overlay').remove();
+                $('body').css({"overflow":"auto"});
+                $(window).off('.noScroll');
+            });
+
+            function centering() {
+                var header_height = $('#header').outerHeight();
+                var box_width = $('.modal').outerWidth();
+                var box_height = $('.modal').outerHeight();
+                //var window_width = $(window).outerWidth();
+                var window_height = $(window).outerHeight();
+                var top = (window_height-box_height)/2-header_height;
+                var left = (1000-box_width)/2;
+                $('.modal').css({"top":top,"left":left});
+            };
+        };
 
 	}]
 );
