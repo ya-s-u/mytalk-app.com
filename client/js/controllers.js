@@ -285,11 +285,11 @@ mainControllers.controller('TalkViewCtrl', ['$scope', '$routeParams', '$http',
 
         //モーダル読み込み
         $scope.ShowModal = function(ModalId) {
+            $scope.TalkModal = 'modals/'+ModalId+'.html';
             if($.inArray(ModalId,LoadedModal) >= 0) {
                 $scope.OpenModal();
             } else {
                 LoadedModal.push(ModalId);
-                $scope.TalkModal = 'modals/'+ModalId+'.html';
             }
         };
 
@@ -298,6 +298,7 @@ mainControllers.controller('TalkViewCtrl', ['$scope', '$routeParams', '$http',
             $('body').append('<div id="overlay"></div>').css({"overflow":"hidden"});
             centering();
             $('#overlay,.modal').show();
+            $('.modal').append("<p class='close'><span class='icon-times'></span></p>");
 
             //スマホスクロール禁止
             $(window).on('touchmove.noScroll',function(e) {
