@@ -30,7 +30,7 @@
 </div>
 <div id="right">
 	<div id="head">
-		<span ng-click="setDate(year,month-1)" id="prev" class="move icon-left"></span>
+		<span ng-show="prevYear||prevMonth" ng-click="setDate(prevYear,prevMonth)" id="prev" class="move icon-left"></span>
 		<div id="current">
 			<p id="now">{{year}}年{{month}}月</p>
 			<p id="count">{{count}}トーク</p>
@@ -76,7 +76,7 @@
 			</ul>
 			-->
 		</div>
-		<span ng-click="setDate(year,month+1)" id="next" class="move icon-right"></span>
+		<span ng-show="nextYear||nextMonth" ng-click="setDate(nextYear,nextMonth)" id="next" class="move icon-right"></span>
 	</div>
 
 	<ul id="talk" class="line">

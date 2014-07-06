@@ -199,11 +199,50 @@ mainControllers.controller('TalkViewCtrl', ['$scope', '$routeParams', '$http',
             $scope.timeline = data['response']['timeline'][$scope.year][$scope.month];
 			$scope.count = $scope.timeline.length;
 
+            //1つ前の年月取得
+            function getPrev(year,month) {
+                if(""+year+month == formatDate(new Date($scope.head['start']),'YYYYMM')) {
+                    $scope.prevYear = null;
+                    $scope.prevMonth = null;
+                } else {
+                    if(month-1 == 0) { year--; month = 12;} else { month--;}
+
+                    if(data['response']['timeline'][year][month]) {
+                        $scope.prevYear = year;
+                        $scope.prevMonth = month;
+                    } else {
+                        getPrev(year,month-1);
+                    }
+                }
+            }
+
+            //1つ後の年月取得
+            function getNext(year,month) {
+                if(""+year+month == formatDate(new Date($scope.head['end']),'YYYYMM')) {
+                    $scope.nextYear = null;
+                    $scope.nextMonth = null;
+                } else {
+                    if(month+1 == 12) { year++; month = 1;} else { month++;}
+
+                    if(data['response']['timeline'][year][month]) {
+                        $scope.nextYear = year;
+                        $scope.nextMonth = month;
+                    } else {
+                        getNext(year,month-1);
+                    }
+                }
+            }
+
+            getPrev($scope.year,$scope.month);
+            getNext($scope.year,$scope.month);
+
 			//年月指定
 			$scope.setDate = function(year,month) {
 				$scope.year = year;
 				$scope.month = month;
 				$scope.timeline = data['response']['timeline'][$scope.year][$scope.month];
+                getPrev(year,month);
+                getNext(year,month);
 			};
 
 			//メンバー数
@@ -241,7 +280,7 @@ mainControllers.controller('TalkViewCtrl', ['$scope', '$routeParams', '$http',
             }
         });
 
-        //読み込み済みモーダル
+        //読み込み済みモーダルリスト
         var LoadedModal = [];
 
         //モーダル読み込み
