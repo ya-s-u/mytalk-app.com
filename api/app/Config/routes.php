@@ -46,6 +46,11 @@
 	Router::mapResources(array('users','talks'));
 	Router::parseExtensions('json');
 
+	Router::connect("/talks",
+		array("controller" => "talks","action" => "add", "[method]" => "POST"),
+		array("id" => "[0-9]+")
+	);
+
 	Router::connect("/talks/*",
 		array("controller" => "talks","action" => "view", "[method]" => "GET"),
 		array("id" => "[0-9]+")

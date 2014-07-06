@@ -115,17 +115,17 @@ mainControllers.controller('NewTalkCtrl', ['$scope','$location', '$http',
             var $form = $('#upload');
             var formData = new FormData($form[0]);
 
-            $.ajax('http://omoide.folder.jp/api/talks/add',
+            $.ajax('http://omoide.folder.jp/api/talks',
                 {
                     type: 'post',
                     async: false,
                     processData: false,
-                    contentType: 'application/json',
+                    contentType: false,
                     data: formData,
                     dataType: 'json',
                     success: function(data) {
                         console.log(data['response']);
-                        //location.href = '/';
+                        location.href = '/mypage';
                     },
                     error: function(data) {
                         console.log(data['response']);
