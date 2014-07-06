@@ -15,7 +15,7 @@
 @implementation AppDelegate {
 	NSMutableArray *talks;
 }
-
+@synthesize sessionID;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // トークテーブルの初期設定

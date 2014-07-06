@@ -25,7 +25,11 @@
     return 0;
 }
 -(NSString*)passwordValid:(NSString*) tg{
-    NSString *passRegex = @"[A-Z0-9a-z._%+-!$%&'()*,/;<>=?[]{}~]+";
+    //!$%&'()*,/;>=?{}~
+    NSString *passRegex = @"[A-Z0-9a-z._%+-~{}?=>;/,*()'&%$!]+";
+    NSRange range1 = [tg rangeOfString:@"<"];
+    NSRange range2 = [tg rangeOfString:@"&{"];
+    
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", passRegex];
     BOOL matched = [predicate evaluateWithObject: tg];
     if(![tg canBeConvertedToEncoding:NSASCIIStringEncoding])
@@ -35,6 +39,13 @@
     if(!matched){
         return(@"正しいパスワードを入力してください。");
     }
+    if(range1.location != NSNotFound){
+        return(@"記号\"<\"は使用できbません。");
+    }
+    if(range2.location != NSNotFound){
+        return(@"文字列\"&{\"は使用できません。");
+    }
+
     return 0;
 }
 @end

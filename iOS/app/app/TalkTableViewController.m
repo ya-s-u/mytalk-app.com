@@ -128,6 +128,15 @@
     UILabel *postsLabel = (UILabel *)[cell viewWithTag:105];
     postsLabel.text = [NSString stringWithFormat:@"%ld ", talk.posts];
     
+    /*
+     UIImageView *av = [[UIImageView alloc] initWithFrame:CGRectMake(20, 20, 277, 58)];
+     av.backgroundColor = [UIColor clearColor];
+     av.opaque = NO;
+     av.image = [UIImage imageNamed:@"categorytab1.png"];
+     cell.backgroundView = av;
+     セルに背景画像を設定する
+    */
+    
     
     
     //talkの要素は{name,periodStart,periodEnd,member,icon,posts}

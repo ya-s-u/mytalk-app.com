@@ -10,9 +10,11 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     NSMutableDictionary* globalBox;
+    NSString* sessionID;
 }
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSMutableDictionary* globalBox;
+@property (strong, nonatomic) NSString* sessionID;
 
 @end

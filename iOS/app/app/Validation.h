@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Validation : NSObject{
-    NSString *validateTarget;
-}
-
+@interface Validation : NSObject
+-(NSString*)mailaddressValid:(NSString*) tg;
+-(NSString*)passwordValid:(NSString*) tg;
 @property NSString *returnMessage;
 @end
