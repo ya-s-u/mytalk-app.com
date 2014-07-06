@@ -1,4 +1,5 @@
 <?php
+
 App::uses('ApiController', 'Controller');
 App::uses('File', 'Utility');
 App::uses('Converter', 'Vendor/Converter');
@@ -14,7 +15,7 @@ class TalksController extends ApiController {
     }
 
 
-	public function getList() {
+	public function index() {
 		$params = array(
 			'order' => 'Talk.created desc',
 			'limit' => 999,
@@ -44,8 +45,8 @@ class TalksController extends ApiController {
 	}
 
 
-	public function getTalk() {
-		$id = $this->request->query['id'];
+	public function view($id) {
+		//$id = $this->request->params['id'];
 
 		$params = array(
 			'conditions' => array(
@@ -66,7 +67,7 @@ class TalksController extends ApiController {
 	}
 
 
-	public function newTalk() {
+	public function add() {
 		if($_FILES["talk_file"]) {
 			//ファイルから配列へ
 			$Original = file($_FILES["talk_file"]["tmp_name"],FILE_IGNORE_NEW_LINES);
@@ -108,10 +109,10 @@ class TalksController extends ApiController {
 			if($this->Talk->save($this->data)) {
 				return $this->success('uploaded!');
 			} else {
-				return $this->error('error:<');
+				return $this->error('error1:<');
 			}
 		} else {
-			return $this->error('error:<');
+			return $this->error('error2:<');
 		}
 	}
 

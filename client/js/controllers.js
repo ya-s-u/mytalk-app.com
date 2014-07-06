@@ -17,7 +17,7 @@ mainControllers.controller('HeaderCtrl', ['$scope','$location','$route','$http',
 	//ユーザー情報取得
 	$http({
 	    method : 'GET',
-	    url : 'http://omoide.folder.jp/api/users/getUser.json',
+	    url : 'http://omoide.folder.jp/api/users',
 		headers: { "X-Requested-With": "XMLHttpRequest" },
 	}).success(function(data, status, headers, config) {
 		$scope.user = data['response']['User'];
@@ -29,7 +29,7 @@ mainControllers.controller('HeaderCtrl', ['$scope','$location','$route','$http',
 	$scope.logout = function(){
         $http({
 			method : 'GET',
-		    url : 'http://omoide.folder.jp/api/users/logout.json',
+		    url : 'http://omoide.folder.jp/api/users/logout',
 			headers: {
 				'X-Requested-With': 'XMLHttpRequest',
 	    		'Content-Type': 'application/x-www-form-urlencoded'
@@ -58,10 +58,11 @@ mainControllers.controller('UserLoginCtrl', ['$scope','$location','$http',
 
 			$http({
 				method : 'POST',
-			    url : 'http://omoide.folder.jp/api/users/signin.json',
+			    url : 'http://omoide.folder.jp/api/users/login',
 				headers: {
 					'X-Requested-With': 'XMLHttpRequest',
-		    		'Content-Type': 'application/x-www-form-urlencoded'
+		    		'Content-Type': 'application/x-www-form-urlencoded',
+                    "Accept": "application/json",
 		    	},
 				data: $.param(data)
 			}).success(function(data, status, headers, config) {
@@ -114,17 +115,17 @@ mainControllers.controller('NewTalkCtrl', ['$scope','$location', '$http',
             var $form = $('#upload');
             var formData = new FormData($form[0]);
 
-            $.ajax('http://omoide.folder.jp/api/talks/newTalk.json',
+            $.ajax('http://omoide.folder.jp/api/talks/add',
                 {
                     type: 'post',
                     async: false,
                     processData: false,
-                    contentType: false,
+                    contentType: 'application/json',
                     data: formData,
                     dataType: 'json',
                     success: function(data) {
                         console.log(data['response']);
-                        location.href = '/';
+                        //location.href = '/';
                     },
                     error: function(data) {
                         console.log(data['response']);
@@ -143,8 +144,11 @@ mainControllers.controller('TalkListCtrl', ['$scope', '$http',
 		$http({
 			method : 'GET',
 			cache: true,
-			url : 'http://omoide.folder.jp/api/talks/getList.json',
-			headers: { "X-Requested-With": "XMLHttpRequest" },
+			url : 'http://omoide.folder.jp/api/talks',
+			headers: {
+                "X-Requested-With": "XMLHttpRequest",
+                "Accept": "application/json",
+            },
 		}).success(function(data) {
 			$scope.talk = data['response']['Talk'];
 		}).error(function(data) {
@@ -171,8 +175,11 @@ mainControllers.controller('TalkViewCtrl', ['$scope', '$routeParams', '$http',
 		$http({
 			method : 'GET',
 			cache: true,
-			url : 'http://omoide.folder.jp/api/talks/getTalk.json?id='+$id,
-			headers: { "X-Requested-With": "XMLHttpRequest" },
+			url : 'http://omoide.folder.jp/api/talks/'+$id,
+            headers: {
+                "X-Requested-With": "XMLHttpRequest",
+                "Accept": "application/json",
+            },
 		}).success(function(data, status, headers, config) {
 			$scope.head = data['response']['head'];
 			$scope.member = data['response']['member'];

@@ -24,10 +24,7 @@
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
-	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
-/**
- * ...and connect the rest of 'Pages' controller's URLs.
- */
+	//Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on
@@ -36,12 +33,26 @@
 	CakePlugin::routes();
 
 /**
+* For API v1
+*/
+	Router::resourceMap(array(
+	    array('action' => 'index', 'method' => 'GET', 'id' => false),
+	    array('action' => 'view', 'method' => 'GET', 'id' => true),
+	    array('action' => 'add', 'method' => 'POST', 'id' => false),
+	    array('action' => 'edit', 'method' => 'PUT', 'id' => true),
+	    array('action' => 'delete', 'method' => 'DELETE', 'id' => true),
+	    array('action' => 'update', 'method' => 'POST', 'id' => true)
+	));
+	Router::mapResources(array('users','talks'));
+	Router::parseExtensions('json');
+
+	Router::connect("/talks/*",
+		array("controller" => "talks","action" => "view", "[method]" => "GET"),
+		array("id" => "[0-9]+")
+	);
+
+/**
  * Load the CakePHP default routes. Only remove this if you do not want to use
  * the built-in default routes.
  */
 	require CAKE . 'Config' . DS . 'routes.php';
-
-/**
- * For API
- */
- 	Router::parseExtensions('json');

@@ -31,20 +31,24 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	
+
 	/* Auth */
-	public $components = array('Auth' => array(
-        'authenticate' => array(
-            'Form' => array(
-                'passwordHasher' => 'Blowfish',
-                'userModel' => 'User',
-                'fields' => array('username' => 'address' , 'password'=>'password'),
-            ),
-        ),
-        'loginError' => 'パスワードもしくはログインIDをご確認下さい。',
-        'authError' => 'ご利用されるにはログインが必要です。',
-        'loginAction' => array('controller'=>'Users','action' => 'signin'),
-        'loginRedirect' => array('controller' => 'Users', 'action' => 'index'),
-        'logoutRedirect' => array('controller' => 'pages', 'action' => 'index'),
-    ),'Session','Convert'/*,'SendMail'*/);
+	public $components = array(
+		'Auth' => array(
+	        'authenticate' => array(
+	            'Form' => array(
+	                'passwordHasher' => 'Blowfish',
+	                'userModel' => 'User',
+	                'fields' => array('username' => 'address' , 'password'=>'password'),
+	            ),
+	        ),
+	        'loginError' => 'パスワードもしくはログインIDをご確認下さい。',
+	        'authError' => 'ご利用されるにはログインが必要です。',
+	        'loginAction' => array('controller'=>'users','action' => 'login'),
+	        'loginRedirect' => array('controller' => 'Users', 'action' => 'index'),
+	        'logoutRedirect' => array('controller' => 'pages', 'action' => 'index'),
+		),
+		'Session',
+		'Convert',
+	);
 }
