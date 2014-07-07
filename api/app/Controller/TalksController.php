@@ -46,8 +46,6 @@ class TalksController extends ApiController {
 
 
 	public function view($id) {
-		//$id = $this->request->params['id'];
-
 		$params = array(
 			'conditions' => array(
 				'Talk.id' => $id,
@@ -66,6 +64,25 @@ class TalksController extends ApiController {
 		}
 	}
 
+
+	public function delete($id) {
+		$params = array(
+			'conditions' => array(
+				'Talk.id' => $id,
+				'Talk.user_id' => $this->Auth->user('id'),
+			)
+		);
+		$Data = $this->Talk->find('first',$params);
+
+		//所有者以外をはじく
+		if($Data != null) {
+			$this->Talk->delete($id);
+			unlink('../../../s3/talks/'.$id.'.json');
+			return $this->success('deleted');
+		} else {
+			return $this->error('not accepted');
+		}
+	}
 
 	public function add() {
 		if($_FILES["talk_file"]) {

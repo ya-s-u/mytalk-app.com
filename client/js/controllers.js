@@ -354,5 +354,25 @@ mainControllers.controller('TalkSettingCtrl', ['$scope', '$routeParams', '$http'
             }
         });
 
+        //トーク削除ボタン
+        $scope.DeleteTalk = function(){
+            if(window.confirm('本当に削除しますか？')) {
+                $http({
+                    method : 'DELETE',
+                    url : 'http://omoide.folder.jp/api/talks/'+$routeParams.id,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        "Accept": "application/json",
+                    },
+                }).success(function(data, status, headers, config) {
+                    alert('削除しました！');
+                    location.href = 'mypage';
+                }).error(function(data, status, headers, config) {
+                    console.log('error!');
+                });
+        	}
+        };
+
     }]
 );
