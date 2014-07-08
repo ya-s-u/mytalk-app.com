@@ -53,16 +53,22 @@
         self.message.text = errorMsgPass;
     } else {
         //Validation通過
+        NSError *error = nil;
         
-        NSString *orign = @"http://www.filltext.com";
-        NSString *url = [NSString stringWithFormat:@"%@/?rows=1&fname=%@&lname=%@&pretty=true",orign,mailString,passString];
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-        NSData *json = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-        //NSArray *array = [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingAllowFragments error:nil];
-        //NSMutableArray *data = [NSMutableArray array];
-        //NSString *sessionStr = [data objectAtIndex:0];
-        //NSLog(@"sessionStr : %@", sessionStr);
+        NSString *parameter = [NSString stringWithFormat:@"address=%@&password=%@", mailString, passString];
+        NSString *targetURL = [NSString stringWithFormat:@"http://omoide.folder.jp/api/users/login?%@", parameter];
+        NSURL *url = [NSURL URLWithString:targetURL];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+        if (error != nil) {
+            NSLog(@"Error!");
+            return;
+        }
         
+        //取得したレスポンスをJSONパース
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:response options:nil error:&error];
+        NSString *token = [dict objectForKey:@"response"];
+        NSLog(@"Token is %@", token);
         /*if([sessionStr length] == 0){
          //ログインに失敗
          } else {
