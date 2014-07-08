@@ -564,17 +564,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVW-7f-inW">
-                                <rect key="frame" x="132" y="467" width="45" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="閉じる">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="close:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qQD-pZ-6li"/>
-                                    <action selector="login:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Uc8-Pd-cVe"/>
-                                </connections>
-                            </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zjv-nw-kge">
                                 <rect key="frame" x="-1" y="0.0" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -596,14 +585,12 @@
                             <constraint firstItem="Zjv-nw-kge" firstAttribute="centerX" secondItem="m6X-Zv-j5f" secondAttribute="centerX" id="2fG-tu-eme"/>
                             <constraint firstItem="Zjv-nw-kge" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="NQ7-Bg-EWR"/>
                             <constraint firstItem="xNW-Ma-r98" firstAttribute="top" secondItem="Zjv-nw-kge" secondAttribute="bottom" constant="44" id="PqR-d1-OF7"/>
-                            <constraint firstItem="Zjv-nw-kge" firstAttribute="centerX" secondItem="tVW-7f-inW" secondAttribute="centerX" id="jan-Eg-C8K"/>
                             <constraint firstItem="Zjv-nw-kge" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="-1" id="nQ6-9L-4rj"/>
                             <constraint firstAttribute="trailing" secondItem="Zjv-nw-kge" secondAttribute="trailing" constant="1" id="t2e-Jr-mrc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SPT-Xi-wC3"/>
                     <connections>
-                        <outlet property="close" destination="tVW-7f-inW" id="4jD-dM-38F"/>
                         <outlet property="identification" destination="JYt-mT-kpe" id="XZz-Kh-Ain"/>
                         <outlet property="login" destination="R8a-vj-fSt" id="7ol-ld-GXl"/>
                         <outlet property="message" destination="m6X-Zv-j5f" id="RDo-nG-35Q"/>
