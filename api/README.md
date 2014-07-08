@@ -12,7 +12,7 @@
 
 ###ログイン(アカウント1)
 ```Bash
-curl -c cookie -d address=yasu1003@gmail.com -d password=omoide  http://omoide.folder.jp/api/users/signin
+curl -c cookie -d address=yasu1003@gmail.com -d password=omoide  http://omoide.folder.jp/api/users/login
 ```
 
 ###ユーザー情報

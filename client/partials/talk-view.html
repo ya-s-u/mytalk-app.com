@@ -1,6 +1,6 @@
 <div class="modal" ng-include="TalkModal" onload="OpenModal()"></div>
 
-<div id="top" ng-init="user='後藤 誉昌'">
+<div id="top">
 	<a href="/mypage" class="back icon-back"></a>
 	<div id="title">
 		<img src="img/icon/RoundIcons-Free-Set-01.png">
@@ -24,7 +24,7 @@
 	<div id="member" class="segment">
 		<p class="segment_top">メンバー<span class="icon icon-user"></span></p>
 		<ul class="segment_body">
-			<li ng-repeat="data in member | limitTo:5" ng-class="{'others':data.name!=user}" class="others-1">{{data.name}}<span>{{data.count}}</span></li>
+			<li ng-repeat="data in member | limitTo:5" ng-class="{'others':data.name!=author}" class="others-1">{{data.name}}<span>{{data.count}}</span></li>
 		</ul>
 	</div>
 </div>
@@ -81,9 +81,9 @@
 
 	<ul id="talk" class="line">
 		<li ng-repeat="data in timeline | orderBy:'date'"
-			ng-class="{'me':data.name==user, 'others':data.name!=user, 'others-1':data.name!=user}">
+			ng-class="{'me':data.name==author, 'others':data.name!=author, 'others-1':data.name!=author}">
 			<div class="box">
-				<p ng-hide="data.name==user" id="name">{{data.name}}</p>
+				<p ng-hide="data.name==author" id="name">{{data.name}}</p>
 				<p id="text" ng-bind-html="data.value | linky">
 					<span class="date">{{parseDate(data.date) | date:'M/d'}}<br>{{parseDate(data.date) | date:'a h:m'}}</span>
 				</p>

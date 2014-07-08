@@ -50,7 +50,13 @@ class TalksController extends ApiController {
 			'conditions' => array(
 				'Talk.id' => $id,
 				'Talk.user_id' => $this->Auth->user('id'),
-			)
+			),
+			'fields' => Array(
+				'Talk.id',
+				'Talk.title',
+				'Talk.icon',
+				'Talk.author',
+			),
 		);
 		$Data = $this->Talk->find('first',$params);
 
@@ -58,7 +64,37 @@ class TalksController extends ApiController {
 		if($Data != null) {
 			$array = file_get_contents('../../../s3/talks/'.$id.'.json');
 			$array = json_decode($array);
+			$array->head->title = $Data['Talk']['title'];
+			$array->head->icon = $Data['Talk']['icon'];
+			$array->head->author = $Data['Talk']['author'];
 			return $this->success($array);
+		} else {
+			return $this->error('not accepted');
+		}
+	}
+
+
+	public function edit($id) {
+		$params = array(
+			'conditions' => array(
+				'Talk.id' => $id,
+				'Talk.user_id' => $this->Auth->user('id'),
+			)
+		);
+		$Data = $this->Talk->find('first',$params);
+
+		//所有者以外をはじく
+		if($Data != null) {
+			$this->Talk->id = $id;
+			$this->request->data['Talk']['title'] = $this->data['title'];
+			$this->request->data['Talk']['author'] = $this->data['author'];
+			$this->request->data['Talk']['modified'] = date("Y-m-d G:i:s");
+
+			if($this->Talk->save($this->request->data['Talk'])) {
+				return $this->success($this->data);
+			} else {
+				return $this->error('not accepted');
+			}
 		} else {
 			return $this->error('not accepted');
 		}
@@ -83,6 +119,7 @@ class TalksController extends ApiController {
 			return $this->error('not accepted');
 		}
 	}
+
 
 	public function add() {
 		if($_FILES["talk_file"]) {

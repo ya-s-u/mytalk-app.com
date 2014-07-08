@@ -57,6 +57,11 @@
 	);
 
 	Router::connect("/talks/*",
+		array("controller" => "talks","action" => "edit", "[method]" => "PUT"),
+		array("id" => "[0-9]+")
+	);
+
+	Router::connect("/talks/*",
 		array("controller" => "talks","action" => "delete", "[method]" => "DELETE"),
 		array("id" => "[0-9]+")
 	);

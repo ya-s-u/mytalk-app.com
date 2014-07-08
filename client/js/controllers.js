@@ -77,33 +77,33 @@ mainControllers.controller('UserLoginCtrl', ['$scope','$location','$http',
 );
 
 mainControllers.controller('UserSignupCtrl', ['$scope','$location','$http',
-  function($scope,$location,$http) {
+      function($scope,$location,$http) {
 
-  	$scope.signup = function(){
-      $scope.disabled = true;
+        $scope.signup = function(){
+            $scope.disabled = true;
 
-	 	 	var data = {
-	 	 		'address': $scope.address,
-	 	 		'password': $scope.password,
-	 	 	};
+            var data = {
+                'address': $scope.address,
+                'password': $scope.password,
+            };
 
-			$http({
-				method : 'POST',
-			    url : 'http://omoide.folder.jp/api/users/signup.json',
-				headers: {
-					'X-Requested-With': 'XMLHttpRequest',
-		    		'Content-Type': 'application/x-www-form-urlencoded',
-		    	},
-				data: $.param(data)
-			}).success(function(data, status, headers, config) {
-				console.log(data);
-				location.href = 'mypage';
-			}).error(function(data, status, headers, config) {
-				console.log('error!');
-			});
-    };
+            $http({
+                method : 'POST',
+                url : 'http://omoide.folder.jp/api/users/signup.json',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                data: $.param(data)
+            }).success(function(data, status, headers, config) {
+                console.log(data);
+                location.href = 'mypage';
+            }).error(function(data, status, headers, config) {
+                console.log('error!');
+            });
+        };
 
-  }]
+      }]
 );
 
 mainControllers.controller('NewTalkCtrl', ['$scope','$location', '$http',
@@ -188,13 +188,11 @@ mainControllers.controller('TalkViewCtrl', ['$scope', '$routeParams', '$http',
 			$scope.head = data['response']['head'];
             $scope.member = data['response']['member'];
 
+            $scope.author = $scope.head.author;
+
             //年月指定
             $scope.year = formatDate(new Date($scope.head['end']),'YYYY');
             $scope.month = formatDate(new Date($scope.head['end']),'MM');
-
-            //自分の名前
-            $scope.selectedName = $scope.member[0];
-            $("#title_num").text($scope.selectedName['name'].length+"/20");
 
             $scope.timeline = data['response']['timeline'][$scope.year][$scope.month];
 			$scope.count = $scope.timeline.length;
@@ -342,9 +340,18 @@ mainControllers.controller('TalkViewCtrl', ['$scope', '$routeParams', '$http',
 mainControllers.controller('TalkSettingCtrl', ['$scope', '$routeParams', '$http',
     function($scope, $routeParams, $http) {
 
-        //タイトル文字数表示
+        count();
+        $scope.NewTitle = $scope.$parent.head.title;
+        $scope.NewAuthor = $scope.$parent.author;
+
+        //テキスト変更イベント
         $(".text").bind("change keyup",function(){
-            var count = $(this).val().length;
+            count();
+        });
+
+        //タイトル文字数取得
+        function count() {
+            var count = $(".text").val().length;
             $("#title_num").text(count+"/20");
 
             if(count>20) {
@@ -352,7 +359,34 @@ mainControllers.controller('TalkSettingCtrl', ['$scope', '$routeParams', '$http'
             } else {
                 $("#title_num").css({"color":""});
             }
-        });
+        }
+
+        //トーク情報変更ボタン
+        $scope.EditTalk = function(){
+            var data = {
+                'title': $scope.NewTitle,
+                'author': $scope.NewAuthor,
+            };
+
+            $http({
+                method : 'PUT',
+                url : 'http://omoide.folder.jp/api/talks/'+$routeParams.id,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    "Accept": "application/json",
+                },
+                data: $.param(data),
+            }).success(function(data, status, headers, config) {
+                $scope.title = data['response']['title'];
+                $scope.author = data['response']['author'];
+
+                alert('変更しました');
+                location.href = '/mypage#/view/'/*+$routeParams.id*/;
+            }).error(function(data, status, headers, config) {
+                console.log('error!');
+            });
+        };
 
         //トーク削除ボタン
         $scope.DeleteTalk = function(){

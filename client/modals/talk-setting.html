@@ -8,15 +8,15 @@
         </div>
         <div class="right">
             <label>タイトル(20字まで)<span id="title_num">0/20</span></label>
-            <input type="text" class="text" size="35" value="{{head.title}}"/>
+            <input type="text" class="text" ng-model="NewTitle" size="35"/>
             <label>自分の名前</label>
-            <select class="dropdown"ng-model="selectedName" ng-options="data as data.name for data in member">
+            <select class="dropdown" ng-model="NewAuthor" ng-options="data.name as data.name for data in member">
                 <option>選択してください</option>
             </select>
         </div>
     </form>
 
-    <p class="button submit"><a>変更</a></p>
+    <p class="button submit" ng-click="EditTalk()"><a>変更</a></p>
 
     <span class="border"></span>
 
