@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YQE-Us-huE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ZCw-DN-T92">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -96,56 +96,57 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="すべてのトーク" id="llN-nO-E4c">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="QXb-43-186">
-                            <connections>
-                                <segue destination="zic-rM-NJr" kind="modal" id="Vxy-Tm-kXs"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="z1g-n9-LlN"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="1Gn-ba-bZm" kind="push" identifier="toViewController" id="fAl-rh-ZoV"/>
+                        <segue destination="2cp-A7-9y3" kind="push" identifier="toInside" id="v8X-Lv-TOV"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P3g-tP-uUO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2688" y="757"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="d5z-3L-OAU">
+        <!--Table View Controller - トーク詳細画面-->
+        <scene sceneID="tjJ-wh-vzW">
             <objects>
-                <viewController id="zic-rM-NJr" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="oHc-9Z-B1i"/>
-                        <viewControllerLayoutGuide type="bottom" id="6qK-5z-501"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3hK-Mg-pJe">
+                <tableViewController id="2cp-A7-9y3" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="22" sectionFooterHeight="22" id="lXg-kb-kg5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h31-Ud-uSk">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="8WK-6d-Yyh"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="トークを追加する" id="PiR-IH-6PZ"/>
-                                </items>
-                            </navigationBar>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="URq-Gg-lhP">
-                                <rect key="frame" x="141" y="451" width="39" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </pageControl>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="h31-Ud-uSk" firstAttribute="top" secondItem="3hK-Mg-pJe" secondAttribute="top" id="N9H-2J-ErL"/>
-                            <constraint firstAttribute="trailing" secondItem="h31-Ud-uSk" secondAttribute="trailing" id="OpJ-UZ-QHR"/>
-                            <constraint firstItem="h31-Ud-uSk" firstAttribute="leading" secondItem="3hK-Mg-pJe" secondAttribute="leading" id="zLD-WS-nhH"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lzb-1U-nTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChatCell" rowHeight="66" id="hBn-Yf-TmB">
+                                <rect key="frame" x="0.0" y="86" width="320" height="66"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hBn-Yf-TmB" id="ymy-gA-ARU">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ユーザーネーム" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBv-MN-XAw">
+                                            <rect key="frame" x="8" y="0.0" width="94" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="会話会話会話会話会話会話会話会話会話会話会話会話会話会話会話" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0h-ML-VEv">
+                                            <rect key="frame" x="20" y="12" width="280" height="48"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2cp-A7-9y3" id="hQa-vP-ZrA"/>
+                            <outlet property="delegate" destination="2cp-A7-9y3" id="2go-jg-xHd"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="トーク詳細画面" id="E1P-NR-CKU"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sB0-Xd-goN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2162" y="757"/>
         </scene>
@@ -177,40 +178,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBD-bn-5nm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2680" y="1425"/>
-        </scene>
-        <!--Table View Controller - @@のトーク-->
-        <scene sceneID="rZb-de-FBL">
-            <objects>
-                <tableViewController id="1Gn-ba-bZm" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Of0-Wt-nB9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="v19-kK-ED8">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v19-kK-ED8" id="XR9-IF-c5N">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="1Gn-ba-bZm" id="mTz-uu-Qbu"/>
-                            <outlet property="delegate" destination="1Gn-ba-bZm" id="iHR-ED-0TV"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="@@のトーク" id="S5G-ex-tdE">
-                        <barButtonItem key="rightBarButtonItem" title="トーク設定" style="plain" id="SMR-5c-RAd"/>
-                    </navigationItem>
-                    <connections>
-                        <segue destination="Vdp-32-l0T" kind="push" id="Yj3-jn-PQ1"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vyw-wK-veY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2162" y="1425"/>
         </scene>
         <!--Navigation Controller - 共有中-->
         <scene sceneID="EdG-0c-G29">
@@ -312,7 +279,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="op6-LB-mPL">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="op6-LB-mPL" id="bIV-PO-uCK">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -364,21 +331,21 @@
             <point key="canvasLocation" x="-3160" y="2161"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="4Ri-Pt-DLx">
+        <scene sceneID="ioN-Fd-4RS">
             <objects>
-                <navigationController definesPresentationContext="YES" id="YQE-Us-huE" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AqI-NF-hpH">
+                <navigationController definesPresentationContext="YES" id="ZCw-DN-T92" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3lm-fd-ayP">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="kiF-6n-3e7" kind="relationship" relationship="rootViewController" id="SJm-jn-YJV"/>
+                        <segue destination="kiF-6n-3e7" kind="relationship" relationship="rootViewController" id="rsf-rW-np6"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZiI-sH-9zV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VRv-kH-Ryp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3646" y="50"/>
         </scene>
-        <!--Sign Up View Controller-->
+        <!--Sign Up View Controller - My Talk-->
         <scene sceneID="Z3h-G1-DUZ">
             <objects>
                 <viewController storyboardIdentifier="SignUpView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kiF-6n-3e7" customClass="SignUpViewController" sceneMemberID="viewController">
@@ -458,15 +425,11 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXl-ut-jYn">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.26243491598234259" green="0.5882899700960218" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="Fna-XO-9sE"/>
                                 </constraints>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </textAttributes>
                                 <items>
-                                    <navigationItem title="My Talk" id="O7w-01-cNl"/>
+                                    <navigationItem id="O7w-01-cNl"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -480,13 +443,13 @@
                             <constraint firstAttribute="trailing" secondItem="TXl-ut-jYn" secondAttribute="trailing" id="yY0-Lp-CCL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="eKV-Q8-s8T"/>
+                    <navigationItem key="navigationItem" title="My Talk" id="eKV-Q8-s8T"/>
                     <connections>
                         <outlet property="mail" destination="bvZ-ui-rBp" id="aQi-Yw-8Mm"/>
                         <outlet property="message" destination="BDB-u8-ZM1" id="w78-tA-rKj"/>
                         <outlet property="pass" destination="xsw-O7-j5H" id="knG-75-Xyv"/>
                         <segue destination="vXZ-lx-hvc" kind="push" identifier="toLogin" id="Mdk-yk-g9y"/>
-                        <segue destination="I7w-V2-VTY" kind="modal" identifier="signupOpen" id="KDf-CN-7bQ"/>
+                        <segue destination="I7w-V2-VTY" kind="push" identifier="signupOpen" id="KDf-CN-7bQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xdo-vw-UTF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -567,16 +530,12 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zjv-nw-kge">
                                 <rect key="frame" x="-1" y="0.0" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.26243491600000002" green="0.58828997009999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="X3f-LW-JGZ"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="kOm-nG-edk"/>
                                 </constraints>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </textAttributes>
                                 <items>
-                                    <navigationItem title="ログイン" id="uWN-ia-NMj"/>
+                                    <navigationItem id="uWN-ia-NMj"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -589,7 +548,7 @@
                             <constraint firstAttribute="trailing" secondItem="Zjv-nw-kge" secondAttribute="trailing" constant="1" id="t2e-Jr-mrc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="SPT-Xi-wC3"/>
+                    <navigationItem key="navigationItem" title="ログイン" id="SPT-Xi-wC3"/>
                     <connections>
                         <outlet property="identification" destination="JYt-mT-kpe" id="XZz-Kh-Ain"/>
                         <outlet property="login" destination="R8a-vj-fSt" id="7ol-ld-GXl"/>
@@ -615,6 +574,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="UL7-m8-9ue"/>
+        <segue reference="KDf-CN-7bQ"/>
     </inferredMetricsTieBreakers>
 </document>

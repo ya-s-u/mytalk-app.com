@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.navigationItem.hidesBackButton = YES;
 }
 /*
  * ログイン画面を表示する。
@@ -45,7 +45,9 @@
         [self showLoginView];
     }
 }
+
 - (void)showLoginView {
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"SignUpView"];// signupviewへ移動
     [vc setModalPresentationStyle:UIModalPresentationFullScreen];
