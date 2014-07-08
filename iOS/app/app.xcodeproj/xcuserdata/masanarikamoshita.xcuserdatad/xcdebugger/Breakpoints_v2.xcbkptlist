@@ -25,29 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "app/SignUpViewController.m"
-            timestampString = "426317625.337013"
+            filePath = "app/ValErrorViewController.m"
+            timestampString = "426495345.557288"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "app/SignUpViewController.m"
-            timestampString = "426317625.337013"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "-initWithNibName:bundle:"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "-dismissErrorView"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

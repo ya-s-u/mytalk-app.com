@@ -381,8 +381,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="新規登録しましょう。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDB-u8-ZM1">
-                                <rect key="frame" x="91" y="115" width="456" height="34"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="新規登録しましょう。" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDB-u8-ZM1">
+                                <rect key="frame" x="31" y="115" width="259" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="highlightedColor"/>
@@ -414,7 +414,7 @@
                                 <rect key="frame" x="162" y="169" width="138" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet" returnKeyType="done"/>
                                 <connections>
                                     <action selector="mail:" destination="kiF-6n-3e7" eventType="editingDidEnd" id="5mU-ed-6A2"/>
                                     <outlet property="delegate" destination="kiF-6n-3e7" id="0F6-Gn-ryt"/>
@@ -424,7 +424,7 @@
                                 <rect key="frame" x="162" y="213" width="138" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet" returnKeyType="done" secureTextEntry="YES"/>
                                 <connections>
                                     <action selector="pass:" destination="kiF-6n-3e7" eventType="editingDidEnd" id="fII-ip-gw9"/>
                                     <outlet property="delegate" destination="kiF-6n-3e7" id="Cfd-KS-xun"/>
@@ -463,6 +463,7 @@
                     </view>
                     <connections>
                         <outlet property="mail" destination="bvZ-ui-rBp" id="aQi-Yw-8Mm"/>
+                        <outlet property="message" destination="BDB-u8-ZM1" id="w78-tA-rKj"/>
                         <outlet property="pass" destination="xsw-O7-j5H" id="knG-75-Xyv"/>
                         <segue destination="vXZ-lx-hvc" kind="modal" identifier="toLogin" id="Mdk-yk-g9y"/>
                         <segue destination="I7w-V2-VTY" kind="modal" identifier="signupOpen" id="KDf-CN-7bQ"/>
@@ -480,12 +481,12 @@
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" restorationIdentifier="LoginView" id="kh9-bI-dsS">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="LoginView" id="kh9-bI-dsS" customClass="LoginVierController">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ログインをどうぞ。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNW-Ma-r98">
-                                <rect key="frame" x="74" y="82" width="246" height="26"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ログインをどうぞ。" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNW-Ma-r98">
+                                <rect key="frame" x="46" y="88" width="246" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -495,29 +496,18 @@
                                 <rect key="frame" x="160" y="171" width="132" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet" returnKeyType="done"/>
                                 <connections>
                                     <action selector="identification:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="rpc-UT-ZTP"/>
                                     <action selector="login:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="SGI-d0-dRS"/>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="Fjx-C1-R1p"/>
                                 </connections>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZ7-0d-KeA">
-                                <rect key="frame" x="0.0" y="-6" width="320" height="64"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="fNE-38-rAj"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="xSn-Mv-lBt"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="My Talk" id="Hty-nE-48W"/>
-                                </items>
-                            </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xpb-34-SaN">
                                 <rect key="frame" x="160" y="215" width="132" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet" returnKeyType="done" secureTextEntry="YES"/>
                                 <connections>
                                     <action selector="login:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="k0A-h0-ELE"/>
                                     <action selector="password:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="jDp-7N-DSV"/>
@@ -537,7 +527,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8a-vj-fSt">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8a-vj-fSt">
                                 <rect key="frame" x="111" y="274" width="98" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -548,20 +538,51 @@
                                     <action selector="login:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6iC-IR-eAe"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="FILL BELLOW FIELDS." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6X-Zv-j5f">
+                                <rect key="frame" x="30" y="122" width="259" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVW-7f-inW">
+                                <rect key="frame" x="132" y="467" width="45" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="閉じる">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="close:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qQD-pZ-6li"/>
+                                    <action selector="login:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Uc8-Pd-cVe"/>
+                                </connections>
+                            </button>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zjv-nw-kge">
+                                <rect key="frame" x="-1" y="0.0" width="320" height="64"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="X3f-LW-JGZ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="kOm-nG-edk"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="ログイン" id="uWN-ia-NMj"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fZ7-0d-KeA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="2Nq-vZ-d01"/>
-                            <constraint firstItem="fZ7-0d-KeA" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="-6" id="TLQ-k7-eE2"/>
-                            <constraint firstItem="fZ7-0d-KeA" firstAttribute="centerX" secondItem="R8a-vj-fSt" secondAttribute="centerX" id="ZNK-qe-P0V"/>
-                            <constraint firstAttribute="trailing" secondItem="fZ7-0d-KeA" secondAttribute="trailing" id="lax-Uf-6b5"/>
-                            <constraint firstItem="xNW-Ma-r98" firstAttribute="top" secondItem="fZ7-0d-KeA" secondAttribute="bottom" constant="75" id="pnE-56-fMU"/>
+                            <constraint firstItem="Zjv-nw-kge" firstAttribute="centerX" secondItem="m6X-Zv-j5f" secondAttribute="centerX" id="2fG-tu-eme"/>
+                            <constraint firstItem="Zjv-nw-kge" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="NQ7-Bg-EWR"/>
+                            <constraint firstItem="xNW-Ma-r98" firstAttribute="top" secondItem="Zjv-nw-kge" secondAttribute="bottom" constant="44" id="PqR-d1-OF7"/>
+                            <constraint firstItem="Zjv-nw-kge" firstAttribute="centerX" secondItem="tVW-7f-inW" secondAttribute="centerX" id="jan-Eg-C8K"/>
+                            <constraint firstItem="Zjv-nw-kge" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="-1" id="nQ6-9L-4rj"/>
+                            <constraint firstAttribute="trailing" secondItem="Zjv-nw-kge" secondAttribute="trailing" constant="1" id="t2e-Jr-mrc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SPT-Xi-wC3"/>
                     <connections>
+                        <outlet property="close" destination="tVW-7f-inW" id="4jD-dM-38F"/>
                         <outlet property="identification" destination="JYt-mT-kpe" id="XZz-Kh-Ain"/>
                         <outlet property="login" destination="R8a-vj-fSt" id="7ol-ld-GXl"/>
+                        <outlet property="message" destination="m6X-Zv-j5f" id="RDo-nG-35Q"/>
                         <outlet property="password" destination="Xpb-34-SaN" id="UMy-GJ-tuz"/>
                         <segue destination="I7w-V2-VTY" kind="modal" identifier="loginOpen" id="UL7-m8-9ue"/>
                     </connections>
@@ -583,6 +604,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="KDf-CN-7bQ"/>
+        <segue reference="UL7-m8-9ue"/>
     </inferredMetricsTieBreakers>
 </document>

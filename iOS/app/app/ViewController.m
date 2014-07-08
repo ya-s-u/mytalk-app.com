@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "TabViewController.h"
 #import "TalkTableViewController.h"
+#import "Validation.h"
 
 @interface ViewController ()
 
@@ -41,20 +42,43 @@
      *  (NSInteger)sessionIDに入れる。
     */
     
-    
-    // どちらかが何も入力されてない時
-    // この辺の条件文はあとからメアドかどうかの判定、ログインが成功したかなど
-    // を追加の上で書き換える
-    if ([mailString length] == 0 || [passString length] == 0) {
-        //nameString = @"World";
+    Validation *mv = [[Validation alloc] init];
+    NSString *errorMsgMail = [mv mailaddressValid:mailString];
+    NSString *errorMsgPass = [mv passwordValid:passString];
+    if (mailString.length == 0 || passString.length == 0) {
+        self.message.text = @"全ての項目を入力してください。";
+    } else if([errorMsgMail length] > 1){
+        self.message.text = errorMsgMail;
+    } else if([errorMsgPass length] > 1){
+        self.message.text = errorMsgPass;
     } else {
-        //ログインできた場合のみこっちを実行する
+        //Validation通過
+        
+        NSString *orign = @"http://www.filltext.com";
+        NSString *url = [NSString stringWithFormat:@"%@/?rows=1&fname=%@&lname=%@&pretty=true",orign,mailString,passString];
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+        NSData *json = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+        //NSArray *array = [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingAllowFragments error:nil];
+        //NSMutableArray *data = [NSMutableArray array];
+        //NSString *sessionStr = [data objectAtIndex:0];
+        //NSLog(@"sessionStr : %@", sessionStr);
+        
+        /*if([sessionStr length] == 0){
+         //ログインに失敗
+         } else {
+         //sessionIDを保存
+         [NSKeyedArchiver archiveRootObject:sessionStr toFile:[self filePath]];
+         
+         }*/
         [self performSegueWithIdentifier:@"loginOpen" sender:self];
     }
 }
 - (IBAction)identification:(id)sender {
 }
 - (IBAction)password:(id)sender {
+}
+- (IBAction)close:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)didReceiveMemoryWarning
 {

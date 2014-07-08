@@ -17,8 +17,9 @@
 @end
 
 @implementation SignUpViewController
-@synthesize mailAd = _mailAd;
-@synthesize passWd = _passWd;
+@synthesize mailAd;
+@synthesize passWd;
+
 - (NSString* )filePath{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *filePath = [paths[0] stringByAppendingPathComponent:@"session.dat"];
@@ -36,14 +37,12 @@
     Validation *mv = [[Validation alloc] init];
     NSString *errorMsgMail = [mv mailaddressValid:mailString];
     NSString *errorMsgPass = [mv passwordValid:passString];
-    if ([mailString length] == 0 || [passString length] == 0) {
-        //全ての項目を入力してください。
+    if (mailString.length == 0 || passString.length == 0) {
+        self.message.text = @"全ての項目を入力してください。";
     } else if([errorMsgMail length] > 1){
-        //errorMsgMail
-        NSLog(errorMsgMail);
+        self.message.text = errorMsgMail;
     } else if([errorMsgPass length] > 1){
-        //errorMsgPass
-        NSLog(errorMsgPass);
+        self.message.text = errorMsgPass;
     } else {
         //Validation通過
         
@@ -51,7 +50,7 @@
         NSString *url = [NSString stringWithFormat:@"%@/?rows=1&fname=%@&lname=%@&pretty=true",orign,mailString,passString];
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
         NSData *json = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-        NSArray *array = [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingAllowFragments error:nil];
+        //NSArray *array = [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingAllowFragments error:nil];
         //NSMutableArray *data = [NSMutableArray array];
         //NSString *sessionStr = [data objectAtIndex:0];
         //NSLog(@"sessionStr : %@", sessionStr);
@@ -72,13 +71,12 @@
 }
 //サインアップできたときに戻ってこないためのやつ
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     if ([segue.identifier isEqualToString:@"signupOpen"]) {
         TabViewController *tvc = segue.destinationViewController;
         tvc.successFlag = YES;
     }
 }
-
-
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -93,12 +91,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    /*
     NSString *sessionStr = [NSKeyedUnarchiver unarchiveObjectWithFile:[self filePath]];
     if([sessionStr length] != 0){
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         appDelegate.sessionID = sessionStr;
         [self performSegueWithIdentifier:@"signupOpen" sender:self];
     }
+     */
     // Do any additional setup after loading the view.
 }
 
@@ -107,16 +107,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
