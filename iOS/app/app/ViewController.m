@@ -53,23 +53,39 @@
     } else {
         //Validation通過
         NSError *error = nil;
+        NSURLResponse *response = nil;
+        NSError *e = nil;
         
-        NSString *parameter = [NSString stringWithFormat:@"address=%@&password=%@", mailString, passString];
-        NSString *targetURL = [NSString stringWithFormat:@"http://omoide.folder.jp/api/users/login?%@", parameter];
-        NSURL *url = [NSURL URLWithString:targetURL];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+        NSString *param = [NSString stringWithFormat:@"address=%@&password=%@", mailString, passString];
+        NSString *url = @"http://omoide.folder.jp/api/users/login/";
+        
+        //リクエストを生成
+        NSMutableURLRequest *request;
+        request = [[NSMutableURLRequest alloc] init];
+        [request setHTTPMethod:@"POST"];
+        [request setURL:[NSURL URLWithString:url]];
+        [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setTimeoutInterval:20];
+        [request setHTTPShouldHandleCookies:FALSE];
+        [request setHTTPBody:[param dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        //同期通信で送信
+        NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
         if (error != nil) {
             NSLog(@"Error!");
             return;
         }
+
         
         //取得したレスポンスをJSONパース
-        //NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:response options:nil error:&error];
-        NSArray *array = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
-        //NSString *token = [array objectForKey:@"response"];
-        NSString *token = [array valueForKeyPath:@"response"];
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&e];
+        NSString *token = [dict objectForKey:@"response"];
         NSLog(@"Token is %@", token);
+        
+        
         /*if([sessionStr length] == 0){
          //ログインに失敗
          } else {
