@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "TabViewController.h"
-#import "TalkTableViewController.h"
+#import "AppDelegate.h"
+#import "SignUpViewController.h"
 #import "Validation.h"
 
 @interface ViewController ()
@@ -24,8 +24,7 @@
     [super viewDidLoad];
     //self setTextField:nil;
     NSLog(@"test");
-    self.identification.delegate = self;
-    self.password.delegate = self;
+   
 	// Do any additional setup after loading the view, typically from a nib.
     
 }
@@ -66,8 +65,10 @@
         }
         
         //取得したレスポンスをJSONパース
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:response options:nil error:&error];
-        NSString *token = [dict objectForKey:@"response"];
+        //NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:response options:nil error:&error];
+        NSArray *array = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
+        //NSString *token = [array objectForKey:@"response"];
+        NSString *token = [array valueForKeyPath:@"response"];
         NSLog(@"Token is %@", token);
         /*if([sessionStr length] == 0){
          //ログインに失敗
@@ -76,7 +77,7 @@
          [NSKeyedArchiver archiveRootObject:sessionStr toFile:[self filePath]];
          
          }*/
-        [self performSegueWithIdentifier:@"loginOpen" sender:self];
+        [self performSegueWithIdentifier:@"backLogin" sender:self];
     }
 }
 - (IBAction)identification:(id)sender {
@@ -95,9 +96,10 @@
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"loginOpen"]) {
-        TabViewController *tvc = segue.destinationViewController;
-        tvc.successFlag = YES;
+    if ([segue.identifier isEqualToString:@"backLogin"]) {
+        AppDelegate *appDel = [[UIApplication sharedApplication] delegate];
+        appDel.successFlag = YES;
+        
     }
 }
 

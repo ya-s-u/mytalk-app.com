@@ -7,7 +7,6 @@
 //
 
 #import "TalkTableViewController.h"
-
 #import "talk.h"
 
 @interface TalkTableViewController (){

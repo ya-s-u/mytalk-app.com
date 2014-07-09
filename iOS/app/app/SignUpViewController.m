@@ -73,8 +73,8 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"signupOpen"]) {
-        TabViewController *tvc = segue.destinationViewController;
-        tvc.successFlag = YES;
+        AppDelegate *appDel = [[UIApplication sharedApplication] delegate];
+        appDel.successFlag = YES;
     }
 }
 
@@ -91,6 +91,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    AppDelegate *appDel = [[UIApplication sharedApplication] delegate];
+
+    if(appDel.successFlag == YES){
+        [self performSegueWithIdentifier:@"signupOpen" sender:self];
+    }
     /*
     NSString *sessionStr = [NSKeyedUnarchiver unarchiveObjectWithFile:[self filePath]];
     if([sessionStr length] != 0){

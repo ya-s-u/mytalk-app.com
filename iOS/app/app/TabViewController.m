@@ -7,14 +7,13 @@
 //
 
 #import "TabViewController.h"
-
+#import "AppDelegate.h"
 
 @interface TabViewController ()
 
 @end
 
 @implementation TabViewController
-@synthesize successFlag = _successFlag;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,7 +33,8 @@
  * ログイン画面を表示する。
  */
 - (BOOL)hasLoginSettings {
-    if(_successFlag) return YES;
+    AppDelegate *appDel = [[UIApplication sharedApplication] delegate];
+    if(appDel.successFlag) return YES;
     else return NO;
     //NOでログインしてない
 }

@@ -16,5 +16,5 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSMutableDictionary* globalBox;
 @property (strong, nonatomic) NSString* sessionID;
-
+@property (nonatomic) BOOL successFlag;
 @end
