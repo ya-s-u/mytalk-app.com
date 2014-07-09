@@ -12,4 +12,5 @@
 -(NSString*)mailaddressValid:(NSString*) tg;
 -(NSString*)passwordValid:(NSString*) tg;
 @property NSString *returnMessage;
+
 @end

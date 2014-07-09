@@ -448,8 +448,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet" returnKeyType="done"/>
                                 <connections>
-                                    <action selector="identification:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="rpc-UT-ZTP"/>
-                                    <action selector="login:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="SGI-d0-dRS"/>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="Fjx-C1-R1p"/>
                                 </connections>
                             </textField>

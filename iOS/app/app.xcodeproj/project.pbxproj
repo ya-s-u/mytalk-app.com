@@ -38,6 +38,12 @@
 		187AED8F1964551600294395 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED8E1964551500294395 /* SignUpViewController.m */; };
 		187AED9219685B1500294395 /* Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED9119685B1500294395 /* Validation.m */; };
 		187AED9E196C59D100294395 /* InsideTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED9D196C59D100294395 /* InsideTableViewController.m */; };
+		187AEDA0196D11F600294395 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187AED9F196D11F600294395 /* QuartzCore.framework */; };
+		187AEDA6196D122F00294395 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 187AEDA3196D122F00294395 /* SVProgressHUD.bundle */; };
+		187AEDA7196D122F00294395 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AEDA5196D122F00294395 /* SVProgressHUD.m */; };
+		187AEDA9196D1C1B00294395 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187AEDA8196D1C1B00294395 /* Security.framework */; };
+		187AEDB1196D1C5B00294395 /* LUKeychainAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AEDAD196D1C5B00294395 /* LUKeychainAccess.m */; };
+		187AEDB2196D1C5B00294395 /* LUKeychainServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AEDB0196D1C5B00294395 /* LUKeychainServices.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +99,18 @@
 		187AED9119685B1500294395 /* Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validation.m; sourceTree = "<group>"; };
 		187AED9C196C59D100294395 /* InsideTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsideTableViewController.h; sourceTree = "<group>"; };
 		187AED9D196C59D100294395 /* InsideTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsideTableViewController.m; sourceTree = "<group>"; };
+		187AED9F196D11F600294395 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		187AEDA2196D122F00294395 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		187AEDA3196D122F00294395 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		187AEDA4196D122F00294395 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		187AEDA5196D122F00294395 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		187AEDA8196D1C1B00294395 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		187AEDAB196D1C5B00294395 /* LUKeychainAccess-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LUKeychainAccess-Prefix.pch"; sourceTree = "<group>"; };
+		187AEDAC196D1C5B00294395 /* LUKeychainAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LUKeychainAccess.h; sourceTree = "<group>"; };
+		187AEDAD196D1C5B00294395 /* LUKeychainAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LUKeychainAccess.m; sourceTree = "<group>"; };
+		187AEDAE196D1C5B00294395 /* LUKeychainErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LUKeychainErrorHandler.h; sourceTree = "<group>"; };
+		187AEDAF196D1C5B00294395 /* LUKeychainServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LUKeychainServices.h; sourceTree = "<group>"; };
+		187AEDB0196D1C5B00294395 /* LUKeychainServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LUKeychainServices.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +118,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				187AEDA9196D1C1B00294395 /* Security.framework in Frameworks */,
+				187AEDA0196D11F600294395 /* QuartzCore.framework in Frameworks */,
 				184F797E195AB987000BE727 /* CoreGraphics.framework in Frameworks */,
 				184F7980195AB987000BE727 /* UIKit.framework in Frameworks */,
 				184F797C195AB987000BE727 /* Foundation.framework in Frameworks */,
@@ -142,6 +162,8 @@
 		184F797A195AB987000BE727 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				187AEDA8196D1C1B00294395 /* Security.framework */,
+				187AED9F196D11F600294395 /* QuartzCore.framework */,
 				184F797B195AB987000BE727 /* Foundation.framework */,
 				184F797D195AB987000BE727 /* CoreGraphics.framework */,
 				184F797F195AB987000BE727 /* UIKit.framework */,
@@ -153,6 +175,8 @@
 		184F7981195AB987000BE727 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				187AEDAA196D1C5B00294395 /* LUKeychainAccess */,
+				187AEDA1196D122F00294395 /* SVProgressHUD */,
 				187AED8D1964551500294395 /* SignUpViewController.h */,
 				187AED8E1964551500294395 /* SignUpViewController.m */,
 				184F798A195AB987000BE727 /* AppDelegate.h */,
@@ -213,6 +237,32 @@
 				184F79A6195AB987000BE727 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		187AEDA1196D122F00294395 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				187AEDA2196D122F00294395 /* SVProgressHUD-Prefix.pch */,
+				187AEDA3196D122F00294395 /* SVProgressHUD.bundle */,
+				187AEDA4196D122F00294395 /* SVProgressHUD.h */,
+				187AEDA5196D122F00294395 /* SVProgressHUD.m */,
+			);
+			name = SVProgressHUD;
+			path = ../../../../SVProgressHUD/SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		187AEDAA196D1C5B00294395 /* LUKeychainAccess */ = {
+			isa = PBXGroup;
+			children = (
+				187AEDAB196D1C5B00294395 /* LUKeychainAccess-Prefix.pch */,
+				187AEDAC196D1C5B00294395 /* LUKeychainAccess.h */,
+				187AEDAD196D1C5B00294395 /* LUKeychainAccess.m */,
+				187AEDAE196D1C5B00294395 /* LUKeychainErrorHandler.h */,
+				187AEDAF196D1C5B00294395 /* LUKeychainServices.h */,
+				187AEDB0196D1C5B00294395 /* LUKeychainServices.m */,
+			);
+			name = LUKeychainAccess;
+			path = ../../../../LUKeychainAccess/LUKeychainAccess;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +351,7 @@
 				187AED471962E32600294395 /* RoundIcons-Free-Set-05.png in Resources */,
 				187AED431962E32600294395 /* RoundIcons-Free-Set-01.png in Resources */,
 				184F79E61962848E000BE727 /* icon_tab_activity.png in Resources */,
+				187AEDA6196D122F00294395 /* SVProgressHUD.bundle in Resources */,
 				184F7997195AB987000BE727 /* Images.xcassets in Resources */,
 				187AED451962E32600294395 /* RoundIcons-Free-Set-03.png in Resources */,
 				184F798F195AB987000BE727 /* Main_iPhone.storyboard in Resources */,
@@ -327,10 +378,13 @@
 				184F79CC19606E19000BE727 /* TalkTableViewController.m in Sources */,
 				187AED9219685B1500294395 /* Validation.m in Sources */,
 				184F7995195AB987000BE727 /* ViewController.m in Sources */,
+				187AEDB2196D1C5B00294395 /* LUKeychainServices.m in Sources */,
 				184F798C195AB987000BE727 /* AppDelegate.m in Sources */,
 				184F79F219628FB7000BE727 /* TabViewController.m in Sources */,
 				184F7988195AB987000BE727 /* main.m in Sources */,
+				187AEDA7196D122F00294395 /* SVProgressHUD.m in Sources */,
 				187AED9E196C59D100294395 /* InsideTableViewController.m in Sources */,
+				187AEDB1196D1C5B00294395 /* LUKeychainAccess.m in Sources */,
 				187AED8F1964551600294395 /* SignUpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -96,6 +96,8 @@
     if(appDel.successFlag == YES){
         [self performSegueWithIdentifier:@"signupOpen" sender:self];
     }
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeSoftKeyboard)];
+    [self.view addGestureRecognizer:gestureRecognizer];
     /*
     NSString *sessionStr = [NSKeyedUnarchiver unarchiveObjectWithFile:[self filePath]];
     if([sessionStr length] != 0){
@@ -106,7 +108,9 @@
      */
     // Do any additional setup after loading the view.
 }
-
+- (void)closeSoftKeyboard {
+    [self.view endEditing: YES];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

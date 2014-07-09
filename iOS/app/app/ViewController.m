@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 #import "SignUpViewController.h"
 #import "Validation.h"
+#import "SVProgressHUD.h"
+#import "LUKeychainAccess.h"
 
 @interface ViewController ()
 
@@ -18,13 +20,12 @@
 @implementation ViewController
 @synthesize mailAddress = _mailAddress;
 @synthesize passWord = _passWord;
-
+//@synthesize statusCode = _statusCode;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //self setTextField:nil;
-    NSLog(@"test");
-   
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeSoftKeyboard)];
+    [self.view addGestureRecognizer:gestureRecognizer];
 	// Do any additional setup after loading the view, typically from a nib.
     
 }
@@ -51,9 +52,11 @@
     } else if([errorMsgPass length] > 1){
         self.message.text = errorMsgPass;
     } else {
+        [SVProgressHUD show];
+
         //Validation通過
         NSError *error = nil;
-        NSURLResponse *response = nil;
+        NSHTTPURLResponse *response = nil;
         NSError *e = nil;
         
         NSString *param = [NSString stringWithFormat:@"address=%@&password=%@", mailString, passString];
@@ -70,7 +73,6 @@
         [request setTimeoutInterval:20];
         [request setHTTPShouldHandleCookies:FALSE];
         [request setHTTPBody:[param dataUsingEncoding:NSUTF8StringEncoding]];
-        
         //同期通信で送信
         NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         
@@ -78,13 +80,19 @@
             NSLog(@"Error!");
             return;
         }
-
+        
         
         //取得したレスポンスをJSONパース
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&e];
         NSString *token = [dict objectForKey:@"response"];
+        NSInteger status = [(NSHTTPURLResponse*)response statusCode];
         NSLog(@"Token is %@", token);
-        
+        NSLog(@"statuscode:%ld",status);
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:httpResponse.allHeaderFields forURL:response.URL];
+        NSHTTPCookie *cookie = [cookies objectAtIndex:0];
+        //SessionIDをKeyChainに保存する
+        [[LUKeychainAccess standardKeychainAccess] setString:cookie.value forKey:@"sessionID"];
         
         /*if([sessionStr length] == 0){
          //ログインに失敗
@@ -93,6 +101,7 @@
          [NSKeyedArchiver archiveRootObject:sessionStr toFile:[self filePath]];
          
          }*/
+        [SVProgressHUD dismiss];
         [self performSegueWithIdentifier:@"backLogin" sender:self];
     }
 }
@@ -119,7 +128,9 @@
     }
 }
 
-
+- (void)closeSoftKeyboard {
+    [self.view endEditing: YES];
+}
 
 /*
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
@@ -138,5 +149,4 @@
     return YES;
 }
  */
-
 @end
