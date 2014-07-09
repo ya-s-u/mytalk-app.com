@@ -73,35 +73,24 @@
         [request setTimeoutInterval:20];
         [request setHTTPShouldHandleCookies:FALSE];
         [request setHTTPBody:[param dataUsingEncoding:NSUTF8StringEncoding]];
-        //同期通信で送信
-        NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        
-        if (error != nil) {
-            NSLog(@"Error!");
+        //取得したレスポンスからステータスコードを取得
+        NSInteger status = [(NSHTTPURLResponse*)response statusCode];
+        NSLog(@"statuscode:%ld",status);
+        if (status == 400) {
+            self.message.text = @"通信エラー";
+            [SVProgressHUD dismiss];
             return;
         }
-        
-        
-        //取得したレスポンスをJSONパース
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&e];
-        NSString *token = [dict objectForKey:@"response"];
-        NSInteger status = [(NSHTTPURLResponse*)response statusCode];
-        NSLog(@"Token is %@", token);
-        NSLog(@"statuscode:%ld",status);
+        //クッキーデータを取得
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:httpResponse.allHeaderFields forURL:response.URL];
         NSHTTPCookie *cookie = [cookies objectAtIndex:0];
         //SessionIDをKeyChainに保存する
         [[LUKeychainAccess standardKeychainAccess] setString:cookie.value forKey:@"sessionID"];
-        
-        /*if([sessionStr length] == 0){
-         //ログインに失敗
-         } else {
-         //sessionIDを保存
-         [NSKeyedArchiver archiveRootObject:sessionStr toFile:[self filePath]];
-         
-         }*/
         [SVProgressHUD dismiss];
+        
+        
+        
         [self performSegueWithIdentifier:@"backLogin" sender:self];
     }
 }
