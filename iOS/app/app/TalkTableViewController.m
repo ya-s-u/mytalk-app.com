@@ -7,6 +7,7 @@
 //
 
 #import "TalkTableViewController.h"
+#import "LUKeychainAccess.h"
 #import "talk.h"
 
 @interface TalkTableViewController (){
@@ -18,7 +19,6 @@
 
 @implementation TalkTableViewController
 @synthesize talks;
-@synthesize sessionID = _sessionID;
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -36,6 +36,55 @@
     
     // sessionIDを使って各種トーク情報を読み込んでテーブルに追加するとこ
     // 未ログイン時は何も表示しないようにする
+    NSArray *cookie = [[LUKeychainAccess standardKeychainAccess] objectForKey:@"cookie"];
+    NSError *error = nil;
+    NSHTTPURLResponse *response = nil;
+    NSError *e = nil;
+    NSString *url = @"http://omoide.folder.jp/api/talks";
+    // NSHTTPCookieを作成
+    NSDictionary *header = [NSHTTPCookie requestHeaderFieldsWithCookies:cookie];
+    
+    //リクエストを生成
+    NSMutableURLRequest *request;
+    request = [[NSMutableURLRequest alloc] init];
+    [request setHTTPMethod:@"GET"];
+    [request setURL:[NSURL URLWithString:url]];
+    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setTimeoutInterval:20];
+    [request setAllHTTPHeaderFields:header];
+    
+    //同期通信で送信
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (error != nil) {
+        NSLog(@"送信エラー");
+        [self showLoginView];
+        //return;
+    }
+    
+    //取得したレスポンスをJSONパース
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&e];
+    NSString *token = [dict objectForKey:@"response"];
+    NSInteger status = [(NSHTTPURLResponse*)response statusCode];
+    NSLog(@"response is %@", token);
+    NSLog(@"statuscode:%ld",status);
+    if (status == 400) {
+        NSLog(@"受信エラー");
+        [self showLoginView];
+        
+        //return;
+    }
+    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+    NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:httpResponse.allHeaderFields forURL:response.URL];
+    NSHTTPCookie *rescookie = [cookies objectAtIndex:0];
+    //SessionIDが変更があればCookieをKeyChainに保存する
+    if(rescookie.value != [cookie objectAtIndex:6])
+        [[LUKeychainAccess standardKeychainAccess] setObject:cookies forKey:@"cookie"];
+
+    
+    
+    
     talks = [NSMutableArray arrayWithCapacity:20];
     
 	Talk *talk = [[Talk alloc] init];
@@ -149,6 +198,14 @@
     [self performSegueWithIdentifier:@"toInside" sender:self];
 }
 
+- (void)showLoginView {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"SignUpView"];// signupviewへ移動
+    [vc setModalPresentationStyle:UIModalPresentationFullScreen];
+    [vc setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 
 @end

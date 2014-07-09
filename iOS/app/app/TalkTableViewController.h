@@ -10,10 +10,8 @@
 
 
 @interface TalkTableViewController : UITableViewController
-<UITableViewDataSource, UITableViewDelegate>{
-    NSInteger* _sessionID;
-}
+<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSMutableArray *talks;
-@property (nonatomic, assign) NSInteger* sessionID;
+
 
 @end

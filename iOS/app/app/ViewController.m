@@ -73,24 +73,31 @@
         [request setTimeoutInterval:20];
         [request setHTTPShouldHandleCookies:FALSE];
         [request setHTTPBody:[param dataUsingEncoding:NSUTF8StringEncoding]];
-        //取得したレスポンスからステータスコードを取得
+        //同期通信で送信
+        NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        if (error != nil) {
+            self.message.text = @"通信エラー";
+            [SVProgressHUD dismiss];
+            return;
+        }
+        
+        
+        //取得したレスポンスをJSONパース
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&e];
+        NSString *token = [dict objectForKey:@"response"];
         NSInteger status = [(NSHTTPURLResponse*)response statusCode];
+        NSLog(@"response is %@", token);
         NSLog(@"statuscode:%ld",status);
         if (status == 400) {
             self.message.text = @"通信エラー";
             [SVProgressHUD dismiss];
             return;
         }
-        //クッキーデータを取得
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:httpResponse.allHeaderFields forURL:response.URL];
-        NSHTTPCookie *cookie = [cookies objectAtIndex:0];
-        //SessionIDをKeyChainに保存する
-        [[LUKeychainAccess standardKeychainAccess] setString:cookie.value forKey:@"sessionID"];
+        //クッキーをKeyChainに保存する
+        [[LUKeychainAccess standardKeychainAccess] setObject:cookies forKey:@"cookie"];
         [SVProgressHUD dismiss];
-        
-        
-        
         [self performSegueWithIdentifier:@"backLogin" sender:self];
     }
 }
@@ -102,11 +109,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
-    [self.identification resignFirstResponder];
-    [self.password resignFirstResponder];
-    return YES;
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -121,21 +123,4 @@
     [self.view endEditing: YES];
 }
 
-/*
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
-{
-    self.mailAddress = self.identification.text;
-    NSString *mailString = self.mailAddress;
-    self.passWord = self.password.text;
-    NSString *passString = self.passWord;
-    if ([sender isEqualToString:@"loginOpen"]) {
-        if (mailString length] == 0 || [passString length] == 0) {
-            // 遷移する代わりの処理を書くこともできる。
-            return NO;
-        }
-        NSLog(@"opensegue");
-    }
-    return YES;
-}
- */
 @end

@@ -17,6 +17,7 @@
 }
 @synthesize sessionID;
 @synthesize successFlag;
+@synthesize globalBox;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // トークテーブルの初期設定

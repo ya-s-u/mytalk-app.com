@@ -11,6 +11,8 @@
 #import "TalkTableViewController.h"
 #import "Validation.h"
 #import "AppDelegate.h"
+#import "SVProgressHUD.h"
+#import "LUKeychainAccess.h"
 
 @interface SignUpViewController ()
 
@@ -45,23 +47,50 @@
         self.message.text = errorMsgPass;
     } else {
         //Validation通過
+        NSError *error = nil;
+        NSHTTPURLResponse *response = nil;
+        NSError *e = nil;
         
-        NSString *orign = @"http://www.filltext.com";
-        NSString *url = [NSString stringWithFormat:@"%@/?rows=1&fname=%@&lname=%@&pretty=true",orign,mailString,passString];
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-        NSData *json = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-        //NSArray *array = [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingAllowFragments error:nil];
-        //NSMutableArray *data = [NSMutableArray array];
-        //NSString *sessionStr = [data objectAtIndex:0];
-        //NSLog(@"sessionStr : %@", sessionStr);
+        NSString *param = [NSString stringWithFormat:@"address=%@&password=%@", mailString, passString];
+        NSString *url = @"http://omoide.folder.jp/api/users/login/";
         
-        /*if([sessionStr length] == 0){
-            //ログインに失敗
-        } else {
-            //sessionIDを保存
-            [NSKeyedArchiver archiveRootObject:sessionStr toFile:[self filePath]];
-            
-        }*/
+        //リクエストを生成
+        NSMutableURLRequest *request;
+        request = [[NSMutableURLRequest alloc] init];
+        [request setHTTPMethod:@"POST"];
+        [request setURL:[NSURL URLWithString:url]];
+        [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setTimeoutInterval:20];
+        [request setHTTPShouldHandleCookies:FALSE];
+        [request setHTTPBody:[param dataUsingEncoding:NSUTF8StringEncoding]];
+        //同期通信で送信
+        NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        if (error != nil) {
+            self.message.text = @"通信エラー";
+            [SVProgressHUD dismiss];
+            return;
+        }
+        
+        
+        //取得したレスポンスをJSONパース
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&e];
+        NSString *token = [dict objectForKey:@"response"];
+        NSInteger status = [(NSHTTPURLResponse*)response statusCode];
+        NSLog(@"response is %@", token);
+        NSLog(@"statuscode:%ld",status);
+        if (status == 400) {
+            self.message.text = @"通信エラー";
+            [SVProgressHUD dismiss];
+            return;
+        }
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:httpResponse.allHeaderFields forURL:response.URL];
+        NSHTTPCookie *cookie = [cookies objectAtIndex:0];
+        //SessionIDをKeyChainに保存する
+        [[LUKeychainAccess standardKeychainAccess] setString:cookie.value forKey:@"sessionID"];
+        [SVProgressHUD dismiss];
         [self performSegueWithIdentifier:@"signupOpen" sender:self];
     }
 }
