@@ -65,29 +65,42 @@
     
     //取得したレスポンスをJSONパース
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&e];
-    NSString *token = [dict objectForKey:@"response"];
+    NSDictionary *token = [dict objectForKey:@"response"];
+    NSDictionary *talkData = [token objectForKey:@"Talk"];
     NSInteger status = [(NSHTTPURLResponse*)response statusCode];
-    NSLog(@"response is %@", token);
-    NSLog(@"statuscode:%ld",status);
+    //NSLog(@"token is %@", talkData);
+    //NSLog(@"statuscode:%ld",status);
     if (status == 400) {
         NSLog(@"受信エラー");
         [self showLoginView];
-        
         //return;
     }
+    //cookieを取得しようとしてみる
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
     NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:httpResponse.allHeaderFields forURL:response.URL];
-    NSHTTPCookie *rescookie = [cookies objectAtIndex:0];
-    //SessionIDが変更があればCookieをKeyChainに保存する
-    if(rescookie.value != [cookie objectAtIndex:6])
-        [[LUKeychainAccess standardKeychainAccess] setObject:cookies forKey:@"cookie"];
-
-    
-    
-    
+    //cookieを取得できたら
+    if([cookies count] != 0){
+        NSHTTPCookie *rescookie = [cookies objectAtIndex:0];
+        //SessionIDが変更があればCookieをKeyChainに保存する
+        if(rescookie.value != [cookie objectAtIndex:6])[[LUKeychainAccess standardKeychainAccess] setObject:cookies forKey:@"cookie"];
+    }
+    /*
+     *  テーブルにJSONを流し込む部分
+     */
     talks = [NSMutableArray arrayWithCapacity:20];
+	Talk *talk;
+    for (NSDictionary *data in talkData) {
+        talk = [[Talk alloc] init];
+        talk.name = [data objectForKey:@"title"];
+        talk.periodStart = [data objectForKey:@"start"];
+        talk.periodEnd = [data objectForKey:@"end"];
+        talk.member = [[data objectForKey:@"member"] intValue];
+        talk.icon = [[data objectForKey:@"icon"] intValue];
+        talk.posts = [[data objectForKey:@"count"] intValue];
+        [talks addObject:talk];
+    }
     
-	Talk *talk = [[Talk alloc] init];
+    /*
 	talk.name = @"おもしろトーク";
     talk.periodStart = 2014.1;
     talk.periodEnd = 2014.5;
@@ -112,16 +125,8 @@
 	talk.member = 1;
 	talk.icon = 4;
     talk.posts = 1111;
-    
-    //ゴーストセル(最後のセルだけ表示されない)
     [talks addObject:talk];
-    talk = [[Talk alloc] init];
-    talk.name = @"怪しいトーク2";
-    talk.periodStart = 2031.3;
-    talk.periodEnd = 2034.5;
-	talk.member = 1;
-	talk.icon = 4;
-    talk.posts = 1111;
+    */
 
 }
 
@@ -165,9 +170,9 @@
     UILabel *nameLabel = (UILabel *)[cell viewWithTag:100];//トーク名
 	nameLabel.text = talk.name;
 	UILabel *periodStartLabel = (UILabel *)[cell viewWithTag:101];//開始年月
-	periodStartLabel.text = [NSString stringWithFormat:@"%ld ", talk.periodStart];
+	periodStartLabel.text = [NSString stringWithFormat:@"%@ ", talk.periodStart];
     UILabel *periodEndLabel = (UILabel *)[cell viewWithTag:102];//終了年月
-	periodEndLabel.text = [NSString stringWithFormat:@"%ld ", talk.periodEnd];
+	periodEndLabel.text = [NSString stringWithFormat:@"%@ ", talk.periodEnd];
 	UIImageView * iconImageView = (UIImageView *)
     [cell viewWithTag:103];
 	iconImageView.image = [self imageForIcon:talk.icon];//アイコン画像

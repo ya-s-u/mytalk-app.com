@@ -10,9 +10,9 @@
 
 @interface Talk : NSObject
 // インスタンス変数
-@property (nonatomic, copy) NSString *name;
-@property (nonatomic, assign) NSInteger periodStart;
-@property (nonatomic, assign) NSInteger periodEnd;
+@property (nonatomic, copy) id name;
+@property (nonatomic, assign) id periodStart;
+@property (nonatomic, assign) id periodEnd;
 @property (nonatomic, assign) NSInteger member;
 @property (nonatomic, assign) NSInteger icon;
 @property (nonatomic, assign) NSInteger posts;
