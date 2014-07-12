@@ -12,6 +12,8 @@
 	<dict>
 		<key>5DA11BAB-7912-422F-B77B-1F555D0262A2</key>
 		<string>https://github.com/TheLevelUp/LUKeychainAccess.git</string>
+		<key>92AD71CE-BE12-4210-BEEF-C7BB6A982D49</key>
+		<string>https://github.com/iltercengiz/ICViewPager.git</string>
 		<key>CAC6B6A8-B508-4BA0-A5C7-EB07A774E1F3</key>
 		<string>https://github.com/ya-s-u/mytalk-app.com.git</string>
 	</dict>
@@ -21,6 +23,8 @@
 	<dict>
 		<key>5DA11BAB-7912-422F-B77B-1F555D0262A2</key>
 		<string>../../../../../LUKeychainAccess</string>
+		<key>92AD71CE-BE12-4210-BEEF-C7BB6A982D49</key>
+		<string>../../../../../ICViewPager</string>
 		<key>CAC6B6A8-B508-4BA0-A5C7-EB07A774E1F3</key>
 		<string>../../../..</string>
 	</dict>
@@ -39,6 +43,14 @@
 			<string>CAC6B6A8-B508-4BA0-A5C7-EB07A774E1F3</string>
 			<key>IDESourceControlWCCName</key>
 			<string>app</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>92AD71CE-BE12-4210-BEEF-C7BB6A982D49</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ICViewPager</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>

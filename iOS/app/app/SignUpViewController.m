@@ -14,6 +14,7 @@
 #import "SVProgressHUD.h"
 #import "LUKeychainAccess.h"
 
+
 @interface SignUpViewController ()
 
 @end
@@ -94,10 +95,6 @@
         [self performSegueWithIdentifier:@"signupOpen" sender:self];
     }
 }
-//アカウントを持っている方はこちら
-- (IBAction)toLogin:(id)sender {
-    [self performSegueWithIdentifier:@"toLogin" sender:self];
-}
 //サインアップできたときに戻ってこないためのやつ
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
@@ -127,6 +124,15 @@
     }
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeSoftKeyboard)];
     [self.view addGestureRecognizer:gestureRecognizer];
+    //ボタンの角丸
+    [[_signUp layer] setCornerRadius:5.0];
+    [_signUp setClipsToBounds:YES];
+    //バーの色
+    [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:0.000 green:0.682 blue:0.937 alpha:1.000];
+    //バーの文字色
+    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    //戻るボタンの色
+    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
     /*
     NSString *sessionStr = [NSKeyedUnarchiver unarchiveObjectWithFile:[self filePath]];
     if([sessionStr length] != 0){
@@ -137,6 +143,10 @@
      */
     // Do any additional setup after loading the view.
 }
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:NO]; // ナビゲーションバー非表示
+}
 - (void)closeSoftKeyboard {
     [self.view endEditing: YES];
 }
@@ -145,5 +155,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end

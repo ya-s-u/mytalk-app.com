@@ -26,7 +26,16 @@
     [super viewDidLoad];
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeSoftKeyboard)];
     [self.view addGestureRecognizer:gestureRecognizer];
-	// Do any additional setup after loading the view, typically from a nib.
+    //ボタンの角丸
+    [[_login layer] setCornerRadius:5.0];
+    [_login setClipsToBounds:YES];
+    //バーの色
+    [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:0.000 green:0.682 blue:0.937 alpha:1.000];
+    //バーの文字色
+    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+	//戻るボタンの色
+    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
+
     
 }
 - (IBAction)login:(id)sender {
@@ -52,12 +61,11 @@
     } else if([errorMsgPass length] > 1){
         self.message.text = errorMsgPass;
     } else {
-        [SVProgressHUD show];
+        //[SVProgressHUD show];
 
         //Validation通過
         NSError *error = nil;
         NSHTTPURLResponse *response = nil;
-        NSError *e = nil;
         
         NSString *param = [NSString stringWithFormat:@"address=%@&password=%@", mailString, passString];
         NSString *url = @"http://omoide.folder.jp/api/users/login/";
@@ -77,27 +85,25 @@
         NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         if (error != nil) {
             self.message.text = @"通信エラー";
-            [SVProgressHUD dismiss];
+            //[SVProgressHUD dismiss];
             return;
         }
-        
-        
         //取得したレスポンスをJSONパース
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&e];
-        NSString *token = [dict objectForKey:@"response"];
+        //NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        //NSString *token = [dict objectForKey:@"response"];
         NSInteger status = [(NSHTTPURLResponse*)response statusCode];
-        NSLog(@"response is %@", token);
+        //NSLog(@"response is %@", token);
         NSLog(@"statuscode:%ld",status);
         if (status == 400) {
             self.message.text = @"通信エラー";
-            [SVProgressHUD dismiss];
+            //[SVProgressHUD dismiss];
             return;
         }
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:httpResponse.allHeaderFields forURL:response.URL];
         //クッキーをKeyChainに保存する
         [[LUKeychainAccess standardKeychainAccess] setObject:cookies forKey:@"cookie"];
-        [SVProgressHUD dismiss];
+        //[SVProgressHUD dismiss];
         [self performSegueWithIdentifier:@"backLogin" sender:self];
     }
 }
@@ -122,5 +128,8 @@
 - (void)closeSoftKeyboard {
     [self.view endEditing: YES];
 }
-
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:NO]; // ナビゲーションバー非表示
+}
 @end

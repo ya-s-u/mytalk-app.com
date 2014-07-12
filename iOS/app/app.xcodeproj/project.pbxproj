@@ -25,16 +25,9 @@
 		184F79B4195ABA05000BE727 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 184F79B3195ABA05000BE727 /* .gitignore */; };
 		184F79CC19606E19000BE727 /* TalkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79CB19606E19000BE727 /* TalkTableViewController.m */; };
 		184F79D21961A464000BE727 /* Talk.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79D11961A464000BE727 /* Talk.m */; };
-		184F79E61962848E000BE727 /* icon_tab_activity.png in Resources */ = {isa = PBXBuildFile; fileRef = 184F79E21962848E000BE727 /* icon_tab_activity.png */; };
-		184F79E71962848E000BE727 /* icon_tab_all.png in Resources */ = {isa = PBXBuildFile; fileRef = 184F79E31962848E000BE727 /* icon_tab_all.png */; };
-		184F79E81962848E000BE727 /* icon_tab_setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 184F79E41962848E000BE727 /* icon_tab_setting.png */; };
-		184F79E91962848E000BE727 /* icon_tab_shared.png in Resources */ = {isa = PBXBuildFile; fileRef = 184F79E51962848E000BE727 /* icon_tab_shared.png */; };
 		184F79F219628FB7000BE727 /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79F119628FB7000BE727 /* TabViewController.m */; };
-		187AED431962E32600294395 /* RoundIcons-Free-Set-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 187AED3E1962E32600294395 /* RoundIcons-Free-Set-01.png */; };
-		187AED441962E32600294395 /* RoundIcons-Free-Set-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 187AED3F1962E32600294395 /* RoundIcons-Free-Set-02.png */; };
-		187AED451962E32600294395 /* RoundIcons-Free-Set-03.png in Resources */ = {isa = PBXBuildFile; fileRef = 187AED401962E32600294395 /* RoundIcons-Free-Set-03.png */; };
-		187AED461962E32600294395 /* RoundIcons-Free-Set-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 187AED411962E32600294395 /* RoundIcons-Free-Set-04.png */; };
-		187AED471962E32600294395 /* RoundIcons-Free-Set-05.png in Resources */ = {isa = PBXBuildFile; fileRef = 187AED421962E32600294395 /* RoundIcons-Free-Set-05.png */; };
+		185D33201970F90600C741A0 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D331F1970F90600C741A0 /* HomeViewController.m */; };
+		185D3323197102D400C741A0 /* TipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D3322197102D400C741A0 /* TipsViewController.m */; };
 		187AED8F1964551600294395 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED8E1964551500294395 /* SignUpViewController.m */; };
 		187AED9219685B1500294395 /* Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED9119685B1500294395 /* Validation.m */; };
 		187AED9E196C59D100294395 /* InsideTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED9D196C59D100294395 /* InsideTableViewController.m */; };
@@ -44,6 +37,9 @@
 		187AEDA9196D1C1B00294395 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187AEDA8196D1C1B00294395 /* Security.framework */; };
 		187AEDB1196D1C5B00294395 /* LUKeychainAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AEDAD196D1C5B00294395 /* LUKeychainAccess.m */; };
 		187AEDB2196D1C5B00294395 /* LUKeychainServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AEDB0196D1C5B00294395 /* LUKeychainServices.m */; };
+		187AEDB6196ED4E800294395 /* ViewPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AEDB5196ED4E800294395 /* ViewPagerController.m */; };
+		187AEDC0196ED6CD00294395 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AEDBF196ED6CD00294395 /* ContentViewController.m */; };
+		187AEDC3196ED73A00294395 /* PageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AEDC2196ED73A00294395 /* PageController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,17 +78,12 @@
 		184F79CB19606E19000BE727 /* TalkTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkTableViewController.m; sourceTree = "<group>"; };
 		184F79D01961A464000BE727 /* Talk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Talk.h; sourceTree = "<group>"; };
 		184F79D11961A464000BE727 /* Talk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Talk.m; sourceTree = "<group>"; };
-		184F79E21962848E000BE727 /* icon_tab_activity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_tab_activity.png; path = ../../../../../../Downloads/icon_tab_activity.png; sourceTree = "<group>"; };
-		184F79E31962848E000BE727 /* icon_tab_all.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_tab_all.png; path = ../../../../../../Downloads/icon_tab_all.png; sourceTree = "<group>"; };
-		184F79E41962848E000BE727 /* icon_tab_setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_tab_setting.png; path = ../../../../../../Downloads/icon_tab_setting.png; sourceTree = "<group>"; };
-		184F79E51962848E000BE727 /* icon_tab_shared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_tab_shared.png; path = ../../../../../../Downloads/icon_tab_shared.png; sourceTree = "<group>"; };
 		184F79F019628FB7000BE727 /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
 		184F79F119628FB7000BE727 /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
-		187AED3E1962E32600294395 /* RoundIcons-Free-Set-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RoundIcons-Free-Set-01.png"; path = "../../../client/img/icon/RoundIcons-Free-Set-01.png"; sourceTree = "<group>"; };
-		187AED3F1962E32600294395 /* RoundIcons-Free-Set-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RoundIcons-Free-Set-02.png"; path = "../../../client/img/icon/RoundIcons-Free-Set-02.png"; sourceTree = "<group>"; };
-		187AED401962E32600294395 /* RoundIcons-Free-Set-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RoundIcons-Free-Set-03.png"; path = "../../../client/img/icon/RoundIcons-Free-Set-03.png"; sourceTree = "<group>"; };
-		187AED411962E32600294395 /* RoundIcons-Free-Set-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RoundIcons-Free-Set-04.png"; path = "../../../client/img/icon/RoundIcons-Free-Set-04.png"; sourceTree = "<group>"; };
-		187AED421962E32600294395 /* RoundIcons-Free-Set-05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RoundIcons-Free-Set-05.png"; path = "../../../client/img/icon/RoundIcons-Free-Set-05.png"; sourceTree = "<group>"; };
+		185D331E1970F90600C741A0 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		185D331F1970F90600C741A0 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		185D3321197102D400C741A0 /* TipsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsViewController.h; sourceTree = "<group>"; };
+		185D3322197102D400C741A0 /* TipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsViewController.m; sourceTree = "<group>"; };
 		187AED8D1964551500294395 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		187AED8E1964551500294395 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		187AED9019685B1500294395 /* Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validation.h; sourceTree = "<group>"; };
@@ -111,6 +102,12 @@
 		187AEDAE196D1C5B00294395 /* LUKeychainErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LUKeychainErrorHandler.h; sourceTree = "<group>"; };
 		187AEDAF196D1C5B00294395 /* LUKeychainServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LUKeychainServices.h; sourceTree = "<group>"; };
 		187AEDB0196D1C5B00294395 /* LUKeychainServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LUKeychainServices.m; sourceTree = "<group>"; };
+		187AEDB4196ED4E800294395 /* ViewPagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPagerController.h; sourceTree = "<group>"; };
+		187AEDB5196ED4E800294395 /* ViewPagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPagerController.m; sourceTree = "<group>"; };
+		187AEDBE196ED6CD00294395 /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
+		187AEDBF196ED6CD00294395 /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
+		187AEDC1196ED73A00294395 /* PageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageController.h; sourceTree = "<group>"; };
+		187AEDC2196ED73A00294395 /* PageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,13 +172,22 @@
 		184F7981195AB987000BE727 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				187AEDB3196ED4E800294395 /* ICViewPager */,
 				187AEDAA196D1C5B00294395 /* LUKeychainAccess */,
 				187AEDA1196D122F00294395 /* SVProgressHUD */,
 				187AED8D1964551500294395 /* SignUpViewController.h */,
 				187AED8E1964551500294395 /* SignUpViewController.m */,
 				184F798A195AB987000BE727 /* AppDelegate.h */,
+				187AEDC1196ED73A00294395 /* PageController.h */,
+				187AEDC2196ED73A00294395 /* PageController.m */,
+				187AEDBE196ED6CD00294395 /* ContentViewController.h */,
+				187AEDBF196ED6CD00294395 /* ContentViewController.m */,
 				184F798B195AB987000BE727 /* AppDelegate.m */,
 				184F798D195AB987000BE727 /* Main_iPhone.storyboard */,
+				185D331E1970F90600C741A0 /* HomeViewController.h */,
+				185D3321197102D400C741A0 /* TipsViewController.h */,
+				185D3322197102D400C741A0 /* TipsViewController.m */,
+				185D331F1970F90600C741A0 /* HomeViewController.m */,
 				184F79CA19606E19000BE727 /* TalkTableViewController.h */,
 				184F79CB19606E19000BE727 /* TalkTableViewController.m */,
 				184F7993195AB987000BE727 /* ViewController.h */,
@@ -195,15 +201,6 @@
 				184F79D01961A464000BE727 /* Talk.h */,
 				184F79D11961A464000BE727 /* Talk.m */,
 				184F7996195AB987000BE727 /* Images.xcassets */,
-				187AED3E1962E32600294395 /* RoundIcons-Free-Set-01.png */,
-				187AED3F1962E32600294395 /* RoundIcons-Free-Set-02.png */,
-				187AED401962E32600294395 /* RoundIcons-Free-Set-03.png */,
-				187AED411962E32600294395 /* RoundIcons-Free-Set-04.png */,
-				187AED421962E32600294395 /* RoundIcons-Free-Set-05.png */,
-				184F79E21962848E000BE727 /* icon_tab_activity.png */,
-				184F79E31962848E000BE727 /* icon_tab_all.png */,
-				184F79E41962848E000BE727 /* icon_tab_setting.png */,
-				184F79E51962848E000BE727 /* icon_tab_shared.png */,
 				184F7990195AB987000BE727 /* Main_iPad.storyboard */,
 				184F7982195AB987000BE727 /* Supporting Files */,
 			);
@@ -263,6 +260,16 @@
 			);
 			name = LUKeychainAccess;
 			path = ../../../../LUKeychainAccess/LUKeychainAccess;
+			sourceTree = "<group>";
+		};
+		187AEDB3196ED4E800294395 /* ICViewPager */ = {
+			isa = PBXGroup;
+			children = (
+				187AEDB4196ED4E800294395 /* ViewPagerController.h */,
+				187AEDB5196ED4E800294395 /* ViewPagerController.m */,
+			);
+			name = ICViewPager;
+			path = ../../../../ICViewPager/ICViewPager/ICViewPager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,19 +348,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				184F79E71962848E000BE727 /* icon_tab_all.png in Resources */,
-				184F79E91962848E000BE727 /* icon_tab_shared.png in Resources */,
-				187AED441962E32600294395 /* RoundIcons-Free-Set-02.png in Resources */,
 				184F79B4195ABA05000BE727 /* .gitignore in Resources */,
-				187AED461962E32600294395 /* RoundIcons-Free-Set-04.png in Resources */,
 				184F7992195AB987000BE727 /* Main_iPad.storyboard in Resources */,
-				184F79E81962848E000BE727 /* icon_tab_setting.png in Resources */,
-				187AED471962E32600294395 /* RoundIcons-Free-Set-05.png in Resources */,
-				187AED431962E32600294395 /* RoundIcons-Free-Set-01.png in Resources */,
-				184F79E61962848E000BE727 /* icon_tab_activity.png in Resources */,
 				187AEDA6196D122F00294395 /* SVProgressHUD.bundle in Resources */,
 				184F7997195AB987000BE727 /* Images.xcassets in Resources */,
-				187AED451962E32600294395 /* RoundIcons-Free-Set-03.png in Resources */,
 				184F798F195AB987000BE727 /* Main_iPhone.storyboard in Resources */,
 				184F7986195AB987000BE727 /* InfoPlist.strings in Resources */,
 			);
@@ -376,14 +374,19 @@
 			files = (
 				184F79D21961A464000BE727 /* Talk.m in Sources */,
 				184F79CC19606E19000BE727 /* TalkTableViewController.m in Sources */,
+				185D3323197102D400C741A0 /* TipsViewController.m in Sources */,
 				187AED9219685B1500294395 /* Validation.m in Sources */,
 				184F7995195AB987000BE727 /* ViewController.m in Sources */,
 				187AEDB2196D1C5B00294395 /* LUKeychainServices.m in Sources */,
+				187AEDB6196ED4E800294395 /* ViewPagerController.m in Sources */,
 				184F798C195AB987000BE727 /* AppDelegate.m in Sources */,
+				185D33201970F90600C741A0 /* HomeViewController.m in Sources */,
 				184F79F219628FB7000BE727 /* TabViewController.m in Sources */,
 				184F7988195AB987000BE727 /* main.m in Sources */,
 				187AEDA7196D122F00294395 /* SVProgressHUD.m in Sources */,
+				187AEDC0196ED6CD00294395 /* ContentViewController.m in Sources */,
 				187AED9E196C59D100294395 /* InsideTableViewController.m in Sources */,
+				187AEDC3196ED73A00294395 /* PageController.m in Sources */,
 				187AEDB1196D1C5B00294395 /* LUKeychainAccess.m in Sources */,
 				187AED8F1964551600294395 /* SignUpViewController.m in Sources */,
 			);

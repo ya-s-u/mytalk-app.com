@@ -69,10 +69,10 @@
     NSDictionary *talkData = [token objectForKey:@"Talk"];
     NSInteger status = [(NSHTTPURLResponse*)response statusCode];
     //NSLog(@"token is %@", talkData);
-    //NSLog(@"statuscode:%ld",status);
+    NSLog(@"statuscode:%ld",status);
     if (status == 400) {
         NSLog(@"受信エラー");
-        [self showLoginView];
+        //[self showLoginView];
         //return;
     }
     //cookieを取得しようとしてみる
@@ -170,9 +170,9 @@
     UILabel *nameLabel = (UILabel *)[cell viewWithTag:100];//トーク名
 	nameLabel.text = talk.name;
 	UILabel *periodStartLabel = (UILabel *)[cell viewWithTag:101];//開始年月
-	periodStartLabel.text = [NSString stringWithFormat:@"%@ ", talk.periodStart];
+	periodStartLabel.text = [NSString stringWithFormat:@"%@ ", [talk.periodStart substringToIndex:10]];
     UILabel *periodEndLabel = (UILabel *)[cell viewWithTag:102];//終了年月
-	periodEndLabel.text = [NSString stringWithFormat:@"%@ ", talk.periodEnd];
+	periodEndLabel.text = [NSString stringWithFormat:@"%@ ", [talk.periodEnd substringToIndex:10]];
 	UIImageView * iconImageView = (UIImageView *)
     [cell viewWithTag:103];
 	iconImageView.image = [self imageForIcon:talk.icon];//アイコン画像
