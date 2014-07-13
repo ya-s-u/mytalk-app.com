@@ -3,50 +3,67 @@
 class Line extends Converter {
     public $name = 'Line';
 
-    protected function Convert($Original) {
-        //トークタイトル
-        if(preg_match('/\[LINE\]\s(.+?)(のトーク履歴|とのトーク履歴)/',$Original[0],$temp)) {
-            $lang = 'ja';
-        } else if(preg_match('/\[LINE\]\sChat\shistory\swith\s(.+?)/U',$Original[0],$temp)) {
-            $lang = 'en';
-        } else {
-            echo 'エラー';
+    protected function Convert($FILE_DATA,$FILE_NAME) {
+
+        //スマホ日本語
+        if(preg_match('/\[LINE\]\s(.+?)(のトーク履歴|とのトーク履歴)/',$FILE_DATA[0],$temp)) {
+            $Converted['head'] = array(
+                'title' => $temp[1],
+                'type' => 'Line',
+                'lang' => 'ja',
+                'device' => 'pc',
+            );
+
+            //1行目削除
+            $FILE_DATA = array_slice($FILE_DATA,1);
+
+        //スマホ英語
+        } else if(preg_match('/\[LINE\]\sChat\shistory\swith\s(.+?)/U',$FILE_DATA[0],$temp)) {
+            $Converted['head'] = array(
+                'title' => $temp[1],
+                'type' => 'Line',
+                'lang' => 'en',
+                'device' => 'pc',
+            );
+
+            //1行目削除
+            $FILE_DATA = array_slice($FILE_DATA,1);
+
+        //パソコン
+        } else if(preg_match('/\[LINE\](.+?).txt/',$FILE_NAME,$temp)) {
+            $Converted['head'] = array(
+                'title' => $temp[1],
+                'type' => 'Line',
+                'lang' => 'ja',
+                'device' => 'sp',
+            );
         }
 
-        $Converted['head'] = array(
-            'title' => $temp[1],
-            'type' => 'Line',
-            'lang' => $lang,
-        );
 
-
-        //保存日時
-        if(preg_match('/(保存日時|Saved\son)：(\d+\/\d+\/\d+\s\d+:\d+)/',$Original[1],$temp)) {
+        //スマホ日本語,スマホ英語
+        if(preg_match('/(保存日時|Saved\son)：(\d+\/\d+\/\d+\s\d+:\d+)/',$FILE_DATA[0],$temp)) {
                $Converted['head']['saved'] = $temp[2];
-        } else {
-            echo 'エラー';
+
+               //1行目削除
+               $FILE_DATA = array_slice($FILE_DATA,1);
         }
-
-
-        //1,2行目削除
-        $Original = array_slice($Original,2);
 
 
         //1行ずつ処理し、投稿ごとに分ける
         $i = 0;
         $timeline = array();
 
-        foreach($Original as $key => $data) {
+        foreach($FILE_DATA as $key => $data) {
             //日付表示
             if(preg_match('/^(\d+\/\d+\/\d+).+/',$data,$temp)) {
                 $day = $temp[1];
             }
 
             //タイムライン
-            else if(preg_match('/^\d+:\d+\t.+\t.+/',$data)) {
+            else if(preg_match('/^\d+:\d+\s.+\s.+/',$data)) {
 
                 //画像
-                if(preg_match('/^(\d+:\d+)\t(.+)\t\[画像\]/',$data,$temp)) {
+                if(preg_match('/^(\d+:\d+)\s(.+)\s\[画像\]/',$data,$temp)) {
                     $timeline[$i]['date'] = $day.' '.$temp[1];
                     $timeline[$i]['name'] = $temp[2];
                     $timeline[$i]['type'] = 'photo';
@@ -54,7 +71,7 @@ class Line extends Converter {
                 }
 
                 //動画
-                else if(preg_match('/^(\d+:\d+)\t(.+)\t\[動画\]/',$data,$temp)) {
+                else if(preg_match('/^(\d+:\d+)\s(.+)\s\[動画\]/',$data,$temp)) {
                     $timeline[$i]['date'] = $day.' '.$temp[1];
                     $timeline[$i]['name'] = $temp[2];
                     $timeline[$i]['type'] = 'video';
@@ -62,7 +79,7 @@ class Line extends Converter {
                 }
 
                 //音声メッセージ
-                else if(preg_match('/^(\d+:\d+)\t(.+)\t\[音声メッセージ\]/',$data,$temp)) {
+                else if(preg_match('/^(\d+:\d+)\s(.+)\s\[音声メッセージ\]/',$data,$temp)) {
                     $timeline[$i]['date'] = $day.' '.$temp[1];
                     $timeline[$i]['name'] = $temp[2];
                     $timeline[$i]['type'] = 'voice';
@@ -70,7 +87,7 @@ class Line extends Converter {
                 }
 
                 //連絡先
-                else if(preg_match('/^(\d+:\d+)\t(.+)\t\[連絡先\]/',$data,$temp)) {
+                else if(preg_match('/^(\d+:\d+)\s(.+)\s\[連絡先\]/',$data,$temp)) {
                     $timeline[$i]['date'] = $day.' '.$temp[1];
                     $timeline[$i]['name'] = $temp[2];
                     $timeline[$i]['type'] = 'contact';
@@ -78,7 +95,7 @@ class Line extends Converter {
                 }
 
                 //スタンプ
-                else if(preg_match('/^(\d+:\d+)\t(.+)\t\[スタンプ\]/',$data,$temp)) {
+                else if(preg_match('/^(\d+:\d+)\s(.+)\s\[スタンプ\]/',$data,$temp)) {
                     $timeline[$i]['date'] = $day.' '.$temp[1];
                     $timeline[$i]['name'] = $temp[2];
                     $timeline[$i]['type'] = 'stamp';
@@ -86,7 +103,7 @@ class Line extends Converter {
                 }
 
                 //位置情報
-                else if(preg_match('/^(\d+:\d+)\t(.+)\t\[位置情報\]\s.+：(.+)/',$data,$temp)) {
+                else if(preg_match('/^(\d+:\d+)\s(.+)\s\[位置情報\]\s.+：(.+)/',$data,$temp)) {
                     $timeline[$i]['date'] = $day.' '.$temp[1];
                     $timeline[$i]['name'] = $temp[2];
                     $timeline[$i]['type'] = 'map';
@@ -95,7 +112,7 @@ class Line extends Converter {
                 }
 
                 //通話
-                else if(preg_match('/^(\d+:\d+)\t(.+)\t☎\s通話時間\s(.+)/',$data,$temp)) {
+                else if(preg_match('/^(\d+:\d+)\s(.+)\s☎\s通話時間\s(.+)/',$data,$temp)) {
                     $timeline[$i]['date'] = $day.' '.$temp[1];
                     $timeline[$i]['name'] = $temp[2];
                     $timeline[$i]['type'] = 'call';
@@ -104,7 +121,7 @@ class Line extends Converter {
                 }
 
                 //通話キャンセル
-                else if(preg_match('/^(\d+:\d+)\t(.+)\t☎\s通話をキャンセルしました/',$data,$temp)) {
+                else if(preg_match('/^(\d+:\d+)\s(.+)\s☎\s通話をキャンセルしました/',$data,$temp)) {
                     $timeline[$i]['date'] = $day.' '.$temp[1];
                     $timeline[$i]['name'] = $temp[2];
                     $timeline[$i]['type'] = 'canceled';
@@ -112,7 +129,7 @@ class Line extends Converter {
                 }
 
                 //ノート(旧グループボード)
-                else if(preg_match('/^(\d+:\d+)\t(.+)\t\[グループボード\]\s(.+)/',$data,$temp)) {
+                else if(preg_match('/^(\d+:\d+)\s(.+)\s\[グループボード\]\s(.+)/',$data,$temp)) {
                     $timeline[$i]['date'] = $day.' '.$temp[1];
                     $timeline[$i]['name'] = $temp[2];
                     $timeline[$i]['type'] = 'note';
@@ -121,7 +138,7 @@ class Line extends Converter {
                 }
 
                 //複数行メッセージ1行目
-                else if(preg_match('/^(\d+:\d+)\t+(.+)\t"(.*)/',$data,$temp)) {
+                else if(preg_match('/^(\d+:\d+)\s+(.+)\s"(.*)/',$data,$temp)) {
                     $timeline[$i]['date'] = $day.' '.$temp[1];
                     $timeline[$i]['name'] = $temp[2];
                     $timeline[$i]['type'] = 'message';
@@ -129,7 +146,7 @@ class Line extends Converter {
                 }
 
                 //単数行メッセージ
-                else if(preg_match('/^(\d+:\d+)\t(.+)\t(.+)/',$data,$temp)) {
+                else if(preg_match('/^(\d+:\d+)\s(.+)\s(.+)/',$data,$temp)) {
                     $timeline[$i]['date'] = $day.' '.$temp[1];
                     $timeline[$i]['name'] = $temp[2];
                     $timeline[$i]['type'] = 'message';
@@ -139,10 +156,10 @@ class Line extends Converter {
             }
 
             //事務メッセージ
-            else if(preg_match('/^\d+:\d+\t.+/',$data)) {
+            else if(preg_match('/^\d+:\d+\s.+/',$data)) {
 
                 //招待
-                if(preg_match('/^(\d+:\d+)\t(.+)が(.+)を招待しました。/',$data,$temp)) {
+                if(preg_match('/^(\d+:\d+)\s(.+)が(.+)を招待しました。/',$data,$temp)) {
                     $timeline[$i]['date'] = $day.' '.$temp[1];
                     $timeline[$i]['name'] = 'system';
                     $timeline[$i]['type'] = 'invite';
@@ -151,7 +168,7 @@ class Line extends Converter {
                 }
 
                 //退会
-                else if(preg_match('/^(\d+:\d+)\t(.+)が退会しました。/',$data,$temp)) {
+                else if(preg_match('/^(\d+:\d+)\s(.+)が退会しました。/',$data,$temp)) {
                     $timeline[$i]['date'] = $day.' '.$temp[1];
                     $timeline[$i]['name'] = 'system';
                     $timeline[$i]['type'] = 'leave';

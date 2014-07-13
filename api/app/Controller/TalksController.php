@@ -133,12 +133,12 @@ class TalksController extends ApiController {
 
 	public function add() {
 		if($_FILES["talk_file"]) {
-			//ファイルから配列へ
-			$Original = file($_FILES["talk_file"]["tmp_name"],FILE_IGNORE_NEW_LINES);
-
+			//ファイルから取得
+			$FILE_DATA = file($_FILES["talk_file"]["tmp_name"],FILE_IGNORE_NEW_LINES);
+			$FILE_NAME = $_FILES["talk_file"]["name"];
 
 			//トーク変換
-			$Converted = $this->Converter->operation($Original);
+			$Converted = $this->Converter->operation($FILE_DATA,$FILE_NAME);
 
 			//トークID
 			$file_id = uniqid(mt_rand(0,9));
@@ -163,6 +163,7 @@ class TalksController extends ApiController {
 				'count' => $Converted['head']['count'],
 				'type' => $Converted['head']['type'],
 				'lang' => $Converted['head']['lang'],
+				'device' => $Converted['head']['device'],
 				'start' => date("Y-m-d G:i:s",strtotime($Converted['head']['start'])),
 				'end' => date("Y-m-d G:i:s",strtotime($Converted['head']['end'])),
 				'created' => date("Y-m-d G:i:s"),
