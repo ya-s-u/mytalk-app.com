@@ -89,10 +89,11 @@ mainControllers.controller('UserSignupCtrl', ['$scope','$location','$http',
 
             $http({
                 method : 'POST',
-                url : 'http://omoide.folder.jp/api/users/signup.json',
+                url : 'http://omoide.folder.jp/api/users/signup',
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest',
                     'Content-Type': 'application/x-www-form-urlencoded',
+                    "Accept": "application/json",
                 },
                 data: $.param(data)
             }).success(function(data, status, headers, config) {
@@ -124,10 +125,12 @@ mainControllers.controller('NewTalkCtrl', ['$scope','$location', '$http',
                     data: formData,
                     dataType: 'json',
                     success: function(data) {
+                        alert('アップロード成功！');
                         console.log(data['response']);
                         location.href = '/mypage';
                     },
                     error: function(data) {
+                        alert('このファイルはアップロードできません');
                         console.log(data['response']);
                     }
                 }
@@ -188,6 +191,7 @@ mainControllers.controller('TalkViewCtrl', ['$scope', '$routeParams', '$http',
 			$scope.head = data['response']['head'];
             $scope.member = data['response']['member'];
 
+            //自分指定
             $scope.author = $scope.head.author;
 
             //年月指定
@@ -340,18 +344,17 @@ mainControllers.controller('TalkViewCtrl', ['$scope', '$routeParams', '$http',
 mainControllers.controller('TalkSettingCtrl', ['$scope', '$routeParams', '$http',
     function($scope, $routeParams, $http) {
 
-        count();
         $scope.NewTitle = $scope.$parent.head.title;
         $scope.NewAuthor = $scope.$parent.author;
+        ChangeCount($scope.NewTitle.length);
 
         //テキスト変更イベント
         $(".text").bind("change keyup",function(){
-            count();
+            ChangeCount($(".NewTitle").val().length);
         });
 
         //タイトル文字数取得
-        function count() {
-            var count = $(".text").val().length;
+        function ChangeCount(count) {
             $("#title_num").text(count+"/20");
 
             if(count>20) {
@@ -391,6 +394,10 @@ mainControllers.controller('TalkSettingCtrl', ['$scope', '$routeParams', '$http'
         //トーク削除ボタン
         $scope.DeleteTalk = function(){
             if(window.confirm('本当に削除しますか？')) {
+                var data = {
+                    'password': $scope.ConfirmPassword,
+                };
+
                 $http({
                     method : 'DELETE',
                     url : 'http://omoide.folder.jp/api/talks/'+$routeParams.id,
@@ -399,11 +406,13 @@ mainControllers.controller('TalkSettingCtrl', ['$scope', '$routeParams', '$http'
                         'Content-Type': 'application/x-www-form-urlencoded',
                         "Accept": "application/json",
                     },
+                    data: $.param(data),
                 }).success(function(data, status, headers, config) {
                     alert('削除しました！');
                     location.href = 'mypage';
                 }).error(function(data, status, headers, config) {
-                    console.log('error!');
+                    alert('失敗しました');
+                    console.log(data['error']['message']);
                 });
         	}
         };

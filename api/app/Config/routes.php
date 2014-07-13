@@ -47,23 +47,22 @@
 	Router::parseExtensions('json');
 
 	Router::connect("/talks",
-		array("controller" => "talks","action" => "add", "[method]" => "POST"),
-		array("id" => "[0-9]+")
+		array("controller" => "talks","action" => "add", "[method]" => "POST")
 	);
 
 	Router::connect("/talks/*",
 		array("controller" => "talks","action" => "view", "[method]" => "GET"),
-		array("id" => "[0-9]+")
+		array("id" => "[a-zA-Z0-9]+")
 	);
 
 	Router::connect("/talks/*",
 		array("controller" => "talks","action" => "edit", "[method]" => "PUT"),
-		array("id" => "[0-9]+")
+		array("id" => "[a-zA-Z0-9]+")
 	);
 
 	Router::connect("/talks/*",
 		array("controller" => "talks","action" => "delete", "[method]" => "DELETE"),
-		array("id" => "[0-9]+")
+		array("id" => "[a-zA-Z0-9]+")
 	);
 
 /**

@@ -24,13 +24,20 @@ class Converter {
         $Converted['head'] = array();
         $Converted['timeline'] = array();
 
+        return $this->Line->Convert($Original);
+
         //タイプ別で変換
-        if(preg_match('/\[LINE\]\s.+?(のトーク履歴|とのトーク履歴)/',$Original[0]) |
-           preg_match('/\[LINE\]\s(Chat)\s(history)\s(with)\s.+?/U',$Original[0])) {
+        /*
+        if(preg_match('/\[LINE\].+?/',$Original[0]) |
+           preg_match('/\[LINE\]\s*(Chat)\s(history)\s(with)\s.+?/U',$Original[0])) {
             return $this->Line->Convert($Original);
         } else {
             return 'エラー';
         }
+        */
     }
 
 }
+
+
+//preg_match('/\[LINE\]\s*.+?(のトーク履歴|とのトーク履歴)/',$Original[0]

@@ -10,11 +10,24 @@ class UsersController extends ApiController {
 	public function beforeFilter() {
 		parent::beforeFilter();
 
+		$this->Auth->allow('ping');
+		$this->Auth->allow('ping2');
+
 		$this->Auth->allow('signup');
 		$this->Auth->allow('login');
 
         //Blowfishのコスト値
         Security::setCost(15);
+	}
+
+	/* Ping */
+	public function ping() {
+		return $this->success('接続ok!!(￣▽￣)δ⌒☆');
+	}
+
+	/* Ping2 */
+	public function ping2() {
+		return $this->success($_POST);
 	}
 
 

@@ -162,7 +162,6 @@ ul.log li span {
 }
 
 .modal .button {
-	margin: 20px 0 10px 0;
 	cursor: pointer;
 }
 
@@ -179,7 +178,7 @@ ul.log li span {
 }
 
 .modal .delete a {
-	background: pink;
+	background: #d14836;
 	border: 1px solid red;
 	color: white;
 }
@@ -201,7 +200,7 @@ ul.log li span {
 	display: block;
 }
 
-.text, textarea, .dropdown {
+input[type="text"], textarea, select {
     border: 1px solid #e1e1e1;
     padding: 4px 8px;
 	font-size: 14px;
@@ -827,8 +826,22 @@ ul#talk li.me span.date {
 	float: left;
 }
 
-#talk-setting .right #title_num {
+#talk-setting #title_num {
 	float: right;
+}
+
+#talk-setting .submit {
+
+}
+
+#talk-setting .ConfirmPassword {
+	width: 250px;
+	margin-right: 20px;
+	float: left;
+}
+
+#talk-setting .delete {
+	margin: 32px 0 0 0;
 }
 
 /* Footer */

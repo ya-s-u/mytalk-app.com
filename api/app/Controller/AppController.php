@@ -20,7 +20,7 @@
  */
 
 App::uses('Controller', 'Controller');
-
+//App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 /**
  * Application Controller
  *

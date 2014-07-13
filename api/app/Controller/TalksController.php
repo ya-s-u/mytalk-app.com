@@ -3,6 +3,7 @@
 App::uses('ApiController', 'Controller');
 App::uses('File', 'Utility');
 App::uses('Converter', 'Vendor/Converter');
+//App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 
 class TalksController extends ApiController {
 	public $name = 'Talks';
@@ -88,6 +89,7 @@ class TalksController extends ApiController {
 			$this->Talk->id = $id;
 			$this->request->data['Talk']['title'] = $this->data['title'];
 			$this->request->data['Talk']['author'] = $this->data['author'];
+			$this->request->data['Talk']['icon'] = $this->data['icon'];
 			$this->request->data['Talk']['modified'] = date("Y-m-d G:i:s");
 
 			if($this->Talk->save($this->request->data['Talk'])) {
@@ -96,7 +98,7 @@ class TalksController extends ApiController {
 				return $this->error('not accepted');
 			}
 		} else {
-			return $this->error('not accepted');
+			return $this->error('ot accepted');
 		}
 	}
 
@@ -109,6 +111,14 @@ class TalksController extends ApiController {
 			)
 		);
 		$Data = $this->Talk->find('first',$params);
+
+		//$passwordHasher = new BlowfishPasswordHasher();
+        //$dump = $passwordHasher->hash($this->data['password']);
+
+		//パスワードが正しいか確認
+		/*if(AuthComponent::password($this->data['password']) != $this->auth->user('password')) {
+			return $this->error('incorrect password');
+		}*/
 
 		//所有者以外をはじく
 		if($Data != null) {

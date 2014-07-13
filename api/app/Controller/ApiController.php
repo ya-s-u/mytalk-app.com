@@ -37,6 +37,7 @@ class ApiController extends AppController {
     protected function success($response = array()) {
         $this->result['response'] = $response;
 
+        $this->response->statusCode(200);
         $this->set('meta', $this->result['meta']);
         $this->set('response', $this->result['response']);
         $this->set('_serialize', array('meta', 'response'));
@@ -46,7 +47,6 @@ class ApiController extends AppController {
     protected function error($message = '') {
         $this->result['error']['message'] = $message;
 
-        //ちゃんと400ステータスコードにするの大事。後述
         $this->response->statusCode(400);
         $this->set('meta', $this->result['meta']);
         $this->set('error', $this->result['error']);

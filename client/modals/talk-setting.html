@@ -8,9 +8,9 @@
         </div>
         <div class="right">
             <label>タイトル(20字まで)<span id="title_num">0/20</span></label>
-            <input type="text" class="text" ng-model="NewTitle" size="35"/>
+            <input type="text" class="NewTitle" ng-model="NewTitle" size="35"/>
             <label>自分の名前</label>
-            <select class="dropdown" ng-model="NewAuthor" ng-options="data.name as data.name for data in member">
+            <select class="" ng-model="NewAuthor" ng-options="data.name as data.name for data in member">
                 <option>選択してください</option>
             </select>
         </div>
@@ -20,5 +20,6 @@
 
     <span class="border"></span>
 
+    <input type="text" class="ConfirmPassword" ng-model="ConfirmPassword" size="35" placeholder="パスワードを入力"/>
     <p class="button delete"><a ng-click="DeleteTalk()">トークを削除する</a></p>
 </div>
