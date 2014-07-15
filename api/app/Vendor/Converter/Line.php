@@ -138,7 +138,7 @@ class Line extends Converter {
                 }
 
                 //複数行メッセージ1行目
-                else if(preg_match('/^(\d+:\d+)\s+(.+)\s"(.*)/',$data,$temp)) {
+                else if(preg_match('/^(\d+:\d+)\t+(.+)\t"(.*)/',$data,$temp)) {
                     $timeline[$i]['date'] = $day.' '.$temp[1];
                     $timeline[$i]['name'] = $temp[2];
                     $timeline[$i]['type'] = 'message';
@@ -146,7 +146,7 @@ class Line extends Converter {
                 }
 
                 //単数行メッセージ
-                else if(preg_match('/^(\d+:\d+)\s(.+)\s(.+)/',$data,$temp)) {
+                else if(preg_match('/^(\d+:\d+)\t(.+)\t(.+)/',$data,$temp)) {
                     $timeline[$i]['date'] = $day.' '.$temp[1];
                     $timeline[$i]['name'] = $temp[2];
                     $timeline[$i]['type'] = 'message';

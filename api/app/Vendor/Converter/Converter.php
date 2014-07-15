@@ -23,12 +23,13 @@ class Converter {
 
         //配列定義
         $Converted['head'] = array();
+        $Converted['member'] = array();
         $Converted['timeline'] = array();
 
-        //LINE (スマホ日本語/スマホ英語/パソコン)
+        //LINE (スマホ日本語/スマホ英語)
         if(preg_match('/\[LINE\]\s*.+?(のトーク履歴|とのトーク履歴)/',$FILE_DATA[0]) |
-           preg_match('/\[LINE\]\s*(Chat)\s(history)\s(with)\s.+?/U',$FILE_DATA[0]) |
-           preg_match('/\[LINE\](.+?).txt/',$FILE_NAME) ) {
+           preg_match('/\[LINE\]\s*(Chat)\s(history)\s(with)\s.+?/U',$FILE_DATA[0]) /*|
+           preg_match('/\[LINE\](.+?).txt/',$FILE_NAME)*/ ) {
             return $this->Line->Convert($FILE_DATA,$FILE_NAME);
         } else {
             return 'エラー';
