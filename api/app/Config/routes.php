@@ -47,6 +47,10 @@
 	Router::parseExtensions('json');
 
 	Router::connect("/talks",
+		array("controller" => "talks","action" => "delete", "[method]" => "DELETE")
+	);
+
+	Router::connect("/talks",
 		array("controller" => "talks","action" => "add", "[method]" => "POST")
 	);
 

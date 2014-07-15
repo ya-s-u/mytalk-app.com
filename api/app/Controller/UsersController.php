@@ -84,4 +84,30 @@ class UsersController extends ApiController {
 
 	}
 
+	/* 退会 */
+	public function delete() {
+		//パスワードが正しいかチェック
+		$password = $this->User->getPasswordById($this->Auth->user('id'));
+		$passwordHasher = new BlowfishPasswordHasher();
+		if (!($passwordHasher->check($this->data['password'], $password))) {
+			return $this->error('incorrect password;<');
+		}
+
+		//ユーザーのトーク全削除
+		$param = array(
+			'Talk.user_id' => $this->Auth->user('id'),
+		);
+		if(!($this->Talk->deleteAll($param))) {
+			return $this->error('not accepted');
+		}
+
+		//ユーザー削除
+		$id = $this->Auth->user('id');
+		if($this->User->delete($id)) {
+			return $this->success('deleted');
+		} else {
+			return $this->error('not accepted');
+		}
+	}
+
 }
