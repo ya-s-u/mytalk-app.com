@@ -10,7 +10,6 @@
 
 @implementation Talk
 @synthesize name;
-@synthesize periodEnd;
 @synthesize periodStart;
 @synthesize member;
 @synthesize icon;

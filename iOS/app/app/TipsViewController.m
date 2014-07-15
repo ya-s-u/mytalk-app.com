@@ -56,22 +56,21 @@
     [controller addTarget:self action:@selector(pageControlDidChange:) forControlEvents:UIControlEventValueChanged];
     //表示する内容を登録する
     NSArray *src = [NSArray arrayWithObjects:
-                    @"あなたのトークを安全に保存。\n内容内容内容内容内容内容内容内容.",
-                    @"内容内容内容内容内容内容内容内容内容内容\n内容内容内容内容",
-                    @"内容内容内容内容内容内容内容内容内容内容\n", nil];
+                    @"OSアプリもしくはWEBサイト上から簡単にトークをアップロードできます。今あるトークに追加する事も可能です。",
+                    @"保存できるトーク数に制限がなく、全て無料でご利用いただけます。トーク内容は全て自動でバックアップされます。",
+                    @"トーク内容は暗号化したのち保存されます。サイト全体についても細心の注意を払いセキュリティ対策を施しています。", nil];
     
     // UIScrollViewをセットアップする
     scrollView.contentSize = CGSizeMake(scrollView.frame.size.width*kNumberOfPages, scrollView.frame.size.height);
-    // ページごとにUIViewControllerを生成し、view.frameをズラしながらaddSubviewする
     CGSize size = scrollView.frame.size;
     for (int i=0; i<3; i++) {
         UIViewController *pageSubView = [[UIViewController alloc] init];
         pageSubView.view.frame = CGRectMake(size.width*i, 0, size.width, size.height);
-        
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake((size.width-300)/2, 10, 300, 100)];
+        //TIPS関係のラベルの設定
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake((size.width-300)/2, 50, 300, 100)];
         [label setTextAlignment:UITextAlignmentCenter];
-        label.numberOfLines = 2;
-        UIFont *font = [UIFont systemFontOfSize:14.0f];
+        label.numberOfLines = 3;
+        UIFont *font = [UIFont systemFontOfSize:15.0f];
         [label setFont:font];
         label.font = [UIFont fontWithName:@"Hiragino Kaku Gothic ProN" size:14];
         label.textColor = [UIColor whiteColor];

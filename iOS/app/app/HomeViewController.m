@@ -7,6 +7,8 @@
 //
 
 #import "HomeViewController.h"
+#import "LUKeyChainAccess.h"
+
 
 @interface HomeViewController ()
 
@@ -29,6 +31,15 @@
     [_signup setClipsToBounds:YES];
     [[_login layer] setCornerRadius:5.0];
     [_login setClipsToBounds:YES];
+    //バーの色
+    [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:0.122 green:0.514 blue:0.800 alpha:1.000];
+    //バーの文字色とフォント
+    [[UINavigationBar appearance] setTitleTextAttributes: @{
+                                                            NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                            NSFontAttributeName: [UIFont fontWithName:@"Hiragino Kaku Gothic ProN" size:15.0f]}];
+    //戻るボタンの色
+    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
+    
 }
 - (void)didReceiveMemoryWarning
 {

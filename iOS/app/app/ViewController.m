@@ -5,12 +5,27 @@
 //  Created by MasanariKamoshita on 2014/06/25.
 //  Copyright (c) 2014年 MasanariKamoshita. All rights reserved.
 //
+/*
+ *12:08 後藤 誉昌 確認用に単純なgetで認証無しで叩けるの作った！
+ 
+ curl http://omoide.folder.jp/api/users/ping
+ 
+ 接続確認用に使って〜！
+ 12:10 後藤 誉昌 あとpost確認用に、
+ 
+ http://omoide.folder.jp/api/users/ping2
+ 
+ でpostのbody部分をそのまま返すからこれも確認用に使ってみて〜
+ *
+ *
+ *
+ *
+ */
 
 #import "ViewController.h"
-#import "AppDelegate.h"
 #import "SignUpViewController.h"
 #import "Validation.h"
-#import "SVProgressHUD.h"
+//#import "SVProgressHUD.h"
 #import "LUKeychainAccess.h"
 
 @interface ViewController ()
@@ -20,36 +35,23 @@
 @implementation ViewController
 @synthesize mailAddress = _mailAddress;
 @synthesize passWord = _passWord;
-//@synthesize statusCode = _statusCode;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeSoftKeyboard)];
-    [self.view addGestureRecognizer:gestureRecognizer];
+    //UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeSoftKeyboard)];
+    //[self.view addGestureRecognizer:gestureRecognizer];
     //ボタンの角丸
     [[_login layer] setCornerRadius:5.0];
     [_login setClipsToBounds:YES];
-    //バーの色
-    [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:0.000 green:0.682 blue:0.937 alpha:1.000];
-    //バーの文字色
-    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-	//戻るボタンの色
-    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
-
-    
 }
 - (IBAction)login:(id)sender {
+    
+   
     NSLog(@"loginbutton");
     self.mailAddress = self.identification.text;
     NSString *mailString = self.mailAddress;
     self.passWord = self.password.text;
     NSString *passString = self.passWord;
-    
-    /*
-     *  ここにJSONを生成してログインする処理を投げる。
-     *  戻ってくる固有IDはTalkTableViewControllerにある
-     *  (NSInteger)sessionIDに入れる。
-    */
     
     Validation *mv = [[Validation alloc] init];
     NSString *errorMsgMail = [mv mailaddressValid:mailString];
@@ -61,12 +63,10 @@
     } else if([errorMsgPass length] > 1){
         self.message.text = errorMsgPass;
     } else {
-        //[SVProgressHUD show];
-
         //Validation通過
-        NSError *error = nil;
-        NSHTTPURLResponse *response = nil;
         
+        
+        NSHTTPURLResponse *response = nil;
         NSString *param = [NSString stringWithFormat:@"address=%@&password=%@", mailString, passString];
         NSString *url = @"http://omoide.folder.jp/api/users/login/";
         
@@ -78,37 +78,95 @@
         [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
         [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-        [request setTimeoutInterval:20];
+        [request setTimeoutInterval:200];
         [request setHTTPShouldHandleCookies:FALSE];
         [request setHTTPBody:[param dataUsingEncoding:NSUTF8StringEncoding]];
         //同期通信で送信
-        NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        if (error != nil) {
-            self.message.text = @"通信エラー";
-            //[SVProgressHUD dismiss];
-            return;
-        }
-        //取得したレスポンスをJSONパース
+        [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+        // デバッグ用
+        //NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
         //NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         //NSString *token = [dict objectForKey:@"response"];
-        NSInteger status = [(NSHTTPURLResponse*)response statusCode];
         //NSLog(@"response is %@", token);
-        NSLog(@"statuscode:%ld",status);
+        [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+            
+            if (error) {
+                // エラー処理を行う。
+                if (error.code == -1003) {
+                    NSLog(@"not found hostname. targetURL=%@", url);
+                } else if (-1019) {
+                    NSLog(@"auth error. reason=%@", error);
+                } else {
+                    NSLog(@"unknown error occurred. reason = %@", error);
+                }
+                
+            } else {
+                NSInteger httpStatusCode = ((NSHTTPURLResponse *)response).statusCode;
+                if (httpStatusCode == 404) {
+                    NSLog(@"404 NOT FOUND ERROR. targetURL=%@", url);
+                    // } else if (・・・) {
+                    // 他にも処理したいHTTPステータスがあれば書く。
+                    
+                } else {
+                    NSLog(@"success request!!");
+                    //NSLog(@"statusCode = %lu", ((NSHTTPURLResponse *)response).statusCode);
+                    //NSLog(@"responseText = %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                    NSInteger status = [(NSHTTPURLResponse*)response statusCode];
         if (status == 400) {
-            self.message.text = @"通信エラー";
-            //[SVProgressHUD dismiss];
-            return;
+            self.message.text = @"IDまたはパスワードが間違っています。";
+        } else if(status == 0){
+            self.message.text = @"通信エラーです。";
+        } else {
+            //一度しか実行しないコードブロック
+            static dispatch_once_t token;
+            dispatch_once(&token, ^{
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:httpResponse.allHeaderFields forURL:response.URL];
+            //クッキーをKeyChainに保存する
+            [[LUKeychainAccess standardKeychainAccess] setObject:cookies forKey:@"cookie"];
+            [self performSegueWithIdentifier:@"backLogin" sender:self];
+                 });
         }
-        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-        NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:httpResponse.allHeaderFields forURL:response.URL];
-        //クッキーをKeyChainに保存する
-        [[LUKeychainAccess standardKeychainAccess] setObject:cookies forKey:@"cookie"];
-        //[SVProgressHUD dismiss];
-        [self performSegueWithIdentifier:@"backLogin" sender:self];
+                }
+            }
+        }];
+        
     }
 }
-- (IBAction)identification:(id)sender {
+/*
+ *
+ *  ログインボタンをクロスフェードする関数
+- (void)makeClossFade{
+    
+    UIButton* button =
+    [[UIButton alloc] initWithFrame:CGRectMake(x,y,width,height)];
+    [button setImage:currentImage forState:UIControlStateNormal];
+    [self.view addSubView:button];
+    
+    UIImage* nextImage = [UIImage imageNamed:@"hoge.png"];
+    //使用後にブロック内でメモリ解放するための__block宣言
+    __block UIImageView* nextImageView =
+    [[UIImageView alloc] initWithImage:nextImage];
+    [nextImageView setAlpha:0.0f];
+    [button addSubView:nextImageView];
+    
+    [UIView transitionWithView:button
+                      duration:0.5
+     //アニメーション設定
+                       options:UIViewAnimationOptionAllowUserInteraction
+                    animations:^{
+                        [nextImageView setAlpha:1.0f];
+                    }
+                    completion:^(BOOL finished){
+                        [button setImage:nextImage
+                                forState:UIControlStateNormal];
+                        //メモリ解放
+                        [nextImageView removeFromSuperview];
+                        [nextImageView release];
+                    }];
+    
 }
+ */
 - (IBAction)password:(id)sender {
 }
 - (void)didReceiveMemoryWarning
@@ -116,18 +174,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"backLogin"]) {
-        AppDelegate *appDel = [[UIApplication sharedApplication] delegate];
-        appDel.successFlag = YES;
-        
-    }
-}
-
-- (void)closeSoftKeyboard {
+/*- (void)closeSoftKeyboard {
     [self.view endEditing: YES];
 }
+ */
 - (void)viewWillDisappear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:YES animated:NO]; // ナビゲーションバー非表示

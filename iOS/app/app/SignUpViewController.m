@@ -127,12 +127,7 @@
     //ボタンの角丸
     [[_signUp layer] setCornerRadius:5.0];
     [_signUp setClipsToBounds:YES];
-    //バーの色
-    [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:0.000 green:0.682 blue:0.937 alpha:1.000];
-    //バーの文字色
-    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-    //戻るボタンの色
-    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
+    
     /*
     NSString *sessionStr = [NSKeyedUnarchiver unarchiveObjectWithFile:[self filePath]];
     if([sessionStr length] != 0){

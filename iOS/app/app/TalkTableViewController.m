@@ -10,10 +10,7 @@
 #import "LUKeychainAccess.h"
 #import "talk.h"
 
-@interface TalkTableViewController (){
-    NSDictionary *listDict;
-    NSString* selectedImage;
-}
+@interface TalkTableViewController ()
 
 @end
 
@@ -59,8 +56,6 @@
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     if (error != nil) {
         NSLog(@"送信エラー");
-        [self showLoginView];
-        //return;
     }
     
     //取得したレスポンスをJSONパース
@@ -72,8 +67,6 @@
     NSLog(@"statuscode:%ld",status);
     if (status == 400) {
         NSLog(@"受信エラー");
-        //[self showLoginView];
-        //return;
     }
     //cookieを取得しようとしてみる
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;

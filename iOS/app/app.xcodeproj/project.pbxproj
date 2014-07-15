@@ -23,11 +23,11 @@
 		184F79A8195AB987000BE727 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 184F79A6195AB987000BE727 /* InfoPlist.strings */; };
 		184F79AA195AB987000BE727 /* appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79A9195AB987000BE727 /* appTests.m */; };
 		184F79B4195ABA05000BE727 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 184F79B3195ABA05000BE727 /* .gitignore */; };
-		184F79CC19606E19000BE727 /* TalkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79CB19606E19000BE727 /* TalkTableViewController.m */; };
 		184F79D21961A464000BE727 /* Talk.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79D11961A464000BE727 /* Talk.m */; };
 		184F79F219628FB7000BE727 /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79F119628FB7000BE727 /* TabViewController.m */; };
 		185D33201970F90600C741A0 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D331F1970F90600C741A0 /* HomeViewController.m */; };
 		185D3323197102D400C741A0 /* TipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D3322197102D400C741A0 /* TipsViewController.m */; };
+		185D332619721C5B00C741A0 /* TalkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D332519721C5B00C741A0 /* TalkViewController.m */; };
 		187AED8F1964551600294395 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED8E1964551500294395 /* SignUpViewController.m */; };
 		187AED9219685B1500294395 /* Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED9119685B1500294395 /* Validation.m */; };
 		187AED9E196C59D100294395 /* InsideTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED9D196C59D100294395 /* InsideTableViewController.m */; };
@@ -40,6 +40,7 @@
 		187AEDB6196ED4E800294395 /* ViewPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AEDB5196ED4E800294395 /* ViewPagerController.m */; };
 		187AEDC0196ED6CD00294395 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AEDBF196ED6CD00294395 /* ContentViewController.m */; };
 		187AEDC3196ED73A00294395 /* PageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AEDC2196ED73A00294395 /* PageController.m */; };
+		18BF36C61974E6A5007BBC26 /* TalkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BF36C51974E6A5007BBC26 /* TalkTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,8 +75,6 @@
 		184F79A7195AB987000BE727 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		184F79A9195AB987000BE727 /* appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = appTests.m; sourceTree = "<group>"; };
 		184F79B3195ABA05000BE727 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		184F79CA19606E19000BE727 /* TalkTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkTableViewController.h; sourceTree = "<group>"; };
-		184F79CB19606E19000BE727 /* TalkTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkTableViewController.m; sourceTree = "<group>"; };
 		184F79D01961A464000BE727 /* Talk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Talk.h; sourceTree = "<group>"; };
 		184F79D11961A464000BE727 /* Talk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Talk.m; sourceTree = "<group>"; };
 		184F79F019628FB7000BE727 /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
@@ -84,6 +83,8 @@
 		185D331F1970F90600C741A0 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		185D3321197102D400C741A0 /* TipsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsViewController.h; sourceTree = "<group>"; };
 		185D3322197102D400C741A0 /* TipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsViewController.m; sourceTree = "<group>"; };
+		185D332419721C5B00C741A0 /* TalkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkViewController.h; sourceTree = "<group>"; };
+		185D332519721C5B00C741A0 /* TalkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkViewController.m; sourceTree = "<group>"; };
 		187AED8D1964551500294395 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		187AED8E1964551500294395 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		187AED9019685B1500294395 /* Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validation.h; sourceTree = "<group>"; };
@@ -108,6 +109,8 @@
 		187AEDBF196ED6CD00294395 /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
 		187AEDC1196ED73A00294395 /* PageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageController.h; sourceTree = "<group>"; };
 		187AEDC2196ED73A00294395 /* PageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageController.m; sourceTree = "<group>"; };
+		18BF36C41974E6A5007BBC26 /* TalkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkTableViewCell.h; sourceTree = "<group>"; };
+		18BF36C51974E6A5007BBC26 /* TalkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,33 +178,18 @@
 				187AEDB3196ED4E800294395 /* ICViewPager */,
 				187AEDAA196D1C5B00294395 /* LUKeychainAccess */,
 				187AEDA1196D122F00294395 /* SVProgressHUD */,
-				187AED8D1964551500294395 /* SignUpViewController.h */,
-				187AED8E1964551500294395 /* SignUpViewController.m */,
 				184F798A195AB987000BE727 /* AppDelegate.h */,
-				187AEDC1196ED73A00294395 /* PageController.h */,
-				187AEDC2196ED73A00294395 /* PageController.m */,
-				187AEDBE196ED6CD00294395 /* ContentViewController.h */,
-				187AEDBF196ED6CD00294395 /* ContentViewController.m */,
 				184F798B195AB987000BE727 /* AppDelegate.m */,
 				184F798D195AB987000BE727 /* Main_iPhone.storyboard */,
 				185D331E1970F90600C741A0 /* HomeViewController.h */,
+				185D331F1970F90600C741A0 /* HomeViewController.m */,
 				185D3321197102D400C741A0 /* TipsViewController.h */,
 				185D3322197102D400C741A0 /* TipsViewController.m */,
-				185D331F1970F90600C741A0 /* HomeViewController.m */,
-				184F79CA19606E19000BE727 /* TalkTableViewController.h */,
-				184F79CB19606E19000BE727 /* TalkTableViewController.m */,
-				184F7993195AB987000BE727 /* ViewController.h */,
-				184F7994195AB987000BE727 /* ViewController.m */,
-				187AED9C196C59D100294395 /* InsideTableViewController.h */,
-				187AED9D196C59D100294395 /* InsideTableViewController.m */,
-				184F79F019628FB7000BE727 /* TabViewController.h */,
-				184F79F119628FB7000BE727 /* TabViewController.m */,
-				187AED9019685B1500294395 /* Validation.h */,
-				187AED9119685B1500294395 /* Validation.m */,
-				184F79D01961A464000BE727 /* Talk.h */,
-				184F79D11961A464000BE727 /* Talk.m */,
+				18BF36C01972C951007BBC26 /* Talk */,
+				18BF36C11972C95D007BBC26 /* Login/SignUp */,
+				18BF36C21972C9B3007BBC26 /* TalkInside */,
 				184F7996195AB987000BE727 /* Images.xcassets */,
-				184F7990195AB987000BE727 /* Main_iPad.storyboard */,
+				18BF36C31972C9DB007BBC26 /* old */,
 				184F7982195AB987000BE727 /* Supporting Files */,
 			);
 			path = app;
@@ -270,6 +258,55 @@
 			);
 			name = ICViewPager;
 			path = ../../../../ICViewPager/ICViewPager/ICViewPager;
+			sourceTree = "<group>";
+		};
+		18BF36C01972C951007BBC26 /* Talk */ = {
+			isa = PBXGroup;
+			children = (
+				185D332419721C5B00C741A0 /* TalkViewController.h */,
+				185D332519721C5B00C741A0 /* TalkViewController.m */,
+				184F79D01961A464000BE727 /* Talk.h */,
+				184F79D11961A464000BE727 /* Talk.m */,
+				18BF36C41974E6A5007BBC26 /* TalkTableViewCell.h */,
+				18BF36C51974E6A5007BBC26 /* TalkTableViewCell.m */,
+			);
+			name = Talk;
+			sourceTree = "<group>";
+		};
+		18BF36C11972C95D007BBC26 /* Login/SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				187AED9019685B1500294395 /* Validation.h */,
+				187AED9119685B1500294395 /* Validation.m */,
+				187AED8D1964551500294395 /* SignUpViewController.h */,
+				187AED8E1964551500294395 /* SignUpViewController.m */,
+				184F7993195AB987000BE727 /* ViewController.h */,
+				184F7994195AB987000BE727 /* ViewController.m */,
+			);
+			name = Login/SignUp;
+			sourceTree = "<group>";
+		};
+		18BF36C21972C9B3007BBC26 /* TalkInside */ = {
+			isa = PBXGroup;
+			children = (
+				187AED9C196C59D100294395 /* InsideTableViewController.h */,
+				187AED9D196C59D100294395 /* InsideTableViewController.m */,
+				187AEDC1196ED73A00294395 /* PageController.h */,
+				187AEDC2196ED73A00294395 /* PageController.m */,
+				187AEDBE196ED6CD00294395 /* ContentViewController.h */,
+				187AEDBF196ED6CD00294395 /* ContentViewController.m */,
+			);
+			name = TalkInside;
+			sourceTree = "<group>";
+		};
+		18BF36C31972C9DB007BBC26 /* old */ = {
+			isa = PBXGroup;
+			children = (
+				184F7990195AB987000BE727 /* Main_iPad.storyboard */,
+				184F79F019628FB7000BE727 /* TabViewController.h */,
+				184F79F119628FB7000BE727 /* TabViewController.m */,
+			);
+			name = old;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,7 +410,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				184F79D21961A464000BE727 /* Talk.m in Sources */,
-				184F79CC19606E19000BE727 /* TalkTableViewController.m in Sources */,
 				185D3323197102D400C741A0 /* TipsViewController.m in Sources */,
 				187AED9219685B1500294395 /* Validation.m in Sources */,
 				184F7995195AB987000BE727 /* ViewController.m in Sources */,
@@ -382,6 +418,8 @@
 				184F798C195AB987000BE727 /* AppDelegate.m in Sources */,
 				185D33201970F90600C741A0 /* HomeViewController.m in Sources */,
 				184F79F219628FB7000BE727 /* TabViewController.m in Sources */,
+				18BF36C61974E6A5007BBC26 /* TalkTableViewCell.m in Sources */,
+				185D332619721C5B00C741A0 /* TalkViewController.m in Sources */,
 				184F7988195AB987000BE727 /* main.m in Sources */,
 				187AEDA7196D122F00294395 /* SVProgressHUD.m in Sources */,
 				187AEDC0196ED6CD00294395 /* ContentViewController.m in Sources */,

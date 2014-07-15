@@ -4,108 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Tab View Controller-->
-        <scene sceneID="BA3-Nc-C4o">
-            <objects>
-                <tabBarController definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="I7w-V2-VTY" customClass="TabViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="zlg-uH-qrj"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="Ihb-yr-p1N">
-                        <rect key="frame" x="129" y="330" width="163" height="49"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="Ie6-Rl-N32" kind="relationship" relationship="viewControllers" id="oRJ-Sl-j24"/>
-                        <segue destination="egG-wy-C7f" kind="relationship" relationship="viewControllers" id="MNM-zK-7fI"/>
-                        <segue destination="onj-js-e0t" kind="relationship" relationship="viewControllers" id="0Wf-1W-Fsv"/>
-                        <segue destination="lW5-gZ-X2S" kind="relationship" relationship="viewControllers" id="vrY-h7-CtR"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UmI-vH-l4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3646" y="757"/>
-        </scene>
-        <!--Talk Table View Controller - すべてのトーク-->
-        <scene sceneID="TCi-ou-rgN">
-            <objects>
-                <tableViewController id="4cI-VM-Zjd" customClass="TalkTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="TalkCells" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="22" sectionFooterHeight="22" id="e76-4r-h4q">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TalkCell" rowHeight="95" id="ex3-XD-Upt">
-                                <rect key="frame" x="0.0" y="86" width="320" height="95"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ex3-XD-Upt" id="vk9-eC-k9C">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="94"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="トーク名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14f-Nc-feW">
-                                            <rect key="frame" x="86" y="10" width="192" height="31"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="終了日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wi7-2F-JtH">
-                                            <rect key="frame" x="187" y="36" width="96" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="開始日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDF-TM-g4o">
-                                            <rect key="frame" x="86" y="36" width="68" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="〜" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qg-2R-v9u">
-                                            <rect key="frame" x="162" y="36" width="17" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" tag="103" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r49-gL-loY">
-                                            <rect key="frame" x="11" y="14" width="67" height="66"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="メンバー数" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8b-Ov-7zy">
-                                            <rect key="frame" x="172" y="59" width="84" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="105" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="トーク数" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee0-nO-7QW">
-                                            <rect key="frame" x="86" y="59" width="68" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="4cI-VM-Zjd" id="gpJ-3s-8Hc"/>
-                            <outlet property="delegate" destination="4cI-VM-Zjd" id="azS-U0-ZAO"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="すべてのトーク" id="llN-nO-E4c">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="z1g-n9-LlN"/>
-                    </navigationItem>
-                    <connections>
-                        <segue destination="Jmc-dp-ySj" kind="push" identifier="toInside" id="xUN-8v-wY4"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P3g-tP-uUO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2688" y="757"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="x8W-cQ-g42">
             <objects>
@@ -133,36 +31,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bfp-6j-O6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2680" y="50"/>
-        </scene>
-        <!--Table View Controller - 共有中-->
-        <scene sceneID="gEg-rI-0RU">
-            <objects>
-                <tableViewController id="qmh-ZW-4ZX" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Y04-ph-fXw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="favoriteCell" id="5GL-C6-mLE">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5GL-C6-mLE" id="GKO-5q-oWX">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="qmh-ZW-4ZX" id="SRy-3g-zOT"/>
-                            <outlet property="delegate" destination="qmh-ZW-4ZX" id="40L-dG-kj4"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="共有中" id="e4n-yp-1jQ"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gBD-bn-5nm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2680" y="1425"/>
+            <point key="canvasLocation" x="-4110" y="-96"/>
         </scene>
         <!--Content View Controller-->
         <scene sceneID="C1h-su-nIG">
@@ -191,129 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffZ-iy-ChQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2162" y="757"/>
-        </scene>
-        <!--Navigation Controller - 共有中-->
-        <scene sceneID="EdG-0c-G29">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="egG-wy-C7f" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="共有中" image="icon_tab_shared.png" id="hfm-kJ-3cE"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="A0B-BR-jQu">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="qmh-ZW-4ZX" kind="relationship" relationship="rootViewController" id="4RB-8A-TvF"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SGG-70-9k8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3160" y="1425"/>
-        </scene>
-        <!--Navigation Controller - すべてのトーク-->
-        <scene sceneID="pp3-Uk-GE2">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="Ie6-Rl-N32" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="すべてのトーク" image="icon_tab_all.png" id="9ij-le-K5D"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OLr-LZ-4Hm">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="4cI-VM-Zjd" kind="relationship" relationship="rootViewController" id="CRi-ff-qe6"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="322-BU-D17" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3160" y="757"/>
-        </scene>
-        <!--Table View Controller - アクティビティ-->
-        <scene sceneID="sJ1-zM-hRz">
-            <objects>
-                <tableViewController id="IbI-VH-8JX" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="UF8-hM-Kvs">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="uploadCell" id="KjR-NN-IxX">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KjR-NN-IxX" id="87Y-wy-wX7">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="IbI-VH-8JX" id="tW8-uN-CAm"/>
-                            <outlet property="delegate" destination="IbI-VH-8JX" id="8vm-yL-h4B"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="アクティビティ" id="Hrd-Fj-QMo"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eTP-DI-Web" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2688" y="2161"/>
-        </scene>
-        <!--Table View Controller - 設定-->
-        <scene sceneID="Eyz-eh-ZrR">
-            <objects>
-                <tableViewController id="IP1-S8-waq" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="D5i-IY-a1A">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="shareCell" id="Mqb-6Q-mO6">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mqb-6Q-mO6" id="zBe-uh-PSC">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="IP1-S8-waq" id="Dug-Tn-Kba"/>
-                            <outlet property="delegate" destination="IP1-S8-waq" id="gDS-Ds-gTt"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="設定" id="U5i-68-usq"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pCI-DO-caC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2680" y="2907"/>
-        </scene>
-        <!--Navigation Controller - 設定-->
-        <scene sceneID="SjZ-Ht-CHm">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="lW5-gZ-X2S" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="設定" image="icon_tab_setting.png" id="LnJ-uI-nck"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EZy-DY-ZRg">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="IP1-S8-waq" kind="relationship" relationship="rootViewController" id="Nca-Wh-RT1"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jba-Ex-Dj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3160" y="2907"/>
-        </scene>
-        <!--Navigation Controller - アクティビティ-->
-        <scene sceneID="ofU-y5-UrB">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="onj-js-e0t" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="アクティビティ" image="icon_tab_activity.png" id="nF0-mb-dgQ"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="day-QU-eim">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="IbI-VH-8JX" kind="relationship" relationship="rootViewController" id="kMg-Wu-vP1"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6NQ-el-T0v" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3160" y="2161"/>
+            <point key="canvasLocation" x="-3085" y="-96"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8bF-gf-8Gg">
@@ -343,7 +90,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1uC-oA-mdv">
-                                <rect key="frame" x="20" y="475" width="130" height="50"/>
+                                <rect key="frame" x="20" y="498" width="130" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="15"/>
@@ -355,9 +102,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1c-L1-efG">
-                                <rect key="frame" x="170" y="475" width="130" height="50"/>
+                                <rect key="frame" x="170" y="498" width="130" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.41960784309999999" green="0.23921568630000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.30196078431372547" green="0.30196078431372547" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="15"/>
                                 <state key="normal" title="ログイン">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -367,13 +114,6 @@
                                     <segue destination="vXZ-lx-hvc" kind="push" id="fB3-EY-a2i"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Talk" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Tc-LU-dHI">
-                                <rect key="frame" x="89" y="128" width="142" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="40"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NdD-fz-GRk">
                                 <rect key="frame" x="0.0" y="200" width="320" height="228"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -382,8 +122,12 @@
                                     <segue destination="Wuy-63-VB2" kind="embed" id="lL0-g2-bjc"/>
                                 </connections>
                             </containerView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="I4r-73-6Ch">
+                                <rect key="frame" x="91" y="133" width="139" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.68235294117647061" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.12156862745098039" green="0.51764705882352946" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="4D8-SH-Iql"/>
                     <connections>
@@ -395,7 +139,7 @@
             </objects>
             <point key="canvasLocation" x="-4110" y="-1560"/>
         </scene>
-        <!--Sign Up View Controller-->
+        <!--Sign Up View Controller - ユーザー登録-->
         <scene sceneID="Z3h-G1-DUZ">
             <objects>
                 <viewController storyboardIdentifier="SignUpView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kiF-6n-3e7" customClass="SignUpViewController" sceneMemberID="viewController">
@@ -407,22 +151,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Talk" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byX-RQ-MGB">
-                                <rect key="frame" x="90" y="79" width="141" height="47"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="アラート表示欄" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDB-u8-ZM1">
+                                <rect key="frame" x="15" y="168" width="291" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="40"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDB-u8-ZM1">
-                                <rect key="frame" x="15" y="141" width="291" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFU-4O-OAP">
-                                <rect key="frame" x="40" y="284" width="240" height="30"/>
+                                <rect key="frame" x="40" y="306" width="240" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.41960784313725491" green="0.23921568627450981" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.30196078431372547" green="0.30196078431372547" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="15"/>
                                 <state key="normal" title="ユーザー登録する">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -433,7 +171,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メールアドレス" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bvZ-ui-rBp">
-                                <rect key="frame" x="40" y="192" width="240" height="30"/>
+                                <rect key="frame" x="40" y="219" width="240" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet" returnKeyType="done"/>
@@ -443,7 +181,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="パスワード" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xsw-O7-j5H">
-                                <rect key="frame" x="40" y="230" width="240" height="30"/>
+                                <rect key="frame" x="40" y="257" width="240" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet" returnKeyType="done" secureTextEntry="YES"/>
@@ -452,16 +190,20 @@
                                     <outlet property="delegate" destination="kiF-6n-3e7" id="Cfd-KS-xun"/>
                                 </connections>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_black" translatesAutoresizingMaskIntoConstraints="NO" id="gaa-QW-BVu">
+                                <rect key="frame" x="89" y="99" width="142" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eKV-Q8-s8T"/>
+                    <navigationItem key="navigationItem" title="ユーザー登録" id="eKV-Q8-s8T"/>
                     <connections>
                         <outlet property="mail" destination="bvZ-ui-rBp" id="aQi-Yw-8Mm"/>
                         <outlet property="message" destination="BDB-u8-ZM1" id="w78-tA-rKj"/>
                         <outlet property="pass" destination="xsw-O7-j5H" id="knG-75-Xyv"/>
                         <outlet property="signUp" destination="JFU-4O-OAP" id="lFW-Lj-sCq"/>
-                        <segue destination="I7w-V2-VTY" kind="modal" identifier="signupOpen" id="KDf-CN-7bQ"/>
+                        <segue destination="Ss7-Wh-UoA" kind="push" identifier="signupOpen" id="ywf-4z-mSH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xdo-vw-UTF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -480,37 +222,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Talk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNW-Ma-r98">
-                                <rect key="frame" x="86" y="73" width="149" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="40"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メールアドレス" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JYt-mT-kpe">
-                                <rect key="frame" x="40" y="192" width="240" height="30"/>
+                                <rect key="frame" x="40" y="226" width="240" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet" returnKeyType="done"/>
-                                <connections>
-                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="Fjx-C1-R1p"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="パスワード" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xpb-34-SaN">
-                                <rect key="frame" x="40" y="230" width="240" height="30"/>
+                                <rect key="frame" x="40" y="264" width="240" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet" returnKeyType="done" secureTextEntry="YES"/>
                                 <connections>
                                     <action selector="login:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="k0A-h0-ELE"/>
                                     <action selector="password:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="jDp-7N-DSV"/>
-                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="z4K-i8-E3u"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8a-vj-fSt">
-                                <rect key="frame" x="40" y="281" width="240" height="30"/>
+                                <rect key="frame" x="40" y="312" width="240" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.41960784309999999" green="0.23921568630000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.30196078431372547" green="0.30196078431372547" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="15"/>
                                 <state key="normal" title="ログインする">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -520,27 +251,151 @@
                                     <action selector="login:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6iC-IR-eAe"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6X-Zv-j5f">
-                                <rect key="frame" x="7" y="137" width="306" height="34"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="アラート表示欄" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6X-Zv-j5f">
+                                <rect key="frame" x="7" y="168" width="306" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_black" translatesAutoresizingMaskIntoConstraints="NO" id="2vf-TD-8oz">
+                                <rect key="frame" x="89" y="99" width="142" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.97647058963775635" green="0.97647058963775635" blue="0.97647058963775635" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="SPT-Xi-wC3"/>
+                    <navigationItem key="navigationItem" title="ログイン" id="SPT-Xi-wC3"/>
                     <connections>
                         <outlet property="identification" destination="JYt-mT-kpe" id="XZz-Kh-Ain"/>
                         <outlet property="login" destination="R8a-vj-fSt" id="7ol-ld-GXl"/>
                         <outlet property="message" destination="m6X-Zv-j5f" id="RDo-nG-35Q"/>
                         <outlet property="password" destination="Xpb-34-SaN" id="UMy-GJ-tuz"/>
-                        <segue destination="I7w-V2-VTY" kind="modal" identifier="backLogin" id="ECu-Nj-BwQ"/>
+                        <segue destination="Ss7-Wh-UoA" kind="push" identifier="backLogin" id="Zzz-c1-q1u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3590" y="-858"/>
+        </scene>
+        <!--Talk View Controller - トーク一覧-->
+        <scene sceneID="m8q-sa-dVc">
+            <objects>
+                <viewController storyboardIdentifier="TalkView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ss7-Wh-UoA" customClass="TalkViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="puN-WO-NW4"/>
+                        <viewControllerLayoutGuide type="bottom" id="ve3-tB-kLu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Kh-39-iRx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="e4P-mi-Elc">
+                                <rect key="frame" x="72" y="520" width="176" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="すべての"/>
+                                    <segment title="共有中"/>
+                                </segments>
+                                <color key="tintColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="swiching:" destination="Ss7-Wh-UoA" eventType="valueChanged" id="kRP-1s-bIz"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="TalkCells" alwaysBounceVertical="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nAs-Ii-aXn">
+                                <rect key="frame" x="0.0" y="63" width="320" height="440"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="TalkCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="TalkCell" rowHeight="71" id="gvX-jV-7cF" customClass="TalkTableViewCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="71"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gvX-jV-7cF" id="luq-NI-gfD">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" tag="103" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eO4-90-Glk">
+                                                    <rect key="frame" x="20" y="10" width="45" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="会話のタイトル" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySb-3v-jpj">
+                                                    <rect key="frame" x="73" y="10" width="192" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="15"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="105" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="13" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwn-Ru-ZSD">
+                                                    <rect key="frame" x="89" y="33" width="37" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="13"/>
+                                                    <color key="textColor" red="0.81176470588235294" green="0.80000000000000004" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="64" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZd-BW-WY3">
+                                                    <rect key="frame" x="141" y="33" width="34" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="13"/>
+                                                    <color key="textColor" red="0.81176470590000005" green="0.80000000000000004" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="6ヶ月" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iq0-H5-rm6">
+                                                    <rect key="frame" x="201" y="33" width="44" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="13"/>
+                                                    <color key="textColor" red="0.81176470590000005" green="0.80000000000000004" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-time_22x22" translatesAutoresizingMaskIntoConstraints="NO" id="qEy-66-Gp9">
+                                                    <rect key="frame" x="183" y="36" width="16" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-user_22x22" translatesAutoresizingMaskIntoConstraints="NO" id="l77-zg-XQK">
+                                                    <rect key="frame" x="126" y="36" width="16" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-balloon_24x22" translatesAutoresizingMaskIntoConstraints="NO" id="1tM-Sh-4DE">
+                                                    <rect key="frame" x="73" y="36" width="16" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="icon" destination="eO4-90-Glk" id="T4H-Jx-vYo"/>
+                                            <outlet property="memberLabel" destination="XZd-BW-WY3" id="hMu-Zz-Wpl"/>
+                                            <outlet property="periodLabel" destination="iq0-H5-rm6" id="pBv-da-l4y"/>
+                                            <outlet property="postLabel" destination="Rwn-Ru-ZSD" id="7CY-58-oVb"/>
+                                            <outlet property="titleLabel" destination="ySb-3v-jpj" id="Fl8-J8-0XD"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXh-Vq-gdl">
+                                <rect key="frame" x="20" y="522" width="21" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="icon-reload_35x40">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liY-kF-RqS">
+                                <rect key="frame" x="277" y="522" width="23" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="icon-setting_42x42">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97647058823529409" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="トーク一覧" id="RkI-kp-44s"/>
+                    <connections>
+                        <outlet property="segmentedControl" destination="e4P-mi-Elc" id="maQ-J9-fBe"/>
+                        <outlet property="tableView" destination="nAs-Ii-aXn" id="sPE-Ib-gSd"/>
+                        <segue destination="Jmc-dp-ySj" kind="push" identifier="toInside" id="ZOU-gQ-yOd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ite-ay-a0I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3049" y="-1560"/>
         </scene>
         <!--Page Controller-->
         <scene sceneID="yYH-t7-HKj">
@@ -559,7 +414,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pvl-WO-to4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2162" y="115"/>
+            <point key="canvasLocation" x="-3590" y="-96"/>
         </scene>
         <!--Tips View Controller-->
         <scene sceneID="t3P-a0-9Cd">
@@ -580,9 +435,10 @@
                                     <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="kb2-w3-EmM">
                                         <rect key="frame" x="141" y="178" width="39" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </pageControl>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.68235294120000001" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.1215686275" green="0.51764705879999995" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="Wuy-63-VB2" id="aFI-Qk-FdL"/>
                                 </connections>
@@ -602,10 +458,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon_tab_activity.png" width="40" height="40"/>
-        <image name="icon_tab_all.png" width="40" height="40"/>
-        <image name="icon_tab_setting.png" width="40" height="40"/>
-        <image name="icon_tab_shared.png" width="40" height="40"/>
+        <image name="icon-balloon_24x22" width="24" height="22"/>
+        <image name="icon-reload_35x40" width="35" height="40"/>
+        <image name="icon-setting_42x42" width="42" height="42"/>
+        <image name="icon-time_22x22" width="22" height="22"/>
+        <image name="icon-user_22x22" width="22" height="22"/>
+        <image name="logo_black" width="260" height="111"/>
+        <image name="logo_white" width="330" height="141"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -613,6 +472,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ECu-Nj-BwQ"/>
+        <segue reference="ywf-4z-mSH"/>
     </inferredMetricsTieBreakers>
 </document>
