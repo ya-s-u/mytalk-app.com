@@ -20,7 +20,8 @@
  */
 
 App::uses('Controller', 'Controller');
-//App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
+App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
+
 /**
  * Application Controller
  *
@@ -42,13 +43,11 @@ class AppController extends Controller {
 	                'fields' => array('username' => 'address' , 'password'=>'password'),
 	            ),
 	        ),
-	        'loginError' => 'パスワードもしくはログインIDをご確認下さい。',
-	        'authError' => 'ご利用されるにはログインが必要です。',
 	        'loginAction' => array('controller'=>'users','action' => 'login'),
-	        'loginRedirect' => array('controller' => 'Users', 'action' => 'index'),
-	        'logoutRedirect' => array('controller' => 'pages', 'action' => 'index'),
+	        'logoutRedirect' => array('controller' => 'users', 'action' => 'index'),
 		),
 		'Session',
 		'Convert',
 	);
+	
 }

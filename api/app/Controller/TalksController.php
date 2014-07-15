@@ -3,7 +3,6 @@
 App::uses('ApiController', 'Controller');
 App::uses('File', 'Utility');
 App::uses('Converter', 'Vendor/Converter');
-//App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 
 class TalksController extends ApiController {
 	public $name = 'Talks';
@@ -104,6 +103,13 @@ class TalksController extends ApiController {
 
 
 	public function delete($id) {
+		//パスワードが正しいかチェック
+		$password = $this->User->getPasswordById($this->Auth->user('id'));
+		$passwordHasher = new BlowfishPasswordHasher();
+		if (!($passwordHasher->check($this->data['password'], $password))) {
+			return $this->error('incorrect password;<');
+		}
+
 		$params = array(
 			'conditions' => array(
 				'Talk.id' => $id,
@@ -111,14 +117,6 @@ class TalksController extends ApiController {
 			)
 		);
 		$Data = $this->Talk->find('first',$params);
-
-		//$passwordHasher = new BlowfishPasswordHasher();
-        //$dump = $passwordHasher->hash($this->data['password']);
-
-		//パスワードが正しいか確認
-		/*if(AuthComponent::password($this->data['password']) != $this->auth->user('password')) {
-			return $this->error('incorrect password');
-		}*/
 
 		//所有者以外をはじく
 		if($Data != null) {

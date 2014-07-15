@@ -15,9 +15,6 @@ class UsersController extends ApiController {
 
 		$this->Auth->allow('signup');
 		$this->Auth->allow('login');
-
-        //Blowfishのコスト値
-        Security::setCost(15);
 	}
 
 	/* Ping */

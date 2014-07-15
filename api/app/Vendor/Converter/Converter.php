@@ -36,6 +36,3 @@ class Converter {
     }
 
 }
-
-
-//preg_match('/\[LINE\]\s*.+?(のトーク履歴|とのトーク履歴)/',$Original[0]

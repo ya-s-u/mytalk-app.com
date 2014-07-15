@@ -131,7 +131,7 @@ mainControllers.controller('NewTalkCtrl', ['$scope','$location', '$http',
                     },
                     error: function(data) {
                         alert('このファイルはアップロードできません');
-                        console.log(data['response']);
+                        console.log(data);
                     }
                 }
             );
