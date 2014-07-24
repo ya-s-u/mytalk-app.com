@@ -219,6 +219,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // toViewController
+    
     [self performSegueWithIdentifier:@"toInside" sender:self];
 }
 - (IBAction)swiching:(UISegmentedControl *)sender {
@@ -247,14 +248,14 @@
 	//NSLog(@"%f分", since/60);
 	//NSLog(@"%f時", since/(60*60));
 	//NSLog(@"%f日", since/(24*60*60));
-    if(since/(24*60*60) > 31){
-        return [NSString stringWithFormat:@"%fヶ月",since/(24*60*60)/30];
-    }else if(since/(24*60*60) > 365){
-        return [NSString stringWithFormat:@"%f年",since/(24*60*60)/365];
-    }else if(since/(24*60*60) < 31){
-        return [NSString stringWithFormat:@"%f日",since/(24*60*60)];
+    if(since/(24*60*60) < 365 && 30 < since/(24*60*60)){
+        return [NSString stringWithFormat:@"%ldヶ月",(NSInteger)(since/(24*60*60)/30)];
+    }else if(since/(24*60*60) > 364){
+        return [NSString stringWithFormat:@"%ld年",(NSInteger)(since/(24*60*60)/365)];
+    }else if(since/(24*60*60) > 1 && since/(24*60*60) < 31){
+        return [NSString stringWithFormat:@"%ld日",(NSInteger)(since/(24*60*60))];
     }else{
-        return [NSString stringWithFormat:@"%f時間",since/(60*60)];
+        return [NSString stringWithFormat:@"%ld時間",(NSInteger)(since/(60*60))];
     }
 }
 @end

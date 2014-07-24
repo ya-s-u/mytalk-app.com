@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		183E69961980E66900B53FE9 /* balloon_read_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 183E698E1980E66900B53FE9 /* balloon_read_left.png */; };
+		183E69971980E66900B53FE9 /* balloon_read_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 183E698F1980E66900B53FE9 /* balloon_read_right.png */; };
+		183E69981980E66900B53FE9 /* balloon_selected_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 183E69901980E66900B53FE9 /* balloon_selected_left.png */; };
+		183E69991980E66900B53FE9 /* balloon_selected_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 183E69911980E66900B53FE9 /* balloon_selected_right.png */; };
+		183E699A1980E66900B53FE9 /* balloon_unread_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 183E69921980E66900B53FE9 /* balloon_unread_left.png */; };
+		183E699B1980E66900B53FE9 /* balloon_unread_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 183E69931980E66900B53FE9 /* balloon_unread_right.png */; };
+		183E699C1980E66900B53FE9 /* PTSMessagingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183E69951980E66900B53FE9 /* PTSMessagingCell.m */; };
+		183E69A01980E68000B53FE9 /* person1.png in Resources */ = {isa = PBXBuildFile; fileRef = 183E699E1980E68000B53FE9 /* person1.png */; };
+		183E69A11980E68000B53FE9 /* person2.png in Resources */ = {isa = PBXBuildFile; fileRef = 183E699F1980E68000B53FE9 /* person2.png */; };
 		184F797C195AB987000BE727 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184F797B195AB987000BE727 /* Foundation.framework */; };
 		184F797E195AB987000BE727 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184F797D195AB987000BE727 /* CoreGraphics.framework */; };
 		184F7980195AB987000BE727 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184F797F195AB987000BE727 /* UIKit.framework */; };
@@ -41,6 +50,8 @@
 		187AEDC0196ED6CD00294395 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AEDBF196ED6CD00294395 /* ContentViewController.m */; };
 		187AEDC3196ED73A00294395 /* PageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AEDC2196ED73A00294395 /* PageController.m */; };
 		18BF36C61974E6A5007BBC26 /* TalkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BF36C51974E6A5007BBC26 /* TalkTableViewCell.m */; };
+		18F22038197659B400763C83 /* InsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F22037197659B400763C83 /* InsideViewController.m */; };
+		18F2203B1978E02B00763C83 /* PagingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F2203A1978E02B00763C83 /* PagingScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +65,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		183E698E1980E66900B53FE9 /* balloon_read_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = balloon_read_left.png; path = "../../../../../../Downloads/PTSMessagingCell-master/PTSMessagingCellDemo/PTSMessagingCell/balloon_read_left.png"; sourceTree = "<group>"; };
+		183E698F1980E66900B53FE9 /* balloon_read_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = balloon_read_right.png; path = "../../../../../../Downloads/PTSMessagingCell-master/PTSMessagingCellDemo/PTSMessagingCell/balloon_read_right.png"; sourceTree = "<group>"; };
+		183E69901980E66900B53FE9 /* balloon_selected_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = balloon_selected_left.png; path = "../../../../../../Downloads/PTSMessagingCell-master/PTSMessagingCellDemo/PTSMessagingCell/balloon_selected_left.png"; sourceTree = "<group>"; };
+		183E69911980E66900B53FE9 /* balloon_selected_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = balloon_selected_right.png; path = "../../../../../../Downloads/PTSMessagingCell-master/PTSMessagingCellDemo/PTSMessagingCell/balloon_selected_right.png"; sourceTree = "<group>"; };
+		183E69921980E66900B53FE9 /* balloon_unread_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = balloon_unread_left.png; path = "../../../../../../Downloads/PTSMessagingCell-master/PTSMessagingCellDemo/PTSMessagingCell/balloon_unread_left.png"; sourceTree = "<group>"; };
+		183E69931980E66900B53FE9 /* balloon_unread_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = balloon_unread_right.png; path = "../../../../../../Downloads/PTSMessagingCell-master/PTSMessagingCellDemo/PTSMessagingCell/balloon_unread_right.png"; sourceTree = "<group>"; };
+		183E69941980E66900B53FE9 /* PTSMessagingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTSMessagingCell.h; path = "../../../../../../Downloads/PTSMessagingCell-master/PTSMessagingCellDemo/PTSMessagingCell/PTSMessagingCell.h"; sourceTree = "<group>"; };
+		183E69951980E66900B53FE9 /* PTSMessagingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTSMessagingCell.m; path = "../../../../../../Downloads/PTSMessagingCell-master/PTSMessagingCellDemo/PTSMessagingCell/PTSMessagingCell.m"; sourceTree = "<group>"; };
+		183E699E1980E68000B53FE9 /* person1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = person1.png; sourceTree = "<group>"; };
+		183E699F1980E68000B53FE9 /* person2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = person2.png; sourceTree = "<group>"; };
 		184F7978195AB987000BE727 /* app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		184F797B195AB987000BE727 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		184F797D195AB987000BE727 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -111,6 +132,10 @@
 		187AEDC2196ED73A00294395 /* PageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageController.m; sourceTree = "<group>"; };
 		18BF36C41974E6A5007BBC26 /* TalkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkTableViewCell.h; sourceTree = "<group>"; };
 		18BF36C51974E6A5007BBC26 /* TalkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkTableViewCell.m; sourceTree = "<group>"; };
+		18F22036197659B400763C83 /* InsideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsideViewController.h; sourceTree = "<group>"; };
+		18F22037197659B400763C83 /* InsideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsideViewController.m; sourceTree = "<group>"; };
+		18F220391978E02B00763C83 /* PagingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagingScrollView.h; sourceTree = "<group>"; };
+		18F2203A1978E02B00763C83 /* PagingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagingScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +164,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		183E698D1980E65900B53FE9 /* PTSMessage */ = {
+			isa = PBXGroup;
+			children = (
+				183E698E1980E66900B53FE9 /* balloon_read_left.png */,
+				183E698F1980E66900B53FE9 /* balloon_read_right.png */,
+				183E69901980E66900B53FE9 /* balloon_selected_left.png */,
+				183E69911980E66900B53FE9 /* balloon_selected_right.png */,
+				183E69921980E66900B53FE9 /* balloon_unread_left.png */,
+				183E69931980E66900B53FE9 /* balloon_unread_right.png */,
+				183E69941980E66900B53FE9 /* PTSMessagingCell.h */,
+				183E69951980E66900B53FE9 /* PTSMessagingCell.m */,
+			);
+			name = PTSMessage;
+			sourceTree = "<group>";
+		};
+		183E699D1980E68000B53FE9 /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				183E699E1980E68000B53FE9 /* person1.png */,
+				183E699F1980E68000B53FE9 /* person2.png */,
+			);
+			name = Ressources;
+			path = "../../../../../../Downloads/PTSMessagingCell-master/PTSMessagingCellDemo/Ressources";
+			sourceTree = "<group>";
+		};
 		184F796F195AB987000BE727 = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +228,8 @@
 				187AEDB3196ED4E800294395 /* ICViewPager */,
 				187AEDAA196D1C5B00294395 /* LUKeychainAccess */,
 				187AEDA1196D122F00294395 /* SVProgressHUD */,
+				183E699D1980E68000B53FE9 /* Ressources */,
+				183E698D1980E65900B53FE9 /* PTSMessage */,
 				184F798A195AB987000BE727 /* AppDelegate.h */,
 				184F798B195AB987000BE727 /* AppDelegate.m */,
 				184F798D195AB987000BE727 /* Main_iPhone.storyboard */,
@@ -289,12 +341,10 @@
 		18BF36C21972C9B3007BBC26 /* TalkInside */ = {
 			isa = PBXGroup;
 			children = (
-				187AED9C196C59D100294395 /* InsideTableViewController.h */,
-				187AED9D196C59D100294395 /* InsideTableViewController.m */,
-				187AEDC1196ED73A00294395 /* PageController.h */,
-				187AEDC2196ED73A00294395 /* PageController.m */,
-				187AEDBE196ED6CD00294395 /* ContentViewController.h */,
-				187AEDBF196ED6CD00294395 /* ContentViewController.m */,
+				18F22036197659B400763C83 /* InsideViewController.h */,
+				18F22037197659B400763C83 /* InsideViewController.m */,
+				18F220391978E02B00763C83 /* PagingScrollView.h */,
+				18F2203A1978E02B00763C83 /* PagingScrollView.m */,
 			);
 			name = TalkInside;
 			sourceTree = "<group>";
@@ -302,6 +352,12 @@
 		18BF36C31972C9DB007BBC26 /* old */ = {
 			isa = PBXGroup;
 			children = (
+				187AED9D196C59D100294395 /* InsideTableViewController.m */,
+				187AEDC1196ED73A00294395 /* PageController.h */,
+				187AEDC2196ED73A00294395 /* PageController.m */,
+				187AEDBE196ED6CD00294395 /* ContentViewController.h */,
+				187AEDBF196ED6CD00294395 /* ContentViewController.m */,
+				187AED9C196C59D100294395 /* InsideTableViewController.h */,
 				184F7990195AB987000BE727 /* Main_iPad.storyboard */,
 				184F79F019628FB7000BE727 /* TabViewController.h */,
 				184F79F119628FB7000BE727 /* TabViewController.m */,
@@ -385,10 +441,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183E69971980E66900B53FE9 /* balloon_read_right.png in Resources */,
+				183E699B1980E66900B53FE9 /* balloon_unread_right.png in Resources */,
+				183E699A1980E66900B53FE9 /* balloon_unread_left.png in Resources */,
+				183E69991980E66900B53FE9 /* balloon_selected_right.png in Resources */,
+				183E69961980E66900B53FE9 /* balloon_read_left.png in Resources */,
+				183E69A11980E68000B53FE9 /* person2.png in Resources */,
 				184F79B4195ABA05000BE727 /* .gitignore in Resources */,
 				184F7992195AB987000BE727 /* Main_iPad.storyboard in Resources */,
 				187AEDA6196D122F00294395 /* SVProgressHUD.bundle in Resources */,
 				184F7997195AB987000BE727 /* Images.xcassets in Resources */,
+				183E69A01980E68000B53FE9 /* person1.png in Resources */,
+				183E69981980E66900B53FE9 /* balloon_selected_left.png in Resources */,
 				184F798F195AB987000BE727 /* Main_iPhone.storyboard in Resources */,
 				184F7986195AB987000BE727 /* InfoPlist.strings in Resources */,
 			);
@@ -410,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				184F79D21961A464000BE727 /* Talk.m in Sources */,
+				18F2203B1978E02B00763C83 /* PagingScrollView.m in Sources */,
 				185D3323197102D400C741A0 /* TipsViewController.m in Sources */,
 				187AED9219685B1500294395 /* Validation.m in Sources */,
 				184F7995195AB987000BE727 /* ViewController.m in Sources */,
@@ -422,7 +487,9 @@
 				185D332619721C5B00C741A0 /* TalkViewController.m in Sources */,
 				184F7988195AB987000BE727 /* main.m in Sources */,
 				187AEDA7196D122F00294395 /* SVProgressHUD.m in Sources */,
+				183E699C1980E66900B53FE9 /* PTSMessagingCell.m in Sources */,
 				187AEDC0196ED6CD00294395 /* ContentViewController.m in Sources */,
+				18F22038197659B400763C83 /* InsideViewController.m in Sources */,
 				187AED9E196C59D100294395 /* InsideTableViewController.m in Sources */,
 				187AEDC3196ED73A00294395 /* PageController.m in Sources */,
 				187AEDB1196D1C5B00294395 /* LUKeychainAccess.m in Sources */,

@@ -41,6 +41,8 @@
 - (UIView *)viewPager:(ViewPagerController *)viewPager viewForTabAtIndex:(NSUInteger)index
 {
     // タブに表示するView、今回はUILabelを使用
+    ViewPagerController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ViewPagerController"];
+    //activeTabIndex;
     UILabel* label = [UILabel new];
     label.text = [NSString stringWithFormat:@"Tab #%lu", (unsigned long)index];
     [label sizeToFit];
@@ -50,6 +52,7 @@
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index
 {
     // タブ番号に対応するUIViewControllerを返す
+    // タブに対応するページを表示する部分
     ContentViewController* contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentViewController"];
     contentViewController.labelText = [NSString stringWithFormat:@"Tab #%lu", index];
     return contentViewController;
