@@ -8,13 +8,16 @@
 
 #import "InsideViewController.h"
 #import "PagingScrollView.h"
+#import "AppDelegate.h"
 #define TABLE_WIDTH 320.f
 @interface InsideViewController ()
 
 @end
 
 @implementation InsideViewController
-
+int counts = 0;
+int counts2 = 0;
+int counts3 = 0;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -61,73 +64,98 @@
     
     CGFloat height = self.view.bounds.size.height;
     CGRect tableBounds = CGRectMake(0.0f, 100.f, TABLE_WIDTH, height-100);
-    CGRect labelBounds = CGRectMake(110.0f,65.0f,100,30);
+    CGRect labelBounds = CGRectMake(120.0f,65.0f,90,30);
+    CGRect prevlabelBounds = CGRectMake(10.0f,65.0f,90,30);
+    CGRect nextlabelBounds = CGRectMake(240.0f,65.0f,90,30);
     
     PagingScrollView *scrollView = [[PagingScrollView alloc] initWithFrame:self.view.bounds];
-    scrollView.contentSize = CGSizeMake(TABLE_WIDTH * numberOfTables, height-100);
+    scrollView.contentSize = CGSizeMake(TABLE_WIDTH * numberOfTables, height);
     scrollView.pagingEnabled = YES;
-    //scrollView.bounds = tableBounds; // scrollViewのページングをTABLE_WIDTH単位に。
     scrollView.clipsToBounds = NO;
-    scrollView.backgroundColor = [UIColor grayColor];
+    scrollView.backgroundColor = [UIColor clearColor];
     scrollView.contentOffset = CGPointMake(320, 0);
     [self.view addSubview:scrollView];
 
     CGRect tableFrame = tableBounds;
     CGRect labelFrame = labelBounds;
+    CGRect prevlabelFrame = prevlabelBounds;
+    CGRect nextlabelFrame = nextlabelBounds;
     tableFrame.origin.x = 0.f;
     for (int i = 0; i < numberOfTables; i++) {
         
         UILabel *label = [[UILabel alloc] initWithFrame:labelFrame];
-        //UITableView *tableView = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
+        UILabel *prevlabel = [[UILabel alloc] initWithFrame:prevlabelFrame];
+        UILabel *nextlabel = [[UILabel alloc] initWithFrame:nextlabelFrame];
+        label.textColor = textColor;
+        label.font = textFont;
+        prevlabel.textColor = textColor;
+        prevlabel.font = textFont;
+        nextlabel.textColor = textColor;
+        nextlabel.font = textFont;
         tableView = [[UITableView alloc] initWithFrame:tableFrame];
+        tableView.backgroundColor = [UIColor clearColor];
         tableView.delegate = self;
         tableView.dataSource = self;
         
         switch (i) {
             case 0:
-                tableView.backgroundColor = [UIColor yellowColor];
-                label.backgroundColor = [UIColor yellowColor];
-                label.textColor = [UIColor blueColor];
+                prevlabel.text = @"2014年7月";
                 label.text = @"2014年8月";
+                nextlabel.text = @"2014年9月";
                 break;
             case 1:
-                tableView.backgroundColor = [UIColor blueColor];
-                label.backgroundColor = [UIColor blueColor];
-                label.textColor = [UIColor blueColor];
+                prevlabel.text = @"2014年8月";
                 label.text = @"2014年9月";
+                nextlabel.text = @"2014年7月";
                 break;
             case 2:
-                tableView.backgroundColor = [UIColor brownColor];
-                label.backgroundColor = [UIColor brownColor];
-                label.textColor = [UIColor blueColor];
+                prevlabel.text = @"2014年9月";
                 label.text = @"2014年10月";
+                nextlabel.text = @"2014年11月";
                 break;
             default:
                 break;
         }
-        //[scrollView addSubview:tableView];
+        [scrollView addSubview:prevlabel];
         [scrollView addSubview:label];
+        [scrollView addSubview:nextlabel];
         [scrollView addSubview:tableView];
         
         tableFrame.origin.x += TABLE_WIDTH;
         labelFrame.origin.x += TABLE_WIDTH;
+        prevlabelFrame.origin.x += TABLE_WIDTH;
+        nextlabelFrame.origin.x += TABLE_WIDTH;
     }
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
 }
 
 -(void)awakeFromNib {
     
+    _prevmessages = [[NSArray alloc] initWithObjects:
+                 @"Hello, how are you.",
+                 @"I'm great, how are you?",
+                 @"I'm fine, thanks. Up for dinner tonight?",
+                 @"Glad to hear. No sorry, I have to work.",
+                 @"Oh that sucks. A pitty, well then - have a nice day..",
+                 @"Thanks! You too. Cuu soon.",
+                 nil];
     _messages = [[NSArray alloc] initWithObjects:
                  @"Hello, how are you.",
                  @"I'm great, how are you?",
                  @"I'm fine, thanks. Up for dinner tonight?",
                  @"Glad to hear. No sorry, I have to work.",
-                 @"Oh that sucks. A pitty, well then - have a nice day.."
+                 @"Oh that sucks. A pitty, well then - have a nice day..",
+                 @"Thanks! You too. Cuu soon.",
+                 nil];
+    _nextmessages = [[NSArray alloc] initWithObjects:
+                 @"Hello, how are you.",
+                 @"I'm great, how are you?",
+                 @"I'm fine, thanks. Up for dinner tonight?",
+                 @"Glad to hear. No sorry, I have to work.",
+                 @"Oh that sucks. A pitty, well then - have a nice day..",
                  @"Thanks! You too. Cuu soon.",
                  nil];
     
@@ -136,16 +164,29 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_messages count];
+    counts++;
+    if(counts == 1){
+        return [_prevmessages count];
+    }else if(counts == 2){
+        return [_messages count];
+    } else {
+        return [_nextmessages count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)cellTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     /*This method sets up the table-view.*/
-    
-    static NSString* cellIdentifier = @"messagingCell";
+    static NSString* cellIdentifier;
+    counts3++;
+    if(counts3 == 1){
+        cellIdentifier = @"prevmessagingCell";
+    }else if(counts3== 2){
+        cellIdentifier = @"messagingCell";
+    } else {
+        cellIdentifier = @"nextmessagingCell";
+    }
     
     PTSMessagingCell * cell = (PTSMessagingCell*) [cellTableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
     if (cell == nil) {
         cell = [[PTSMessagingCell alloc] initMessagingCellWithReuseIdentifier:cellIdentifier];
     }
@@ -156,8 +197,17 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CGSize messageSize = [PTSMessagingCell messageSize:[_messages objectAtIndex:indexPath.row]];
-    return messageSize.height + 2*[PTSMessagingCell textMarginVertical] + 40.0f;
+    counts2++;
+    if(counts2 == 1){
+        CGSize messageSize = [PTSMessagingCell messageSize:[_prevmessages objectAtIndex:indexPath.row]];
+        return messageSize.height + 2*[PTSMessagingCell textMarginVertical] + 40.0f;
+    }else if(counts2 == 2){
+        CGSize messageSize = [PTSMessagingCell messageSize:[_messages objectAtIndex:indexPath.row]];
+        return messageSize.height + 2*[PTSMessagingCell textMarginVertical] + 40.0f;
+    }else{
+        CGSize messageSize = [PTSMessagingCell messageSize:[_nextmessages objectAtIndex:indexPath.row]];
+        return messageSize.height + 2*[PTSMessagingCell textMarginVertical] + 40.0f;
+    }
 }
 
 -(void)configureCell:(id)cell atIndexPath:(NSIndexPath *)indexPath {

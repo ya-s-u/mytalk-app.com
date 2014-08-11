@@ -100,7 +100,7 @@
     
     if ([segue.identifier isEqualToString:@"signupOpen"]) {
         AppDelegate *appDel = [[UIApplication sharedApplication] delegate];
-        appDel.successFlag = YES;
+        //appDel.successFlag = YES;
     }
 }
 
@@ -118,10 +118,11 @@
 {
     [super viewDidLoad];
     AppDelegate *appDel = [[UIApplication sharedApplication] delegate];
-
+    /*
     if(appDel.successFlag == YES){
         [self performSegueWithIdentifier:@"signupOpen" sender:self];
     }
+     */
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeSoftKeyboard)];
     [self.view addGestureRecognizer:gestureRecognizer];
     //ボタンの角丸

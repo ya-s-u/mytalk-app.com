@@ -34,8 +34,7 @@
  */
 - (BOOL)hasLoginSettings {
     AppDelegate *appDel = [[UIApplication sharedApplication] delegate];
-    if(appDel.successFlag) return YES;
-    else return NO;
+   return YES;
     //NOでログインしてない
 }
 - (void)viewDidAppear:(BOOL)animated

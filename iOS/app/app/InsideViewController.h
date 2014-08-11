@@ -12,9 +12,13 @@
 @interface InsideViewController : UIViewController <UIScrollViewDelegate,UITableViewDelegate, UITableViewDataSource> {
     UITableView * tableView;
     NSArray * messages;
+    NSArray * prevmessages;
+    NSArray * nextmessages;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic) NSArray * messages;
+@property (nonatomic) NSArray * prevmessages;
+@property (nonatomic) NSArray * nextmessages;
 @end

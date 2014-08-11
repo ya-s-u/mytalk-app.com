@@ -12,12 +12,19 @@
 //#import "talk.h"
 //#import "TalkTableViewController.h"
 
-@implementation AppDelegate {
-	NSMutableArray *talks;
+@implementation AppDelegate
+
+UIColor * textColor = nil;
+UIFont * textFont = nil;
++ (void) initialize
+{
+    //全アプリの基本テキストカラー(#f9f9f9)
+    if (textColor == nil) textColor = [UIColor colorWithRed:0.576 green:0.576 blue:0.576 alpha:1.0];
+    //トーク画面の上部日付ラベル
+    if (textFont == nil) textFont = [UIFont fontWithName:@"Hiragino Kaku Gothic ProN" size:13];
+
 }
-@synthesize sessionID;
-@synthesize successFlag;
-@synthesize globalBox;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // トークテーブルの初期設定
