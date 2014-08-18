@@ -10,15 +10,19 @@
 #import "PTSMessagingCell.h"
 
 @interface InsideViewController : UIViewController <UIScrollViewDelegate,UITableViewDelegate, UITableViewDataSource> {
-    UITableView * tableView;
-    NSArray * messages;
+    NSMutableArray * messages;
     NSArray * prevmessages;
     NSArray * nextmessages;
+    NSString * _talkID;
+    NSDictionary * _talkData;
+    NSString * _authour;
+    NSMutableArray * _tableViewArray;
+    NSMutableArray * _timeLabelArray;
 }
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (nonatomic, retain) UITableView *tableView;
-@property (nonatomic) NSArray * messages;
+@property (nonatomic) NSMutableArray * messages;
 @property (nonatomic) NSArray * prevmessages;
 @property (nonatomic) NSArray * nextmessages;
+@property (nonatomic) NSString* talkID;
+@property (nonatomic) NSDictionary* talkData;
 @end

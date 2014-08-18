@@ -14,8 +14,6 @@
 		183E699A1980E66900B53FE9 /* balloon_unread_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 183E69921980E66900B53FE9 /* balloon_unread_left.png */; };
 		183E699B1980E66900B53FE9 /* balloon_unread_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 183E69931980E66900B53FE9 /* balloon_unread_right.png */; };
 		183E699C1980E66900B53FE9 /* PTSMessagingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183E69951980E66900B53FE9 /* PTSMessagingCell.m */; };
-		183E69A01980E68000B53FE9 /* person1.png in Resources */ = {isa = PBXBuildFile; fileRef = 183E699E1980E68000B53FE9 /* person1.png */; };
-		183E69A11980E68000B53FE9 /* person2.png in Resources */ = {isa = PBXBuildFile; fileRef = 183E699F1980E68000B53FE9 /* person2.png */; };
 		184F797C195AB987000BE727 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184F797B195AB987000BE727 /* Foundation.framework */; };
 		184F797E195AB987000BE727 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184F797D195AB987000BE727 /* CoreGraphics.framework */; };
 		184F7980195AB987000BE727 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184F797F195AB987000BE727 /* UIKit.framework */; };
@@ -33,22 +31,17 @@
 		184F79AA195AB987000BE727 /* appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79A9195AB987000BE727 /* appTests.m */; };
 		184F79B4195ABA05000BE727 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 184F79B3195ABA05000BE727 /* .gitignore */; };
 		184F79D21961A464000BE727 /* Talk.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79D11961A464000BE727 /* Talk.m */; };
-		184F79F219628FB7000BE727 /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F79F119628FB7000BE727 /* TabViewController.m */; };
 		185D33201970F90600C741A0 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D331F1970F90600C741A0 /* HomeViewController.m */; };
 		185D3323197102D400C741A0 /* TipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D3322197102D400C741A0 /* TipsViewController.m */; };
 		185D332619721C5B00C741A0 /* TalkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D332519721C5B00C741A0 /* TalkViewController.m */; };
 		187AED8F1964551600294395 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED8E1964551500294395 /* SignUpViewController.m */; };
 		187AED9219685B1500294395 /* Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED9119685B1500294395 /* Validation.m */; };
-		187AED9E196C59D100294395 /* InsideTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AED9D196C59D100294395 /* InsideTableViewController.m */; };
 		187AEDA0196D11F600294395 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187AED9F196D11F600294395 /* QuartzCore.framework */; };
 		187AEDA6196D122F00294395 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 187AEDA3196D122F00294395 /* SVProgressHUD.bundle */; };
 		187AEDA7196D122F00294395 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AEDA5196D122F00294395 /* SVProgressHUD.m */; };
 		187AEDA9196D1C1B00294395 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187AEDA8196D1C1B00294395 /* Security.framework */; };
 		187AEDB1196D1C5B00294395 /* LUKeychainAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AEDAD196D1C5B00294395 /* LUKeychainAccess.m */; };
 		187AEDB2196D1C5B00294395 /* LUKeychainServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AEDB0196D1C5B00294395 /* LUKeychainServices.m */; };
-		187AEDB6196ED4E800294395 /* ViewPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AEDB5196ED4E800294395 /* ViewPagerController.m */; };
-		187AEDC0196ED6CD00294395 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AEDBF196ED6CD00294395 /* ContentViewController.m */; };
-		187AEDC3196ED73A00294395 /* PageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AEDC2196ED73A00294395 /* PageController.m */; };
 		18BF36C61974E6A5007BBC26 /* TalkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BF36C51974E6A5007BBC26 /* TalkTableViewCell.m */; };
 		18F22038197659B400763C83 /* InsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F22037197659B400763C83 /* InsideViewController.m */; };
 		18F2203B1978E02B00763C83 /* PagingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F2203A1978E02B00763C83 /* PagingScrollView.m */; };
@@ -73,8 +66,6 @@
 		183E69931980E66900B53FE9 /* balloon_unread_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = balloon_unread_right.png; path = "../../../../../../Downloads/PTSMessagingCell-master/PTSMessagingCellDemo/PTSMessagingCell/balloon_unread_right.png"; sourceTree = "<group>"; };
 		183E69941980E66900B53FE9 /* PTSMessagingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTSMessagingCell.h; path = "../../../../../../Downloads/PTSMessagingCell-master/PTSMessagingCellDemo/PTSMessagingCell/PTSMessagingCell.h"; sourceTree = "<group>"; };
 		183E69951980E66900B53FE9 /* PTSMessagingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTSMessagingCell.m; path = "../../../../../../Downloads/PTSMessagingCell-master/PTSMessagingCellDemo/PTSMessagingCell/PTSMessagingCell.m"; sourceTree = "<group>"; };
-		183E699E1980E68000B53FE9 /* person1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = person1.png; sourceTree = "<group>"; };
-		183E699F1980E68000B53FE9 /* person2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = person2.png; sourceTree = "<group>"; };
 		184F7978195AB987000BE727 /* app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		184F797B195AB987000BE727 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		184F797D195AB987000BE727 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -98,8 +89,6 @@
 		184F79B3195ABA05000BE727 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		184F79D01961A464000BE727 /* Talk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Talk.h; sourceTree = "<group>"; };
 		184F79D11961A464000BE727 /* Talk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Talk.m; sourceTree = "<group>"; };
-		184F79F019628FB7000BE727 /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
-		184F79F119628FB7000BE727 /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		185D331E1970F90600C741A0 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		185D331F1970F90600C741A0 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		185D3321197102D400C741A0 /* TipsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsViewController.h; sourceTree = "<group>"; };
@@ -110,8 +99,6 @@
 		187AED8E1964551500294395 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		187AED9019685B1500294395 /* Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validation.h; sourceTree = "<group>"; };
 		187AED9119685B1500294395 /* Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validation.m; sourceTree = "<group>"; };
-		187AED9C196C59D100294395 /* InsideTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsideTableViewController.h; sourceTree = "<group>"; };
-		187AED9D196C59D100294395 /* InsideTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsideTableViewController.m; sourceTree = "<group>"; };
 		187AED9F196D11F600294395 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		187AEDA2196D122F00294395 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
 		187AEDA3196D122F00294395 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
@@ -124,12 +111,6 @@
 		187AEDAE196D1C5B00294395 /* LUKeychainErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LUKeychainErrorHandler.h; sourceTree = "<group>"; };
 		187AEDAF196D1C5B00294395 /* LUKeychainServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LUKeychainServices.h; sourceTree = "<group>"; };
 		187AEDB0196D1C5B00294395 /* LUKeychainServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LUKeychainServices.m; sourceTree = "<group>"; };
-		187AEDB4196ED4E800294395 /* ViewPagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPagerController.h; sourceTree = "<group>"; };
-		187AEDB5196ED4E800294395 /* ViewPagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPagerController.m; sourceTree = "<group>"; };
-		187AEDBE196ED6CD00294395 /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
-		187AEDBF196ED6CD00294395 /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
-		187AEDC1196ED73A00294395 /* PageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageController.h; sourceTree = "<group>"; };
-		187AEDC2196ED73A00294395 /* PageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageController.m; sourceTree = "<group>"; };
 		18BF36C41974E6A5007BBC26 /* TalkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkTableViewCell.h; sourceTree = "<group>"; };
 		18BF36C51974E6A5007BBC26 /* TalkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkTableViewCell.m; sourceTree = "<group>"; };
 		18F22036197659B400763C83 /* InsideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsideViewController.h; sourceTree = "<group>"; };
@@ -179,16 +160,6 @@
 			name = PTSMessage;
 			sourceTree = "<group>";
 		};
-		183E699D1980E68000B53FE9 /* Ressources */ = {
-			isa = PBXGroup;
-			children = (
-				183E699E1980E68000B53FE9 /* person1.png */,
-				183E699F1980E68000B53FE9 /* person2.png */,
-			);
-			name = Ressources;
-			path = "../../../../../../Downloads/PTSMessagingCell-master/PTSMessagingCellDemo/Ressources";
-			sourceTree = "<group>";
-		};
 		184F796F195AB987000BE727 = {
 			isa = PBXGroup;
 			children = (
@@ -225,10 +196,8 @@
 		184F7981195AB987000BE727 /* app */ = {
 			isa = PBXGroup;
 			children = (
-				187AEDB3196ED4E800294395 /* ICViewPager */,
 				187AEDAA196D1C5B00294395 /* LUKeychainAccess */,
 				187AEDA1196D122F00294395 /* SVProgressHUD */,
-				183E699D1980E68000B53FE9 /* Ressources */,
 				183E698D1980E65900B53FE9 /* PTSMessage */,
 				184F798A195AB987000BE727 /* AppDelegate.h */,
 				184F798B195AB987000BE727 /* AppDelegate.m */,
@@ -302,16 +271,6 @@
 			path = ../../../../LUKeychainAccess/LUKeychainAccess;
 			sourceTree = "<group>";
 		};
-		187AEDB3196ED4E800294395 /* ICViewPager */ = {
-			isa = PBXGroup;
-			children = (
-				187AEDB4196ED4E800294395 /* ViewPagerController.h */,
-				187AEDB5196ED4E800294395 /* ViewPagerController.m */,
-			);
-			name = ICViewPager;
-			path = ../../../../ICViewPager/ICViewPager/ICViewPager;
-			sourceTree = "<group>";
-		};
 		18BF36C01972C951007BBC26 /* Talk */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,15 +311,7 @@
 		18BF36C31972C9DB007BBC26 /* old */ = {
 			isa = PBXGroup;
 			children = (
-				187AED9D196C59D100294395 /* InsideTableViewController.m */,
-				187AEDC1196ED73A00294395 /* PageController.h */,
-				187AEDC2196ED73A00294395 /* PageController.m */,
-				187AEDBE196ED6CD00294395 /* ContentViewController.h */,
-				187AEDBF196ED6CD00294395 /* ContentViewController.m */,
-				187AED9C196C59D100294395 /* InsideTableViewController.h */,
 				184F7990195AB987000BE727 /* Main_iPad.storyboard */,
-				184F79F019628FB7000BE727 /* TabViewController.h */,
-				184F79F119628FB7000BE727 /* TabViewController.m */,
 			);
 			name = old;
 			sourceTree = "<group>";
@@ -446,12 +397,10 @@
 				183E699A1980E66900B53FE9 /* balloon_unread_left.png in Resources */,
 				183E69991980E66900B53FE9 /* balloon_selected_right.png in Resources */,
 				183E69961980E66900B53FE9 /* balloon_read_left.png in Resources */,
-				183E69A11980E68000B53FE9 /* person2.png in Resources */,
 				184F79B4195ABA05000BE727 /* .gitignore in Resources */,
 				184F7992195AB987000BE727 /* Main_iPad.storyboard in Resources */,
 				187AEDA6196D122F00294395 /* SVProgressHUD.bundle in Resources */,
 				184F7997195AB987000BE727 /* Images.xcassets in Resources */,
-				183E69A01980E68000B53FE9 /* person1.png in Resources */,
 				183E69981980E66900B53FE9 /* balloon_selected_left.png in Resources */,
 				184F798F195AB987000BE727 /* Main_iPhone.storyboard in Resources */,
 				184F7986195AB987000BE727 /* InfoPlist.strings in Resources */,
@@ -479,19 +428,14 @@
 				187AED9219685B1500294395 /* Validation.m in Sources */,
 				184F7995195AB987000BE727 /* ViewController.m in Sources */,
 				187AEDB2196D1C5B00294395 /* LUKeychainServices.m in Sources */,
-				187AEDB6196ED4E800294395 /* ViewPagerController.m in Sources */,
 				184F798C195AB987000BE727 /* AppDelegate.m in Sources */,
 				185D33201970F90600C741A0 /* HomeViewController.m in Sources */,
-				184F79F219628FB7000BE727 /* TabViewController.m in Sources */,
 				18BF36C61974E6A5007BBC26 /* TalkTableViewCell.m in Sources */,
 				185D332619721C5B00C741A0 /* TalkViewController.m in Sources */,
 				184F7988195AB987000BE727 /* main.m in Sources */,
 				187AEDA7196D122F00294395 /* SVProgressHUD.m in Sources */,
 				183E699C1980E66900B53FE9 /* PTSMessagingCell.m in Sources */,
-				187AEDC0196ED6CD00294395 /* ContentViewController.m in Sources */,
 				18F22038197659B400763C83 /* InsideViewController.m in Sources */,
-				187AED9E196C59D100294395 /* InsideTableViewController.m in Sources */,
-				187AEDC3196ED73A00294395 /* PageController.m in Sources */,
 				187AEDB1196D1C5B00294395 /* LUKeychainAccess.m in Sources */,
 				187AED8F1964551600294395 /* SignUpViewController.m in Sources */,
 			);

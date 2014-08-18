@@ -47,7 +47,7 @@
 - (IBAction)login:(id)sender {
     
    
-    NSLog(@"loginbutton");
+    //NSLog(@"loginbutton");
     self.mailAddress = self.identification.text;
     NSString *mailString = self.mailAddress;
     self.passWord = self.password.text;
@@ -108,7 +108,7 @@
                     // 他にも処理したいHTTPステータスがあれば書く。
                     
                 } else {
-                    NSLog(@"success request!!");
+                    //NSLog(@"success request!!");
                     //NSLog(@"statusCode = %lu", ((NSHTTPURLResponse *)response).statusCode);
                     //NSLog(@"responseText = %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
                     NSInteger status = [(NSHTTPURLResponse*)response statusCode];

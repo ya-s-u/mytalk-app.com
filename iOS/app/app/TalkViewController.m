@@ -11,6 +11,7 @@
 #import "Talk.h"
 #import "TalkTableViewCell.h"
 #import "LUKeychainAccess.h"
+#import "InsideViewController.h"
 
 @interface TalkViewController ()
 
@@ -18,6 +19,7 @@
 
 @implementation TalkViewController
 @synthesize talks;
+@synthesize talkIDs = _talkIDs;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -111,6 +113,7 @@
      *  テーブルにJSONを流し込む部分
      */
     talks = [NSMutableArray arrayWithCapacity:20];
+    _talkIDs = [NSMutableArray arrayWithCapacity:20];
 	Talk *talk;
     
     for (NSDictionary *data in talkData) {
@@ -120,9 +123,9 @@
         talk.member = [[data objectForKey:@"member"] intValue];
         talk.icon = [[data objectForKey:@"icon"] intValue];
         talk.posts = [[data objectForKey:@"count"] intValue];
+        [_talkIDs addObject:[data objectForKey:@"id"]];
         [talks addObject:talk];
     }
-    
     /*
      talk = [[Talk alloc] init];
      talk.name = @"おもしろトーク";
@@ -204,24 +207,16 @@
     cell.memberLabel.text = [NSString stringWithFormat:@"%ld ", talk.member];
     cell.postLabel.text = [NSString stringWithFormat:@"%ld ", talk.posts];
     
-    /*
-     UIImageView *av = [[UIImageView alloc] initWithFrame:CGRectMake(20, 20, 277, 58)];
-     av.backgroundColor = [UIColor clearColor];
-     av.opaque = NO;
-     av.image = [UIImage imageNamed:@"categorytab1.png"];
-     cell.backgroundView = av;
-     セルに背景画像を設定する
-     */
-    
     return cell;
 }
 //セルが選択された時の挙動
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // toViewController
-    
+    _tempTalkID = [_talkIDs objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"toInside" sender:self];
 }
+
+
 - (IBAction)swiching:(UISegmentedControl *)sender {
     switch (sender.selectedSegmentIndex) {
         case 0:
@@ -256,6 +251,12 @@
         return [NSString stringWithFormat:@"%ld日",(NSInteger)(since/(24*60*60))];
     }else{
         return [NSString stringWithFormat:@"%ld時間",(NSInteger)(since/(60*60))];
+    }
+}
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"toInside"]) {
+        InsideViewController *viewCon = segue.destinationViewController;
+        viewCon.talkID = _tempTalkID;
     }
 }
 @end

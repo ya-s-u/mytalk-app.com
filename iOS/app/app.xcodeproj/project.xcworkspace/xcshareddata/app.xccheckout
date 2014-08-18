@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>791AD989-1DDC-439C-937C-09DBFB5739CA</string>
+	<string>C47AE853-4B2C-4A14-8735-4BB00015844B</string>
 	<key>IDESourceControlProjectName</key>
 	<string>app</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -14,6 +14,8 @@
 		<string>https://github.com/TheLevelUp/LUKeychainAccess.git</string>
 		<key>92AD71CE-BE12-4210-BEEF-C7BB6A982D49</key>
 		<string>https://github.com/iltercengiz/ICViewPager.git</string>
+		<key>BA0F44BB-5C4B-41B0-B358-BDEF1C7F9B1F</key>
+		<string>https://github.com/samvermette/SVProgressHUD.git</string>
 		<key>CAC6B6A8-B508-4BA0-A5C7-EB07A774E1F3</key>
 		<string>https://github.com/ya-s-u/mytalk-app.com.git</string>
 	</dict>
@@ -25,6 +27,8 @@
 		<string>../../../../../LUKeychainAccess</string>
 		<key>92AD71CE-BE12-4210-BEEF-C7BB6A982D49</key>
 		<string>../../../../../ICViewPager</string>
+		<key>BA0F44BB-5C4B-41B0-B358-BDEF1C7F9B1F</key>
+		<string>../../../../../SVProgressHUD</string>
 		<key>CAC6B6A8-B508-4BA0-A5C7-EB07A774E1F3</key>
 		<string>../../../..</string>
 	</dict>
@@ -59,6 +63,14 @@
 			<string>5DA11BAB-7912-422F-B77B-1F555D0262A2</string>
 			<key>IDESourceControlWCCName</key>
 			<string>LUKeychainAccess</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BA0F44BB-5C4B-41B0-B358-BDEF1C7F9B1F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SVProgressHUD</string>
 		</dict>
 	</array>
 </dict>

@@ -9,59 +9,29 @@
 #import "InsideViewController.h"
 #import "PagingScrollView.h"
 #import "AppDelegate.h"
+#import "LUKeychainAccess.h"
 #define TABLE_WIDTH 320.f
 @interface InsideViewController ()
 
 @end
 
 @implementation InsideViewController
-int counts = 0;
-int counts2 = 0;
-int counts3 = 0;
+@synthesize talkID = _talkID;
+@synthesize talkData = _talkData;
+@synthesize messages = _messages;
+int numberOfTables = 0;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+
     }
     return self;
 }
-- (void)scrollViewDidScroll:(UIScrollView *)pageScrollView {
-    //NSLog(@"swipe %f, %f" ,scrollView.contentOffset.x, scrollView.frame.size.width);
-    static NSInteger previousPage = 0;
-    CGFloat pageWidth = pageScrollView.frame.size.width;
-    float fractionalPage = pageScrollView.contentOffset.x / pageWidth;
-    NSInteger page = lround(fractionalPage);
-    if (previousPage != page) {
-        // Page has changed
-        // Do your thing!
-        NSLog(@"CHANGE PAGE NOW:%lu", page);
-        previousPage = page;
-        
-        switch (page) {
-            case 0:{
-                // 0ページ目にきたときにしたい処理
-                break;
-            }
-            case 1:{
-                // 1ページ目にきたときにしたい処理
-                break;
-            }
-            case 2:{
-                // 2ページ目にきたときにしたい処理
-                break;
-            }
-            default:
-                break;
-        }
-        
-    }
-}
+
 - (void)viewDidAppear:(BOOL)animated {
-    
-    int numberOfTables = 3;
-    
     CGFloat height = self.view.bounds.size.height;
     CGRect tableBounds = CGRectMake(0.0f, 100.f, TABLE_WIDTH, height-100);
     CGRect labelBounds = CGRectMake(120.0f,65.0f,90,30);
@@ -73,7 +43,7 @@ int counts3 = 0;
     scrollView.pagingEnabled = YES;
     scrollView.clipsToBounds = NO;
     scrollView.backgroundColor = [UIColor clearColor];
-    scrollView.contentOffset = CGPointMake(320, 0);
+    //scrollView.contentOffset = CGPointMake(320, 0);
     [self.view addSubview:scrollView];
 
     CGRect tableFrame = tableBounds;
@@ -81,8 +51,8 @@ int counts3 = 0;
     CGRect prevlabelFrame = prevlabelBounds;
     CGRect nextlabelFrame = nextlabelBounds;
     tableFrame.origin.x = 0.f;
+    _tableViewArray = [NSMutableArray array];
     for (int i = 0; i < numberOfTables; i++) {
-        
         UILabel *label = [[UILabel alloc] initWithFrame:labelFrame];
         UILabel *prevlabel = [[UILabel alloc] initWithFrame:prevlabelFrame];
         UILabel *nextlabel = [[UILabel alloc] initWithFrame:nextlabelFrame];
@@ -92,30 +62,27 @@ int counts3 = 0;
         prevlabel.font = textFont;
         nextlabel.textColor = textColor;
         nextlabel.font = textFont;
-        tableView = [[UITableView alloc] initWithFrame:tableFrame];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:tableFrame];
         tableView.backgroundColor = [UIColor clearColor];
+        tableView.separatorColor = [UIColor clearColor];
         tableView.delegate = self;
         tableView.dataSource = self;
+        [_tableViewArray addObject:tableView];
         
-        switch (i) {
-            case 0:
-                prevlabel.text = @"2014年7月";
-                label.text = @"2014年8月";
-                nextlabel.text = @"2014年9月";
-                break;
-            case 1:
-                prevlabel.text = @"2014年8月";
-                label.text = @"2014年9月";
-                nextlabel.text = @"2014年7月";
-                break;
-            case 2:
-                prevlabel.text = @"2014年9月";
-                label.text = @"2014年10月";
-                nextlabel.text = @"2014年11月";
-                break;
-            default:
-                break;
+        if(i == 0){
+            prevlabel.text = @"";
+            label.text = [_timeLabelArray objectAtIndex:i];
+            nextlabel.text = [_timeLabelArray objectAtIndex:i+1];
+        } else if(i + 1 == numberOfTables) {
+            prevlabel.text = [_timeLabelArray objectAtIndex:i-1];
+            label.text = [_timeLabelArray objectAtIndex:i];
+            nextlabel.text = @"";
+        } else {
+            prevlabel.text = [_timeLabelArray objectAtIndex:i-1];
+            label.text = [_timeLabelArray objectAtIndex:i];
+            nextlabel.text = [_timeLabelArray objectAtIndex:i+1];
         }
+
         [scrollView addSubview:prevlabel];
         [scrollView addSubview:label];
         [scrollView addSubview:nextlabel];
@@ -127,9 +94,127 @@ int counts3 = 0;
         nextlabelFrame.origin.x += TABLE_WIDTH;
     }
 }
+- (void)getJSON
+{
+    NSArray *cookie = [[LUKeychainAccess standardKeychainAccess] objectForKey:@"cookie"];
+    NSError *error = nil;
+    NSHTTPURLResponse *response = nil;
+    NSError *e = nil;
+    NSString *url = [NSString stringWithFormat:@"http://omoide.folder.jp/api/talks/%@",_talkID];
+    // NSHTTPCookieを作成
+    NSDictionary *header = [NSHTTPCookie requestHeaderFieldsWithCookies:cookie];
+    
+    //リクエストを生成
+    NSMutableURLRequest *request;
+    request = [[NSMutableURLRequest alloc] init];
+    [request setHTTPMethod:@"GET"];
+    [request setURL:[NSURL URLWithString:url]];
+    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setTimeoutInterval:20];
+    [request setAllHTTPHeaderFields:header];
+    
+    //同期通信で送信
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (error != nil) {
+        NSLog(@"送信エラー");
+    }
+    
+    //取得したレスポンスをJSONパース
+    _talkData = [NSDictionary dictionary];
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&e];
+    NSDictionary *token = [[dict objectForKey:@"response"] objectForKey:@"timeline"];
+    _authour = [[[dict objectForKey:@"response"] objectForKey:@"head"] objectForKey:@"author"];
+
+    NSInteger status = [(NSHTTPURLResponse*)response statusCode];
+    //NSLog(@"token is %@", token2);
+    NSLog(@"statuscode:%ld",status);
+    _talkData = token;
+    
+    if (status == 400) {
+        NSLog(@"受信エラー");
+    }
+    //cookieを取得しようとしてみる
+    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+    NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:httpResponse.allHeaderFields forURL:response.URL];
+    //cookieを取得できたら
+    if([cookies count] != 0){
+        NSHTTPCookie *rescookie = [cookies objectAtIndex:0];
+        //SessionIDが変更があればCookieをKeyChainに保存する
+        if(rescookie.value != [cookie objectAtIndex:6])[[LUKeychainAccess standardKeychainAccess] setObject:cookies forKey:@"cookie"];
+    }
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self getJSON];
+    
+    NSArray *yearKeys = [NSArray array];
+    yearKeys = [_talkData allKeys];
+    _timeLabelArray = [NSMutableArray array];
+    for (NSUInteger i = 0; i < [yearKeys count]; i++){  // 年
+        NSArray *tempKeys = [NSArray array];
+        tempKeys = [[_talkData objectForKey:[yearKeys objectAtIndex:i]] allKeys];
+        tempKeys = [tempKeys sortedArrayUsingComparator:^NSComparisonResult(NSNumber *a, NSNumber *b) {
+            return a.intValue - b.intValue; // 該当年の月をソート
+        }];
+        for (NSUInteger j = 0; j < [tempKeys count]; j++){  // 月
+            // テーブルビューの数を増やす
+            numberOfTables++;
+            // 上部ラベルの内容を配列に入れる
+            [_timeLabelArray addObject:[NSString stringWithFormat:@"%@年%@月", [yearKeys objectAtIndex:i], [tempKeys objectAtIndex:j]]];
+        }
+    }
+    
+    NSArray *monthKeys = [NSArray array];
+    monthKeys = [[_talkData objectForKey:[yearKeys objectAtIndex:0]] allKeys];
+    monthKeys = [monthKeys sortedArrayUsingComparator:^NSComparisonResult(NSNumber *a, NSNumber *b) {
+        return a.intValue - b.intValue; // ソート
+    }];
+    
+    
+    messages = [NSMutableArray array];
+    for (NSUInteger i = 0; i < [yearKeys count]; i++){  // 年
+        NSArray *tempKeys = [NSArray array];
+        tempKeys = [[_talkData objectForKey:[yearKeys objectAtIndex:i]] allKeys];
+        tempKeys = [tempKeys sortedArrayUsingComparator:^NSComparisonResult(NSNumber *a, NSNumber *b) {
+            return a.intValue - b.intValue; // 該当年の月をソート
+        }];
+        for (NSUInteger j = 0; j < [tempKeys count]; j++){  // 月
+            NSMutableDictionary *tempDict = [NSMutableDictionary dictionary];
+            NSDictionary *messageValues = [[_talkData objectForKey:[yearKeys objectAtIndex:i]] objectForKey:[tempKeys objectAtIndex:j] ];
+            NSMutableArray *tempMessages = [NSMutableArray array];
+            NSMutableArray *authourArray = [NSMutableArray array];
+            NSMutableArray *timeDataArray = [NSMutableArray array];
+            int index = 0;
+            for (NSDictionary *data in messageValues) { // 各セルのデータ格納
+                if([[data objectForKey:@"type"] isEqualToString:@"message"]){
+                    [tempMessages addObject:[data objectForKey:@"value"]];
+                } else {
+                    [tempMessages addObject:[data objectForKey:@"type"]];
+                }
+                if([[data objectForKey:@"name"] isEqualToString:_authour]){
+                    [authourArray insertObject:@"1" atIndex:index];
+                } else {
+                    [authourArray insertObject:[data objectForKey:@"name"] atIndex:index];
+                }
+                [timeDataArray insertObject:[data objectForKey:@"date"] atIndex:index];
+                index++;
+            }
+            
+            [tempDict setObject:tempMessages forKey:@"msg"];
+            [tempDict setObject:authourArray forKey:@"authour"];
+            [tempDict setObject:timeDataArray forKey:@"time"];
+            
+            [messages addObject:tempDict];
+        }
+    }
+    NSLog(@"talkID : %@",_talkID);
+    
 }
 
 -(void)awakeFromNib {
@@ -142,14 +227,7 @@ int counts3 = 0;
                  @"Oh that sucks. A pitty, well then - have a nice day..",
                  @"Thanks! You too. Cuu soon.",
                  nil];
-    _messages = [[NSArray alloc] initWithObjects:
-                 @"Hello, how are you.",
-                 @"I'm great, how are you?",
-                 @"I'm fine, thanks. Up for dinner tonight?",
-                 @"Glad to hear. No sorry, I have to work.",
-                 @"Oh that sucks. A pitty, well then - have a nice day..",
-                 @"Thanks! You too. Cuu soon.",
-                 nil];
+    
     _nextmessages = [[NSArray alloc] initWithObjects:
                  @"Hello, how are you.",
                  @"I'm great, how are you?",
@@ -164,78 +242,98 @@ int counts3 = 0;
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    counts++;
-    if(counts == 1){
-        return [_prevmessages count];
-    }else if(counts == 2){
-        return [_messages count];
-    } else {
-        return [_nextmessages count];
+    NSUInteger index = [_tableViewArray indexOfObject:tableView];
+    if (index != NSNotFound) {
+        return [[[messages objectAtIndex:index] objectForKey:@"msg" ] count];
+    } else { // no
+        NSLog(@"error");
+        return [[[messages objectAtIndex:0] objectForKey:@"msg" ] count];
     }
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)cellTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     /*This method sets up the table-view.*/
     static NSString* cellIdentifier;
-    counts3++;
-    if(counts3 == 1){
-        cellIdentifier = @"prevmessagingCell";
-    }else if(counts3== 2){
-        cellIdentifier = @"messagingCell";
-    } else {
-        cellIdentifier = @"nextmessagingCell";
-    }
-    
+    cellIdentifier = @"messagingCell";
+    /* トーク内画面でセルを区別する用途は今ん所ないので全て同じセルidentifier */
     PTSMessagingCell * cell = (PTSMessagingCell*) [cellTableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
         cell = [[PTSMessagingCell alloc] initMessagingCellWithReuseIdentifier:cellIdentifier];
     }
     
-    [self configureCell:cell atIndexPath:indexPath];
+    NSUInteger index = [_tableViewArray indexOfObject:cellTableView];
+    if (index != NSNotFound) {
+        if ([@"1" isEqualToString:[[[messages objectAtIndex:index] objectForKey:@"authour"] objectAtIndex:indexPath.row]]) {
+            cell.sent = YES;
+            cell.avatarImageView.image = [UIImage imageNamed:@"icon-user_22x22.png"];
+            cell.nameLabel.text = @"admin";
+        } else {
+            cell.sent = NO;
+            cell.avatarImageView.image = [UIImage imageNamed:@"icon-user_22x22.png"];
+            cell.nameLabel.text = [[[messages objectAtIndex:index] objectForKey:@"authour"] objectAtIndex:indexPath.row];
+        }
+        
+        cell.messageLabel.text = [[[messages objectAtIndex:index] objectForKey:@"msg"] objectAtIndex:indexPath.row];
+        NSString *m = [[[[messages objectAtIndex:index] objectForKey:@"time"] objectAtIndex:indexPath.row] substringWithRange:NSMakeRange(5, 2)];
+
+        NSString *d = [[[[messages objectAtIndex:index] objectForKey:@"time"] objectAtIndex:indexPath.row] substringWithRange:NSMakeRange(8, 2)];
+        NSString *h = [[[[messages objectAtIndex:index] objectForKey:@"time"] objectAtIndex:indexPath.row] substringWithRange:NSMakeRange(11, 2)];
+        NSString *s = [[[[messages objectAtIndex:index] objectForKey:@"time"] objectAtIndex:indexPath.row] substringWithRange:NSMakeRange(14, 2)];
+        
+        cell.timeLabel.text = [NSString stringWithFormat:@"%@:%@",h,s];
+        cell.dateLabel.text = [NSString stringWithFormat:@"%@月%@日",m,d];
+    } else { // no
+        NSLog(@"error");
+    }
+
+    
+    //[self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    counts2++;
-    if(counts2 == 1){
-        CGSize messageSize = [PTSMessagingCell messageSize:[_prevmessages objectAtIndex:indexPath.row]];
+    
+    NSUInteger index = [_tableViewArray indexOfObject:tableView];
+    if (index != NSNotFound) {
+        CGSize messageSize = [PTSMessagingCell messageSize:[[[messages objectAtIndex:index] objectForKey:@"msg" ] objectAtIndex:indexPath.row]];
         return messageSize.height + 2*[PTSMessagingCell textMarginVertical] + 40.0f;
-    }else if(counts2 == 2){
-        CGSize messageSize = [PTSMessagingCell messageSize:[_messages objectAtIndex:indexPath.row]];
-        return messageSize.height + 2*[PTSMessagingCell textMarginVertical] + 40.0f;
-    }else{
-        CGSize messageSize = [PTSMessagingCell messageSize:[_nextmessages objectAtIndex:indexPath.row]];
+        } else { // no
+        NSLog(@"error");
+        CGSize messageSize = [PTSMessagingCell messageSize:[[[messages objectAtIndex:0] objectForKey:@"msg" ] objectAtIndex:indexPath.row]];
         return messageSize.height + 2*[PTSMessagingCell textMarginVertical] + 40.0f;
     }
 }
-
+/*
 -(void)configureCell:(id)cell atIndexPath:(NSIndexPath *)indexPath {
     PTSMessagingCell* ccell = (PTSMessagingCell*)cell;
-    
-    if (indexPath.row % 2 == 0) {
+    if ([@"1" isEqualToString:[_authourArray objectAtIndex:indexPath.row]]) {
         ccell.sent = YES;
-        ccell.avatarImageView.image = [UIImage imageNamed:@"person1"];
+        ccell.avatarImageView.image = [UIImage imageNamed:@"icon-user_22x22.png"];
+        ccell.nameLabel.text = @"admin";
     } else {
         ccell.sent = NO;
-        ccell.avatarImageView.image = [UIImage imageNamed:@"person2"];
+        ccell.avatarImageView.image = [UIImage imageNamed:@"icon-user_22x22.png"];
+        ccell.nameLabel.text = [_authourArray objectAtIndex:indexPath.row];
     }
     
     ccell.messageLabel.text = [_messages objectAtIndex:indexPath.row];
-    ccell.timeLabel.text = @"2012-08-29";
+    NSString *m = [[_timeDataArray objectAtIndex:indexPath.row] substringWithRange:NSMakeRange(5, 2)];
+    NSString *d = [[_timeDataArray objectAtIndex:indexPath.row] substringWithRange:NSMakeRange(8, 2)];
+    NSString *h = [[_timeDataArray objectAtIndex:indexPath.row] substringWithRange:NSMakeRange(11, 2)];
+    NSString *s = [[_timeDataArray objectAtIndex:indexPath.row] substringWithRange:NSMakeRange(14, 2)];
+
+    ccell.timeLabel.text = [NSString stringWithFormat:@"%@:%@",h,s];
+    ccell.dateLabel.text = [NSString stringWithFormat:@"%@月%@日",m,d];
+
 }
+*/
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     return YES;
 }
-- (void)viewWillAppear:(BOOL)animated
-{
-    NSIndexPath* selection = [tableView indexPathForSelectedRow];
-    if(selection){
-        [tableView deselectRowAtIndexPath:selection animated:YES];
-    }
-    [tableView reloadData];
-}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -245,5 +343,8 @@ int counts3 = 0;
 {
     [super didReceiveMemoryWarning];
 }    // Dispose of any resources that can be recreated.
+
+
+
 
 @end
