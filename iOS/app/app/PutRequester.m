@@ -18,6 +18,7 @@
         param = [NSString stringWithFormat:@"author=%@", msg];
     } else if(type == 2){ //トークタイトル
         param = [NSString stringWithFormat:@"title=%@", msg];
+        if([msg length] > 19) return 1;
     } else {// 共有設定
         param = [NSString stringWithFormat:@"shared=%@", msg];
     }
@@ -44,7 +45,7 @@
     
     
     //同期通信で送信
-    NSData *resData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     if (error != nil) {
         NSLog(@"送信エラー");
         return 1;

@@ -46,6 +46,7 @@
 		18EE627819A227F500095CB0 /* TalkSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE627719A227F500095CB0 /* TalkSettingViewController.m */; };
 		18EE627B19A306B500095CB0 /* IconsetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE627A19A306B500095CB0 /* IconsetViewController.m */; };
 		18EE627E19A36ACE00095CB0 /* PutRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE627D19A36ACE00095CB0 /* PutRequester.m */; };
+		18EE628119A37F0D00095CB0 /* TitlesetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE628019A37F0D00095CB0 /* TitlesetViewController.m */; };
 		18F22038197659B400763C83 /* InsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F22037197659B400763C83 /* InsideViewController.m */; };
 		18F2203B1978E02B00763C83 /* PagingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F2203A1978E02B00763C83 /* PagingScrollView.m */; };
 /* End PBXBuildFile section */
@@ -122,6 +123,8 @@
 		18EE627A19A306B500095CB0 /* IconsetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconsetViewController.m; sourceTree = "<group>"; };
 		18EE627C19A36ACE00095CB0 /* PutRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PutRequester.h; sourceTree = "<group>"; };
 		18EE627D19A36ACE00095CB0 /* PutRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PutRequester.m; sourceTree = "<group>"; };
+		18EE627F19A37F0D00095CB0 /* TitlesetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitlesetViewController.h; sourceTree = "<group>"; };
+		18EE628019A37F0D00095CB0 /* TitlesetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitlesetViewController.m; sourceTree = "<group>"; };
 		18F22036197659B400763C83 /* InsideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsideViewController.h; sourceTree = "<group>"; };
 		18F22037197659B400763C83 /* InsideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsideViewController.m; sourceTree = "<group>"; };
 		18F220391978E02B00763C83 /* PagingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagingScrollView.h; sourceTree = "<group>"; };
@@ -335,6 +338,8 @@
 				18EE627A19A306B500095CB0 /* IconsetViewController.m */,
 				18EE627C19A36ACE00095CB0 /* PutRequester.h */,
 				18EE627D19A36ACE00095CB0 /* PutRequester.m */,
+				18EE627F19A37F0D00095CB0 /* TitlesetViewController.h */,
+				18EE628019A37F0D00095CB0 /* TitlesetViewController.m */,
 			);
 			name = TalkSettings;
 			sourceTree = "<group>";
@@ -445,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18EE628119A37F0D00095CB0 /* TitlesetViewController.m in Sources */,
 				184F79D21961A464000BE727 /* Talk.m in Sources */,
 				18F2203B1978E02B00763C83 /* PagingScrollView.m in Sources */,
 				185D3323197102D400C741A0 /* TipsViewController.m in Sources */,

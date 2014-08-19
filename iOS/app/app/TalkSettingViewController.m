@@ -10,6 +10,7 @@
 #import "LUKeychainAccess.h"
 #import "AppDelegate.h"
 #import "IconsetViewController.h"
+#import "TitlesetViewController.h"
 
 @interface TalkSettingViewController ()
 
@@ -201,6 +202,11 @@
         viewCon.data = [NSMutableArray array];
         [viewCon.data addObject:[_talkSettings objectAtIndex:0]];
         [viewCon.data addObject:[_talkSettings objectAtIndex:3]];
+    } else if([segue.identifier isEqualToString:@"title"]){
+        TitlesetViewController *viewCon= segue.destinationViewController;
+        viewCon.data = [NSMutableArray array];
+        [viewCon.data addObject:[_talkSettings objectAtIndex:0]];
+        [viewCon.data addObject:[_talkSettings objectAtIndex:2]];
     }
 }
 
