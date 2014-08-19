@@ -13,6 +13,7 @@
     NSMutableArray * messages;
     NSString * _talkID;
     NSDictionary * _talkData;
+    NSDictionary * _memberData;
     NSString * _authour;
     NSString * _talkTitle;
     NSString * _icon;

@@ -14,6 +14,7 @@
 @end
 
 @implementation TitlesetViewController
+@synthesize data = _data;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

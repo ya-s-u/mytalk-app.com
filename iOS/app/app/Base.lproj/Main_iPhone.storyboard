@@ -15,7 +15,7 @@
                     <view key="view" contentMode="scaleToFill" id="zQ4-6s-WHE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97647058963775635" green="0.97647058963775635" blue="0.97647058963775635" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Kpw-Qj-hrR">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="JoN-ek-HcL">
@@ -130,16 +130,16 @@
             </objects>
             <point key="canvasLocation" x="-2037" y="-857"/>
         </scene>
-        <!--Table View Controller - メンバー-->
+        <!--Authorset Table View Controller - メンバー-->
         <scene sceneID="EbT-eX-xzd">
             <objects>
-                <tableViewController id="kWu-M5-UaA" sceneMemberID="viewController">
+                <tableViewController id="kWu-M5-UaA" customClass="AuthorsetTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mkJ-N0-rP5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ioK-I3-SHl">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="ioK-I3-SHl">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ioK-I3-SHl" id="PP6-Uq-5Z4">
@@ -154,6 +154,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="メンバー" id="grA-p3-whq"/>
+                    <connections>
+                        <outlet property="tableView" destination="mkJ-N0-rP5" id="HON-gz-JRm"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aq3-NE-oaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

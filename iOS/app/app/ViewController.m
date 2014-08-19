@@ -124,6 +124,10 @@
             NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:httpResponse.allHeaderFields forURL:response.URL];
             //クッキーをKeyChainに保存する
             [[LUKeychainAccess standardKeychainAccess] setObject:cookies forKey:@"cookie"];
+                
+                
+                
+                
             [self performSegueWithIdentifier:@"backLogin" sender:self];
                  });
         }

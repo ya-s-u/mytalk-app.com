@@ -97,7 +97,9 @@ int numberOfTables = 0;
 }
 - (void)getJSON
 {
-    NSArray *cookie = [[LUKeychainAccess standardKeychainAccess] objectForKey:@"cookie"];
+    NSArray *cookieTmp = [[LUKeychainAccess standardKeychainAccess] objectForKey:@"cookie"];
+    NSArray *cookie = [NSArray arrayWithObjects:[cookieTmp objectAtIndex:([cookieTmp count] - 1)], nil];
+    
     NSError *error = nil;
     NSHTTPURLResponse *response = nil;
     NSError *e = nil;
@@ -124,11 +126,13 @@ int numberOfTables = 0;
     
     //取得したレスポンスをJSONパース
     _talkData = [NSDictionary dictionary];
+    _memberData = [NSDictionary dictionary];
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&e];
     NSDictionary *token = [[dict objectForKey:@"response"] objectForKey:@"timeline"];
     _authour = [[[dict objectForKey:@"response"] objectForKey:@"head"] objectForKey:@"author"];
     _talkTitle = [[[dict objectForKey:@"response"] objectForKey:@"head"] objectForKey:@"title"];
     _icon = [[[dict objectForKey:@"response"] objectForKey:@"head"] objectForKey:@"icon"];
+    _memberData = [[dict objectForKey:@"response"] objectForKey:@"member"];
 
     NSInteger status = [(NSHTTPURLResponse*)response statusCode];
     //NSLog(@"token is %@", token2);
@@ -140,12 +144,15 @@ int numberOfTables = 0;
     }
     //cookieを取得しようとしてみる
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-    NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:httpResponse.allHeaderFields forURL:response.URL];
+    NSArray *cookieReceived = [NSHTTPCookie cookiesWithResponseHeaderFields:httpResponse.allHeaderFields forURL:response.URL];
     //cookieを取得できたら
-    if([cookies count] != 0){
-        NSHTTPCookie *rescookie = [cookies objectAtIndex:0];
+    if([cookieReceived count] != 0){
+        NSHTTPCookie *rescookie = [cookieReceived objectAtIndex:0];
+        NSHTTPCookie *originalCookie = [cookie objectAtIndex:0];
         //SessionIDが変更があればCookieをKeyChainに保存する
-        if(rescookie.value != [cookie objectAtIndex:6])[[LUKeychainAccess standardKeychainAccess] setObject:cookies forKey:@"cookie"];
+        if(rescookie.value != originalCookie.value){
+            [[LUKeychainAccess standardKeychainAccess] setObject:cookieReceived forKey:@"cookie"];
+        }
     }
 
 }
@@ -288,11 +295,10 @@ int numberOfTables = 0;
         TalkSettingViewController *viewCon = segue.destinationViewController;
         viewCon.talkSettings = [NSMutableArray array];
         [viewCon.talkSettings addObject:_talkID];
-        
         [viewCon.talkSettings addObject:_authour];
         [viewCon.talkSettings addObject:_talkTitle];
         [viewCon.talkSettings addObject:_icon];
-         
+        [viewCon.talkSettings addObject:_memberData];
     }
 }
  

@@ -23,7 +23,9 @@
         param = [NSString stringWithFormat:@"shared=%@", msg];
     }
     
-    NSArray *cookie = [[LUKeychainAccess standardKeychainAccess] objectForKey:@"cookie"];
+    NSArray *cookieTmp = [[LUKeychainAccess standardKeychainAccess] objectForKey:@"cookie"];
+    NSArray *cookie = [NSArray arrayWithObjects:[cookieTmp objectAtIndex:([cookieTmp count] - 1)], nil];
+    
     NSError *error = nil;
     NSHTTPURLResponse *response = nil;
     NSString *url = [NSString stringWithFormat:@"http://omoide.folder.jp/api/talks/%@",talkID];
@@ -61,12 +63,15 @@
     }
     //cookieを取得しようとしてみる
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-    NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:httpResponse.allHeaderFields forURL:response.URL];
+    NSArray *cookieReceived = [NSHTTPCookie cookiesWithResponseHeaderFields:httpResponse.allHeaderFields forURL:response.URL];
     //cookieを取得できたら
-    if([cookies count] != 0){
-        NSHTTPCookie *rescookie = [cookies objectAtIndex:0];
+    if([cookieReceived count] != 0){
+        NSHTTPCookie *rescookie = [cookieReceived objectAtIndex:0];
+        NSHTTPCookie *originalCookie = [cookie objectAtIndex:0];
         //SessionIDが変更があればCookieをKeyChainに保存する
-        if(rescookie.value != [cookie objectAtIndex:6])[[LUKeychainAccess standardKeychainAccess] setObject:cookies forKey:@"cookie"];
+        if(rescookie.value != originalCookie.value){
+            [[LUKeychainAccess standardKeychainAccess] setObject:cookieReceived forKey:@"cookie"];
+        };
     }
     
     return 0;

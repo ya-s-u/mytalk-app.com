@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "IconsetViewController.h"
 #import "TitlesetViewController.h"
+#import "AuthorsetTableViewController.h"
 
 @interface TalkSettingViewController ()
 
@@ -207,6 +208,12 @@
         viewCon.data = [NSMutableArray array];
         [viewCon.data addObject:[_talkSettings objectAtIndex:0]];
         [viewCon.data addObject:[_talkSettings objectAtIndex:2]];
+    } else if([segue.identifier isEqualToString:@"authour"]){
+        AuthorsetTableViewController *viewCon= segue.destinationViewController;
+        viewCon.data = [NSMutableArray array];
+        [viewCon.data addObject:[_talkSettings objectAtIndex:0]];
+        [viewCon.data addObject:[_talkSettings objectAtIndex:1]];
+        [viewCon.data addObject:[_talkSettings objectAtIndex:4]];
     }
 }
 

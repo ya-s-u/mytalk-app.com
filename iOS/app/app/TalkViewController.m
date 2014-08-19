@@ -64,7 +64,10 @@
     
     // sessionIDを使って各種トーク情報を読み込んでテーブルに追加するとこ
     // 未ログイン時は何も表示しないようにする
-    NSArray *cookie = [[LUKeychainAccess standardKeychainAccess] objectForKey:@"cookie"];
+    
+    NSArray *cookieTmp = [[LUKeychainAccess standardKeychainAccess] objectForKey:@"cookie"];
+    NSArray *cookie = [NSArray arrayWithObjects:[cookieTmp objectAtIndex:([cookieTmp count] - 1)], nil];
+    
     NSError *error = nil;
     NSHTTPURLResponse *response = nil;
     NSError *e = nil;
@@ -107,7 +110,12 @@
     if([cookies count] != 0){
         NSHTTPCookie *rescookie = [cookies objectAtIndex:0];
         //SessionIDが変更があればCookieをKeyChainに保存する
-        if(rescookie.value != [cookie objectAtIndex:6])[[LUKeychainAccess standardKeychainAccess] setObject:cookies forKey:@"cookie"];
+        NSHTTPCookie *originalCookie = [cookie objectAtIndex:0];
+        //SessionIDが変更があればCookieをKeyChainに保存する
+        if(rescookie.value != originalCookie.value){
+            [[LUKeychainAccess standardKeychainAccess] setObject:rescookie forKey:@"cookie"];
+
+        };
     }
     /*
      *  テーブルにJSONを流し込む部分
