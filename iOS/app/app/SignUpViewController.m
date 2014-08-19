@@ -99,7 +99,7 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"signupOpen"]) {
-        AppDelegate *appDel = [[UIApplication sharedApplication] delegate];
+        //AppDelegate *appDel = [[UIApplication sharedApplication] delegate];
         //appDel.successFlag = YES;
     }
 }
@@ -117,7 +117,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    AppDelegate *appDel = [[UIApplication sharedApplication] delegate];
+    //AppDelegate *appDel = [[UIApplication sharedApplication] delegate];
     /*
     if(appDel.successFlag == YES){
         [self performSegueWithIdentifier:@"signupOpen" sender:self];

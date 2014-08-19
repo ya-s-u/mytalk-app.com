@@ -43,6 +43,9 @@
 		187AEDB1196D1C5B00294395 /* LUKeychainAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AEDAD196D1C5B00294395 /* LUKeychainAccess.m */; };
 		187AEDB2196D1C5B00294395 /* LUKeychainServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 187AEDB0196D1C5B00294395 /* LUKeychainServices.m */; };
 		18BF36C61974E6A5007BBC26 /* TalkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BF36C51974E6A5007BBC26 /* TalkTableViewCell.m */; };
+		18EE627819A227F500095CB0 /* TalkSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE627719A227F500095CB0 /* TalkSettingViewController.m */; };
+		18EE627B19A306B500095CB0 /* IconsetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE627A19A306B500095CB0 /* IconsetViewController.m */; };
+		18EE627E19A36ACE00095CB0 /* PutRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE627D19A36ACE00095CB0 /* PutRequester.m */; };
 		18F22038197659B400763C83 /* InsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F22037197659B400763C83 /* InsideViewController.m */; };
 		18F2203B1978E02B00763C83 /* PagingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F2203A1978E02B00763C83 /* PagingScrollView.m */; };
 /* End PBXBuildFile section */
@@ -113,6 +116,12 @@
 		187AEDB0196D1C5B00294395 /* LUKeychainServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LUKeychainServices.m; sourceTree = "<group>"; };
 		18BF36C41974E6A5007BBC26 /* TalkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkTableViewCell.h; sourceTree = "<group>"; };
 		18BF36C51974E6A5007BBC26 /* TalkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkTableViewCell.m; sourceTree = "<group>"; };
+		18EE627619A227F500095CB0 /* TalkSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkSettingViewController.h; sourceTree = "<group>"; };
+		18EE627719A227F500095CB0 /* TalkSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkSettingViewController.m; sourceTree = "<group>"; };
+		18EE627919A306B500095CB0 /* IconsetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconsetViewController.h; sourceTree = "<group>"; };
+		18EE627A19A306B500095CB0 /* IconsetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconsetViewController.m; sourceTree = "<group>"; };
+		18EE627C19A36ACE00095CB0 /* PutRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PutRequester.h; sourceTree = "<group>"; };
+		18EE627D19A36ACE00095CB0 /* PutRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PutRequester.m; sourceTree = "<group>"; };
 		18F22036197659B400763C83 /* InsideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsideViewController.h; sourceTree = "<group>"; };
 		18F22037197659B400763C83 /* InsideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsideViewController.m; sourceTree = "<group>"; };
 		18F220391978E02B00763C83 /* PagingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagingScrollView.h; sourceTree = "<group>"; };
@@ -209,6 +218,7 @@
 				18BF36C01972C951007BBC26 /* Talk */,
 				18BF36C11972C95D007BBC26 /* Login/SignUp */,
 				18BF36C21972C9B3007BBC26 /* TalkInside */,
+				18EE627519A2278700095CB0 /* TalkSettings */,
 				184F7996195AB987000BE727 /* Images.xcassets */,
 				18BF36C31972C9DB007BBC26 /* old */,
 				184F7982195AB987000BE727 /* Supporting Files */,
@@ -314,6 +324,19 @@
 				184F7990195AB987000BE727 /* Main_iPad.storyboard */,
 			);
 			name = old;
+			sourceTree = "<group>";
+		};
+		18EE627519A2278700095CB0 /* TalkSettings */ = {
+			isa = PBXGroup;
+			children = (
+				18EE627619A227F500095CB0 /* TalkSettingViewController.h */,
+				18EE627719A227F500095CB0 /* TalkSettingViewController.m */,
+				18EE627919A306B500095CB0 /* IconsetViewController.h */,
+				18EE627A19A306B500095CB0 /* IconsetViewController.m */,
+				18EE627C19A36ACE00095CB0 /* PutRequester.h */,
+				18EE627D19A36ACE00095CB0 /* PutRequester.m */,
+			);
+			name = TalkSettings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,7 +449,10 @@
 				18F2203B1978E02B00763C83 /* PagingScrollView.m in Sources */,
 				185D3323197102D400C741A0 /* TipsViewController.m in Sources */,
 				187AED9219685B1500294395 /* Validation.m in Sources */,
+				18EE627819A227F500095CB0 /* TalkSettingViewController.m in Sources */,
+				18EE627E19A36ACE00095CB0 /* PutRequester.m in Sources */,
 				184F7995195AB987000BE727 /* ViewController.m in Sources */,
+				18EE627B19A306B500095CB0 /* IconsetViewController.m in Sources */,
 				187AEDB2196D1C5B00294395 /* LUKeychainServices.m in Sources */,
 				184F798C195AB987000BE727 /* AppDelegate.m in Sources */,
 				185D33201970F90600C741A0 /* HomeViewController.m in Sources */,

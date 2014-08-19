@@ -10,6 +10,7 @@
 #import "PagingScrollView.h"
 #import "AppDelegate.h"
 #import "LUKeychainAccess.h"
+#import "TalkSettingViewController.h"
 #define TABLE_WIDTH 320.f
 @interface InsideViewController ()
 
@@ -43,7 +44,7 @@ int numberOfTables = 0;
     scrollView.pagingEnabled = YES;
     scrollView.clipsToBounds = NO;
     scrollView.backgroundColor = [UIColor clearColor];
-    //scrollView.contentOffset = CGPointMake(320, 0);
+    //scrollView.contentOffset = CGPointMake(320, 0);　初期位置の設定
     [self.view addSubview:scrollView];
 
     CGRect tableFrame = tableBounds;
@@ -72,7 +73,7 @@ int numberOfTables = 0;
         if(i == 0){
             prevlabel.text = @"";
             label.text = [_timeLabelArray objectAtIndex:i];
-            nextlabel.text = [_timeLabelArray objectAtIndex:i+1];
+            if(numberOfTables != 1) nextlabel.text = [_timeLabelArray objectAtIndex:i+1];
         } else if(i + 1 == numberOfTables) {
             prevlabel.text = [_timeLabelArray objectAtIndex:i-1];
             label.text = [_timeLabelArray objectAtIndex:i];
@@ -126,6 +127,8 @@ int numberOfTables = 0;
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&e];
     NSDictionary *token = [[dict objectForKey:@"response"] objectForKey:@"timeline"];
     _authour = [[[dict objectForKey:@"response"] objectForKey:@"head"] objectForKey:@"author"];
+    _talkTitle = [[[dict objectForKey:@"response"] objectForKey:@"head"] objectForKey:@"title"];
+    _icon = [[[dict objectForKey:@"response"] objectForKey:@"head"] objectForKey:@"icon"];
 
     NSInteger status = [(NSHTTPURLResponse*)response statusCode];
     //NSLog(@"token is %@", token2);
@@ -147,9 +150,11 @@ int numberOfTables = 0;
 
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    numberOfTables = 0;
     
     [self getJSON];
     
@@ -217,30 +222,6 @@ int numberOfTables = 0;
     
 }
 
--(void)awakeFromNib {
-    
-    _prevmessages = [[NSArray alloc] initWithObjects:
-                 @"Hello, how are you.",
-                 @"I'm great, how are you?",
-                 @"I'm fine, thanks. Up for dinner tonight?",
-                 @"Glad to hear. No sorry, I have to work.",
-                 @"Oh that sucks. A pitty, well then - have a nice day..",
-                 @"Thanks! You too. Cuu soon.",
-                 nil];
-    
-    _nextmessages = [[NSArray alloc] initWithObjects:
-                 @"Hello, how are you.",
-                 @"I'm great, how are you?",
-                 @"I'm fine, thanks. Up for dinner tonight?",
-                 @"Glad to hear. No sorry, I have to work.",
-                 @"Oh that sucks. A pitty, well then - have a nice day..",
-                 @"Thanks! You too. Cuu soon.",
-                 nil];
-    
-    [super awakeFromNib];
-}
-
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSUInteger index = [_tableViewArray indexOfObject:tableView];
     if (index != NSNotFound) {
@@ -280,16 +261,11 @@ int numberOfTables = 0;
         NSString *d = [[[[messages objectAtIndex:index] objectForKey:@"time"] objectAtIndex:indexPath.row] substringWithRange:NSMakeRange(8, 2)];
         NSString *h = [[[[messages objectAtIndex:index] objectForKey:@"time"] objectAtIndex:indexPath.row] substringWithRange:NSMakeRange(11, 2)];
         NSString *s = [[[[messages objectAtIndex:index] objectForKey:@"time"] objectAtIndex:indexPath.row] substringWithRange:NSMakeRange(14, 2)];
-        
         cell.timeLabel.text = [NSString stringWithFormat:@"%@:%@",h,s];
         cell.dateLabel.text = [NSString stringWithFormat:@"%@月%@日",m,d];
     } else { // no
         NSLog(@"error");
     }
-
-    
-    //[self configureCell:cell atIndexPath:indexPath];
-    
     return cell;
 }
 
@@ -305,36 +281,25 @@ int numberOfTables = 0;
         return messageSize.height + 2*[PTSMessagingCell textMarginVertical] + 40.0f;
     }
 }
-/*
--(void)configureCell:(id)cell atIndexPath:(NSIndexPath *)indexPath {
-    PTSMessagingCell* ccell = (PTSMessagingCell*)cell;
-    if ([@"1" isEqualToString:[_authourArray objectAtIndex:indexPath.row]]) {
-        ccell.sent = YES;
-        ccell.avatarImageView.image = [UIImage imageNamed:@"icon-user_22x22.png"];
-        ccell.nameLabel.text = @"admin";
-    } else {
-        ccell.sent = NO;
-        ccell.avatarImageView.image = [UIImage imageNamed:@"icon-user_22x22.png"];
-        ccell.nameLabel.text = [_authourArray objectAtIndex:indexPath.row];
-    }
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    ccell.messageLabel.text = [_messages objectAtIndex:indexPath.row];
-    NSString *m = [[_timeDataArray objectAtIndex:indexPath.row] substringWithRange:NSMakeRange(5, 2)];
-    NSString *d = [[_timeDataArray objectAtIndex:indexPath.row] substringWithRange:NSMakeRange(8, 2)];
-    NSString *h = [[_timeDataArray objectAtIndex:indexPath.row] substringWithRange:NSMakeRange(11, 2)];
-    NSString *s = [[_timeDataArray objectAtIndex:indexPath.row] substringWithRange:NSMakeRange(14, 2)];
-
-    ccell.timeLabel.text = [NSString stringWithFormat:@"%@:%@",h,s];
-    ccell.dateLabel.text = [NSString stringWithFormat:@"%@月%@日",m,d];
-
+    if ([segue.identifier isEqualToString:@"setting"]) {
+        TalkSettingViewController *viewCon = segue.destinationViewController;
+        viewCon.talkSettings = [NSMutableArray array];
+        [viewCon.talkSettings addObject:_talkID];
+        
+        [viewCon.talkSettings addObject:_authour];
+        [viewCon.talkSettings addObject:_talkTitle];
+        [viewCon.talkSettings addObject:_icon];
+         
+    }
 }
-*/
+ 
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     return YES;
 }
-
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -343,8 +308,4 @@ int numberOfTables = 0;
 {
     [super didReceiveMemoryWarning];
 }    // Dispose of any resources that can be recreated.
-
-
-
-
 @end

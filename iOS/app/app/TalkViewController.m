@@ -183,16 +183,6 @@
         NSString *imgName = [NSString stringWithFormat:@"%ld.png",selecter];
         return [UIImage imageNamed:imgName];
     }
-	/*
-    switch (selecter)
-	{
-		case 1: return [UIImage imageNamed:@"RoundIcons-Free-Set-01.png"];
-		case 2: return [UIImage imageNamed:@"RoundIcons-Free-Set-02.png"];
-		case 3: return [UIImage imageNamed:@"RoundIcons-Free-Set-03.png"];
-		case 4: return [UIImage imageNamed:@"RoundIcons-Free-Set-04.png"];
-		case 5: return [UIImage imageNamed:@"RoundIcons-Free-Set-05.png"];
-	}
-     */
 	return nil;
 }
 
@@ -213,6 +203,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     _tempTalkID = [_talkIDs objectAtIndex:indexPath.row];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self performSegueWithIdentifier:@"toInside" sender:self];
 }
 

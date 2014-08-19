@@ -22,6 +22,7 @@ UIFont * textFont = nil;
     if (textColor == nil) textColor = [UIColor colorWithRed:0.576 green:0.576 blue:0.576 alpha:1.0];
     //トーク画面の上部日付ラベル
     if (textFont == nil) textFont = [UIFont fontWithName:@"Hiragino Kaku Gothic ProN" size:13];
+    //アイコンの数
 
 }
 

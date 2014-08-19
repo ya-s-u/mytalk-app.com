@@ -11,18 +11,16 @@
 
 @interface InsideViewController : UIViewController <UIScrollViewDelegate,UITableViewDelegate, UITableViewDataSource> {
     NSMutableArray * messages;
-    NSArray * prevmessages;
-    NSArray * nextmessages;
     NSString * _talkID;
     NSDictionary * _talkData;
     NSString * _authour;
+    NSString * _talkTitle;
+    NSString * _icon;
     NSMutableArray * _tableViewArray;
     NSMutableArray * _timeLabelArray;
 }
 
 @property (nonatomic) NSMutableArray * messages;
-@property (nonatomic) NSArray * prevmessages;
-@property (nonatomic) NSArray * nextmessages;
 @property (nonatomic) NSString* talkID;
 @property (nonatomic) NSDictionary* talkData;
 @end

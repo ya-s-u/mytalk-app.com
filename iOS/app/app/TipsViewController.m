@@ -68,7 +68,7 @@
         pageSubView.view.frame = CGRectMake(size.width*i, 0, size.width, size.height);
         //TIPS関係のラベルの設定
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake((size.width-300)/2, 50, 300, 100)];
-        [label setTextAlignment:UITextAlignmentCenter];
+        [label setTextAlignment:NSTextAlignmentCenter];
         label.numberOfLines = 3;
         UIFont *font = [UIFont systemFontOfSize:15.0f];
         [label setFont:font];
