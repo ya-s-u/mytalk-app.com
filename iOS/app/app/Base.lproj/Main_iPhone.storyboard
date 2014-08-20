@@ -529,6 +529,9 @@
                                 <state key="normal" image="icon-reload_35x40">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="reLoad:" destination="Ss7-Wh-UoA" eventType="touchUpInside" id="uX5-Fa-XEI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liY-kF-RqS">
                                 <rect key="frame" x="277" y="522" width="23" height="23"/>
@@ -544,7 +547,11 @@
                         <color key="backgroundColor" red="0.97647058823529409" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="トーク一覧" id="RkI-kp-44s">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="add" id="7qz-Pp-Xpc"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="add" id="7qz-Pp-Xpc">
+                            <connections>
+                                <segue destination="AoX-xh-Ozf" kind="modal" id="MGi-lg-rza"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="24E-lB-VG7">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DNZ-Cq-5Zr">
                                 <rect key="frame" x="233" y="5" width="71" height="33"/>
@@ -557,6 +564,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="reLoadBtn" destination="HXh-Vq-gdl" id="Zuy-gd-krx"/>
                         <outlet property="segmentedControl" destination="e4P-mi-Elc" id="maQ-J9-fBe"/>
                         <outlet property="tableView" destination="nAs-Ii-aXn" id="sPE-Ib-gSd"/>
                         <segue destination="AsU-Gn-Qig" kind="push" identifier="toInside" id="VHE-Z3-tmz"/>
@@ -594,6 +602,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jaM-EO-k5D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2525" y="-1560"/>
+        </scene>
+        <!--Addhelper View Controller-->
+        <scene sceneID="JqB-34-saa">
+            <objects>
+                <viewController id="AoX-xh-Ozf" customClass="AddhelperViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="R16-fC-V2t"/>
+                        <viewControllerLayoutGuide type="bottom" id="N7G-7D-ZC3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xFU-BW-Aks">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhc-Co-noN">
+                                <rect key="frame" x="142" y="347" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="close:" destination="AoX-xh-Ozf" eventType="touchUpInside" id="mo2-jU-uPO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="closeBtn" destination="zhc-Co-noN" id="Vm5-rA-pc2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sAf-qf-w99" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4626" y="-857"/>
         </scene>
         <!--Tips View Controller-->
         <scene sceneID="t3P-a0-9Cd">

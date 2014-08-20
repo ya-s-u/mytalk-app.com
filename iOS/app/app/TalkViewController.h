@@ -18,4 +18,5 @@
 @property (strong,nonatomic) NSMutableArray *talks;
 @property (nonatomic) NSMutableArray *talkIDs;
 - (IBAction)swiching:(UISegmentedControl *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *reLoadBtn;
 @end

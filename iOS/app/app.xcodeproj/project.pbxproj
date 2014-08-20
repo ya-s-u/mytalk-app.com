@@ -48,6 +48,7 @@
 		18EE627E19A36ACE00095CB0 /* PutRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE627D19A36ACE00095CB0 /* PutRequester.m */; };
 		18EE628119A37F0D00095CB0 /* TitlesetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE628019A37F0D00095CB0 /* TitlesetViewController.m */; };
 		18EE628419A3878200095CB0 /* AuthorsetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE628319A3878200095CB0 /* AuthorsetTableViewController.m */; };
+		18F1B54C19A4456000BACF04 /* AddhelperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1B54B19A4456000BACF04 /* AddhelperViewController.m */; };
 		18F22038197659B400763C83 /* InsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F22037197659B400763C83 /* InsideViewController.m */; };
 		18F2203B1978E02B00763C83 /* PagingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F2203A1978E02B00763C83 /* PagingScrollView.m */; };
 /* End PBXBuildFile section */
@@ -128,6 +129,8 @@
 		18EE628019A37F0D00095CB0 /* TitlesetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitlesetViewController.m; sourceTree = "<group>"; };
 		18EE628219A3878200095CB0 /* AuthorsetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorsetTableViewController.h; sourceTree = "<group>"; };
 		18EE628319A3878200095CB0 /* AuthorsetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorsetTableViewController.m; sourceTree = "<group>"; };
+		18F1B54A19A4456000BACF04 /* AddhelperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddhelperViewController.h; sourceTree = "<group>"; };
+		18F1B54B19A4456000BACF04 /* AddhelperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddhelperViewController.m; sourceTree = "<group>"; };
 		18F22036197659B400763C83 /* InsideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsideViewController.h; sourceTree = "<group>"; };
 		18F22037197659B400763C83 /* InsideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsideViewController.m; sourceTree = "<group>"; };
 		18F220391978E02B00763C83 /* PagingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagingScrollView.h; sourceTree = "<group>"; };
@@ -217,6 +220,8 @@
 				184F798A195AB987000BE727 /* AppDelegate.h */,
 				184F798B195AB987000BE727 /* AppDelegate.m */,
 				184F798D195AB987000BE727 /* Main_iPhone.storyboard */,
+				18F1B54A19A4456000BACF04 /* AddhelperViewController.h */,
+				18F1B54B19A4456000BACF04 /* AddhelperViewController.m */,
 				185D331E1970F90600C741A0 /* HomeViewController.h */,
 				185D331F1970F90600C741A0 /* HomeViewController.m */,
 				185D3321197102D400C741A0 /* TipsViewController.h */,
@@ -461,6 +466,7 @@
 				185D3323197102D400C741A0 /* TipsViewController.m in Sources */,
 				187AED9219685B1500294395 /* Validation.m in Sources */,
 				18EE627819A227F500095CB0 /* TalkSettingViewController.m in Sources */,
+				18F1B54C19A4456000BACF04 /* AddhelperViewController.m in Sources */,
 				18EE627E19A36ACE00095CB0 /* PutRequester.m in Sources */,
 				184F7995195AB987000BE727 /* ViewController.m in Sources */,
 				18EE628419A3878200095CB0 /* AuthorsetTableViewController.m in Sources */,

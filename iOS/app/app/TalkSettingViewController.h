@@ -7,14 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@protocol SettingViewDelegate
+- (void)finishView:(NSString*)returnValue;
+@end
 @interface TalkSettingViewController : UITableViewController{
     NSMutableArray* _talkSettings;
     NSArray* _sectionList;
     NSArray* _iconList;
-    
+    id<SettingViewDelegate> _delegate;
 }
 @property NSMutableArray* talkSettings;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-
+@property (nonatomic) id<SettingViewDelegate> delegate;
 @end

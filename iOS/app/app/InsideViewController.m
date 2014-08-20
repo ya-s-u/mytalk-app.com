@@ -33,6 +33,12 @@ int numberOfTables = 0;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    numberOfTables = 0;
+    
+    [self getJSON];
+    
+    [self cellLoading];
+    
     CGFloat height = self.view.bounds.size.height;
     CGRect tableBounds = CGRectMake(0.0f, 100.f, TABLE_WIDTH, height-100);
     CGRect labelBounds = CGRectMake(120.0f,65.0f,90,30);
@@ -156,14 +162,8 @@ int numberOfTables = 0;
     }
 
 }
-
-
-- (void)viewDidLoad
+- (void)cellLoading
 {
-    [super viewDidLoad];
-    numberOfTables = 0;
-    
-    [self getJSON];
     
     NSArray *yearKeys = [NSArray array];
     yearKeys = [_talkData allKeys];
@@ -226,6 +226,12 @@ int numberOfTables = 0;
         }
     }
     NSLog(@"talkID : %@",_talkID);
+    
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
     
 }
 

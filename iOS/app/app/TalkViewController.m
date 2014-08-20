@@ -31,40 +31,13 @@
     //ナビゲーションバー表示
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.navigationItem setHidesBackButton:YES];
-}
-/*
--(void) awakeFromNib{
-    _talks = [NSMutableArray arrayWithCapacity:100];
-    for (int i = 0; i < 100; i++) {
-        NSString *title = [NSString stringWithFormat:@"Item %d", i];
-        [_talks addObject:title];
-    }
+    
+    [self getJSON];
+    
 
 }
- */
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    //[_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"TalkCell"];
-    //_tableView.dataSource = self;
 
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    
-    //INITIALIZING
-    //バーの色
-    [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:0.122 green:0.514 blue:0.800 alpha:1.000];
-    //バーの文字色とフォント
-    [[UINavigationBar appearance] setTitleTextAttributes: @{
-                                                            NSForegroundColorAttributeName: [UIColor whiteColor],
-                                                            NSFontAttributeName: [UIFont fontWithName:@"Hiragino Kaku Gothic ProN" size:15.0f]}];
-    //戻るボタンの色
-    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
-    
-    // sessionIDを使って各種トーク情報を読み込んでテーブルに追加するとこ
-    // 未ログイン時は何も表示しないようにする
-    
+-(void)getJSON{
     NSArray *cookieTmp = [[LUKeychainAccess standardKeychainAccess] objectForKey:@"cookie"];
     NSArray *cookie = [NSArray arrayWithObjects:[cookieTmp objectAtIndex:([cookieTmp count] - 1)], nil];
     
@@ -113,8 +86,8 @@
         NSHTTPCookie *originalCookie = [cookie objectAtIndex:0];
         //SessionIDが変更があればCookieをKeyChainに保存する
         if(rescookie.value != originalCookie.value){
-            [[LUKeychainAccess standardKeychainAccess] setObject:rescookie forKey:@"cookie"];
-
+            [[LUKeychainAccess standardKeychainAccess] setObject:cookies forKey:@"cookie"];
+            
         };
     }
     /*
@@ -134,34 +107,28 @@
         [_talkIDs addObject:[data objectForKey:@"id"]];
         [talks addObject:talk];
     }
-    /*
-     talk = [[Talk alloc] init];
-     talk.name = @"おもしろトーク";
-     talk.periodStart = @"2014-04-02 12:01:00";
-     talk.periodEnd = @"2014-04-02 12:01:00";
-     talk.member = 1;
-     talk.icon = 1;
-     talk.posts = 1111;
-     
-     [talks addObject:talk];
-     talk = [[Talk alloc] init];
-     talk.name = @"楽しげトーク";
-     talk.periodStart = @"2014-04-02 12:01:00";
-     talk.periodEnd = @"2014-04-02 12:01:00";
-     talk.member = 1;
-     talk.icon = 4;
-     talk.posts = 1111;
-     
-     [talks addObject:talk];
-     talk = [[Talk alloc] init];
-     talk.name = @"怪しいトーク1";
-     talk.periodStart = @"2014-04-02 12:01:00";
-     talk.periodEnd = @"2014-04-02 12:01:00";
-     talk.member = 1;
-     talk.icon = 4;
-     talk.posts = 1111;
-     [talks addObject:talk];
-     */
+
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    //[_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"TalkCell"];
+    //_tableView.dataSource = self;
+
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    //INITIALIZING
+    //バーの色
+    [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:0.122 green:0.514 blue:0.800 alpha:1.000];
+    //バーの文字色とフォント
+    [[UINavigationBar appearance] setTitleTextAttributes: @{
+                                                            NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                            NSFontAttributeName: [UIFont fontWithName:@"Hiragino Kaku Gothic ProN" size:15.0f]}];
+    //戻るボタンの色
+    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
     
     
 }
@@ -185,13 +152,10 @@
 - (UIImage *)imageForIcon:(NSInteger)selecter
 {
     //selecter=0ならばデフォルト画像
-    if(selecter == 0){
-        return [UIImage imageNamed:@"RoundIcons-Free-Set-01.png"];
-    }else{
+
         NSString *imgName = [NSString stringWithFormat:@"%ld.png",selecter];
         return [UIImage imageNamed:imgName];
-    }
-	return nil;
+
 }
 
 // PropertyCellに吐き出して表示するセルの設定
@@ -231,6 +195,10 @@
     }
     
     
+}
+- (IBAction)reLoad:(id)sender {
+    [self getJSON];
+    [self.tableView reloadData];
 }
 - (NSString *)countOfDates:(NSString *)startDay end:(NSString *)endDay{
     NSDateFormatter *inputDateFormatter = [[NSDateFormatter alloc] init];
