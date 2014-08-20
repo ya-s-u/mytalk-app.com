@@ -10,5 +10,7 @@
 
 @interface AddhelperViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *closeBtn;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControll;
 
 @end
