@@ -11,6 +11,7 @@
 
 extern UIColor* textColor;
 extern UIFont* textFont;
+extern UIFont* textTitleFont;
 extern NSString* const SEGUE_A_TO_B;
 @property (strong, nonatomic) UIWindow *window;
 @end

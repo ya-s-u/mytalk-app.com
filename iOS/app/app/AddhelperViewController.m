@@ -5,8 +5,12 @@
 //  Created by MasanariKamoshita on 2014/08/20.
 //  Copyright (c) 2014年 MasanariKamoshita. All rights reserved.
 //
+/*
+ 背景はグレー一色じゃなくて，このビューの背景画像に角丸の四角い画像など指定してウィンドウっぽくすると見栄えが良くなりそう
+*/
 
 #import "AddhelperViewController.h"
+#import "AppDelegate.h"
 #define kNumberOfPages 3
 
 
@@ -18,15 +22,21 @@
 @synthesize scrollView = _scrollView;
 @synthesize pageControll = _pageControll;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(void)awakeFromNib
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    _summaryText = [NSArray arrayWithObjects:
+                    @"あいうと",
+                    @"かきくけ",
+                    @"さしせう",
+                    nil
+                    ];
+    _summaryTitle = [NSArray arrayWithObjects:
+                     @"taitoru",
+                     @"たいとる",
+                     @"あいうえおあうえお",
+                     nil
+                     ];
 }
-
 // pageControlの左右がタップされたときに呼ばれる
 // scrollViewのスクロール位置をズラして表示を変える
 - (void)pageControlDidChange:(UIPageControl *)sender
@@ -66,13 +76,20 @@
         UIViewController *pageSubView = [[UIViewController alloc] init];
         pageSubView.view.frame = CGRectMake(size.width*i, 0, size.width, size.height);
         
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake((size.width-200)/2, 100, 200, 200)];
-        //[label setTextAlignment:UITextAlignmentCenter];
-        UIFont *font = [UIFont systemFontOfSize:40.0f];
-        [label setFont:font];
-        label.text = [[NSString alloc] initWithFormat:@"%d", i+1];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake((size.width-200)/2, 30, 200, 30)];
+        [label setTextAlignment:NSTextAlignmentCenter];
+        [label setFont:textTitleFont];
+        
+        UILabel *contentLabel = [[UILabel alloc] initWithFrame:CGRectMake((size.width-200)/2, 70, 200, 60)];
+        [contentLabel setTextAlignment:NSTextAlignmentCenter];
+        [contentLabel setFont:textFont];
+        contentLabel.numberOfLines = 3;
+        
+        label.text = [_summaryTitle objectAtIndex:i];
+        contentLabel.text = [_summaryText objectAtIndex:i];
         
         [[pageSubView view] addSubview:label];
+        [[pageSubView view] addSubview:contentLabel];
         [_scrollView addSubview:pageSubView.view];
     }
 }

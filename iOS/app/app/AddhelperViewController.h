@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddhelperViewController : UIViewController
+@interface AddhelperViewController : UIViewController{
+    NSArray * _summaryText;
+    NSArray * _summaryTitle;
+}
 @property (weak, nonatomic) IBOutlet UIButton *closeBtn;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControll;
